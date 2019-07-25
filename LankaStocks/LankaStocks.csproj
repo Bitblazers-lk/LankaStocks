@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="core.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="Stocks\IDMachine.cs" />
     <Compile Include="Stocks\Item.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>

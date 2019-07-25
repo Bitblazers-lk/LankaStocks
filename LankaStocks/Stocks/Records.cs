@@ -23,6 +23,7 @@ namespace LankaStocks
 
     }
 
+
     public class BasicSale : Record
     {
         public uint SaleID;
@@ -30,8 +31,11 @@ namespace LankaStocks
 
         public List<Item> items;
 
+        public string buyerNote;
         public DateTime date;
         public decimal total;
+
+        public bool special = false;
 
     }
 
