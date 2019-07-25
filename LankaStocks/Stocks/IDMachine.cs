@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LankaStocks
 {
+    [Serializable]
     public class IDMachine
     {
         public uint PersonID = 100U;

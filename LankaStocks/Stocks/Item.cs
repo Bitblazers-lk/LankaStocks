@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LankaStocks
 {
+    [Serializable]
     public class Item
     {
         public uint itemID = 0;
@@ -18,7 +19,7 @@ namespace LankaStocks
 
         public int Quantity = 0;
 
-
+        public uint Alternative = 0;//Switch after this item is over
 
     }
 }

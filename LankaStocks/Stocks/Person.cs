@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LankaStocks
 {
+    [Serializable]
     public class Person
     {
         public string name;
@@ -15,6 +16,7 @@ namespace LankaStocks
         public Transaction summary;
     }
 
+    [Serializable]
     public class User : Person
     {
         public uint userID;
@@ -24,6 +26,7 @@ namespace LankaStocks
 
     }
 
+    [Serializable]
     public class Vendor : Person
     {
         public uint vendorID;

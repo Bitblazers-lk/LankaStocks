@@ -16,7 +16,12 @@ namespace LankaStocks
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Core.Initialize();
+
+            Forms.login = new Login();
+            Application.Run(Forms.login);
+            
         }
     }
 }

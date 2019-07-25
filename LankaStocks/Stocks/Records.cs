@@ -11,6 +11,7 @@ namespace LankaStocks
 
     }
 
+    [Serializable]
     public class StockIntake : Record
     {
         public uint IntakeID;
@@ -24,6 +25,7 @@ namespace LankaStocks
     }
 
 
+    [Serializable]
     public class BasicSale : Record
     {
         public uint SaleID;
@@ -39,6 +41,7 @@ namespace LankaStocks
 
     }
 
+    [Serializable]
     public class SpecialSale : BasicSale
     {
         public Transaction transaction;

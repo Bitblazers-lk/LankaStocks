@@ -8,8 +8,16 @@ using static LankaStocks.Core;
 
 namespace LankaStocks.DataBases
 {
+    [Serializable]
     public abstract class DB
     {
+
+        public const string DBPath = "DB\\";
+        public const string LogPath = "DB\\log.txt";
+        public const string HistoryPath = "DB\\History\\";
+
+
+        public string DBName;
         public ulong LastUpdate = 10U;
         public ulong LastSave = 10U;
 
@@ -20,8 +28,7 @@ namespace LankaStocks.DataBases
         [NonSerialized]
         public string FileName;
 
-        public string DBName;
-
+        public abstract void CreateNew();
 
 
         public void SaveBinary()
@@ -87,6 +94,8 @@ namespace LankaStocks.DataBases
 
                     if (CreateNewIfNotFound)
                     {
+                        LastUpdate++;
+                        CreateNew();
                         IsBusy = false;
                         SaveBinary();
                         IsBusy = true;
@@ -94,6 +103,7 @@ namespace LankaStocks.DataBases
                     }
                     else
                     {
+                        IsBusy = false;
                         return null;
                     }
                 }
@@ -138,28 +148,55 @@ namespace LankaStocks.DataBases
 
 
 
+    [Serializable]
     public class DBPeople : DB
     {
         public Dictionary<uint, Vendor> Vendors;
         public Dictionary<uint, User> Users;
         public Dictionary<uint, Person> OtherPeople;
+
+        public override void CreateNew()
+        {
+            Vendors = new Dictionary<uint, Vendor>();
+            Users = new Dictionary<uint, User>();
+            OtherPeople = new Dictionary<uint, Person>();
+
+            Users.Add(100, new User() { userName = "amanda", userID = 100, isAdmin = true, name = "Amanda Nanda", pass = "200" });
+            Users.Add(200, new User() { userName = "nimal", userID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "123" });
+        }
     }
 
+    [Serializable]
     public class DBLive : DB //Live database
     {
         public Dictionary<uint, Item> Items; //Stock item pool
         public decimal Cashier = 0M;
 
         public DBSession Session;
+
+        public override void CreateNew()
+        {
+            Items = new Dictionary<uint, Item>();
+            Session = new DBSession();
+            Session.CreateNew();
+        }
     }
 
+    [Serializable]
     public class DBHistory : DB
     {
         public List<string> Sessions;
         public IDMachine IdMachine;
+
+        public override void CreateNew()
+        {
+            Sessions = new List<string>();
+            IdMachine = new IDMachine();
+        }
     }
 
 
+    [Serializable]
     public class DBSession : DB
     {
         public DateTime sessionBegin;
@@ -167,6 +204,13 @@ namespace LankaStocks.DataBases
 
         public Dictionary<uint, BasicSale> Sales;
         public Dictionary<uint, StockIntake> StockIntakes;
+
+        public override void CreateNew()
+        {
+            sessionBegin = DateTime.Now;
+            Sales = new Dictionary<uint, BasicSale>();
+            StockIntakes = new Dictionary<uint, StockIntake>();
+        }
 
     }
 
