@@ -23,7 +23,6 @@ namespace LankaStocks
         public string userName;
         public string pass;
         public bool isAdmin;
-
     }
 
     [Serializable]
@@ -33,6 +32,5 @@ namespace LankaStocks
         public string BusinessInfo;
 
         public List<uint> supplyingItems;//<ItemID>
-
     }
 }

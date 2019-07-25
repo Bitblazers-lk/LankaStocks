@@ -19,7 +19,7 @@ namespace LankaStocks
 
         public int Quantity = 0;
 
-        public uint Alternative = 0;//Switch after this item is over
+        public uint Alternative = 0; // Switch after this item is over
 
     }
 }
