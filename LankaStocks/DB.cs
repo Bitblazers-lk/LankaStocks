@@ -17,12 +17,18 @@ namespace LankaStocks
     {
         public Dictionary<uint, Vendor> Vendors;
         public Dictionary<uint, User> Users;
+        public Dictionary<uint, Person> people;
     }
 
     public class DBStock : DB
     {
-
         public Dictionary<uint, Item> Items; //Stock item pool
         public decimal Cashier = 0M;
     }
+
+    public class DBHistory : DB
+    {
+
+    }
+
 }
