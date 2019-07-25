@@ -16,7 +16,11 @@ namespace LankaStocks
         {
             InitializeComponent();
 
-            flowLayoutPanel1.Controls.Add(new UItem("01"));
+            for (int i = 0; i < 100; i++)
+            {
+                flowLayoutPanel1.Controls.Add(new UItem(i.ToString("00")));
+
+            }
 
             //DGV.DataSource = Forms.m.i;
         }
