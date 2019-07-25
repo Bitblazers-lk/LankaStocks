@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace LankaStocks
 {
+    //TODO: 3 adding forms for persons
     [Serializable]
     public class Person
     {
+        public uint personID;
         public string name;
         public string details;
         public string contactInfo;

@@ -11,6 +11,7 @@ namespace LankaStocks
     {
         public uint itemID = 0;
 
+        public string code;
         public string name;
         public uint vendor;
 

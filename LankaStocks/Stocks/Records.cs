@@ -11,6 +11,7 @@ namespace LankaStocks
 
     }
 
+    //TODO: ගැනුම්
     [Serializable]
     public class StockIntake : Record
     {
@@ -24,7 +25,7 @@ namespace LankaStocks
 
     }
 
-
+    //TODO: quick sale form
     [Serializable]
     public class BasicSale : Record
     {
@@ -41,6 +42,7 @@ namespace LankaStocks
 
     }
 
+    //TODO: Complex sale with transaction UserControl
     [Serializable]
     public class SpecialSale : BasicSale
     {

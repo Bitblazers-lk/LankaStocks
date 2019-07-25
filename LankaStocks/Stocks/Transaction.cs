@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LankaStocks
 {
+    //TODO: User control
     [Serializable]
     public class Transaction
     {
@@ -13,7 +14,7 @@ namespace LankaStocks
 
         public decimal total;
         public decimal payed;
-        public decimal Liability;
+        public decimal Liability;//ණය
 
         public Types type;
         public uint User; //First party
@@ -24,7 +25,7 @@ namespace LankaStocks
         public string note;
 
         public enum Types : byte
-        {
+        {                    //     First party <> Second party
             StockIntake,    //තොග ගැනීම - user <> vendor
             SpecialSale,   //විකිණීම - user <> buyer
             CashierRefund,//මුදල් පොතට office එකෙන් මුදල් ලැබීම. - user <> Office person
