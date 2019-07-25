@@ -145,9 +145,6 @@ namespace LankaStocks.DataBases
 
     }
 
-
-
-
     [Serializable]
     public class DBPeople : DB
     {

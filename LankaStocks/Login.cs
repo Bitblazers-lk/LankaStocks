@@ -61,6 +61,10 @@ namespace LankaStocks
                 {
                     if (usr.pass == pass)
                     {
+                        //Forms.dashboard.Hide();
+                        Forms.dashboard = new Dashboard();
+                        Forms.dashboard.Show();
+                        this.Hide();
                         lblStatus.Text = "Wellcome";
                         return;
                     }
