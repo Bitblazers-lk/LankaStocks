@@ -32,7 +32,13 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup> 
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>LankaSoft.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -50,18 +56,46 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="core.cs" />
-    <Compile Include="Dashboard.cs">
+    <Compile Include="DB.cs" />
+    <Compile Include="UIForms\AddData.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DB.cs" />
+    <Compile Include="UIForms\AddData.Designer.cs" />
     <Compile Include="UIForms\AddItems.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UIForms\AddItems.Designer.cs">
       <DependentUpon>AddItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\FrmanageData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmanageData.Designer.cs">
+      <DependentUpon>FrmanageData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\FrmanageItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmanageItems.Designer.cs">
+      <DependentUpon>FrmanageItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\FrmSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmSales.Designer.cs">
+      <DependentUpon>FrmSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\FrmTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmTransaction.Designer.cs">
+      <DependentUpon>FrmTransaction.cs</DependentUpon>
     </Compile>
     <Compile Include="UIForms\ItemIntake.cs">
       <SubType>Form</SubType>
@@ -77,22 +111,16 @@
     </Compile>
     <Compile Include="Stocks\IDMachine.cs" />
     <Compile Include="Stocks\Item.cs" />
-    <Compile Include="Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stocks\Person.cs" />
     <Compile Include="Stocks\Records.cs" />
     <Compile Include="Statics.cs" />
     <Compile Include="Stocks\Transaction.cs" />
-    <EmbeddedResource Include="Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <Compile Include="UIForms\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\UIAddItem.cs">
@@ -165,6 +193,26 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UIForms\AddData.resx" />
+    <EmbeddedResource Include="UIForms\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmanageData.resx">
+      <DependentUpon>FrmanageData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmanageItems.resx">
+      <DependentUpon>FrmanageItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmSales.resx">
+      <DependentUpon>FrmSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmTransaction.resx">
+      <DependentUpon>FrmTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="LankaSoft.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -182,6 +230,36 @@
     <Content Include="DB\History\Do not delete this Folder.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\about_us_24px.png" />
+    <Content Include="Images\add_shopping_cart_24px.png" />
+    <Content Include="Images\add_trash_24px.png" />
+    <Content Include="Images\anonymous_mask_24px.png" />
+    <Content Include="Images\AssetManagement_63182410 - Copy.jpg" />
+    <Content Include="Images\AssetManagement_63182410.jpg" />
+    <Content Include="Images\bank_24px.png" />
+    <Content Include="Images\cancel_2_24px.png" />
+    <Content Include="Images\data_configuration_24px.png" />
+    <Content Include="Images\delete_sign_24px.png" />
+    <Content Include="Images\edit_24px.png" />
+    <Content Include="Images\full_screen_24px.png" />
+    <Content Include="Images\kisspng-inventory-management-software-stock-management-sal-warehouse-5ac5d409391c68.7620306315229143132339.jpg" />
+    <Content Include="Images\left3_24px.png" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\management_24px.png" />
+    <Content Include="Images\minus_24px.png" />
+    <Content Include="Images\money_bag_24px.png" />
+    <Content Include="Images\Picture1.png" />
+    <Content Include="Images\plus_math_24px.png" />
+    <Content Include="Images\recurring_appointment_24px.png" />
+    <Content Include="Images\save_24px.png" />
+    <Content Include="Images\sell_property_24px.png" />
+    <Content Include="Images\settings_3_24px.png" />
+    <Content Include="Images\squared_menu_24px.png" />
+    <Content Include="Images\Stock_Management_System.jpg" />
+    <Content Include="Images\Tall Person_24px.png" />
+    <Content Include="Images\total_sales_1_24px.png" />
+    <Content Include="Images\user_male_circle_24px.png" />
+    <Content Include="XanderUI.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

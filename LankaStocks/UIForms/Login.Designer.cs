@@ -37,7 +37,6 @@
             this.labelHeadder = new System.Windows.Forms.Label();
             this.btnexit = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
             this.TxtName = new System.Windows.Forms.TextBox();
@@ -145,24 +144,12 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(245, 312);
+            this.label6.Location = new System.Drawing.Point(239, 354);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(216, 9);
             this.label6.TabIndex = 10;
             this.label6.Text = "Design And Maked By Harindu Wijesinghe And Hasindu Lanka";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(235, 292);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(240, 18);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "අධ්‍යාපන ප්‍රකාශන දෙපාර්තමේන්තුව";
             // 
             // label3
             // 
@@ -171,7 +158,7 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(227, 239);
+            this.label3.Location = new System.Drawing.Point(62, 272);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 17);
@@ -184,7 +171,7 @@
             this.BtnLogin.FlatAppearance.BorderSize = 2;
             this.BtnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLogin.ForeColor = System.Drawing.Color.White;
-            this.BtnLogin.Location = new System.Drawing.Point(474, 237);
+            this.BtnLogin.Location = new System.Drawing.Point(309, 270);
             this.BtnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.BtnLogin.Name = "BtnLogin";
             this.BtnLogin.Size = new System.Drawing.Size(56, 47);
@@ -199,7 +186,7 @@
             this.TxtName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtName.ForeColor = System.Drawing.Color.White;
-            this.TxtName.Location = new System.Drawing.Point(346, 237);
+            this.TxtName.Location = new System.Drawing.Point(181, 270);
             this.TxtName.Margin = new System.Windows.Forms.Padding(2);
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(124, 23);
@@ -213,7 +200,7 @@
             this.TxtPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TxtPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtPass.ForeColor = System.Drawing.Color.White;
-            this.TxtPass.Location = new System.Drawing.Point(346, 263);
+            this.TxtPass.Location = new System.Drawing.Point(181, 296);
             this.TxtPass.Margin = new System.Windows.Forms.Padding(2);
             this.TxtPass.Name = "TxtPass";
             this.TxtPass.Size = new System.Drawing.Size(124, 23);
@@ -224,11 +211,11 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(153, 53);
+            this.pictureBox2.Location = new System.Drawing.Point(27, 88);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(52, 61);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.Size = new System.Drawing.Size(139, 138);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             // 
@@ -236,38 +223,44 @@
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Ravie", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(2, 8);
+            this.label2.Font = new System.Drawing.Font("Chiller", 50F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.MediumTurquoise;
+            this.label2.Location = new System.Drawing.Point(43, 10);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(393, 21);
+            this.label2.Size = new System.Drawing.Size(294, 77);
             this.label2.TabIndex = 1;
-            this.label2.Text = "මධ්‍යස්ථාන පෙළපොත් සහ ගුරු මාර්ගෝපදේශ ";
+            this.label2.Text = "Lanka Stocks";
             // 
             // gb
             // 
+            this.gb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
             this.gb.Controls.Add(this.pictureBox2);
             this.gb.Controls.Add(this.label2);
+            this.gb.Controls.Add(this.BtnLogin);
             this.gb.Controls.Add(this.label4);
-            this.gb.Location = new System.Drawing.Point(166, 83);
+            this.gb.Controls.Add(this.TxtName);
+            this.gb.Controls.Add(this.label3);
+            this.gb.Controls.Add(this.label7);
+            this.gb.Controls.Add(this.TxtPass);
+            this.gb.Location = new System.Drawing.Point(168, 10);
             this.gb.Margin = new System.Windows.Forms.Padding(2);
             this.gb.Name = "gb";
-            this.gb.Size = new System.Drawing.Size(400, 116);
+            this.gb.Size = new System.Drawing.Size(401, 331);
             this.gb.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Ravie", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(85, 29);
+            this.label4.Font = new System.Drawing.Font("Old English Text MT", 28F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.Maroon;
+            this.label4.Location = new System.Drawing.Point(164, 91);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(213, 21);
+            this.label4.Size = new System.Drawing.Size(212, 135);
             this.label4.TabIndex = 2;
-            this.label4.Text = "සංග්‍රහ  ඇණවුම් ලේඛනය";
+            this.label4.Text = "Mahinda\r\nRajapaksha\r\nCollege";
             // 
             // line
             // 
@@ -334,7 +327,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 31);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(125, 329);
+            this.panel1.Size = new System.Drawing.Size(125, 372);
             this.panel1.TabIndex = 13;
             // 
             // timer1
@@ -350,7 +343,7 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Image = ((System.Drawing.Image)(resources.GetObject("label7.Image")));
             this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label7.Location = new System.Drawing.Point(235, 265);
+            this.label7.Location = new System.Drawing.Point(70, 298);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 17);
@@ -362,26 +355,20 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.gb);
-            this.panel2.Controls.Add(this.BtnLogin);
-            this.panel2.Controls.Add(this.TxtName);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Controls.Add(this.TxtPass);
-            this.panel2.Controls.Add(this.label3);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 31);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(606, 329);
+            this.panel2.Size = new System.Drawing.Size(606, 372);
             this.panel2.TabIndex = 14;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(606, 360);
+            this.BackColor = System.Drawing.Color.DimGray;
+            this.ClientSize = new System.Drawing.Size(606, 403);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
@@ -413,7 +400,6 @@
         private System.Windows.Forms.Label labelHeadder;
         private System.Windows.Forms.Button btnexit;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnLogin;
         private System.Windows.Forms.TextBox TxtName;

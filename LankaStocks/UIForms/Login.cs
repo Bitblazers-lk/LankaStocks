@@ -119,8 +119,8 @@ namespace LankaStocks
                 // Animator.FormAnimate(this, XanderUI.XUIObjectAnimator.FormAnimation.FadeIn, 1);
                 try
                 {
-                    Animator.StandardAnimate(gb, XanderUI.XUIObjectAnimator.StandardAnimation.SlideLeft, 2);
-                    Animator.ColorAnimate(panel2, Color.FromArgb(30, 30, 30), XanderUI.XUIObjectAnimator.ColorAnimation.FillEllipse, true, 1);
+                    //Animator.StandardAnimate(gb, XanderUI.XUIObjectAnimator.StandardAnimation.SlideLeft, 2);
+                    Animator.ColorAnimate(panel2, Color.FromArgb(60, 60, 60), XanderUI.XUIObjectAnimator.ColorAnimation.FillSquare, true, 1);
                 }
                 catch
                 {
@@ -128,6 +128,7 @@ namespace LankaStocks
                 }
                 timer1.Enabled = false;
             }
+            VisibaleControls(true);
         }
 
         private void buttonlogin_Click(object sender, EventArgs e)
