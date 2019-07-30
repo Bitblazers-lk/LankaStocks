@@ -35,7 +35,6 @@ namespace LankaStocks
 
         }
 
-
         public uint OfficePersonID = 2U;
     }
 }

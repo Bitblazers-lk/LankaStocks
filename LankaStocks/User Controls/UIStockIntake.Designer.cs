@@ -1,0 +1,212 @@
+﻿namespace LankaStocks.User_Controls
+{
+    partial class UIStockIntake
+    {
+        /// <summary> 
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary> 
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Component Designer generated code
+
+        /// <summary> 
+        /// Required method for Designer support - do not modify 
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.IntakeID = new System.Windows.Forms.TextBox();
+            this.VendorID = new System.Windows.Forms.ComboBox();
+            this.ItemID = new System.Windows.Forms.ComboBox();
+            this.Qty = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiTransaction1 = new LankaStocks.User_Controls.UITransaction();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.Controls.Add(this.IntakeID, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.VendorID, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.ItemID, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.Qty, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(424, 108);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // IntakeID
+            // 
+            this.IntakeID.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.IntakeID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.IntakeID.ForeColor = System.Drawing.Color.Orange;
+            this.IntakeID.Location = new System.Drawing.Point(87, 3);
+            this.IntakeID.Name = "IntakeID";
+            this.IntakeID.Size = new System.Drawing.Size(334, 20);
+            this.IntakeID.TabIndex = 0;
+            // 
+            // VendorID
+            // 
+            this.VendorID.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.VendorID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VendorID.ForeColor = System.Drawing.Color.Orange;
+            this.VendorID.FormattingEnabled = true;
+            this.VendorID.Location = new System.Drawing.Point(87, 30);
+            this.VendorID.Name = "VendorID";
+            this.VendorID.Size = new System.Drawing.Size(334, 21);
+            this.VendorID.TabIndex = 1;
+            // 
+            // ItemID
+            // 
+            this.ItemID.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ItemID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemID.ForeColor = System.Drawing.Color.Orange;
+            this.ItemID.FormattingEnabled = true;
+            this.ItemID.Location = new System.Drawing.Point(87, 57);
+            this.ItemID.Name = "ItemID";
+            this.ItemID.Size = new System.Drawing.Size(334, 21);
+            this.ItemID.TabIndex = 2;
+            // 
+            // Qty
+            // 
+            this.Qty.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.Qty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Qty.ForeColor = System.Drawing.Color.Orange;
+            this.Qty.Location = new System.Drawing.Point(87, 84);
+            this.Qty.Mask = "00000";
+            this.Qty.Name = "Qty";
+            this.Qty.Size = new System.Drawing.Size(334, 20);
+            this.Qty.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.ForeColor = System.Drawing.Color.Orange;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 27);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Intake ID :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.ForeColor = System.Drawing.Color.Orange;
+            this.label2.Location = new System.Drawing.Point(3, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 27);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Vendor ID :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.ForeColor = System.Drawing.Color.Orange;
+            this.label3.Location = new System.Drawing.Point(3, 54);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 27);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Item ID :";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.ForeColor = System.Drawing.Color.Orange;
+            this.label4.Location = new System.Drawing.Point(3, 81);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 27);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Qty. :";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiTransaction1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.ForeColor = System.Drawing.Color.Orange;
+            this.groupBox1.Location = new System.Drawing.Point(0, 108);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(424, 376);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Transaction";
+            // 
+            // uiTransaction1
+            // 
+            this.uiTransaction1.BackColor = System.Drawing.Color.Transparent;
+            this.uiTransaction1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiTransaction1.Location = new System.Drawing.Point(3, 16);
+            this.uiTransaction1.Name = "uiTransaction1";
+            this.uiTransaction1.Size = new System.Drawing.Size(418, 357);
+            this.uiTransaction1.TabIndex = 0;
+            // 
+            // UIStockIntake
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Name = "UIStockIntake";
+            this.Size = new System.Drawing.Size(424, 484);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        public UITransaction uiTransaction1;
+        public System.Windows.Forms.TextBox IntakeID;
+        public System.Windows.Forms.ComboBox VendorID;
+        public System.Windows.Forms.ComboBox ItemID;
+        public System.Windows.Forms.MaskedTextBox Qty;
+    }
+}

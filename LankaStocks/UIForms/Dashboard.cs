@@ -19,6 +19,7 @@ namespace LankaStocks
             this.panel3.MouseMove += new MouseEventHandler(AppFormBase_MouseMove);
             this.panel3.MouseUp += new MouseEventHandler(AppFormBase_MouseUp);
             panel4.Controls.Add(new UIMenu { Dock = DockStyle.Fill });
+            this.ShowDialog();
         }
         public List<string> i = new List<string>();
 
@@ -90,5 +91,9 @@ namespace LankaStocks
 
         }
 
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
