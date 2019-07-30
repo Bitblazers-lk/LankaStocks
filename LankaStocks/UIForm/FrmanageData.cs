@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LankaStocks
+namespace LankaStocks.UIForms
 {
-    public partial class Dashboard : Form
+    public partial class FrmanageData : Form
     {
-        public Dashboard()
+        public FrmanageData()
         {
             InitializeComponent();
         }
