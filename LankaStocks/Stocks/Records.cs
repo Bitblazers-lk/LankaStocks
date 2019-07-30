@@ -15,13 +15,10 @@ namespace LankaStocks
     public class StockIntake : Record
     {
         public uint IntakeID;
-
         public uint vendorID;
         public List<Item> items;
 
         public Transaction trans;
-
-
     }
 
 
@@ -38,13 +35,11 @@ namespace LankaStocks
         public decimal total;
 
         public bool special = false;
-
     }
 
     [Serializable]
     public class SpecialSale : BasicSale
     {
         public Transaction transaction;
-
     }
 }
