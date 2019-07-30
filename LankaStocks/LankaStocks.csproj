@@ -50,40 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="core.cs" />
-    <Compile Include="UIForms\FrmanageData.cs">
+    <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UIForms\FrmanageData.Designer.cs">
-      <DependentUpon>FrmanageData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\FrmanageItems.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\FrmanageItems.Designer.cs">
-      <DependentUpon>FrmanageItems.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\FrmTransaction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\FrmTransaction.Designer.cs">
-      <DependentUpon>FrmTransaction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\FrmSales.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\FrmSales.Designer.cs">
-      <DependentUpon>FrmSales.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\AddData.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\AddData.Designer.cs">
-      <DependentUpon>AddData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\Dashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\Dashboard.Designer.cs">
+    <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
@@ -107,10 +77,10 @@
     </Compile>
     <Compile Include="Stocks\IDMachine.cs" />
     <Compile Include="Stocks\Item.cs" />
-    <Compile Include="UIForms\Login.cs">
+    <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UIForms\Login.Designer.cs">
+    <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -119,6 +89,12 @@
     <Compile Include="Stocks\Records.cs" />
     <Compile Include="Statics.cs" />
     <Compile Include="Stocks\Transaction.cs" />
+    <EmbeddedResource Include="Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\UIAddItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -179,36 +155,6 @@
     <Compile Include="User Controls\UIVendor.Designer.cs">
       <DependentUpon>UIVendor.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="UIForms\FrmanageData.resx">
-      <DependentUpon>FrmanageData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\FrmanageItems.resx">
-      <DependentUpon>FrmanageItems.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\FrmTransaction.resx">
-      <DependentUpon>FrmTransaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\FrmSales.resx">
-      <DependentUpon>FrmSales.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\AddData.resx">
-      <DependentUpon>AddData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\AddItems.resx">
-      <DependentUpon>AddItems.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\ItemIntake.resx">
-      <DependentUpon>ItemIntake.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\DesignCommon.resx">
-      <DependentUpon>DesignCommon.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -219,36 +165,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="User Controls\UIAddItem.resx">
-      <DependentUpon>UIAddItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIBasicSale.resx">
-      <DependentUpon>UIBasicSale.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIMenu.resx">
-      <DependentUpon>UIMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIPerson.resx">
-      <DependentUpon>UIPerson.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UISaveData.resx">
-      <DependentUpon>UISaveData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIStockIntake.resx">
-      <DependentUpon>UIStockIntake.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UItem.resx">
-      <DependentUpon>UItem.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UITransaction.resx">
-      <DependentUpon>UITransaction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIUser.resx">
-      <DependentUpon>UIUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIVendor.resx">
-      <DependentUpon>UIVendor.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -266,7 +182,6 @@
     <Content Include="DB\History\Do not delete this Folder.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="XanderUI.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
