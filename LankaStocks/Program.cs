@@ -21,7 +21,7 @@ namespace LankaStocks
 
             Forms.login = new Login();
             Application.Run(Forms.login);
-            
+
         }
     }
 }
