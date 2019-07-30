@@ -104,7 +104,7 @@
             this.btnaddtoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnaddtoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnaddtoc.ForeColor = System.Drawing.Color.Orange;
-            this.btnaddtoc.Image = ((System.Drawing.Image)(resources.GetObject("btnaddtoc.Image")));
+            //this.btnaddtoc.Image = ((System.Drawing.Image)(resources.GetObject("btnaddtoc.Image")));
             this.btnaddtoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnaddtoc.Location = new System.Drawing.Point(35, 250);
             this.btnaddtoc.Name = "btnaddtoc";

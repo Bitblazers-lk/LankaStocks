@@ -34,10 +34,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>LankaSoft.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>LankaStocks.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -184,7 +188,7 @@
       <DependentUpon>UIVendor.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -194,8 +198,14 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="UIForms\AddData.resx" />
+    <EmbeddedResource Include="UIForms\AddItems.resx">
+      <DependentUpon>AddItems.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\DesignCommon.resx">
+      <DependentUpon>DesignCommon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIForms\FrmanageData.resx">
       <DependentUpon>FrmanageData.cs</DependentUpon>
@@ -209,10 +219,18 @@
     <EmbeddedResource Include="UIForms\FrmTransaction.resx">
       <DependentUpon>FrmTransaction.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\ItemIntake.resx">
+      <DependentUpon>ItemIntake.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="LankaSoft.pfx" />
+    <EmbeddedResource Include="User Controls\UIMenu.resx">
+      <DependentUpon>UIMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIPerson.resx">
+      <DependentUpon>UIPerson.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

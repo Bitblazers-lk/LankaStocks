@@ -64,7 +64,7 @@
             this.buttonmin.FlatAppearance.BorderSize = 0;
             this.buttonmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
             this.buttonmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonmin.Image")));
+            //this.buttonmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonmin.Image")));
             this.buttonmin.Location = new System.Drawing.Point(501, 0);
             this.buttonmin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonmin.Name = "buttonmin";
@@ -89,7 +89,7 @@
             this.btnexit.FlatAppearance.BorderSize = 0;
             this.btnexit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(6)))), ((int)(((byte)(13)))));
             this.btnexit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnexit.Image = ((System.Drawing.Image)(resources.GetObject("btnexit.Image")));
+            //this.btnexit.Image = ((System.Drawing.Image)(resources.GetObject("btnexit.Image")));
             this.btnexit.Location = new System.Drawing.Point(529, 0);
             this.btnexit.Margin = new System.Windows.Forms.Padding(2);
             this.btnexit.Name = "btnexit";
@@ -124,7 +124,7 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Orange;
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            //this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(3, 172);
             this.button3.Name = "button3";
@@ -138,7 +138,7 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Orange;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+           // this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(3, 120);
             this.button2.Name = "button2";
@@ -152,7 +152,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            //this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(3, 68);
             this.button1.Name = "button1";
@@ -167,7 +167,7 @@
             this.btnhide.FlatAppearance.BorderSize = 0;
             this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhide.ForeColor = System.Drawing.Color.White;
-            this.btnhide.Image = ((System.Drawing.Image)(resources.GetObject("btnhide.Image")));
+            //this.btnhide.Image = ((System.Drawing.Image)(resources.GetObject("btnhide.Image")));
             this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhide.Location = new System.Drawing.Point(0, 0);
             this.btnhide.Margin = new System.Windows.Forms.Padding(2);
@@ -204,7 +204,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelHead);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddData";
             this.Text = "DesignCommon";
             this.panelHead.ResumeLayout(false);

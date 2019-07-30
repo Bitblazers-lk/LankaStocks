@@ -16,40 +16,9 @@ namespace LankaStocks
         public Login()
         {
             InitializeComponent();
-            this.panel3.MouseDown += new MouseEventHandler(AppFormBase_MouseDown);
-            this.panel3.MouseMove += new MouseEventHandler(AppFormBase_MouseMove);
-            this.panel3.MouseUp += new MouseEventHandler(AppFormBase_MouseUp);
+
         }
 
-        void AppFormBase_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left)
-            {
-                return;
-            }
-            downPoint = new Point(e.X, e.Y);
-        }
-
-        void AppFormBase_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (downPoint == Point.Empty)
-            {
-                return;
-            }
-            Point location = new Point(
-                this.Left + e.X - downPoint.X,
-                this.Top + e.Y - downPoint.Y);
-            this.Location = location;
-        }
-
-        void AppFormBase_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left)
-            {
-                return;
-            }
-            downPoint = Point.Empty;
-        }
 
         public Point downPoint = Point.Empty;
         bool ani = true;
@@ -79,8 +48,8 @@ namespace LankaStocks
                         //Forms.dashboard.Hide();
                         Forms.dashboard = new Dashboard();
                         Forms.dashboard.Show();
-                        this.Hide();
                         lblStatus.Text = "Wellcome";
+                        this.Hide();
                         return;
                     }
                     else
@@ -96,10 +65,7 @@ namespace LankaStocks
             }
         }
 
-        private void labelHeadder_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void VisibaleControls(bool state)
         {
@@ -139,15 +105,7 @@ namespace LankaStocks
             VisibaleControls(true);
         }
 
-        private void btnexit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
-        private void buttonmin_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
 
         private void BtnLogin_Click_1(object sender, EventArgs e)
         {
@@ -163,7 +121,19 @@ namespace LankaStocks
         private void TxtPass_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
+            {
                 LoginCheck();
+            }
+        }
+
+        private void Panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

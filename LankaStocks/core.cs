@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using LankaStocks.DataBases;
+using System.Windows.Forms;
 
 namespace LankaStocks
 {
@@ -76,6 +77,13 @@ namespace LankaStocks
                 Statics.ReCalculate();
             }
 
+        }
+
+
+        public static void Shutdown()
+        {
+            //Save everything
+            Application.Exit();
         }
     }
 }
