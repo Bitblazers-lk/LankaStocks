@@ -30,12 +30,12 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnhide = new System.Windows.Forms.Button();
             this.uiSaveData1 = new LankaStocks.User_Controls.UISaveData();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,6 +60,37 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(157, 381);
             this.panel2.TabIndex = 15;
+            // 
+            // btnhide
+            // 
+            this.btnhide.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnhide.FlatAppearance.BorderSize = 0;
+            this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnhide.ForeColor = System.Drawing.Color.White;
+            this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnhide.Location = new System.Drawing.Point(0, 0);
+            this.btnhide.Margin = new System.Windows.Forms.Padding(2);
+            this.btnhide.Name = "btnhide";
+            this.btnhide.Size = new System.Drawing.Size(157, 28);
+            this.btnhide.TabIndex = 10;
+            this.btnhide.UseVisualStyleBackColor = true;
+            // 
+            // uiSaveData1
+            // 
+            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
+            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiSaveData1.Location = new System.Drawing.Point(157, 331);
+            this.uiSaveData1.Name = "uiSaveData1";
+            this.uiSaveData1.Size = new System.Drawing.Size(400, 50);
+            this.uiSaveData1.TabIndex = 16;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(157, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(400, 331);
+            this.panel3.TabIndex = 17;
             // 
             // button3
             // 
@@ -103,37 +134,6 @@
             this.button1.Text = "Person";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btnhide
-            // 
-            this.btnhide.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnhide.FlatAppearance.BorderSize = 0;
-            this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhide.ForeColor = System.Drawing.Color.White;
-            this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhide.Location = new System.Drawing.Point(0, 0);
-            this.btnhide.Margin = new System.Windows.Forms.Padding(2);
-            this.btnhide.Name = "btnhide";
-            this.btnhide.Size = new System.Drawing.Size(157, 28);
-            this.btnhide.TabIndex = 10;
-            this.btnhide.UseVisualStyleBackColor = true;
-            // 
-            // uiSaveData1
-            // 
-            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
-            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData1.Location = new System.Drawing.Point(157, 331);
-            this.uiSaveData1.Name = "uiSaveData1";
-            this.uiSaveData1.Size = new System.Drawing.Size(400, 50);
-            this.uiSaveData1.TabIndex = 16;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(157, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 331);
-            this.panel3.TabIndex = 17;
-            // 
             // AddData
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,7 +146,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddData";
-            this.Text = "DesignCommon";
+            this.Text = "LanakaStocks > Add Data";
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

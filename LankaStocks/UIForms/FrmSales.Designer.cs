@@ -33,8 +33,8 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnhide = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.btnhide = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,6 +99,14 @@
             this.button1.Text = "Person";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(157, 0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1302, 856);
+            this.panel3.TabIndex = 17;
+            // 
             // btnhide
             // 
             this.btnhide.Dock = System.Windows.Forms.DockStyle.Top;
@@ -114,14 +122,6 @@
             this.btnhide.TabIndex = 10;
             this.btnhide.UseVisualStyleBackColor = true;
             // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(157, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1302, 856);
-            this.panel3.TabIndex = 17;
-            // 
             // FrmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,7 +133,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FrmSales";
-            this.Text = "DesignCommon";
+            this.Text = "LanakaStocks > Sales";
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

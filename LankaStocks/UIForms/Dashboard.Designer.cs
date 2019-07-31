@@ -32,18 +32,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
+            this.btnTransaction = new System.Windows.Forms.Button();
+            this.btnSales = new System.Windows.Forms.Button();
             this.btnabout = new System.Windows.Forms.Button();
+            this.btnManageData = new System.Windows.Forms.Button();
+            this.btnManageItem = new System.Windows.Forms.Button();
+            this.btnIssueItem = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.btnisuuei = new System.Windows.Forms.Button();
             this.pblogo = new System.Windows.Forms.PictureBox();
             this.btnhide = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
@@ -62,12 +62,12 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
             this.panel2.Controls.Add(this.button5);
-            this.panel2.Controls.Add(this.button4);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnTransaction);
+            this.panel2.Controls.Add(this.btnSales);
             this.panel2.Controls.Add(this.btnabout);
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.btnisuuei);
+            this.panel2.Controls.Add(this.btnManageData);
+            this.panel2.Controls.Add(this.btnManageItem);
+            this.panel2.Controls.Add(this.btnIssueItem);
             this.panel2.Controls.Add(this.pblogo);
             this.panel2.Controls.Add(this.btnhide);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -90,6 +90,39 @@
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // btnTransaction
+            // 
+            this.btnTransaction.FlatAppearance.BorderSize = 0;
+            this.btnTransaction.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransaction.ForeColor = System.Drawing.Color.Orange;
+            this.btnTransaction.Image = global::LankaStocks.Properties.Resources.bank_24px;
+            this.btnTransaction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnTransaction.Location = new System.Drawing.Point(0, 405);
+            this.btnTransaction.Name = "btnTransaction";
+            this.btnTransaction.Size = new System.Drawing.Size(197, 42);
+            this.btnTransaction.TabIndex = 16;
+            this.btnTransaction.Text = "Transactions";
+            this.btnTransaction.UseVisualStyleBackColor = true;
+            this.btnTransaction.Click += new System.EventHandler(this.btnTransaction_Click);
+            // 
+            // btnSales
+            // 
+            this.btnSales.FlatAppearance.BorderSize = 0;
+            this.btnSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSales.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSales.ForeColor = System.Drawing.Color.Orange;
+            this.btnSales.Image = global::LankaStocks.Properties.Resources.total_sales_1_24px;
+            this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSales.Location = new System.Drawing.Point(3, 357);
+            this.btnSales.Name = "btnSales";
+            this.btnSales.Size = new System.Drawing.Size(197, 42);
+            this.btnSales.TabIndex = 15;
+            this.btnSales.Text = "Sales";
+            this.toolTip1.SetToolTip(this.btnSales, "View Sales History & Summary");
+            this.btnSales.UseVisualStyleBackColor = true;
+            this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
+            // 
             // btnabout
             // 
             this.btnabout.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -107,6 +140,58 @@
             this.toolTip1.SetToolTip(this.btnabout, "About");
             this.btnabout.UseVisualStyleBackColor = true;
             // 
+            // btnManageData
+            // 
+            this.btnManageData.FlatAppearance.BorderSize = 0;
+            this.btnManageData.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageData.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageData.ForeColor = System.Drawing.Color.Orange;
+            this.btnManageData.Image = global::LankaStocks.Properties.Resources.data_configuration_24px;
+            this.btnManageData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManageData.Location = new System.Drawing.Point(3, 309);
+            this.btnManageData.Name = "btnManageData";
+            this.btnManageData.Size = new System.Drawing.Size(197, 42);
+            this.btnManageData.TabIndex = 13;
+            this.btnManageData.Text = "Manage Data";
+            this.toolTip1.SetToolTip(this.btnManageData, "Manage User\'s, Person\'s & Vendor\'s...");
+            this.btnManageData.UseVisualStyleBackColor = true;
+            this.btnManageData.Click += new System.EventHandler(this.btnManageData_Click);
+            // 
+            // btnManageItem
+            // 
+            this.btnManageItem.FlatAppearance.BorderSize = 0;
+            this.btnManageItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnManageItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageItem.ForeColor = System.Drawing.Color.Orange;
+            this.btnManageItem.Image = global::LankaStocks.Properties.Resources.management_24px;
+            this.btnManageItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnManageItem.Location = new System.Drawing.Point(3, 261);
+            this.btnManageItem.Name = "btnManageItem";
+            this.btnManageItem.Size = new System.Drawing.Size(197, 42);
+            this.btnManageItem.TabIndex = 12;
+            this.btnManageItem.Text = "Manage Item\'s";
+            this.toolTip1.SetToolTip(this.btnManageItem, "Add, Remove, Manage Item\'s");
+            this.btnManageItem.UseVisualStyleBackColor = true;
+            this.btnManageItem.Click += new System.EventHandler(this.btnManageItem_Click);
+            // 
+            // btnIssueItem
+            // 
+            this.btnIssueItem.ContextMenuStrip = this.contextMenuStrip1;
+            this.btnIssueItem.FlatAppearance.BorderSize = 0;
+            this.btnIssueItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIssueItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssueItem.ForeColor = System.Drawing.Color.Orange;
+            this.btnIssueItem.Image = global::LankaStocks.Properties.Resources.add_shopping_cart_24px;
+            this.btnIssueItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnIssueItem.Location = new System.Drawing.Point(3, 213);
+            this.btnIssueItem.Name = "btnIssueItem";
+            this.btnIssueItem.Size = new System.Drawing.Size(197, 42);
+            this.btnIssueItem.TabIndex = 11;
+            this.btnIssueItem.Text = "Issue Item\'s";
+            this.toolTip1.SetToolTip(this.btnIssueItem, "Issue Item\'s To Customer\'s...");
+            this.btnIssueItem.UseVisualStyleBackColor = true;
+            this.btnIssueItem.Click += new System.EventHandler(this.btnIssueItem_Click);
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -119,97 +204,6 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
             this.toolStripMenuItem1.Text = "Open Quick Sell Window";
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(200, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1254, 785);
-            this.panel4.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.panel4, "Add & Edit Item Details...");
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.Orange;
-            this.button4.Image = global::LankaStocks.Properties.Resources.bank_24px;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 405);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(197, 42);
-            this.button4.TabIndex = 16;
-            this.button4.Text = "Transactions";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.Image = global::LankaStocks.Properties.Resources.total_sales_1_24px;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(3, 357);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(197, 42);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Sales";
-            this.toolTip1.SetToolTip(this.button1, "View Sales History & Summary");
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Orange;
-            this.button3.Image = global::LankaStocks.Properties.Resources.data_configuration_24px;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(3, 309);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(197, 42);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Manage Data";
-            this.toolTip1.SetToolTip(this.button3, "Manage User\'s, Person\'s & Vendor\'s...");
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Orange;
-            this.button2.Image = global::LankaStocks.Properties.Resources.management_24px;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(3, 261);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(197, 42);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Manage Item\'s";
-            this.toolTip1.SetToolTip(this.button2, "Add, Remove, Manage Item\'s");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // btnisuuei
-            // 
-            this.btnisuuei.ContextMenuStrip = this.contextMenuStrip1;
-            this.btnisuuei.FlatAppearance.BorderSize = 0;
-            this.btnisuuei.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnisuuei.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnisuuei.ForeColor = System.Drawing.Color.Orange;
-            this.btnisuuei.Image = global::LankaStocks.Properties.Resources.add_shopping_cart_24px;
-            this.btnisuuei.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnisuuei.Location = new System.Drawing.Point(3, 213);
-            this.btnisuuei.Name = "btnisuuei";
-            this.btnisuuei.Size = new System.Drawing.Size(197, 42);
-            this.btnisuuei.TabIndex = 11;
-            this.btnisuuei.Text = "Issue Item\'s";
-            this.toolTip1.SetToolTip(this.btnisuuei, "Issue Item\'s To Customer\'s...");
-            this.btnisuuei.UseVisualStyleBackColor = true;
             // 
             // pblogo
             // 
@@ -237,6 +231,16 @@
             this.btnhide.UseVisualStyleBackColor = true;
             this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
             // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(200, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1254, 785);
+            this.panel4.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.panel4, "Add & Edit Item Details...");
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,12 +267,12 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnhide;
         private System.Windows.Forms.Button btnabout;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btnisuuei;
+        private System.Windows.Forms.Button btnManageData;
+        private System.Windows.Forms.Button btnManageItem;
+        private System.Windows.Forms.Button btnIssueItem;
         private System.Windows.Forms.PictureBox pblogo;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTransaction;
+        private System.Windows.Forms.Button btnSales;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Button button5;

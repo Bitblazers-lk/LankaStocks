@@ -71,7 +71,7 @@
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ItemIntake";
-            this.Text = "DesignCommon";
+            this.Text = "LanakaStocks > Stock Intake";
             this.ResumeLayout(false);
 
         }

@@ -18,10 +18,6 @@ namespace LankaStocks
         }
         public List<string> i = new List<string>();
 
-
-
-        public Point downPoint = Point.Empty;
-
         private void btnhide_Click(object sender, EventArgs e)
         {
             if (panel2.Width == 200)
@@ -35,12 +31,6 @@ namespace LankaStocks
                 btnabout.Text = "About";
             }
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
 
@@ -50,5 +40,35 @@ namespace LankaStocks
         {
             Core.Shutdown();
         }
+
+        private void btnIssueItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnManageItem_Click(object sender, EventArgs e)
+        {
+            Forms.frmanageItems = new UIForms.FrmanageItems();
+            Forms.frmanageItems.Show();
+        }
+
+        private void btnManageData_Click(object sender, EventArgs e)
+        {
+            Forms.frmanageData = new UIForms.FrmanageData();
+            Forms.frmanageData.Show();
+        }
+
+        private void btnSales_Click(object sender, EventArgs e)
+        {
+            Forms.frmSales = new UIForms.FrmSales();
+            Forms.frmSales.Show();
+        }
+
+        private void btnTransaction_Click(object sender, EventArgs e)
+        {
+            Forms.frmTransaction = new UIForms.FrmTransaction();
+            Forms.frmTransaction.Show();
+        }
+
     }
 }
