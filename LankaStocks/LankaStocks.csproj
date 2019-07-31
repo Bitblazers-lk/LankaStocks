@@ -99,6 +99,12 @@
     <Compile Include="UIForms\FrmSales.Designer.cs">
       <DependentUpon>FrmSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIForms\FrmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmSettings.Designer.cs">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIForms\FrmTransaction.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     <EmbeddedResource Include="UIForms\FrmSales.resx">
       <DependentUpon>FrmSales.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmSettings.resx">
+      <DependentUpon>FrmSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\FrmTransaction.resx">
       <DependentUpon>FrmTransaction.cs</DependentUpon>
     </EmbeddedResource>
@@ -304,6 +313,7 @@
     <Content Include="Images\recurring_appointment_24px.png" />
     <Content Include="Images\save_24px.png" />
     <Content Include="Images\sell_property_24px.png" />
+    <None Include="Images\settings3_24px.png" />
     <Content Include="Images\settings_3_24px.png" />
     <Content Include="Images\squared_menu_24px.png" />
     <Content Include="Images\Stock_Management_System.jpg" />

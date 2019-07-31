@@ -70,5 +70,10 @@ namespace LankaStocks
             Forms.frmTransaction.Show();
         }
 
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            Forms.frmSettings = new UIForms.FrmSettings();
+            Forms.frmSettings.Show();
+        }
     }
 }

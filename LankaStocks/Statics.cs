@@ -27,6 +27,7 @@ namespace LankaStocks
         public static FrmanageItems frmanageItems;
         public static FrmSales frmSales;
         public static FrmTransaction frmTransaction;
+        public static FrmSettings frmSettings;
     }
 
 }
