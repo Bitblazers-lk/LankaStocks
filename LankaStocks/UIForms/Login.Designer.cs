@@ -40,19 +40,19 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.line = new System.Windows.Forms.Panel();
-            this.buttonabout = new System.Windows.Forms.Button();
             this.buttonlogin = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.Animator = new XanderUI.XUIObjectAnimator();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonabout = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.gb.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblStatus
@@ -199,27 +199,13 @@
             this.line.Size = new System.Drawing.Size(8, 31);
             this.line.TabIndex = 4;
             // 
-            // buttonabout
-            // 
-            this.buttonabout.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
-            this.buttonabout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonabout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonabout.ForeColor = System.Drawing.Color.White;
-            this.buttonabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonabout.Location = new System.Drawing.Point(0, 296);
-            this.buttonabout.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonabout.Name = "buttonabout";
-            this.buttonabout.Size = new System.Drawing.Size(124, 31);
-            this.buttonabout.TabIndex = 2;
-            this.buttonabout.Text = "About";
-            this.buttonabout.UseVisualStyleBackColor = true;
-            // 
             // buttonlogin
             // 
             this.buttonlogin.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
             this.buttonlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonlogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonlogin.ForeColor = System.Drawing.Color.White;
+            this.buttonlogin.Image = global::LankaStocks.Properties.Resources.key_24px;
             this.buttonlogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonlogin.Location = new System.Drawing.Point(0, 123);
             this.buttonlogin.Margin = new System.Windows.Forms.Padding(2);
@@ -263,16 +249,6 @@
             this.panel2.TabIndex = 14;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::LankaStocks.Properties.Resources.Logo;
-            this.pictureBox2.Location = new System.Drawing.Point(9, 90);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(163, 151);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 9;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::LankaStocks.Properties.Resources.Logo;
@@ -282,6 +258,32 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
+            // 
+            // buttonabout
+            // 
+            this.buttonabout.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
+            this.buttonabout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonabout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonabout.ForeColor = System.Drawing.Color.White;
+            this.buttonabout.Image = global::LankaStocks.Properties.Resources.about_us_24px;
+            this.buttonabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonabout.Location = new System.Drawing.Point(-1, 370);
+            this.buttonabout.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonabout.Name = "buttonabout";
+            this.buttonabout.Size = new System.Drawing.Size(124, 31);
+            this.buttonabout.TabIndex = 2;
+            this.buttonabout.Text = "About";
+            this.buttonabout.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LankaStocks.Properties.Resources.Logo;
+            this.pictureBox2.Location = new System.Drawing.Point(9, 90);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(163, 151);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 9;
+            this.pictureBox2.TabStop = false;
             // 
             // Login
             // 
@@ -303,8 +305,8 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

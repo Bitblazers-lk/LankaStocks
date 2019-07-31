@@ -183,6 +183,16 @@ namespace LankaStocks.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap key_24px {
+            get {
+                object obj = ResourceManager.GetObject("key_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap kisspng_inventory_management_software_stock_management_sal_warehouse_5ac5d409391c68_7620306315229143132339 {
             get {
                 object obj = ResourceManager.GetObject("kisspng_inventory_management_software_stock_management_sal_warehouse_5ac5d409391c" +

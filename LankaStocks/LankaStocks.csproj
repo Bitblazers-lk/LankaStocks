@@ -288,6 +288,7 @@
     <Content Include="Images\delete_sign_24px.png" />
     <Content Include="Images\edit_24px.png" />
     <Content Include="Images\full_screen_24px.png" />
+    <None Include="Images\key_24px.png" />
     <Content Include="Images\kisspng-inventory-management-software-stock-management-sal-warehouse-5ac5d409391c68.7620306315229143132339.jpg" />
     <Content Include="Images\left3_24px.png" />
     <Content Include="Images\Logo.png" />

@@ -32,18 +32,18 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
+            this.btnabout = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnabout = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnisuuei = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pblogo = new System.Windows.Forms.PictureBox();
             this.btnhide = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
@@ -90,6 +90,46 @@
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // btnabout
+            // 
+            this.btnabout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnabout.FlatAppearance.BorderSize = 0;
+            this.btnabout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnabout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnabout.ForeColor = System.Drawing.Color.Orange;
+            this.btnabout.Image = global::LankaStocks.Properties.Resources.about_us_24px;
+            this.btnabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnabout.Location = new System.Drawing.Point(0, 743);
+            this.btnabout.Name = "btnabout";
+            this.btnabout.Size = new System.Drawing.Size(200, 42);
+            this.btnabout.TabIndex = 14;
+            this.btnabout.Text = "About";
+            this.toolTip1.SetToolTip(this.btnabout, "About");
+            this.btnabout.UseVisualStyleBackColor = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
+            this.toolStripMenuItem1.Text = "Open Quick Sell Window";
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(200, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1254, 785);
+            this.panel4.TabIndex = 14;
+            this.toolTip1.SetToolTip(this.panel4, "Add & Edit Item Details...");
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
             // button4
             // 
             this.button4.FlatAppearance.BorderSize = 0;
@@ -120,22 +160,6 @@
             this.button1.Text = "Sales";
             this.toolTip1.SetToolTip(this.button1, "View Sales History & Summary");
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnabout
-            // 
-            this.btnabout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnabout.FlatAppearance.BorderSize = 0;
-            this.btnabout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnabout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnabout.ForeColor = System.Drawing.Color.Orange;
-            this.btnabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnabout.Location = new System.Drawing.Point(0, 743);
-            this.btnabout.Name = "btnabout";
-            this.btnabout.Size = new System.Drawing.Size(200, 42);
-            this.btnabout.TabIndex = 14;
-            this.btnabout.Text = "About";
-            this.toolTip1.SetToolTip(this.btnabout, "About");
-            this.btnabout.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -187,19 +211,6 @@
             this.toolTip1.SetToolTip(this.btnisuuei, "Issue Item\'s To Customer\'s...");
             this.btnisuuei.UseVisualStyleBackColor = true;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 26);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
-            this.toolStripMenuItem1.Text = "Open Quick Sell Window";
-            // 
             // pblogo
             // 
             this.pblogo.Image = global::LankaStocks.Properties.Resources.Logo;
@@ -216,6 +227,7 @@
             this.btnhide.FlatAppearance.BorderSize = 0;
             this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhide.ForeColor = System.Drawing.Color.White;
+            this.btnhide.Image = global::LankaStocks.Properties.Resources.menu_24px;
             this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhide.Location = new System.Drawing.Point(0, 0);
             this.btnhide.Margin = new System.Windows.Forms.Padding(2);
@@ -224,16 +236,6 @@
             this.btnhide.TabIndex = 9;
             this.btnhide.UseVisualStyleBackColor = true;
             this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
-            // 
-            // panel4
-            // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(200, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1254, 785);
-            this.panel4.TabIndex = 14;
-            this.toolTip1.SetToolTip(this.panel4, "Add & Edit Item Details...");
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // Dashboard
             // 
