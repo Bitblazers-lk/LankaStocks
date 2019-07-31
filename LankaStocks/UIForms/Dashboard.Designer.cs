@@ -40,10 +40,10 @@
             this.btnisuuei = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pblogo = new System.Windows.Forms.PictureBox();
             this.btnhide = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pblogo = new System.Windows.Forms.PictureBox();
             this.panel2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
@@ -96,6 +96,7 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.Orange;
+            this.button4.Image = global::LankaStocks.Properties.Resources.bank_24px;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button4.Location = new System.Drawing.Point(0, 405);
             this.button4.Name = "button4";
@@ -110,6 +111,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Orange;
+            this.button1.Image = global::LankaStocks.Properties.Resources.total_sales_1_24px;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(3, 357);
             this.button1.Name = "button1";
@@ -141,6 +143,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Orange;
+            this.button3.Image = global::LankaStocks.Properties.Resources.data_configuration_24px;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(3, 309);
             this.button3.Name = "button3";
@@ -156,6 +159,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.Orange;
+            this.button2.Image = global::LankaStocks.Properties.Resources.management_24px;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(3, 261);
             this.button2.Name = "button2";
@@ -173,6 +177,7 @@
             this.btnisuuei.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnisuuei.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnisuuei.ForeColor = System.Drawing.Color.Orange;
+            this.btnisuuei.Image = global::LankaStocks.Properties.Resources.add_shopping_cart_24px;
             this.btnisuuei.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnisuuei.Location = new System.Drawing.Point(3, 213);
             this.btnisuuei.Name = "btnisuuei";
@@ -187,13 +192,23 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(230, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 26);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(229, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
             this.toolStripMenuItem1.Text = "Open Quick Sell Window";
+            // 
+            // pblogo
+            // 
+            this.pblogo.Image = global::LankaStocks.Properties.Resources.Logo;
+            this.pblogo.Location = new System.Drawing.Point(40, 33);
+            this.pblogo.Name = "pblogo";
+            this.pblogo.Size = new System.Drawing.Size(120, 120);
+            this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pblogo.TabIndex = 10;
+            this.pblogo.TabStop = false;
             // 
             // btnhide
             // 
@@ -219,16 +234,6 @@
             this.panel4.TabIndex = 14;
             this.toolTip1.SetToolTip(this.panel4, "Add & Edit Item Details...");
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
-            // 
-            // pblogo
-            // 
-            this.pblogo.Image = global::LankaStocks.Properties.Resources.Logo;
-            this.pblogo.Location = new System.Drawing.Point(40, 33);
-            this.pblogo.Name = "pblogo";
-            this.pblogo.Size = new System.Drawing.Size(120, 120);
-            this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pblogo.TabIndex = 10;
-            this.pblogo.TabStop = false;
             // 
             // Dashboard
             // 

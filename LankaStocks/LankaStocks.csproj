@@ -61,10 +61,6 @@
   <ItemGroup>
     <Compile Include="core.cs" />
     <Compile Include="DB.cs" />
-    <Compile Include="UIForms\AddData.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\AddData.Designer.cs" />
     <Compile Include="UIForms\AddItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +72,12 @@
     </Compile>
     <Compile Include="UIForms\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\AddData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\AddData.Designer.cs">
+      <DependentUpon>AddData.cs</DependentUpon>
     </Compile>
     <Compile Include="UIForms\FrmanageData.cs">
       <SubType>Form</SubType>
@@ -197,7 +199,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UIForms\AddData.resx" />
+    <EmbeddedResource Include="UIForms\AddData.resx">
+      <DependentUpon>AddData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\AddItems.resx">
       <DependentUpon>AddItems.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,11 +229,35 @@
     <EmbeddedResource Include="UIForms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIAddItem.resx">
+      <DependentUpon>UIAddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIBasicSale.resx">
+      <DependentUpon>UIBasicSale.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\UIMenu.resx">
       <DependentUpon>UIMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\UIPerson.resx">
       <DependentUpon>UIPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UISaveData.resx">
+      <DependentUpon>UISaveData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIStockIntake.resx">
+      <DependentUpon>UIStockIntake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UItem.resx">
+      <DependentUpon>UItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UITransaction.resx">
+      <DependentUpon>UITransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIUser.resx">
+      <DependentUpon>UIUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIVendor.resx">
+      <DependentUpon>UIVendor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -264,6 +292,7 @@
     <Content Include="Images\left3_24px.png" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\management_24px.png" />
+    <None Include="Images\menu_24px.png" />
     <Content Include="Images\minus_24px.png" />
     <Content Include="Images\money_bag_24px.png" />
     <Content Include="Images\Picture1.png" />

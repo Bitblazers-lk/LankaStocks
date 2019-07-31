@@ -105,6 +105,7 @@
             this.btnhide.FlatAppearance.BorderSize = 0;
             this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhide.ForeColor = System.Drawing.Color.White;
+            this.btnhide.Image = global::LankaStocks.Properties.Resources.menu_24px;
             this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhide.Location = new System.Drawing.Point(0, 0);
             this.btnhide.Margin = new System.Windows.Forms.Padding(2);

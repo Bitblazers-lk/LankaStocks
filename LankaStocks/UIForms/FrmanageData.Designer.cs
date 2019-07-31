@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnhide = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.btnhide = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,64 +64,13 @@
             this.panel2.Size = new System.Drawing.Size(157, 856);
             this.panel2.TabIndex = 15;
             // 
-            // button3
-            // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Orange;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 174);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(151, 46);
-            this.button3.TabIndex = 16;
-            this.button3.Text = "User\'s";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 122);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 46);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Vendor\'s";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.Orange;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 70);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(151, 46);
-            this.button4.TabIndex = 14;
-            this.button4.Text = "Person\'s";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Orange;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 226);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 46);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // btnhide
             // 
             this.btnhide.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnhide.FlatAppearance.BorderSize = 0;
             this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhide.ForeColor = System.Drawing.Color.White;
+            this.btnhide.Image = global::LankaStocks.Properties.Resources.menu_24px;
             this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhide.Location = new System.Drawing.Point(0, 0);
             this.btnhide.Margin = new System.Windows.Forms.Padding(2);
@@ -137,6 +86,62 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1302, 856);
             this.panel3.TabIndex = 17;
+            // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.ForeColor = System.Drawing.Color.Orange;
+            this.button3.Image = global::LankaStocks.Properties.Resources.user_male_circle_24px;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(0, 174);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(151, 46);
+            this.button3.TabIndex = 16;
+            this.button3.Text = "User\'s";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Orange;
+            this.button1.Image = global::LankaStocks.Properties.Resources.anonymous_mask_24px;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 122);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(151, 46);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Vendor\'s";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.ForeColor = System.Drawing.Color.Orange;
+            this.button4.Image = global::LankaStocks.Properties.Resources.Tall_Person_24px;
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(0, 70);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(151, 46);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Person\'s";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Orange;
+            this.button2.Image = global::LankaStocks.Properties.Resources.plus_math_24px;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(0, 226);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(151, 46);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // FrmanageData
             // 

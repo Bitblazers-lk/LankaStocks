@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UItem));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.l1 = new System.Windows.Forms.Label();
             this.l2 = new System.Windows.Forms.Label();
@@ -104,7 +103,7 @@
             this.btnaddtoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnaddtoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btnaddtoc.ForeColor = System.Drawing.Color.Orange;
-            //this.btnaddtoc.Image = ((System.Drawing.Image)(resources.GetObject("btnaddtoc.Image")));
+            this.btnaddtoc.Image = global::LankaStocks.Properties.Resources.add_shopping_cart_24px;
             this.btnaddtoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnaddtoc.Location = new System.Drawing.Point(35, 250);
             this.btnaddtoc.Name = "btnaddtoc";

@@ -31,10 +31,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnhide = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,38 +73,13 @@
             this.button3.Text = "User";
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button2
-            // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Orange;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(3, 120);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(151, 46);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(3, 68);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(151, 46);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Manage";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // btnhide
             // 
             this.btnhide.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnhide.FlatAppearance.BorderSize = 0;
             this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhide.ForeColor = System.Drawing.Color.White;
+            this.btnhide.Image = global::LankaStocks.Properties.Resources.menu_24px;
             this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhide.Location = new System.Drawing.Point(0, 0);
             this.btnhide.Margin = new System.Windows.Forms.Padding(2);
@@ -120,6 +95,34 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1302, 856);
             this.panel3.TabIndex = 17;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.Orange;
+            this.button2.Image = global::LankaStocks.Properties.Resources.plus_math_24px;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(3, 120);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(151, 46);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Add";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Orange;
+            this.button1.Image = global::LankaStocks.Properties.Resources.management_24px;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 68);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(151, 46);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Manage";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // FrmanageItems
             // 

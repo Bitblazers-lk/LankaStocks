@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddData));
-            this.panelHead = new System.Windows.Forms.Panel();
-            this.buttonmin = new System.Windows.Forms.Button();
-            this.labelHeadder = new System.Windows.Forms.Label();
-            this.btnexit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
@@ -41,61 +36,8 @@
             this.btnhide = new System.Windows.Forms.Button();
             this.uiSaveData1 = new LankaStocks.User_Controls.UISaveData();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panelHead.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panelHead
-            // 
-            this.panelHead.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
-            this.panelHead.Controls.Add(this.buttonmin);
-            this.panelHead.Controls.Add(this.labelHeadder);
-            this.panelHead.Controls.Add(this.btnexit);
-            this.panelHead.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHead.Location = new System.Drawing.Point(0, 0);
-            this.panelHead.Margin = new System.Windows.Forms.Padding(2);
-            this.panelHead.Name = "panelHead";
-            this.panelHead.Size = new System.Drawing.Size(557, 31);
-            this.panelHead.TabIndex = 13;
-            // 
-            // buttonmin
-            // 
-            this.buttonmin.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonmin.FlatAppearance.BorderSize = 0;
-            this.buttonmin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gainsboro;
-            this.buttonmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            //this.buttonmin.Image = ((System.Drawing.Image)(resources.GetObject("buttonmin.Image")));
-            this.buttonmin.Location = new System.Drawing.Point(501, 0);
-            this.buttonmin.Margin = new System.Windows.Forms.Padding(2);
-            this.buttonmin.Name = "buttonmin";
-            this.buttonmin.Size = new System.Drawing.Size(28, 31);
-            this.buttonmin.TabIndex = 7;
-            this.buttonmin.UseVisualStyleBackColor = true;
-            // 
-            // labelHeadder
-            // 
-            this.labelHeadder.AutoSize = true;
-            this.labelHeadder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelHeadder.ForeColor = System.Drawing.Color.White;
-            this.labelHeadder.Location = new System.Drawing.Point(12, 7);
-            this.labelHeadder.Name = "labelHeadder";
-            this.labelHeadder.Size = new System.Drawing.Size(168, 17);
-            this.labelHeadder.TabIndex = 5;
-            this.labelHeadder.Text = "Lanka Stocks > Add Data";
-            // 
-            // btnexit
-            // 
-            this.btnexit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnexit.FlatAppearance.BorderSize = 0;
-            this.btnexit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(6)))), ((int)(((byte)(13)))));
-            this.btnexit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            //this.btnexit.Image = ((System.Drawing.Image)(resources.GetObject("btnexit.Image")));
-            this.btnexit.Location = new System.Drawing.Point(529, 0);
-            this.btnexit.Margin = new System.Windows.Forms.Padding(2);
-            this.btnexit.Name = "btnexit";
-            this.btnexit.Size = new System.Drawing.Size(28, 31);
-            this.btnexit.TabIndex = 2;
-            this.btnexit.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -114,9 +56,9 @@
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnhide);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel2.Location = new System.Drawing.Point(0, 31);
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(157, 350);
+            this.panel2.Size = new System.Drawing.Size(157, 381);
             this.panel2.TabIndex = 15;
             // 
             // button3
@@ -124,7 +66,6 @@
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Orange;
-            //this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(3, 172);
             this.button3.Name = "button3";
@@ -138,7 +79,6 @@
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Orange;
-           // this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(3, 120);
             this.button2.Name = "button2";
@@ -152,7 +92,6 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Orange;
-            //this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(3, 68);
             this.button1.Name = "button1";
@@ -167,7 +106,6 @@
             this.btnhide.FlatAppearance.BorderSize = 0;
             this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnhide.ForeColor = System.Drawing.Color.White;
-            //this.btnhide.Image = ((System.Drawing.Image)(resources.GetObject("btnhide.Image")));
             this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnhide.Location = new System.Drawing.Point(0, 0);
             this.btnhide.Margin = new System.Windows.Forms.Padding(2);
@@ -188,9 +126,9 @@
             // panel3
             // 
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(157, 31);
+            this.panel3.Location = new System.Drawing.Point(157, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(400, 300);
+            this.panel3.Size = new System.Drawing.Size(400, 331);
             this.panel3.TabIndex = 17;
             // 
             // AddData
@@ -203,23 +141,15 @@
             this.Controls.Add(this.uiSaveData1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelHead);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "AddData";
             this.Text = "DesignCommon";
-            this.panelHead.ResumeLayout(false);
-            this.panelHead.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panelHead;
-        private System.Windows.Forms.Button buttonmin;
-        private System.Windows.Forms.Label labelHeadder;
-        private System.Windows.Forms.Button btnexit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnhide;

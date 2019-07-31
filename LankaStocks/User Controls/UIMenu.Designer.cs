@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.uiBasicSale1 = new LankaStocks.User_Controls.UIBasicSale();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -54,7 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.uiBasicSale1 = new LankaStocks.User_Controls.UIBasicSale();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -81,6 +81,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1250, 130);
             this.panel1.TabIndex = 0;
+            // 
+            // uiBasicSale1
+            // 
+            this.uiBasicSale1.BackColor = System.Drawing.Color.Transparent;
+            this.uiBasicSale1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiBasicSale1.Location = new System.Drawing.Point(0, 0);
+            this.uiBasicSale1.Name = "uiBasicSale1";
+            this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
+            this.uiBasicSale1.TabIndex = 0;
             // 
             // splitContainer1
             // 
@@ -410,15 +419,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 21);
             this.comboBox1.TabIndex = 3;
-            // 
-            // uiBasicSale1
-            // 
-            this.uiBasicSale1.BackColor = System.Drawing.Color.Transparent;
-            this.uiBasicSale1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiBasicSale1.Location = new System.Drawing.Point(0, 0);
-            this.uiBasicSale1.Name = "uiBasicSale1";
-            this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
-            this.uiBasicSale1.TabIndex = 0;
             // 
             // UIMenu
             // 
