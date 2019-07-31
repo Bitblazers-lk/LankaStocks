@@ -59,6 +59,7 @@
     <Reference Include="XanderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bills.cs" />
     <Compile Include="core.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="UIForms\AddItems.cs">
@@ -282,6 +283,7 @@
     <Content Include="Images\anonymous_mask_24px.png" />
     <Content Include="Images\AssetManagement_63182410 - Copy.jpg" />
     <Content Include="Images\AssetManagement_63182410.jpg" />
+    <Content Include="Images\ba.bmp" />
     <Content Include="Images\bank_24px.png" />
     <Content Include="Images\cancel_2_24px.png" />
     <Content Include="Images\data_configuration_24px.png" />
