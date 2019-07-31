@@ -20,15 +20,17 @@ namespace LankaStocks
 
         private void btnhide_Click(object sender, EventArgs e)
         {
-            if (panel2.Width == 200)
+            if (panel2.Width == 220)
             {
                 panel2.Width = 40;
                 btnabout.Text = "";
+                btnSettings.Text = "";
             }
             else if (panel2.Width == 40)
             {
-                panel2.Width = 200;
+                panel2.Width = 220;
                 btnabout.Text = "About";
+                btnSettings.Text = "Settings";
             }
         }
         private void panel4_Paint(object sender, PaintEventArgs e)

@@ -294,6 +294,16 @@ namespace LankaStocks.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap purchase_order_24px {
+            get {
+                object obj = ResourceManager.GetObject("purchase_order_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap recurring_appointment_24px {
             get {
                 object obj = ResourceManager.GetObject("recurring_appointment_24px", resourceCulture);

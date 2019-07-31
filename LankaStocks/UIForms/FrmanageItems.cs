@@ -22,5 +22,17 @@ namespace LankaStocks.UIForms
             Forms.addItems = new UIForms.AddItems();
             Forms.addItems.Show();
         }
+
+        private void btnhide_Click(object sender, EventArgs e)
+        {
+            if (panel2.Width == 200)
+            {
+                panel2.Width = 40;
+            }
+            else if (panel2.Width == 40)
+            {
+                panel2.Width = 200;
+            }
+        }
     }
 }

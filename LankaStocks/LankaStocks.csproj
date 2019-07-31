@@ -310,6 +310,7 @@
     <Content Include="Images\money_bag_24px.png" />
     <Content Include="Images\Picture1.png" />
     <Content Include="Images\plus_math_24px.png" />
+    <None Include="Images\purchase_order_24px.png" />
     <Content Include="Images\recurring_appointment_24px.png" />
     <Content Include="Images\save_24px.png" />
     <Content Include="Images\sell_property_24px.png" />
