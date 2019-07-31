@@ -17,6 +17,8 @@ namespace LankaStocks
 
         public static DBHistory History;
 
+        public static DBSettings Settings;
+
         public static DBSession Session => Live.Session;
         public static Dictionary<uint, BasicSale> Sales => Live.Session.Sales;
         public static Dictionary<uint, StockIntake> StockIntakes => Live.Session.StockIntakes;
@@ -73,12 +75,12 @@ namespace LankaStocks
                 Live = (DBLive)new DBLive() { DBName = "DBLive", FileName = DB.DBPath + "DBLive.db" }.LoadBinary(isFirstRun);
                 People = (DBPeople)new DBPeople() { DBName = "DBPeople", FileName = DB.DBPath + "DBPeople.db" }.LoadBinary(isFirstRun);
                 History = (DBHistory)new DBHistory() { DBName = "DBHistory", FileName = DB.DBPath + "DBHistory.db" }.LoadBinary(isFirstRun);
+                Settings = (DBSettings)new DBSettings() { DBName = "DBSettings", FileName = DB.DBPath + "DBSettings.db" }.LoadBinary(isFirstRun);
 
                 Statics.ReCalculate();
             }
 
         }
-
 
         public static void Shutdown()
         {

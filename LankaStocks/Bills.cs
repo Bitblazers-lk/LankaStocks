@@ -117,7 +117,7 @@ namespace LankaStocks
             float Total = 0;
             foreach (var s in Items)
             {
-                float amount =s.Price * s.Qty;
+                float amount = s.Price * s.Qty;
                 Total += amount;
                 NO++;
                 g.DrawString(NO.ToString(), Font, BlackBrush, (500 - g.MeasureString(RowL, Font).Width) / 2, Y);
@@ -202,5 +202,18 @@ namespace LankaStocks
         public string Name;
         public float Price;
         public float Qty;
+    }
+
+    [Serializable]
+    public class BillSettings
+    {
+        public string H1 = null;
+        public string H2 = null;
+        public string H3 = null;
+        public string E1 = null;
+        public string E2 = null;
+        public string E3 = null;
+        public bool PrintBill = false;
+        public bool Perview = false;
     }
 }

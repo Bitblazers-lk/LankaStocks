@@ -192,7 +192,6 @@ namespace LankaStocks.DataBases
         }
     }
 
-
     [Serializable]
     public class DBSession : DB
     {
@@ -208,8 +207,16 @@ namespace LankaStocks.DataBases
             Sales = new Dictionary<uint, BasicSale>();
             StockIntakes = new Dictionary<uint, StockIntake>();
         }
-
     }
 
+    [Serializable]
+    public class DBSettings : DB
+    {
+        public BillSettings billSetting;
 
+        public override void CreateNew()
+        {
+            billSetting = new BillSettings();
+        }
+    }
 }
