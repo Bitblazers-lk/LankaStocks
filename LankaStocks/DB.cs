@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using static LankaStocks.Core;
+using System.Drawing;
 
 namespace LankaStocks.DataBases
 {
@@ -213,10 +214,31 @@ namespace LankaStocks.DataBases
     public class DBSettings : DB
     {
         public BillSettings billSetting;
+        public CommonSettings commonSettings;
 
         public override void CreateNew()
         {
-            billSetting = new BillSettings();
+            billSetting = new BillSettings
+            {
+                H1 = "...LankaStocks...",
+                H2 = "Tel : 0123456789",
+                H3 = "...<>...",
+                E1 = "..!Thank You!..",
+                E2 = "...Come Again...",
+                E3 = "...<>...",
+                Perview = false,
+                PrintBill = false
+            };
+            commonSettings = new CommonSettings
+            {
+                MenuColor = Color.FromArgb(91, 11, 31),
+                BackColor = Color.FromArgb(10, 5, 10),
+                FontColor = Color.FromKnownColor(KnownColor.Orange),
+                ItemColor = Color.FromKnownColor(KnownColor.WindowFrame),
+                OpenAtStat = false,
+                ImagePath = null,
+                Font = new Font("Microsoft Sans Serif", 9.75f)
+            };
         }
     }
 }

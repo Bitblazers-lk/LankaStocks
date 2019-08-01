@@ -34,5 +34,11 @@ namespace LankaStocks.UIForms
                 panel2.Width = 200;
             }
         }
+
+        private void btnStockIntake_Click(object sender, EventArgs e)
+        {
+            Forms.itemIntake = new UIForms.ItemIntake();
+            Forms.itemIntake.Show();
+        }
     }
 }

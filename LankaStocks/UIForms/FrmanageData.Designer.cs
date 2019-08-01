@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.btnStockIntake = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -55,7 +54,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
-            this.panel2.Controls.Add(this.btnStockIntake);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.button4);
@@ -67,22 +65,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 741);
             this.panel2.TabIndex = 15;
-            // 
-            // btnStockIntake
-            // 
-            this.btnStockIntake.FlatAppearance.BorderSize = 0;
-            this.btnStockIntake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStockIntake.ForeColor = System.Drawing.Color.Orange;
-            this.btnStockIntake.Image = global::LankaStocks.Properties.Resources.purchase_order_24px;
-            this.btnStockIntake.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStockIntake.Location = new System.Drawing.Point(4, 278);
-            this.btnStockIntake.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStockIntake.Name = "btnStockIntake";
-            this.btnStockIntake.Size = new System.Drawing.Size(192, 57);
-            this.btnStockIntake.TabIndex = 17;
-            this.btnStockIntake.Text = "Stock Intake";
-            this.btnStockIntake.UseVisualStyleBackColor = true;
-            this.btnStockIntake.Click += new System.EventHandler(this.btnStockIntake_Click);
             // 
             // button3
             // 
@@ -136,12 +118,12 @@
             this.btnAdd.ForeColor = System.Drawing.Color.Orange;
             this.btnAdd.Image = global::LankaStocks.Properties.Resources.plus_math_24px;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(0, 342);
+            this.btnAdd.Location = new System.Drawing.Point(4, 279);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(196, 57);
             this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "Add New";
+            this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -200,6 +182,5 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnStockIntake;
     }
 }

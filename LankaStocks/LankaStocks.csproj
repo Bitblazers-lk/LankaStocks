@@ -63,6 +63,7 @@
     <Compile Include="Bills.cs" />
     <Compile Include="core.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="UIForms\AddItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +138,12 @@
     <Compile Include="UIForms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="User Controls\UIAbout.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\UIAbout.Designer.cs">
+      <DependentUpon>UIAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="User Controls\UIAddItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,6 +155,24 @@
     </Compile>
     <Compile Include="User Controls\UIBasicSale.Designer.cs">
       <DependentUpon>UIBasicSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\UIBillPreview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\UIBillPreview.Designer.cs">
+      <DependentUpon>UIBillPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\UIColour.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\UIColour.Designer.cs">
+      <DependentUpon>UIColour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User Controls\UIFont.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User Controls\UIFont.Designer.cs">
+      <DependentUpon>UIFont.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\UIMenu.cs">
       <SubType>UserControl</SubType>
@@ -240,11 +265,23 @@
     <EmbeddedResource Include="UIForms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIAbout.resx">
+      <DependentUpon>UIAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User Controls\UIAddItem.resx">
       <DependentUpon>UIAddItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\UIBasicSale.resx">
       <DependentUpon>UIBasicSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIBillPreview.resx">
+      <DependentUpon>UIBillPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIColour.resx">
+      <DependentUpon>UIColour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User Controls\UIFont.resx">
+      <DependentUpon>UIFont.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\UIMenu.resx">
       <DependentUpon>UIMenu.cs</DependentUpon>
@@ -296,6 +333,7 @@
     <Content Include="Images\ba.bmp" />
     <Content Include="Images\bank_24px.png" />
     <Content Include="Images\cancel_2_24px.png" />
+    <None Include="Images\Capture.PNG" />
     <Content Include="Images\data_configuration_24px.png" />
     <Content Include="Images\delete_sign_24px.png" />
     <Content Include="Images\edit_24px.png" />
@@ -321,6 +359,7 @@
     <Content Include="Images\Tall Person_24px.png" />
     <Content Include="Images\total_sales_1_24px.png" />
     <Content Include="Images\user_male_circle_24px.png" />
+    <None Include="Resources\picture1_2el_icon.ico" />
     <Content Include="XanderUI.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

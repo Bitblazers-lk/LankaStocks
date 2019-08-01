@@ -51,7 +51,7 @@ namespace LankaStocks.User_Controls
 
         private void InPrice_TextChanged(object sender, EventArgs e)
         {
-            Error.Num(OutPrice);
+            Error.Num(InPrice);
         }
 
         private void OutPrice_TextChanged(object sender, EventArgs e)

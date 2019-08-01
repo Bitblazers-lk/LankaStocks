@@ -54,7 +54,8 @@ namespace LankaStocks
                 }
                 else
                 {
-                    Ctrl.Text = Ctrl.Text.Substring(0, Ctrl.Text.Length - 1);
+                    //Ctrl.Text = Ctrl.Text.Substring(0, Ctrl.Text.Length - 1);
+                    //Ctrl.Select();
                     return ShowError(Errors[1], Ctrl);
                 }
             }
@@ -71,6 +72,5 @@ namespace LankaStocks
             else return ShowError(Errors[0], Ctrl);
         }
     }
-
 }
 

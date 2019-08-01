@@ -32,13 +32,13 @@
             this.IntakeID = new System.Windows.Forms.TextBox();
             this.VendorID = new System.Windows.Forms.ComboBox();
             this.ItemID = new System.Windows.Forms.ComboBox();
-            this.Qty = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.uiTransaction1 = new LankaStocks.User_Controls.UITransaction();
+            this.Qty = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -51,11 +51,11 @@
             this.tableLayoutPanel1.Controls.Add(this.IntakeID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.VendorID, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.ItemID, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.Qty, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.Qty, 1, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -101,18 +101,6 @@
             this.ItemID.Size = new System.Drawing.Size(334, 21);
             this.ItemID.TabIndex = 2;
             this.ItemID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ItemID_KeyDown);
-            // 
-            // Qty
-            // 
-            this.Qty.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.Qty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Qty.ForeColor = System.Drawing.Color.Orange;
-            this.Qty.Location = new System.Drawing.Point(87, 84);
-            this.Qty.Mask = "00000";
-            this.Qty.Name = "Qty";
-            this.Qty.Size = new System.Drawing.Size(334, 20);
-            this.Qty.TabIndex = 3;
-            this.Qty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Qty_KeyDown);
             // 
             // label1
             // 
@@ -183,6 +171,19 @@
             this.uiTransaction1.Size = new System.Drawing.Size(418, 357);
             this.uiTransaction1.TabIndex = 0;
             // 
+            // Qty
+            // 
+            this.Qty.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.Qty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Qty.ForeColor = System.Drawing.Color.Orange;
+            this.Qty.Location = new System.Drawing.Point(87, 84);
+            this.Qty.Name = "Qty";
+            this.Qty.Size = new System.Drawing.Size(334, 20);
+            this.Qty.TabIndex = 8;
+            this.Qty.Text = "0";
+            this.Qty.TextChanged += new System.EventHandler(this.Qty_TextChanged);
+            this.Qty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Qty_KeyDown_1);
+            // 
             // UIStockIntake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +212,6 @@
         public System.Windows.Forms.TextBox IntakeID;
         public System.Windows.Forms.ComboBox VendorID;
         public System.Windows.Forms.ComboBox ItemID;
-        public System.Windows.Forms.MaskedTextBox Qty;
+        private System.Windows.Forms.TextBox Qty;
     }
 }

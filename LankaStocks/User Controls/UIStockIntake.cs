@@ -33,12 +33,17 @@ namespace LankaStocks.User_Controls
             }
         }
 
-        private void Qty_KeyDown(object sender, KeyEventArgs e)
+        private void Qty_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
                 Error.Num(Qty);
             }
+        }
+
+        private void Qty_TextChanged(object sender, EventArgs e)
+        {
+            Error.Num(Qty);
         }
     }
 }

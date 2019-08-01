@@ -203,17 +203,4 @@ namespace LankaStocks
         public float Price;
         public float Qty;
     }
-
-    [Serializable]
-    public class BillSettings
-    {
-        public string H1 = null;
-        public string H2 = null;
-        public string H3 = null;
-        public string E1 = null;
-        public string E2 = null;
-        public string E3 = null;
-        public bool PrintBill = false;
-        public bool Perview = false;
-    }
 }

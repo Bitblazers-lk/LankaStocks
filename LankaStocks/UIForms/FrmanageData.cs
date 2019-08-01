@@ -23,12 +23,6 @@ namespace LankaStocks.UIForms
             Forms.addData.Show();
         }
 
-        private void btnStockIntake_Click(object sender, EventArgs e)
-        {
-            Forms.itemIntake = new UIForms.ItemIntake();
-            Forms.itemIntake.Show();
-        }
-
         private void btnhide_Click(object sender, EventArgs e)
         {
             if (panel2.Width == 200)
