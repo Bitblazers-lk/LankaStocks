@@ -257,7 +257,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:LankaStocks.Installer"
         "ProductCode" = "8:{F7283282-8ED6-409F-B008-DCBD3177EA83}"
-        "PackageCode" = "8:{A0884B6B-7622-4C5E-A8EC-36315D7A182C}"
+        "PackageCode" = "8:{A46CBD28-9B2F-4287-B8D6-F1D37AB69411}"
         "UpgradeCode" = "8:{2234A782-2D3D-45F8-A3D3-BE68F493F85D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

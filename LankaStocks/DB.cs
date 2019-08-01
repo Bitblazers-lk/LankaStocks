@@ -171,7 +171,6 @@ namespace LankaStocks.DataBases
         public decimal Cashier = 0M;
 
         public DBSession Session;
-
         public override void CreateNew()
         {
             Items = new Dictionary<uint, Item>();
