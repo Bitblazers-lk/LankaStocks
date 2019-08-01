@@ -77,6 +77,7 @@
             this.VendorID.ForeColor = System.Drawing.Color.Orange;
             this.VendorID.Location = new System.Drawing.Point(85, 3);
             this.VendorID.Name = "VendorID";
+            this.VendorID.ReadOnly = true;
             this.VendorID.Size = new System.Drawing.Size(306, 20);
             this.VendorID.TabIndex = 0;
             // 
@@ -90,6 +91,7 @@
             this.BusinessInfo.Name = "BusinessInfo";
             this.BusinessInfo.Size = new System.Drawing.Size(306, 75);
             this.BusinessInfo.TabIndex = 1;
+            this.BusinessInfo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BusinessInfo_KeyDown);
             // 
             // label1
             // 

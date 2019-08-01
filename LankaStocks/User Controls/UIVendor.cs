@@ -16,5 +16,13 @@ namespace LankaStocks.User_Controls
         {
             InitializeComponent();
         }
+
+        private void BusinessInfo_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Error.Txt(BusinessInfo);
+            }
+        }
     }
 }

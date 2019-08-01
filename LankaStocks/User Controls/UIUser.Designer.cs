@@ -125,6 +125,7 @@
             this.UserName.Name = "UserName";
             this.UserName.Size = new System.Drawing.Size(310, 20);
             this.UserName.TabIndex = 3;
+            this.UserName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserName_KeyDown);
             // 
             // UserID
             // 
@@ -132,6 +133,7 @@
             this.UserID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserID.Location = new System.Drawing.Point(81, 3);
             this.UserID.Name = "UserID";
+            this.UserID.ReadOnly = true;
             this.UserID.Size = new System.Drawing.Size(310, 20);
             this.UserID.TabIndex = 6;
             // 
@@ -156,6 +158,7 @@
             this.UserPass.Name = "UserPass";
             this.UserPass.Size = new System.Drawing.Size(310, 20);
             this.UserPass.TabIndex = 8;
+            this.UserPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserPass_KeyDown);
             // 
             // IsAdmin
             // 
@@ -170,6 +173,7 @@
             this.IsAdmin.Name = "IsAdmin";
             this.IsAdmin.Size = new System.Drawing.Size(310, 21);
             this.IsAdmin.TabIndex = 9;
+            this.IsAdmin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.IsAdmin_KeyDown);
             // 
             // uiPerson1
             // 

@@ -105,6 +105,7 @@
             this.Type.Name = "Type";
             this.Type.Size = new System.Drawing.Size(314, 21);
             this.Type.TabIndex = 0;
+            this.Type.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Type_KeyDown);
             // 
             // User
             // 
@@ -116,6 +117,7 @@
             this.User.Name = "User";
             this.User.Size = new System.Drawing.Size(314, 21);
             this.User.TabIndex = 1;
+            this.User.KeyDown += new System.Windows.Forms.KeyEventHandler(this.User_KeyDown);
             // 
             // Secondparty
             // 
@@ -127,6 +129,7 @@
             this.Secondparty.Name = "Secondparty";
             this.Secondparty.Size = new System.Drawing.Size(314, 21);
             this.Secondparty.TabIndex = 2;
+            this.Secondparty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Secondparty_KeyDown);
             // 
             // OfficePersonID
             // 
@@ -138,6 +141,7 @@
             this.OfficePersonID.Name = "OfficePersonID";
             this.OfficePersonID.Size = new System.Drawing.Size(314, 21);
             this.OfficePersonID.TabIndex = 3;
+            this.OfficePersonID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OfficePersonID_KeyDown);
             // 
             // TransactionID
             // 
@@ -146,6 +150,7 @@
             this.TransactionID.ForeColor = System.Drawing.Color.Orange;
             this.TransactionID.Location = new System.Drawing.Point(83, 3);
             this.TransactionID.Name = "TransactionID";
+            this.TransactionID.ReadOnly = true;
             this.TransactionID.Size = new System.Drawing.Size(314, 20);
             this.TransactionID.TabIndex = 4;
             // 
@@ -158,6 +163,7 @@
             this.Total.Name = "Total";
             this.Total.Size = new System.Drawing.Size(314, 20);
             this.Total.TabIndex = 5;
+            this.Total.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Total_KeyDown);
             // 
             // Paid
             // 
@@ -168,6 +174,7 @@
             this.Paid.Name = "Paid";
             this.Paid.Size = new System.Drawing.Size(314, 20);
             this.Paid.TabIndex = 6;
+            this.Paid.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Paid_KeyDown);
             // 
             // Liability
             // 
@@ -178,6 +185,7 @@
             this.Liability.Name = "Liability";
             this.Liability.Size = new System.Drawing.Size(314, 20);
             this.Liability.TabIndex = 7;
+            this.Liability.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Liability_KeyDown);
             // 
             // Confirm
             // 
@@ -189,6 +197,7 @@
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(314, 57);
             this.Confirm.TabIndex = 8;
+            this.Confirm.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Confirm_KeyDown);
             // 
             // Note
             // 
@@ -200,6 +209,7 @@
             this.Note.Name = "Note";
             this.Note.Size = new System.Drawing.Size(314, 57);
             this.Note.TabIndex = 9;
+            this.Note.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Note_KeyDown);
             // 
             // label1
             // 

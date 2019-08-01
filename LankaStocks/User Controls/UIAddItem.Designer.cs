@@ -30,19 +30,19 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ItemID = new System.Windows.Forms.TextBox();
-            this.ItemName = new System.Windows.Forms.TextBox();
-            this.VendorID = new System.Windows.Forms.ComboBox();
-            this.InPrice = new System.Windows.Forms.TextBox();
-            this.OutPrice = new System.Windows.Forms.TextBox();
-            this.Qty = new System.Windows.Forms.MaskedTextBox();
             this.Alternative = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.OutPrice = new System.Windows.Forms.TextBox();
+            this.InPrice = new System.Windows.Forms.TextBox();
+            this.VendorID = new System.Windows.Forms.ComboBox();
+            this.ItemName = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.Barcode = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,19 +53,19 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
             this.tableLayoutPanel1.Controls.Add(this.ItemID, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ItemName, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.VendorID, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.InPrice, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.OutPrice, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.Qty, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.Alternative, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.label7, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.OutPrice, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.InPrice, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.VendorID, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.ItemName, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.Barcode, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -87,66 +87,15 @@
             this.ItemID.ForeColor = System.Drawing.Color.Orange;
             this.ItemID.Location = new System.Drawing.Point(83, 3);
             this.ItemID.Name = "ItemID";
+            this.ItemID.ReadOnly = true;
             this.ItemID.Size = new System.Drawing.Size(314, 20);
             this.ItemID.TabIndex = 0;
-            // 
-            // ItemName
-            // 
-            this.ItemName.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ItemName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ItemName.ForeColor = System.Drawing.Color.Orange;
-            this.ItemName.Location = new System.Drawing.Point(83, 30);
-            this.ItemName.Name = "ItemName";
-            this.ItemName.Size = new System.Drawing.Size(314, 20);
-            this.ItemName.TabIndex = 1;
-            // 
-            // VendorID
-            // 
-            this.VendorID.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.VendorID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.VendorID.ForeColor = System.Drawing.Color.Orange;
-            this.VendorID.FormattingEnabled = true;
-            this.VendorID.Location = new System.Drawing.Point(83, 57);
-            this.VendorID.Name = "VendorID";
-            this.VendorID.Size = new System.Drawing.Size(314, 21);
-            this.VendorID.TabIndex = 2;
-            // 
-            // InPrice
-            // 
-            this.InPrice.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.InPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.InPrice.ForeColor = System.Drawing.Color.Orange;
-            this.InPrice.Location = new System.Drawing.Point(83, 84);
-            this.InPrice.Name = "InPrice";
-            this.InPrice.Size = new System.Drawing.Size(314, 20);
-            this.InPrice.TabIndex = 3;
-            // 
-            // OutPrice
-            // 
-            this.OutPrice.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.OutPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.OutPrice.ForeColor = System.Drawing.Color.Orange;
-            this.OutPrice.Location = new System.Drawing.Point(83, 111);
-            this.OutPrice.Name = "OutPrice";
-            this.OutPrice.Size = new System.Drawing.Size(314, 20);
-            this.OutPrice.TabIndex = 4;
-            // 
-            // Qty
-            // 
-            this.Qty.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.Qty.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Qty.ForeColor = System.Drawing.Color.Orange;
-            this.Qty.Location = new System.Drawing.Point(83, 138);
-            this.Qty.Mask = "000000";
-            this.Qty.Name = "Qty";
-            this.Qty.Size = new System.Drawing.Size(314, 20);
-            this.Qty.TabIndex = 5;
-            this.Qty.ValidatingType = typeof(int);
             // 
             // Alternative
             // 
             this.Alternative.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.Alternative.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Alternative.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Alternative.ForeColor = System.Drawing.Color.Orange;
             this.Alternative.FormattingEnabled = true;
             this.Alternative.Location = new System.Drawing.Point(83, 165);
@@ -178,54 +127,6 @@
             this.label2.Text = "Name :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.ForeColor = System.Drawing.Color.Orange;
-            this.label3.Location = new System.Drawing.Point(3, 54);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 27);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Vendor ID :";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.ForeColor = System.Drawing.Color.Orange;
-            this.label4.Location = new System.Drawing.Point(3, 81);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 27);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Buying Price :";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.ForeColor = System.Drawing.Color.Orange;
-            this.label5.Location = new System.Drawing.Point(3, 108);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(74, 27);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Selling Price :";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.ForeColor = System.Drawing.Color.Orange;
-            this.label6.Location = new System.Drawing.Point(3, 135);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 27);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Qty. :";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -237,6 +138,111 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Alternative :";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // OutPrice
+            // 
+            this.OutPrice.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.OutPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OutPrice.ForeColor = System.Drawing.Color.Orange;
+            this.OutPrice.Location = new System.Drawing.Point(83, 138);
+            this.OutPrice.Name = "OutPrice";
+            this.OutPrice.Size = new System.Drawing.Size(314, 20);
+            this.OutPrice.TabIndex = 4;
+            this.OutPrice.TextChanged += new System.EventHandler(this.OutPrice_TextChanged);
+            this.OutPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutPrice_KeyDown);
+            // 
+            // InPrice
+            // 
+            this.InPrice.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.InPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.InPrice.ForeColor = System.Drawing.Color.Orange;
+            this.InPrice.Location = new System.Drawing.Point(83, 111);
+            this.InPrice.Name = "InPrice";
+            this.InPrice.Size = new System.Drawing.Size(314, 20);
+            this.InPrice.TabIndex = 3;
+            this.InPrice.TextChanged += new System.EventHandler(this.InPrice_TextChanged);
+            this.InPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InPrice_KeyDown);
+            // 
+            // VendorID
+            // 
+            this.VendorID.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.VendorID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VendorID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.VendorID.ForeColor = System.Drawing.Color.Orange;
+            this.VendorID.FormattingEnabled = true;
+            this.VendorID.Location = new System.Drawing.Point(83, 84);
+            this.VendorID.Name = "VendorID";
+            this.VendorID.Size = new System.Drawing.Size(314, 21);
+            this.VendorID.TabIndex = 2;
+            this.VendorID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VendorID_KeyDown);
+            // 
+            // ItemName
+            // 
+            this.ItemName.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.ItemName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ItemName.ForeColor = System.Drawing.Color.Orange;
+            this.ItemName.Location = new System.Drawing.Point(83, 30);
+            this.ItemName.Name = "ItemName";
+            this.ItemName.Size = new System.Drawing.Size(314, 20);
+            this.ItemName.TabIndex = 1;
+            this.ItemName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ItemName_KeyDown);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.ForeColor = System.Drawing.Color.Orange;
+            this.label5.Location = new System.Drawing.Point(3, 135);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(74, 27);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Selling Price :";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.ForeColor = System.Drawing.Color.Orange;
+            this.label4.Location = new System.Drawing.Point(3, 108);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 27);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Buying Price :";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.ForeColor = System.Drawing.Color.Orange;
+            this.label3.Location = new System.Drawing.Point(3, 81);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 27);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Vendor ID :";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Barcode
+            // 
+            this.Barcode.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.Barcode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Barcode.Location = new System.Drawing.Point(83, 57);
+            this.Barcode.Name = "Barcode";
+            this.Barcode.Size = new System.Drawing.Size(314, 20);
+            this.Barcode.TabIndex = 14;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label6.ForeColor = System.Drawing.Color.Orange;
+            this.label6.Location = new System.Drawing.Point(3, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 27);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Barcode :";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // UIAddItem
             // 
@@ -260,14 +266,14 @@
         public System.Windows.Forms.ComboBox VendorID;
         public System.Windows.Forms.TextBox InPrice;
         public System.Windows.Forms.TextBox OutPrice;
-        public System.Windows.Forms.MaskedTextBox Qty;
         public System.Windows.Forms.ComboBox Alternative;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox Barcode;
+        private System.Windows.Forms.Label label6;
     }
 }

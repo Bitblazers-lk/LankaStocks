@@ -109,6 +109,7 @@
             this.ContactInfo.Name = "ContactInfo";
             this.ContactInfo.Size = new System.Drawing.Size(314, 20);
             this.ContactInfo.TabIndex = 5;
+            this.ContactInfo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ContactInfo_KeyDown);
             // 
             // Details
             // 
@@ -120,6 +121,7 @@
             this.Details.Name = "Details";
             this.Details.Size = new System.Drawing.Size(314, 58);
             this.Details.TabIndex = 4;
+            this.Details.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Details_KeyDown);
             // 
             // PersonName
             // 
@@ -130,6 +132,7 @@
             this.PersonName.Name = "PersonName";
             this.PersonName.Size = new System.Drawing.Size(314, 20);
             this.PersonName.TabIndex = 3;
+            this.PersonName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PersonName_KeyDown);
             // 
             // PersonID
             // 
@@ -137,6 +140,7 @@
             this.PersonID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PersonID.Location = new System.Drawing.Point(83, 3);
             this.PersonID.Name = "PersonID";
+            this.PersonID.ReadOnly = true;
             this.PersonID.Size = new System.Drawing.Size(314, 20);
             this.PersonID.TabIndex = 6;
             // 

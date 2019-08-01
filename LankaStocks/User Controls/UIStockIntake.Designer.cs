@@ -74,6 +74,7 @@
             this.IntakeID.ForeColor = System.Drawing.Color.Orange;
             this.IntakeID.Location = new System.Drawing.Point(87, 3);
             this.IntakeID.Name = "IntakeID";
+            this.IntakeID.ReadOnly = true;
             this.IntakeID.Size = new System.Drawing.Size(334, 20);
             this.IntakeID.TabIndex = 0;
             // 
@@ -87,6 +88,7 @@
             this.VendorID.Name = "VendorID";
             this.VendorID.Size = new System.Drawing.Size(334, 21);
             this.VendorID.TabIndex = 1;
+            this.VendorID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VendorID_KeyDown);
             // 
             // ItemID
             // 
@@ -98,6 +100,7 @@
             this.ItemID.Name = "ItemID";
             this.ItemID.Size = new System.Drawing.Size(334, 21);
             this.ItemID.TabIndex = 2;
+            this.ItemID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ItemID_KeyDown);
             // 
             // Qty
             // 
@@ -109,6 +112,7 @@
             this.Qty.Name = "Qty";
             this.Qty.Size = new System.Drawing.Size(334, 20);
             this.Qty.TabIndex = 3;
+            this.Qty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Qty_KeyDown);
             // 
             // label1
             // 
