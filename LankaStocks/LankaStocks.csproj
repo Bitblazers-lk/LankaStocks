@@ -63,7 +63,9 @@
     <Compile Include="Bills.cs" />
     <Compile Include="core.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Shared.cs" />
     <Compile Include="UIForms\AddItems.cs">
       <SubType>Form</SubType>
     </Compile>
