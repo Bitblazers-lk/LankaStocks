@@ -39,7 +39,7 @@ namespace LankaStocks
         private static bool ShowError(string txt, Control ctrl)
         {
             ctrl.BackColor = Color.FromKnownColor(KnownColor.Red);
-            MessageBox.Show(txt, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(txt, "LankaStocks - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 

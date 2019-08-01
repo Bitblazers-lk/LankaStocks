@@ -173,27 +173,6 @@ namespace LankaStocks
             pb.Image = b;
             return b;
         }
-        //public static Image Draw(Dictionary<string, int> Items, string Invoice_NO, string Customer_Name)
-        //{
-
-        //    pb.Image = new Bitmap(500, 1000);
-
-
-        //    b = new Bitmap(pb.Image);
-        //    g = Graphics.FromImage(b);
-
-        //    try
-        //    {
-
-        //    }
-        //    catch
-        //    {
-
-        //    }
-
-        //    pb.Image = b;
-        //    return b;
-        //}
     }
 
     class BillItem
