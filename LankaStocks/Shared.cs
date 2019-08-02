@@ -8,7 +8,6 @@ using System.Windows.Forms;
 
 namespace LankaStocks.Shared
 {
-
     public static class Error
     {
         public static string[] Errors = { "Feild Cannot Be Empty!", "Feild Must Be A Number!" };
@@ -50,5 +49,4 @@ namespace LankaStocks.Shared
             else return ShowError(Errors[0], Ctrl);
         }
     }
-
 }

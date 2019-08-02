@@ -16,7 +16,7 @@ namespace LankaStocks.UIForms
         public Login()
         {
             InitializeComponent();
-
+            this.gb.Location = new System.Drawing.Point(30, 73);
         }
 
 
@@ -69,8 +69,8 @@ namespace LankaStocks.UIForms
 
         private void VisibaleControls(bool state)
         {
-            label3.Visible = state;
-            label7.Visible = state;
+            label5.Visible = state;
+            label6.Visible = state;
             TxtName.Visible = state;
             TxtPass.Visible = state;
             BtnLogin.Visible = state;
@@ -85,21 +85,20 @@ namespace LankaStocks.UIForms
                 // Animator.FormAnimate(this, XanderUI.XUIObjectAnimator.FormAnimation.FadeIn, 1);
                 try
                 {
-                    //Animator.StandardAnimate(gb, XanderUI.XUIObjectAnimator.StandardAnimation.SlideLeft, 2);
-                    Animator.ColorAnimate(panel2, Color.FromArgb(60, 60, 60), XanderUI.XUIObjectAnimator.ColorAnimation.FillSquare, true, 1);
+                    Animator.StandardAnimate(gb, XanderUI.XUIObjectAnimator.StandardAnimation.SlideLeft, 2);
+                    Animator.ColorAnimate(panel2, Color.FromArgb(10, 5, 10), XanderUI.XUIObjectAnimator.ColorAnimation.FillEllipse, true, 1);
                 }
                 catch
                 {
 
                 }
                 timer1.Enabled = false;
-            }
-            VisibaleControls(true);
+            }         
         }
 
         private void buttonlogin_Click(object sender, EventArgs e)
         {
-            this.gb.Location = new System.Drawing.Point(176, 19);
+            this.gb.Location = new System.Drawing.Point(30, 5);
             line.Height = buttonlogin.Height;
             line.Top = buttonlogin.Top;
             VisibaleControls(true);
@@ -107,18 +106,18 @@ namespace LankaStocks.UIForms
 
 
 
-        private void BtnLogin_Click_1(object sender, EventArgs e)
+        private void BtnLogin_Click(object sender, EventArgs e)
         {
             LoginCheck();
         }
 
-        private void TxtName_KeyDown_1(object sender, KeyEventArgs e)
+        private void TxtName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
                 TxtPass.Focus();
         }
 
-        private void TxtPass_KeyDown_1(object sender, KeyEventArgs e)
+        private void TxtPass_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {

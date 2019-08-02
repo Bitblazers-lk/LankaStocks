@@ -369,6 +369,7 @@
     <None Include="Images\menu_24px.png" />
     <Content Include="Images\minus_24px.png" />
     <Content Include="Images\money_bag_24px.png" />
+    <None Include="Images\password_24px.png" />
     <Content Include="Images\Picture1.png" />
     <Content Include="Images\plus_math_24px.png" />
     <None Include="Images\purchase_order_24px.png" />
@@ -383,8 +384,10 @@
     <Content Include="Images\Stock_Management_System.jpg" />
     <Content Include="Images\Tall Person_24px.png" />
     <Content Include="Images\total_sales_1_24px.png" />
+    <None Include="Images\user_24px.png" />
     <Content Include="Images\user_male_circle_24px.png" />
     <None Include="Resources\picture1_2el_icon.ico" />
+    <None Include="Resources\flag-1024x430.jpg" />
     <Content Include="XanderUI.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
