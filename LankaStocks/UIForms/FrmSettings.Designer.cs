@@ -48,10 +48,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.uiColour1 = new LankaStocks.User_Controls.UIColour();
-            this.uiColour2 = new LankaStocks.User_Controls.UIColour();
-            this.uiColour3 = new LankaStocks.User_Controls.UIColour();
-            this.uiColour4 = new LankaStocks.User_Controls.UIColour();
+            this.uiColour1 = new LankaStocks.UserControls.UIColour();
+            this.uiColour2 = new LankaStocks.UserControls.UIColour();
+            this.uiColour3 = new LankaStocks.UserControls.UIColour();
+            this.uiColour4 = new LankaStocks.UserControls.UIColour();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -73,29 +73,6 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.uiColour1 = new LankaStocks.UserControls.UIColour();
-            this.uiColour2 = new LankaStocks.UserControls.UIColour();
-            this.uiColour3 = new LankaStocks.UserControls.UIColour();
-            this.uiColour4 = new LankaStocks.UserControls.UIColour();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -555,7 +532,7 @@
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(4, 114);
