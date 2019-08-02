@@ -39,29 +39,19 @@ namespace LankaStocks.UIForms
             string name = TxtName.Text;
             string pass = TxtPass.Text;
 
-            foreach (var usr in People.Users.Values)
+            //TODO: Change this
+            var logInResults = client.LoginCheck(name, pass);
+
+            lblStatus.Text = logInResults.Item2;
+
+            if (logInResults.Item1)
             {
-                if (usr.userName == name)
-                {
-                    if (usr.pass == pass)
-                    {
-                        //Forms.dashboard.Hide();
-                        Forms.dashboard = new Dashboard();
-                        Forms.dashboard.Show();
-                        lblStatus.Text = "Wellcome";
-                        this.Hide();
-                        return;
-                    }
-                    else
-                    {
-                        lblStatus.Text = "Wrong password";
-                        return;
-                    }
-                }
-                else
-                {
-                    lblStatus.Text = "Wrong user name or password";
-                }
+                Hide();
+                Forms.dashboard.Show();
+            }
+            else
+            {
+                lblStatus.ForeColor = Color.PaleVioletRed;
             }
         }
 
