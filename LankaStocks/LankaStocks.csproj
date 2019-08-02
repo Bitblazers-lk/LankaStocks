@@ -67,6 +67,7 @@
     <Compile Include="core.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Networking.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Shared.cs" />
     <Compile Include="UIForms\AddItems.cs">
