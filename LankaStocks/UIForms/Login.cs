@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LankaStocks.Core;
 
-namespace LankaStocks
+namespace LankaStocks.UIForms
 {
     public partial class Login : Form
     {

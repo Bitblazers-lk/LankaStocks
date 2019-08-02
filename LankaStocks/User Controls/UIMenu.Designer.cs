@@ -1,4 +1,4 @@
-﻿namespace LankaStocks
+﻿namespace LankaStocks.UserControls
 {
     partial class UIMenu
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.uiBasicSale1 = new LankaStocks.User_Controls.UIBasicSale();
+            this.uiBasicSale1 = new LankaStocks.UserControls.UIBasicSale();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -469,7 +469,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private User_Controls.UIBasicSale uiBasicSale1;
+        private UserControls.UIBasicSale uiBasicSale1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

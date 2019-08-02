@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LankaStocks
+namespace LankaStocks.Settings
 {
     [Serializable]
     public class BillSettings

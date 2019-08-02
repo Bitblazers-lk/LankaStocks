@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LankaStocks.Shared;
 
-namespace LankaStocks.User_Controls
+namespace LankaStocks.UserControls
 {
     public partial class UIAddItem : UserControl
     {

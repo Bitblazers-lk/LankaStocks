@@ -1,4 +1,4 @@
-﻿namespace LankaStocks.User_Controls
+﻿namespace LankaStocks.UserControls
 {
     partial class UIVendor
     {
@@ -34,7 +34,7 @@
             this.BusinessInfo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.uiPerson1 = new LankaStocks.User_Controls.UIPerson();
+            this.uiPerson1 = new LankaStocks.UserControls.UIPerson();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();

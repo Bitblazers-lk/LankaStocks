@@ -1,4 +1,4 @@
-﻿namespace LankaStocks
+﻿namespace LankaStocks.UIForms
 {
     partial class Dashboard
     {

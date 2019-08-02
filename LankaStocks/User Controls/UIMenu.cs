@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LankaStocks
+namespace LankaStocks.UserControls
 {
     public partial class UIMenu : UserControl
     {

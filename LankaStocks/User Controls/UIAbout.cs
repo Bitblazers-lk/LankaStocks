@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LankaStocks.UIForms
+namespace LankaStocks.UserControls
 {
     public partial class UIAbout : UserControl
     {

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uiSaveData1 = new LankaStocks.User_Controls.UISaveData();
+            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -64,10 +64,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.uiColour1 = new LankaStocks.User_Controls.UIColour();
-            this.uiColour2 = new LankaStocks.User_Controls.UIColour();
-            this.uiColour3 = new LankaStocks.User_Controls.UIColour();
-            this.uiColour4 = new LankaStocks.User_Controls.UIColour();
+            this.uiColour1 = new LankaStocks.UserControls.UIColour();
+            this.uiColour2 = new LankaStocks.UserControls.UIColour();
+            this.uiColour3 = new LankaStocks.UserControls.UIColour();
+            this.uiColour4 = new LankaStocks.UserControls.UIColour();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -717,7 +717,7 @@
 
         #endregion
 
-        private User_Controls.UISaveData uiSaveData1;
+        private UserControls.UISaveData uiSaveData1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -753,10 +753,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button1;
-        private User_Controls.UIColour uiColour1;
-        private User_Controls.UIColour uiColour2;
-        private User_Controls.UIColour uiColour3;
-        private User_Controls.UIColour uiColour4;
+        private UserControls.UIColour uiColour1;
+        private UserControls.UIColour uiColour2;
+        private UserControls.UIColour uiColour3;
+        private UserControls.UIColour uiColour4;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox8;

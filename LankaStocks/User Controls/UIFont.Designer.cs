@@ -1,4 +1,4 @@
-﻿namespace LankaStocks.User_Controls
+﻿namespace LankaStocks.UserControls
 {
     partial class UIFont
     {
