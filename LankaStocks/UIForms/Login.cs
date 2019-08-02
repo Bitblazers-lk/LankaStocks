@@ -38,7 +38,6 @@ namespace LankaStocks.UIForms
             string name = TxtName.Text;
             string pass = TxtPass.Text;
 
-            //TODO: Change this
             var logInResults = client.LoginCheck(name, pass);
 
             lblStatus.Text = logInResults.Item2;
@@ -80,7 +79,7 @@ namespace LankaStocks.UIForms
 
                 }
                 timer1.Enabled = false;
-            }         
+            }
         }
 
         private void buttonlogin_Click(object sender, EventArgs e)
