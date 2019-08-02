@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LankaStocks
@@ -114,10 +111,10 @@ namespace LankaStocks
             //Console.WriteLine(g.MeasureString(RowL, Font).Height);
             //Console.WriteLine(g.MeasureString("Invoice NO. :", Font).Height);
             int NO = 0;
-            float Total = 0;
+            decimal Total = 0;
             foreach (var s in Items)
             {
-                float amount = s.Price * s.Qty;
+                decimal amount = s.Price * s.Qty;
                 Total += amount;
                 NO++;
                 g.DrawString(NO.ToString(), Font, BlackBrush, (500 - g.MeasureString(RowL, Font).Width) / 2, Y);
@@ -177,9 +174,9 @@ namespace LankaStocks
 
     class BillItem
     {
-        public uint Code;
-        public string Name;
-        public float Price;
-        public float Qty;
+        public uint Code = 0;
+        public string Name = "Bill";
+        public decimal Price = 0M;
+        public decimal Qty = 0M;
     }
 }
