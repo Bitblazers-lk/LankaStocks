@@ -532,7 +532,7 @@
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label4
-            // 
+            //
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(4, 114);
