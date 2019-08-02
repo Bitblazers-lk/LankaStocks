@@ -145,6 +145,188 @@ namespace LankaStocks.DataBases
 
 
 
+        public abstract (dynamic, MemberType) Resolve(string expr);
+        public abstract void SetDataMember(string expr, dynamic data);
+
+        public enum MemberType : byte { notFound, data, obj, array, list, dic }
+
+
+        public virtual void Respond(Request req, ref Response resp)
+        {
+            var solv = Resolve(req.expr);
+            switch ((Request.Command)req.command)
+            {
+                case Request.Command.get:
+
+                    resp.result = (byte)Response.Result.ok;
+
+                    switch (solv.Item2)
+                    {
+                        case MemberType.notFound:
+                            resp.result = (byte)Response.Result.notfound;
+                            resp.obj = null;
+                            resp.msg += $"{req.expr} not found";
+                            break;
+
+
+                        case MemberType.data:
+                        case MemberType.obj:
+                            try
+                            {
+                                resp.obj = solv.Item1;
+                            }
+                            catch (Exception)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] {solv.Item2.ToString()} member not found";
+                            }
+                            break;
+
+
+                        case MemberType.array:
+                            try
+                            {
+                                resp.obj = solv.Item1[req.para[0]];
+                            }
+                            catch (Exception)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] not found in {solv.Item2.ToString()} member";
+                            }
+                            break;
+
+
+                        case MemberType.list:
+                            try
+                            {
+                                var lst = (List<dynamic>)solv.Item1;
+                                resp.obj = lst[(int)req.para[0]];
+                            }
+                            catch (Exception)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] not found in {solv.Item2.ToString()} member";
+                            }
+                            break;
+
+
+                        case MemberType.dic:
+                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
+                            if (d.TryGetValue(req.para[0], out dynamic val))
+                            {
+                                resp.obj = val;
+                            }
+                            else
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] not found in {solv.Item2.ToString()} member";
+                            }
+
+                            break;
+
+
+                        default:
+                            break;
+                    }
+                    break;
+                case Request.Command.set:
+
+
+                    resp.result = (byte)Response.Result.ok;
+
+                    switch (solv.Item2)
+                    {
+                        case MemberType.notFound:
+                            resp.result = (byte)Response.Result.notfound;
+                            resp.msg += $"{req.expr} not found";
+                            break;
+
+
+                        case MemberType.data:
+                        case MemberType.obj:
+                            try
+                            {
+                                SetDataMember(req.expr, req.para[0]);
+                            }
+                            catch (Exception)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] {solv.Item2.ToString()} member not found";
+                            }
+                            break;
+
+
+
+                        case MemberType.array:
+                            try
+                            {
+                                solv.Item1[req.para[0]] = req.para[0];
+                            }
+                            catch (Exception)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] not found in {solv.Item2.ToString()} member";
+                            }
+                            break;
+
+
+                        case MemberType.list:
+                            try
+                            {
+                                var lst = (List<dynamic>)solv.Item1;
+                                lst[(int)req.para[0]] = req.para[1];
+                            }
+                            catch (Exception)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] not found in {solv.Item2.ToString()} member";
+                            }
+                            break;
+
+
+                        case MemberType.dic:
+                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
+                            try
+                            {
+                                d[req.para[0]] = req.para[1];
+                            }
+                            catch (Exception)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] not found in {solv.Item2.ToString()} member";
+                            }
+
+                            break;
+
+
+                        default:
+                            break;
+                    }
+
+
+                    break;
+                case Request.Command.add:
+
+                    break;
+                case Request.Command.rem:
+
+                    break;
+                default:
+                    resp.result = (byte)Response.Result.unknown;
+                    resp.msg += "\n @DB cannot switch your command";
+                    break;
+            }
+
+        }
+
     }
 
     [Serializable]
@@ -163,20 +345,73 @@ namespace LankaStocks.DataBases
             Users.Add(100, new User() { userName = "amanda", userID = 100, isAdmin = true, name = "Amanda Nanda", pass = "200" });
             Users.Add(200, new User() { userName = "nimal", userID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "123" });
         }
+
+        public override (dynamic, MemberType) Resolve(string expr)
+        {
+            switch (expr)
+            {
+                case "Vendors":
+                    return (Vendors, MemberType.dic);
+                case "Users":
+                    return (Users, MemberType.dic);
+                case "OtherPeople":
+                    return (OtherPeople, MemberType.dic);
+                default:
+                    return (null, MemberType.notFound);
+            }
+        }
+
+        public override void SetDataMember(string expr, dynamic data)
+        {
+            //No data members here
+        }
     }
 
     [Serializable]
     public class DBLive : DB //Live database
     {
         public Dictionary<uint, Item> Items; //Stock item pool
-        public decimal Cashier = 0M;
+        public Dictionary<uint, decimal> Cashiers;
 
         public DBSession Session;
+
+
         public override void CreateNew()
         {
+            //TODO: Add cashiers for users
+            Cashiers = new Dictionary<uint, decimal>();
             Items = new Dictionary<uint, Item>();
             Session = new DBSession();
             Session.CreateNew();
+
+        }
+
+        public override (dynamic, MemberType) Resolve(string expr)
+        {
+            switch (expr)
+            {
+                case "Items":
+                    return (Items, MemberType.dic);
+                case "Cashiers":
+                    return (Cashiers, MemberType.dic);
+                case "Session":
+                    return (Session, MemberType.obj);
+                default:
+                    return (null, MemberType.notFound);
+            }
+        }
+
+        public override void SetDataMember(string expr, dynamic data)
+        {
+            switch (expr)
+            {
+                case "Session":
+                    Session = data;
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 
@@ -190,6 +425,32 @@ namespace LankaStocks.DataBases
         {
             Sessions = new List<string>();
             IdMachine = new IDMachine();
+        }
+        public override (dynamic, MemberType) Resolve(string expr)
+        {
+            switch (expr)
+            {
+                //TODO: Read history db from disk and send that. not path
+                case "Sessions":
+                    return (Sessions, MemberType.list);
+                case "IdMachine":
+                    return (IdMachine, MemberType.obj);
+                default:
+                    return (null, MemberType.notFound);
+            }
+        }
+
+        public override void SetDataMember(string expr, dynamic data)
+        {
+            switch (expr)
+            {
+                case "IdMachine":
+                    IdMachine = data;
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 
@@ -207,6 +468,39 @@ namespace LankaStocks.DataBases
             sessionBegin = DateTime.Now;
             Sales = new Dictionary<uint, BasicSale>();
             StockIntakes = new Dictionary<uint, StockIntake>();
+        }
+
+        public override (dynamic, MemberType) Resolve(string expr)
+        {
+            switch (expr)
+            {
+                case "sessionBegin":
+                    return (sessionBegin, MemberType.data);
+                case "sessionEnd":
+                    return (sessionEnd, MemberType.data);
+                case "Sales":
+                    return (Sales, MemberType.dic);
+                case "StockIntakes":
+                    return (StockIntakes, MemberType.dic);
+                default:
+                    return (null, MemberType.notFound);
+            }
+        }
+
+        public override void SetDataMember(string expr, dynamic data)
+        {
+            switch (expr)
+            {
+                case "sessionBegin":
+                    sessionBegin = (DateTime)data;
+                    break;
+                case "sessionEnd":
+                    sessionEnd = (DateTime)data;
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 
@@ -239,6 +533,35 @@ namespace LankaStocks.DataBases
                 ImagePath = null,
                 Font = new Font("Microsoft Sans Serif", 9.75f)
             };
+        }
+
+        public override (dynamic, MemberType) Resolve(string expr)
+        {
+            switch (expr)
+            {
+                case "billSetting":
+                    return (billSetting, MemberType.obj);
+                case "commonSettings":
+                    return (commonSettings, MemberType.obj);
+                default:
+                    return (null, MemberType.notFound);
+            }
+        }
+
+        public override void SetDataMember(string expr, dynamic data)
+        {
+            switch (expr)
+            {
+                case "sessionBegin":
+                    billSetting = data;
+                    break;
+                case "sessionEnd":
+                    commonSettings = data;
+                    break;
+                default:
+                    break;
+            }
+
         }
     }
 }
