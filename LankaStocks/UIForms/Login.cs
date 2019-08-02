@@ -19,7 +19,6 @@ namespace LankaStocks.UIForms
             this.gb.Location = new System.Drawing.Point(30, 73);
         }
 
-
         public Point downPoint = Point.Empty;
         bool ani = true;
 
@@ -54,8 +53,6 @@ namespace LankaStocks.UIForms
                 lblStatus.ForeColor = Color.PaleVioletRed;
             }
         }
-
-
 
         private void VisibaleControls(bool state)
         {
@@ -93,8 +90,6 @@ namespace LankaStocks.UIForms
             line.Top = buttonlogin.Top;
             VisibaleControls(true);
         }
-
-
 
         private void BtnLogin_Click(object sender, EventArgs e)
         {
