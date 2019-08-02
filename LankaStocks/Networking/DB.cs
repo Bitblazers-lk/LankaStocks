@@ -315,9 +315,94 @@ namespace LankaStocks.DataBases
                     break;
                 case Request.Command.add:
 
+                    switch (solv.Item2)
+                    {
+                        case MemberType.notFound:
+                            resp.result = (byte)Response.Result.notfound;
+                            resp.msg += $"{req.expr} not found";
+                            break;
+
+
+
+                        case MemberType.list:
+                            var lst = (List<dynamic>)solv.Item1;
+                            lst.Add(req.para[0]);
+
+                            break;
+
+
+                        case MemberType.dic:
+                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
+                            try
+                            {
+                                d.Add(req.para[0], req.para[1]);
+                            }
+                            catch (System.ArgumentException)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr}[{req.para[0]}] already exists in dictionary";
+                            }
+                            catch (Exception ex)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"Error {Core.ErrorStamp(ex, "Dictionary add error")}";
+                            }
+                            break;
+
+
+                        default:
+                            resp.result = (byte)Response.Result.notfound;
+                            resp.obj = null;
+                            resp.msg += $"{req.expr}[{req.para[0]}] not found in {solv.Item2.ToString()} member";
+                            break;
+                    }
                     break;
                 case Request.Command.rem:
+                    switch (solv.Item2)
+                    {
+                        case MemberType.notFound:
+                            resp.result = (byte)Response.Result.notfound;
+                            resp.msg += $"{req.expr} not found";
+                            break;
 
+
+
+                        case MemberType.list:
+                            var lst = (List<dynamic>)solv.Item1;
+                            if (req.para.Count() == 1) { lst.RemoveAt(req.para[0]); }
+                            else if (req.para.Count() > 1) { lst.Remove((object)req.para[1]); }
+                            else
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"{req.expr} wrong para.count for {solv.Item2.ToString()} member";
+                            }
+                            break;
+
+
+                        case MemberType.dic:
+                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
+                            try
+                            {
+                                d.Remove(req.para[0]);
+                            }
+                            catch (Exception ex)
+                            {
+                                resp.result = (byte)Response.Result.notfound;
+                                resp.obj = null;
+                                resp.msg += $"Error {Core.ErrorStamp(ex, "Dictionary add error")}";
+                            }
+                            break;
+
+
+                        default:
+                            resp.result = (byte)Response.Result.notfound;
+                            resp.obj = null;
+                            resp.msg += $"{req.expr}[{req.para[0]}] not found in {solv.Item2.ToString()} member";
+                            break;
+                    }
                     break;
                 default:
                     resp.result = (byte)Response.Result.unknown;

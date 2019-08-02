@@ -71,17 +71,11 @@ namespace LankaStocks
 
                     break;
                 case Request.Command.exec:
-
+                    Execute(req, ref resp);
                     break;
                 case Request.Command.get:
-                    RespondGetSetAddRem(req, ref resp);
-                    break;
                 case Request.Command.set:
-                    RespondGetSetAddRem(req, ref resp);
-                    break;
                 case Request.Command.add:
-                    RespondGetSetAddRem(req, ref resp);
-                    break;
                 case Request.Command.rem:
                     RespondGetSetAddRem(req, ref resp);
                     break;
@@ -93,6 +87,20 @@ namespace LankaStocks
 
             return resp;
         }
+
+        public void Execute(Request req, ref Response resp)
+        {
+            resp.result = (byte)Response.Result.ok;
+            switch (req.expr)
+            {
+                case "login":
+                    resp.obj = LoginCheck(req.para[0], req.para[1]);
+                    break;
+                default:
+                    break;
+            }
+        }
+
 
         public void RespondGetSetAddRem(Request req, ref Response resp)
         {

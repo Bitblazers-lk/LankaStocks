@@ -61,9 +61,15 @@ namespace LankaStocks
 
         public static void LogErr(Exception ex, string note = "")
         {
-            Log($"!!! Error {ex.ToString()} \t {note} \t {ex.Message} \t source : {ex.Source};\t Inner : {ex.InnerException?.ToString()} {ex.InnerException?.Message}; \n @{ex.StackTrace} \n Inner @{ex.InnerException?.StackTrace}");
+            Log(ErrorStamp(ex, note));
 
         }
+
+        public static string ErrorStamp(Exception ex, string note)
+        {
+            return $"!!! Error {ex.ToString()} \t {note} \t {ex.Message} \t source : {ex.Source};\t Inner : {ex.InnerException?.ToString()} {ex.InnerException?.Message}; \n @{ex.StackTrace} \n Inner @{ex.InnerException?.StackTrace}";
+        }
+
         public static string TimeStamp => $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}\t";
 
         #endregion
