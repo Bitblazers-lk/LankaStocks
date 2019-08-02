@@ -1,4 +1,4 @@
-﻿namespace LankaStocks.User_Controls
+﻿namespace LankaStocks.UserControls
 {
     partial class UIStockIntake
     {
@@ -37,7 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.uiTransaction1 = new LankaStocks.User_Controls.UITransaction();
+            this.uiTransaction1 = new LankaStocks.UserControls.UITransaction();
             this.Qty = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();

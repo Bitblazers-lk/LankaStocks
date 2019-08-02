@@ -1,4 +1,4 @@
-﻿namespace LankaStocks.User_Controls
+﻿namespace LankaStocks.UserControls
 {
     partial class UIUser
     {
@@ -38,7 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.UserPass = new System.Windows.Forms.TextBox();
             this.IsAdmin = new System.Windows.Forms.ComboBox();
-            this.uiPerson1 = new LankaStocks.User_Controls.UIPerson();
+            this.uiPerson1 = new LankaStocks.UserControls.UIPerson();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();

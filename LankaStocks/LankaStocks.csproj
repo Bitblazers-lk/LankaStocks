@@ -47,6 +47,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,13 +58,17 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
     <Reference Include="XanderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bills.cs" />
     <Compile Include="core.cs" />
     <Compile Include="DB.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Shared.cs" />
     <Compile Include="UIForms\AddItems.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +98,18 @@
     </Compile>
     <Compile Include="UIForms\FrmanageItems.Designer.cs">
       <DependentUpon>FrmanageItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\FrmQuickSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmQuickSale.Designer.cs">
+      <DependentUpon>FrmQuickSale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\FrmRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmRefund.Designer.cs">
+      <DependentUpon>FrmRefund.cs</DependentUpon>
     </Compile>
     <Compile Include="UIForms\FrmSales.cs">
       <SubType>Form</SubType>
@@ -250,6 +267,12 @@
     <EmbeddedResource Include="UIForms\FrmanageItems.resx">
       <DependentUpon>FrmanageItems.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmQuickSale.resx">
+      <DependentUpon>FrmQuickSale.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmRefund.resx">
+      <DependentUpon>FrmRefund.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\FrmSales.resx">
       <DependentUpon>FrmSales.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,11 +369,14 @@
     <None Include="Images\menu_24px.png" />
     <Content Include="Images\minus_24px.png" />
     <Content Include="Images\money_bag_24px.png" />
+    <None Include="Images\password_24px.png" />
     <Content Include="Images\Picture1.png" />
     <Content Include="Images\plus_math_24px.png" />
     <None Include="Images\purchase_order_24px.png" />
     <Content Include="Images\recurring_appointment_24px.png" />
+    <None Include="Images\refund_2_24px.png" />
     <Content Include="Images\save_24px.png" />
+    <None Include="Images\sell_24px.png" />
     <Content Include="Images\sell_property_24px.png" />
     <None Include="Images\settings3_24px.png" />
     <Content Include="Images\settings_3_24px.png" />
@@ -358,8 +384,10 @@
     <Content Include="Images\Stock_Management_System.jpg" />
     <Content Include="Images\Tall Person_24px.png" />
     <Content Include="Images\total_sales_1_24px.png" />
+    <None Include="Images\user_24px.png" />
     <Content Include="Images\user_male_circle_24px.png" />
     <None Include="Resources\picture1_2el_icon.ico" />
+    <None Include="Resources\flag-1024x430.jpg" />
     <Content Include="XanderUI.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,4 +1,4 @@
-﻿namespace LankaStocks.UIForms
+﻿namespace LankaStocks.UserControls
 {
     partial class UIAbout
     {

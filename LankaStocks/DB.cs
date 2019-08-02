@@ -4,8 +4,9 @@ using System.Linq;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using static LankaStocks.Core;
 using System.Drawing;
+using static LankaStocks.Core;
+using LankaStocks.Settings;
 
 namespace LankaStocks.DataBases
 {

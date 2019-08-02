@@ -6,6 +6,7 @@ using System.IO;
 using System.Threading.Tasks;
 using LankaStocks.DataBases;
 using System.Windows.Forms;
+using LankaStocks.UIForms;
 
 namespace LankaStocks
 {
@@ -87,5 +88,20 @@ namespace LankaStocks
             //Save everything
             Application.Exit();
         }
+    }
+
+
+    public static class Forms
+    {
+        public static Login login;
+        public static Dashboard dashboard;
+        public static AddData addData;
+        public static AddItems addItems;
+        public static ItemIntake itemIntake;
+        public static FrmanageData frmanageData;
+        public static FrmanageItems frmanageItems;
+        public static FrmSales frmSales;
+        public static FrmTransaction frmTransaction;
+        public static FrmSettings frmSettings;
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.uiSaveData1 = new LankaStocks.User_Controls.UISaveData();
-            this.uiStockIntake1 = new LankaStocks.User_Controls.UIStockIntake();
+            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
+            this.uiStockIntake1 = new LankaStocks.UserControls.UIStockIntake();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,7 +84,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private User_Controls.UISaveData uiSaveData1;
-        private User_Controls.UIStockIntake uiStockIntake1;
+        private UserControls.UISaveData uiSaveData1;
+        private UserControls.UIStockIntake uiStockIntake1;
     }
 }

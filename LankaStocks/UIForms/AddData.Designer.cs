@@ -34,7 +34,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnhide = new System.Windows.Forms.Button();
-            this.uiSaveData1 = new LankaStocks.User_Controls.UISaveData();
+            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -171,7 +171,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private User_Controls.UISaveData uiSaveData1;
+        private UserControls.UISaveData uiSaveData1;
         private System.Windows.Forms.Panel panel3;
     }
 }

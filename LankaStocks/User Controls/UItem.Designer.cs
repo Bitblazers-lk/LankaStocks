@@ -1,4 +1,4 @@
-﻿namespace LankaStocks
+﻿namespace LankaStocks.UserControls
 {
     partial class UItem
     {

@@ -1,4 +1,4 @@
-﻿namespace LankaStocks.User_Controls
+﻿namespace LankaStocks.UserControls
 {
     partial class UIBasicSale
     {
@@ -200,8 +200,7 @@
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 4;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.RowCount = 3;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -213,9 +212,11 @@
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Orange;
+            this.button2.Image = global::LankaStocks.Properties.Resources.refund_2_24px;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(3, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 27);
+            this.button2.Size = new System.Drawing.Size(138, 38);
             this.button2.TabIndex = 0;
             this.button2.Text = "Refund";
             this.button2.UseVisualStyleBackColor = true;
@@ -225,9 +226,9 @@
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Orange;
-            this.button3.Location = new System.Drawing.Point(3, 36);
+            this.button3.Location = new System.Drawing.Point(3, 47);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(138, 27);
+            this.button3.Size = new System.Drawing.Size(138, 38);
             this.button3.TabIndex = 1;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
@@ -237,9 +238,9 @@
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.Orange;
-            this.button4.Location = new System.Drawing.Point(3, 69);
+            this.button4.Location = new System.Drawing.Point(3, 91);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(138, 27);
+            this.button4.Size = new System.Drawing.Size(138, 40);
             this.button4.TabIndex = 2;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
