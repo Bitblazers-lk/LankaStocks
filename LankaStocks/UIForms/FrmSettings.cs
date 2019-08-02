@@ -15,7 +15,15 @@ namespace LankaStocks.UIForms
         public FrmSettings()
         {
             InitializeComponent();
-            
+
+            // if(Core.client.)
+
+            uiSaveData1.Save.Click += Save_Click;
+
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
         }
     }
 }
