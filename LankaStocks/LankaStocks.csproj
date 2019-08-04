@@ -187,11 +187,11 @@
     <Compile Include="User Controls\UIColour.Designer.cs">
       <DependentUpon>UIColour.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIFont.cs">
+    <Compile Include="User Controls\UIManageData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIFont.Designer.cs">
-      <DependentUpon>UIFont.cs</DependentUpon>
+    <Compile Include="User Controls\UIManageData.Designer.cs">
+      <DependentUpon>UIManageData.cs</DependentUpon>
     </Compile>
     <Compile Include="User Controls\UIMenu.cs">
       <SubType>UserControl</SubType>
@@ -305,8 +305,8 @@
     <EmbeddedResource Include="User Controls\UIColour.resx">
       <DependentUpon>UIColour.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIFont.resx">
-      <DependentUpon>UIFont.cs</DependentUpon>
+    <EmbeddedResource Include="User Controls\UIManageData.resx">
+      <DependentUpon>UIManageData.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User Controls\UIMenu.resx">
       <DependentUpon>UIMenu.cs</DependentUpon>
@@ -372,6 +372,8 @@
     <Content Include="Images\minus_24px.png" />
     <Content Include="Images\money_bag_24px.png" />
     <None Include="Images\password_24px.png" />
+    <None Include="Images\ms_excel_24px.png" />
+    <None Include="Images\open_view_24px.png" />
     <Content Include="Images\Picture1.png" />
     <Content Include="Images\plus_math_24px.png" />
     <None Include="Images\purchase_order_24px.png" />

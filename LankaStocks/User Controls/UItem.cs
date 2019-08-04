@@ -17,7 +17,8 @@ namespace LankaStocks.UserControls
         {
             InitializeComponent();
         }
-        string _Code;
+
+        private string _Code;
         private void UI_MouseClick(object sender, MouseEventArgs e)
         {
             Console.WriteLine("OKK");

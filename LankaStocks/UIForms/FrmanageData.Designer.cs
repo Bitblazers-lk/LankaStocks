@@ -45,10 +45,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 741);
+            this.panel1.Location = new System.Drawing.Point(0, 743);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1444, 12);
+            this.panel1.Size = new System.Drawing.Size(1444, 10);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -63,7 +63,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 741);
+            this.panel2.Size = new System.Drawing.Size(200, 743);
             this.panel2.TabIndex = 15;
             // 
             // button3
@@ -150,7 +150,7 @@
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1244, 741);
+            this.panel3.Size = new System.Drawing.Size(1244, 743);
             this.panel3.TabIndex = 17;
             // 
             // FrmanageData

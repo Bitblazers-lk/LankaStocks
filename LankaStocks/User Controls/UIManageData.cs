@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace LankaStocks.UserControls
 {
-    public partial class UIFont : UserControl
+    public partial class UIManageData : UserControl
     {
-        public UIFont()
+        public UIManageData()
         {
             InitializeComponent();
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
