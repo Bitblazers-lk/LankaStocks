@@ -157,88 +157,88 @@
     <Compile Include="UIForms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIAbout.cs">
+    <Compile Include="UserControls\UIAbout.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIAbout.Designer.cs">
+    <Compile Include="UserControls\UIAbout.Designer.cs">
       <DependentUpon>UIAbout.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIAddItem.cs">
+    <Compile Include="UserControls\UIAddItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIAddItem.Designer.cs">
+    <Compile Include="UserControls\UIAddItem.Designer.cs">
       <DependentUpon>UIAddItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIBasicSale.cs">
+    <Compile Include="UserControls\UIBasicSale.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIBasicSale.Designer.cs">
+    <Compile Include="UserControls\UIBasicSale.Designer.cs">
       <DependentUpon>UIBasicSale.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIBillPreview.cs">
+    <Compile Include="UserControls\UIBillPreview.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIBillPreview.Designer.cs">
+    <Compile Include="UserControls\UIBillPreview.Designer.cs">
       <DependentUpon>UIBillPreview.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIColour.cs">
+    <Compile Include="UserControls\UIColour.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIColour.Designer.cs">
+    <Compile Include="UserControls\UIColour.Designer.cs">
       <DependentUpon>UIColour.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIManageData.cs">
+    <Compile Include="UserControls\UIManageData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIManageData.Designer.cs">
+    <Compile Include="UserControls\UIManageData.Designer.cs">
       <DependentUpon>UIManageData.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIMenu.cs">
+    <Compile Include="UserControls\UIMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIMenu.Designer.cs">
+    <Compile Include="UserControls\UIMenu.Designer.cs">
       <DependentUpon>UIMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIPerson.cs">
+    <Compile Include="UserControls\UIPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIPerson.Designer.cs">
+    <Compile Include="UserControls\UIPerson.Designer.cs">
       <DependentUpon>UIPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UISaveData.cs">
+    <Compile Include="UserControls\UISaveData.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UISaveData.Designer.cs">
+    <Compile Include="UserControls\UISaveData.Designer.cs">
       <DependentUpon>UISaveData.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIStockIntake.cs">
+    <Compile Include="UserControls\UIStockIntake.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIStockIntake.Designer.cs">
+    <Compile Include="UserControls\UIStockIntake.Designer.cs">
       <DependentUpon>UIStockIntake.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UItem.cs">
+    <Compile Include="UserControls\UItem.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UItem.Designer.cs">
+    <Compile Include="UserControls\UItem.Designer.cs">
       <DependentUpon>UItem.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UITransaction.cs">
+    <Compile Include="UserControls\UITransaction.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UITransaction.Designer.cs">
+    <Compile Include="UserControls\UITransaction.Designer.cs">
       <DependentUpon>UITransaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIUser.cs">
+    <Compile Include="UserControls\UIUser.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIUser.Designer.cs">
+    <Compile Include="UserControls\UIUser.Designer.cs">
       <DependentUpon>UIUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\UIVendor.cs">
+    <Compile Include="UserControls\UIVendor.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="User Controls\UIVendor.Designer.cs">
+    <Compile Include="UserControls\UIVendor.Designer.cs">
       <DependentUpon>UIVendor.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -290,46 +290,46 @@
     <EmbeddedResource Include="UIForms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIAbout.resx">
+    <EmbeddedResource Include="UserControls\UIAbout.resx">
       <DependentUpon>UIAbout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIAddItem.resx">
+    <EmbeddedResource Include="UserControls\UIAddItem.resx">
       <DependentUpon>UIAddItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIBasicSale.resx">
+    <EmbeddedResource Include="UserControls\UIBasicSale.resx">
       <DependentUpon>UIBasicSale.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIBillPreview.resx">
+    <EmbeddedResource Include="UserControls\UIBillPreview.resx">
       <DependentUpon>UIBillPreview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIColour.resx">
+    <EmbeddedResource Include="UserControls\UIColour.resx">
       <DependentUpon>UIColour.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIManageData.resx">
+    <EmbeddedResource Include="UserControls\UIManageData.resx">
       <DependentUpon>UIManageData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIMenu.resx">
+    <EmbeddedResource Include="UserControls\UIMenu.resx">
       <DependentUpon>UIMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIPerson.resx">
+    <EmbeddedResource Include="UserControls\UIPerson.resx">
       <DependentUpon>UIPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UISaveData.resx">
+    <EmbeddedResource Include="UserControls\UISaveData.resx">
       <DependentUpon>UISaveData.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIStockIntake.resx">
+    <EmbeddedResource Include="UserControls\UIStockIntake.resx">
       <DependentUpon>UIStockIntake.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UItem.resx">
+    <EmbeddedResource Include="UserControls\UItem.resx">
       <DependentUpon>UItem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UITransaction.resx">
+    <EmbeddedResource Include="UserControls\UITransaction.resx">
       <DependentUpon>UITransaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIUser.resx">
+    <EmbeddedResource Include="UserControls\UIUser.resx">
       <DependentUpon>UIUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User Controls\UIVendor.resx">
+    <EmbeddedResource Include="UserControls\UIVendor.resx">
       <DependentUpon>UIVendor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
