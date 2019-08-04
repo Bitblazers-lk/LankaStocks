@@ -183,6 +183,7 @@
             this.Liability.ForeColor = System.Drawing.Color.Orange;
             this.Liability.Location = new System.Drawing.Point(83, 87);
             this.Liability.Name = "Liability";
+            this.Liability.ReadOnly = true;
             this.Liability.Size = new System.Drawing.Size(314, 20);
             this.Liability.TabIndex = 7;
             this.Liability.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Liability_KeyDown);

@@ -16,5 +16,35 @@ namespace LankaStocks.UIForms
         {
             InitializeComponent();
         }
+
+        private void TxtInNO_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TxtCode_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TxtQyt_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

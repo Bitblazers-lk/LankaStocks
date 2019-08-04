@@ -18,12 +18,16 @@ namespace LankaStocks.UIForms
         {
             InitializeComponent();
 
-            // if(Core.client.)
             uiColourMenu.Browse.Click += MenuBrowse_Click;
             uiColourBack.Browse.Click += BackBrowse_Click;
             uiColourItem.Browse.Click += ItemBrowse_Click;
             uiColourFont.Browse.Click += FontBrowse_Click;
+
+            uiSaveData.Save.Click+= Save_Click;
+            uiSaveData.RefreshAll.Click += Refresh_Click;
+            uiSaveData.Cancel.Click += Cancel_Click;
         }
+
         private void MenuBrowse_Click(object sender, EventArgs e)
         {
             CD.AllowFullOpen = false;
@@ -71,7 +75,18 @@ namespace LankaStocks.UIForms
 
         private void Save_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("OK");
+          
         }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+          
+        }
+
     }
 }

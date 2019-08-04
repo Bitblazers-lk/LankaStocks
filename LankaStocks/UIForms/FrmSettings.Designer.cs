@@ -47,6 +47,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.uiColourMenu = new LankaStocks.UserControls.UIColour();
+            this.uiColourBack = new LankaStocks.UserControls.UIColour();
+            this.uiColourItem = new LankaStocks.UserControls.UIColour();
+            this.uiColourFont = new LankaStocks.UserControls.UIColour();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -68,11 +72,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.uiColourMenu = new LankaStocks.UserControls.UIColour();
-            this.uiColourBack = new LankaStocks.UserControls.UIColour();
-            this.uiColourItem = new LankaStocks.UserControls.UIColour();
-            this.uiColourFont = new LankaStocks.UserControls.UIColour();
-            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
+            this.uiSaveData = new LankaStocks.UserControls.UISaveData();
             this.CD = new System.Windows.Forms.ColorDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -339,6 +339,46 @@
             this.button1.Text = "Browse";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // uiColourMenu
+            // 
+            this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourMenu.Location = new System.Drawing.Point(109, 3);
+            this.uiColourMenu.Name = "uiColourMenu";
+            this.uiColourMenu.Size = new System.Drawing.Size(338, 28);
+            this.uiColourMenu.TabIndex = 18;
+            // 
+            // uiColourBack
+            // 
+            this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourBack.Location = new System.Drawing.Point(109, 37);
+            this.uiColourBack.Name = "uiColourBack";
+            this.uiColourBack.Size = new System.Drawing.Size(338, 28);
+            this.uiColourBack.TabIndex = 19;
+            // 
+            // uiColourItem
+            // 
+            this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourItem.Location = new System.Drawing.Point(109, 71);
+            this.uiColourItem.Name = "uiColourItem";
+            this.uiColourItem.Size = new System.Drawing.Size(338, 28);
+            this.uiColourItem.TabIndex = 20;
+            // 
+            // uiColourFont
+            // 
+            this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourFont.Location = new System.Drawing.Point(109, 105);
+            this.uiColourFont.Name = "uiColourFont";
+            this.uiColourFont.Size = new System.Drawing.Size(338, 28);
+            this.uiColourFont.TabIndex = 21;
+            // 
             // numericUpDown1
             // 
             this.numericUpDown1.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -406,7 +446,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(916, 318);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(916, 315);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -443,7 +483,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50156F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50156F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50156F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(450, 310);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(450, 307);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -537,7 +577,7 @@
             this.label8.Location = new System.Drawing.Point(4, 266);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 44);
+            this.label8.Size = new System.Drawing.Size(98, 41);
             this.label8.TabIndex = 7;
             this.label8.Text = "Perview :";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -634,55 +674,15 @@
             this.comboBox2.Size = new System.Drawing.Size(336, 24);
             this.comboBox2.TabIndex = 15;
             // 
-            // uiColourMenu
+            // uiSaveData
             // 
-            this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourMenu.Location = new System.Drawing.Point(109, 3);
-            this.uiColourMenu.Name = "uiColourMenu";
-            this.uiColourMenu.Size = new System.Drawing.Size(338, 28);
-            this.uiColourMenu.TabIndex = 18;
-            // 
-            // uiColourBack
-            // 
-            this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourBack.Location = new System.Drawing.Point(109, 37);
-            this.uiColourBack.Name = "uiColourBack";
-            this.uiColourBack.Size = new System.Drawing.Size(338, 28);
-            this.uiColourBack.TabIndex = 19;
-            // 
-            // uiColourItem
-            // 
-            this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourItem.Location = new System.Drawing.Point(109, 71);
-            this.uiColourItem.Name = "uiColourItem";
-            this.uiColourItem.Size = new System.Drawing.Size(338, 28);
-            this.uiColourItem.TabIndex = 20;
-            // 
-            // uiColourFont
-            // 
-            this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourFont.Location = new System.Drawing.Point(109, 105);
-            this.uiColourFont.Name = "uiColourFont";
-            this.uiColourFont.Size = new System.Drawing.Size(338, 28);
-            this.uiColourFont.TabIndex = 21;
-            // 
-            // uiSaveData1
-            // 
-            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
-            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData1.Location = new System.Drawing.Point(0, 352);
-            this.uiSaveData1.Margin = new System.Windows.Forms.Padding(5);
-            this.uiSaveData1.Name = "uiSaveData1";
-            this.uiSaveData1.Size = new System.Drawing.Size(932, 76);
-            this.uiSaveData1.TabIndex = 1;
+            this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
+            this.uiSaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiSaveData.Location = new System.Drawing.Point(0, 352);
+            this.uiSaveData.Margin = new System.Windows.Forms.Padding(5);
+            this.uiSaveData.Name = "uiSaveData";
+            this.uiSaveData.Size = new System.Drawing.Size(932, 76);
+            this.uiSaveData.TabIndex = 1;
             // 
             // FrmSettings
             // 
@@ -691,7 +691,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(932, 428);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.uiSaveData1);
+            this.Controls.Add(this.uiSaveData);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Orange;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -718,7 +718,7 @@
 
         #endregion
 
-        private UserControls.UISaveData uiSaveData1;
+        private UserControls.UISaveData uiSaveData;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

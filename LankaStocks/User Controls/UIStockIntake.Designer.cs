@@ -36,9 +36,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.uiTransaction1 = new LankaStocks.UserControls.UITransaction();
             this.Qty = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiTransaction = new LankaStocks.UserControls.UITransaction();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -150,27 +150,6 @@
             this.label4.Text = "Qty. :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.uiTransaction1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.ForeColor = System.Drawing.Color.Orange;
-            this.groupBox1.Location = new System.Drawing.Point(0, 108);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 376);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Transaction";
-            // 
-            // uiTransaction1
-            // 
-            this.uiTransaction1.BackColor = System.Drawing.Color.Transparent;
-            this.uiTransaction1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiTransaction1.Location = new System.Drawing.Point(3, 16);
-            this.uiTransaction1.Name = "uiTransaction1";
-            this.uiTransaction1.Size = new System.Drawing.Size(418, 357);
-            this.uiTransaction1.TabIndex = 0;
-            // 
             // Qty
             // 
             this.Qty.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -183,6 +162,27 @@
             this.Qty.Text = "0";
             this.Qty.TextChanged += new System.EventHandler(this.Qty_TextChanged);
             this.Qty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Qty_KeyDown_1);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.uiTransaction);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.ForeColor = System.Drawing.Color.Orange;
+            this.groupBox1.Location = new System.Drawing.Point(0, 108);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(424, 376);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Transaction";
+            // 
+            // uiTransaction
+            // 
+            this.uiTransaction.BackColor = System.Drawing.Color.Transparent;
+            this.uiTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiTransaction.Location = new System.Drawing.Point(3, 16);
+            this.uiTransaction.Name = "uiTransaction";
+            this.uiTransaction.Size = new System.Drawing.Size(418, 357);
+            this.uiTransaction.TabIndex = 0;
             // 
             // UIStockIntake
             // 
@@ -208,10 +208,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        public UITransaction uiTransaction1;
+        public UITransaction uiTransaction;
         public System.Windows.Forms.TextBox IntakeID;
         public System.Windows.Forms.ComboBox VendorID;
         public System.Windows.Forms.ComboBox ItemID;
-        private System.Windows.Forms.TextBox Qty;
+        public System.Windows.Forms.TextBox Qty;
     }
 }

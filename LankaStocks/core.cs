@@ -89,5 +89,7 @@ namespace LankaStocks
         public static FrmSales frmSales;
         public static FrmTransaction frmTransaction;
         public static FrmSettings frmSettings;
+        public static FrmQuickSale frmQuickSale;
+        public static FrmRefund frmRefund;
     }
 }

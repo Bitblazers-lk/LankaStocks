@@ -30,11 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnUser = new System.Windows.Forms.Button();
+            this.btnVendor = new System.Windows.Forms.Button();
+            this.btnPerson = new System.Windows.Forms.Button();
             this.btnhide = new System.Windows.Forms.Button();
-            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
+            this.uiSaveData = new LankaStocks.UserControls.UISaveData();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -52,9 +52,9 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.btnUser);
+            this.panel2.Controls.Add(this.btnVendor);
+            this.panel2.Controls.Add(this.btnPerson);
             this.panel2.Controls.Add(this.btnhide);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 0);
@@ -63,50 +63,50 @@
             this.panel2.Size = new System.Drawing.Size(200, 469);
             this.panel2.TabIndex = 15;
             // 
-            // button3
+            // btnUser
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Orange;
-            this.button3.Image = global::LankaStocks.Properties.Resources.user_male_circle_24px;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(4, 212);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(196, 57);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "User";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnUser.FlatAppearance.BorderSize = 0;
+            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUser.ForeColor = System.Drawing.Color.Orange;
+            this.btnUser.Image = global::LankaStocks.Properties.Resources.user_male_circle_24px;
+            this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUser.Location = new System.Drawing.Point(4, 212);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(4);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(196, 57);
+            this.btnUser.TabIndex = 13;
+            this.btnUser.Text = "User";
+            this.btnUser.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnVendor
             // 
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Orange;
-            this.button2.Image = global::LankaStocks.Properties.Resources.anonymous_mask_24px;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(4, 148);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 57);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Vendor";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnVendor.FlatAppearance.BorderSize = 0;
+            this.btnVendor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVendor.ForeColor = System.Drawing.Color.Orange;
+            this.btnVendor.Image = global::LankaStocks.Properties.Resources.anonymous_mask_24px;
+            this.btnVendor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVendor.Location = new System.Drawing.Point(4, 148);
+            this.btnVendor.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVendor.Name = "btnVendor";
+            this.btnVendor.Size = new System.Drawing.Size(196, 57);
+            this.btnVendor.TabIndex = 12;
+            this.btnVendor.Text = "Vendor";
+            this.btnVendor.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnPerson
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.Image = global::LankaStocks.Properties.Resources.Tall_Person_24px;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(4, 84);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 57);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Person";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnPerson.FlatAppearance.BorderSize = 0;
+            this.btnPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPerson.ForeColor = System.Drawing.Color.Orange;
+            this.btnPerson.Image = global::LankaStocks.Properties.Resources.Tall_Person_24px;
+            this.btnPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPerson.Location = new System.Drawing.Point(4, 84);
+            this.btnPerson.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPerson.Name = "btnPerson";
+            this.btnPerson.Size = new System.Drawing.Size(196, 57);
+            this.btnPerson.TabIndex = 11;
+            this.btnPerson.Text = "Person";
+            this.btnPerson.UseVisualStyleBackColor = true;
             // 
             // btnhide
             // 
@@ -124,15 +124,15 @@
             this.btnhide.UseVisualStyleBackColor = true;
             this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
             // 
-            // uiSaveData1
+            // uiSaveData
             // 
-            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
-            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData1.Location = new System.Drawing.Point(200, 407);
-            this.uiSaveData1.Margin = new System.Windows.Forms.Padding(4);
-            this.uiSaveData1.Name = "uiSaveData1";
-            this.uiSaveData1.Size = new System.Drawing.Size(543, 62);
-            this.uiSaveData1.TabIndex = 16;
+            this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
+            this.uiSaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiSaveData.Location = new System.Drawing.Point(200, 407);
+            this.uiSaveData.Margin = new System.Windows.Forms.Padding(4);
+            this.uiSaveData.Name = "uiSaveData";
+            this.uiSaveData.Size = new System.Drawing.Size(543, 62);
+            this.uiSaveData.TabIndex = 16;
             // 
             // panel3
             // 
@@ -150,7 +150,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(743, 481);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.uiSaveData1);
+            this.Controls.Add(this.uiSaveData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -168,10 +168,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnhide;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private UserControls.UISaveData uiSaveData1;
+        private System.Windows.Forms.Button btnUser;
+        private System.Windows.Forms.Button btnVendor;
+        private System.Windows.Forms.Button btnPerson;
+        private UserControls.UISaveData uiSaveData;
         private System.Windows.Forms.Panel panel3;
     }
 }

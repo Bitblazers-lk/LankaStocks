@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
-            this.uiAddItem1 = new LankaStocks.UserControls.UIAddItem();
+            this.uiSaveData = new LankaStocks.UserControls.UISaveData();
+            this.uiAddItem = new LankaStocks.UserControls.UIAddItem();
             this.SuspendLayout();
             // 
             // panel1
@@ -43,25 +43,25 @@
             this.panel1.Size = new System.Drawing.Size(540, 12);
             this.panel1.TabIndex = 14;
             // 
-            // uiSaveData1
+            // uiSaveData
             // 
-            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
-            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData1.Location = new System.Drawing.Point(0, 248);
-            this.uiSaveData1.Margin = new System.Windows.Forms.Padding(4);
-            this.uiSaveData1.Name = "uiSaveData1";
-            this.uiSaveData1.Size = new System.Drawing.Size(540, 62);
-            this.uiSaveData1.TabIndex = 16;
+            this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
+            this.uiSaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiSaveData.Location = new System.Drawing.Point(0, 248);
+            this.uiSaveData.Margin = new System.Windows.Forms.Padding(4);
+            this.uiSaveData.Name = "uiSaveData";
+            this.uiSaveData.Size = new System.Drawing.Size(540, 62);
+            this.uiSaveData.TabIndex = 16;
             // 
-            // uiAddItem1
+            // uiAddItem
             // 
-            this.uiAddItem1.BackColor = System.Drawing.Color.Transparent;
-            this.uiAddItem1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiAddItem1.Location = new System.Drawing.Point(0, 0);
-            this.uiAddItem1.Margin = new System.Windows.Forms.Padding(4);
-            this.uiAddItem1.Name = "uiAddItem1";
-            this.uiAddItem1.Size = new System.Drawing.Size(540, 248);
-            this.uiAddItem1.TabIndex = 17;
+            this.uiAddItem.BackColor = System.Drawing.Color.Transparent;
+            this.uiAddItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiAddItem.Location = new System.Drawing.Point(0, 0);
+            this.uiAddItem.Margin = new System.Windows.Forms.Padding(4);
+            this.uiAddItem.Name = "uiAddItem";
+            this.uiAddItem.Size = new System.Drawing.Size(540, 248);
+            this.uiAddItem.TabIndex = 17;
             // 
             // AddItems
             // 
@@ -69,8 +69,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(540, 322);
-            this.Controls.Add(this.uiAddItem1);
-            this.Controls.Add(this.uiSaveData1);
+            this.Controls.Add(this.uiAddItem);
+            this.Controls.Add(this.uiSaveData);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -84,7 +84,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private UserControls.UISaveData uiSaveData1;
-        private UserControls.UIAddItem uiAddItem1;
+        private UserControls.UISaveData uiSaveData;
+        private UserControls.UIAddItem uiAddItem;
     }
 }

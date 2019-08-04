@@ -32,6 +32,9 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.line = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.buttonabout = new System.Windows.Forms.Button();
+            this.buttonlogin = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Animator = new XanderUI.XUIObjectAnimator();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -44,17 +47,15 @@
             this.TxtPass = new System.Windows.Forms.TextBox();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.gb = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonabout = new System.Windows.Forms.Button();
-            this.buttonlogin = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
             this.gb.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +93,50 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(167, 380);
             this.panel1.TabIndex = 13;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::LankaStocks.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(-7, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(169, 142);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
+            // buttonabout
+            // 
+            this.buttonabout.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
+            this.buttonabout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonabout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonabout.ForeColor = System.Drawing.Color.White;
+            this.buttonabout.Image = global::LankaStocks.Properties.Resources.about_us_24px;
+            this.buttonabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonabout.Location = new System.Drawing.Point(0, 340);
+            this.buttonabout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonabout.Name = "buttonabout";
+            this.buttonabout.Size = new System.Drawing.Size(165, 38);
+            this.buttonabout.TabIndex = 2;
+            this.buttonabout.Text = "About";
+            this.buttonabout.UseVisualStyleBackColor = true;
+            // 
+            // buttonlogin
+            // 
+            this.buttonlogin.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
+            this.buttonlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonlogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonlogin.ForeColor = System.Drawing.Color.White;
+            this.buttonlogin.Image = global::LankaStocks.Properties.Resources.key_24px;
+            this.buttonlogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonlogin.Location = new System.Drawing.Point(0, 151);
+            this.buttonlogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonlogin.Name = "buttonlogin";
+            this.buttonlogin.Size = new System.Drawing.Size(165, 38);
+            this.buttonlogin.TabIndex = 1;
+            this.buttonlogin.Text = "Login";
+            this.buttonlogin.UseVisualStyleBackColor = true;
+            this.buttonlogin.Click += new System.EventHandler(this.Buttonlogin_Click);
             // 
             // timer1
             // 
@@ -144,6 +189,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.panel2.Controls.Add(this.progressBar);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.BtnLogin);
@@ -229,6 +275,16 @@
             this.gb.Size = new System.Drawing.Size(580, 184);
             this.gb.TabIndex = 5;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::LankaStocks.Properties.Resources.flag_1024x430;
+            this.pictureBox2.Location = new System.Drawing.Point(170, 87);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(240, 100);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -253,59 +309,13 @@
             this.label1.Text = ". . . . . . LankaStocks . . . . . .";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // pictureBox1
+            // progressBar
             // 
-            this.pictureBox1.Image = global::LankaStocks.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(-7, 4);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(169, 142);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
-            // 
-            // buttonabout
-            // 
-            this.buttonabout.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
-            this.buttonabout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonabout.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonabout.ForeColor = System.Drawing.Color.White;
-            this.buttonabout.Image = global::LankaStocks.Properties.Resources.about_us_24px;
-            this.buttonabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonabout.Location = new System.Drawing.Point(0, 340);
-            this.buttonabout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonabout.Name = "buttonabout";
-            this.buttonabout.Size = new System.Drawing.Size(165, 38);
-            this.buttonabout.TabIndex = 2;
-            this.buttonabout.Text = "About";
-            this.buttonabout.UseVisualStyleBackColor = true;
-            // 
-            // buttonlogin
-            // 
-            this.buttonlogin.FlatAppearance.BorderColor = System.Drawing.Color.Orange;
-            this.buttonlogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonlogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonlogin.ForeColor = System.Drawing.Color.White;
-            this.buttonlogin.Image = global::LankaStocks.Properties.Resources.key_24px;
-            this.buttonlogin.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonlogin.Location = new System.Drawing.Point(0, 151);
-            this.buttonlogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonlogin.Name = "buttonlogin";
-            this.buttonlogin.Size = new System.Drawing.Size(165, 38);
-            this.buttonlogin.TabIndex = 1;
-            this.buttonlogin.Text = "Login";
-            this.buttonlogin.UseVisualStyleBackColor = true;
-            this.buttonlogin.Click += new System.EventHandler(this.Buttonlogin_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::LankaStocks.Properties.Resources.flag_1024x430;
-            this.pictureBox2.Location = new System.Drawing.Point(170, 87);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(240, 100);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
+            this.progressBar.Location = new System.Drawing.Point(0, 305);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(640, 23);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar.TabIndex = 11;
             // 
             // Login
             // 
@@ -326,13 +336,13 @@
             this.Load += new System.EventHandler(this.Login_Load);
             this.Shown += new System.EventHandler(this.Login_Shown);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.gb.ResumeLayout(false);
             this.gb.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -361,5 +371,6 @@
         private System.Windows.Forms.TextBox TxtPass;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.ProgressBar progressBar;
     }
 }
