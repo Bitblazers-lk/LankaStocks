@@ -97,7 +97,7 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 500;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // tableLayoutPanel2
             // 
@@ -295,7 +295,7 @@
             this.buttonlogin.TabIndex = 1;
             this.buttonlogin.Text = "Login";
             this.buttonlogin.UseVisualStyleBackColor = true;
-            this.buttonlogin.Click += new System.EventHandler(this.buttonlogin_Click);
+            this.buttonlogin.Click += new System.EventHandler(this.Buttonlogin_Click);
             // 
             // pictureBox2
             // 

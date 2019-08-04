@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,10 +47,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.uiColour1 = new LankaStocks.UserControls.UIColour();
-            this.uiColour2 = new LankaStocks.UserControls.UIColour();
-            this.uiColour3 = new LankaStocks.UserControls.UIColour();
-            this.uiColour4 = new LankaStocks.UserControls.UIColour();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -73,6 +68,12 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.uiColourMenu = new LankaStocks.UserControls.UIColour();
+            this.uiColourBack = new LankaStocks.UserControls.UIColour();
+            this.uiColourItem = new LankaStocks.UserControls.UIColour();
+            this.uiColourFont = new LankaStocks.UserControls.UIColour();
+            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
+            this.CD = new System.Windows.Forms.ColorDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -84,16 +85,6 @@
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // uiSaveData1
-            // 
-            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
-            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData1.Location = new System.Drawing.Point(0, 352);
-            this.uiSaveData1.Margin = new System.Windows.Forms.Padding(5);
-            this.uiSaveData1.Name = "uiSaveData1";
-            this.uiSaveData1.Size = new System.Drawing.Size(932, 76);
-            this.uiSaveData1.TabIndex = 1;
             // 
             // tabControl1
             // 
@@ -151,10 +142,10 @@
             this.tableLayoutPanel4.Controls.Add(this.label11, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.label17, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.panel1, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.uiColour1, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.uiColour2, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.uiColour3, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.uiColour4, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.uiColourMenu, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.uiColourBack, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.uiColourItem, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.uiColourFont, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.numericUpDown1, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.comboBox3, 1, 7);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -348,46 +339,6 @@
             this.button1.Text = "Browse";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // uiColour1
-            // 
-            this.uiColour1.BackColor = System.Drawing.Color.Transparent;
-            this.uiColour1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColour1.ForeColor = System.Drawing.Color.Orange;
-            this.uiColour1.Location = new System.Drawing.Point(109, 3);
-            this.uiColour1.Name = "uiColour1";
-            this.uiColour1.Size = new System.Drawing.Size(338, 28);
-            this.uiColour1.TabIndex = 18;
-            // 
-            // uiColour2
-            // 
-            this.uiColour2.BackColor = System.Drawing.Color.Transparent;
-            this.uiColour2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColour2.ForeColor = System.Drawing.Color.Orange;
-            this.uiColour2.Location = new System.Drawing.Point(109, 37);
-            this.uiColour2.Name = "uiColour2";
-            this.uiColour2.Size = new System.Drawing.Size(338, 28);
-            this.uiColour2.TabIndex = 19;
-            // 
-            // uiColour3
-            // 
-            this.uiColour3.BackColor = System.Drawing.Color.Transparent;
-            this.uiColour3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColour3.ForeColor = System.Drawing.Color.Orange;
-            this.uiColour3.Location = new System.Drawing.Point(109, 71);
-            this.uiColour3.Name = "uiColour3";
-            this.uiColour3.Size = new System.Drawing.Size(338, 28);
-            this.uiColour3.TabIndex = 20;
-            // 
-            // uiColour4
-            // 
-            this.uiColour4.BackColor = System.Drawing.Color.Transparent;
-            this.uiColour4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColour4.ForeColor = System.Drawing.Color.Orange;
-            this.uiColour4.Location = new System.Drawing.Point(109, 105);
-            this.uiColour4.Name = "uiColour4";
-            this.uiColour4.Size = new System.Drawing.Size(338, 28);
-            this.uiColour4.TabIndex = 21;
-            // 
             // numericUpDown1
             // 
             this.numericUpDown1.BackColor = System.Drawing.SystemColors.WindowFrame;
@@ -455,7 +406,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(916, 315);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(916, 318);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -492,7 +443,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50156F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50156F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.50156F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(450, 307);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(450, 310);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // label1
@@ -586,7 +537,7 @@
             this.label8.Location = new System.Drawing.Point(4, 266);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 41);
+            this.label8.Size = new System.Drawing.Size(98, 44);
             this.label8.TabIndex = 7;
             this.label8.Text = "Perview :";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -683,6 +634,56 @@
             this.comboBox2.Size = new System.Drawing.Size(336, 24);
             this.comboBox2.TabIndex = 15;
             // 
+            // uiColourMenu
+            // 
+            this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourMenu.Location = new System.Drawing.Point(109, 3);
+            this.uiColourMenu.Name = "uiColourMenu";
+            this.uiColourMenu.Size = new System.Drawing.Size(338, 28);
+            this.uiColourMenu.TabIndex = 18;
+            // 
+            // uiColourBack
+            // 
+            this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourBack.Location = new System.Drawing.Point(109, 37);
+            this.uiColourBack.Name = "uiColourBack";
+            this.uiColourBack.Size = new System.Drawing.Size(338, 28);
+            this.uiColourBack.TabIndex = 19;
+            // 
+            // uiColourItem
+            // 
+            this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourItem.Location = new System.Drawing.Point(109, 71);
+            this.uiColourItem.Name = "uiColourItem";
+            this.uiColourItem.Size = new System.Drawing.Size(338, 28);
+            this.uiColourItem.TabIndex = 20;
+            // 
+            // uiColourFont
+            // 
+            this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourFont.Location = new System.Drawing.Point(109, 105);
+            this.uiColourFont.Name = "uiColourFont";
+            this.uiColourFont.Size = new System.Drawing.Size(338, 28);
+            this.uiColourFont.TabIndex = 21;
+            // 
+            // uiSaveData1
+            // 
+            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
+            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiSaveData1.Location = new System.Drawing.Point(0, 352);
+            this.uiSaveData1.Margin = new System.Windows.Forms.Padding(5);
+            this.uiSaveData1.Name = "uiSaveData1";
+            this.uiSaveData1.Size = new System.Drawing.Size(932, 76);
+            this.uiSaveData1.TabIndex = 1;
+            // 
             // FrmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -753,14 +754,15 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button1;
-        private UserControls.UIColour uiColour1;
-        private UserControls.UIColour uiColour2;
-        private UserControls.UIColour uiColour3;
-        private UserControls.UIColour uiColour4;
+        private UserControls.UIColour uiColourMenu;
+        private UserControls.UIColour uiColourBack;
+        private UserControls.UIColour uiColourItem;
+        private UserControls.UIColour uiColourFont;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ColorDialog CD;
     }
 }

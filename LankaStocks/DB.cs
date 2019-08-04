@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using static LankaStocks.Core;
-using LankaStocks.Settings;
+using LankaStocks.Setting;
 
 namespace LankaStocks.DataBases
 {
