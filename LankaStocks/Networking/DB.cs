@@ -5,8 +5,10 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using LankaStocks;
 using static LankaStocks.Core;
 using LankaStocks.Setting;
+using System.Reflection;
 
 namespace LankaStocks.DataBases
 {
@@ -147,7 +149,20 @@ namespace LankaStocks.DataBases
 
 
         public abstract (dynamic, MemberType) Resolve(string expr);
-        public abstract void SetDataMember(string expr, dynamic data);
+        // public abstract void SetDataMember(string expr, dynamic data);
+
+
+
+        public void SetDataMember(string name, dynamic val)
+        {
+            // GetType().InvokeMember(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetField, Type.DefaultBinder, this, val);
+
+            GetType().GetField(name).SetValue(this, val);
+        }
+        public dynamic GetDataMember(string name)
+        {
+            return GetType().GetField(name).GetValue(this);
+        }
 
         public enum MemberType : byte { notFound, data, obj, array, list, dic }
 
@@ -158,6 +173,8 @@ namespace LankaStocks.DataBases
             switch ((Request.Command)req.command)
             {
                 case Request.Command.get:
+
+                    if (req.para == null) { solv.Item2 = MemberType.obj; }
 
                     resp.result = (byte)Response.Result.ok;
 
@@ -236,6 +253,7 @@ namespace LankaStocks.DataBases
                     break;
                 case Request.Command.set:
 
+                    if (req.para == null || req.para.Length != 2) { solv.Item2 = MemberType.obj; }
 
                     resp.result = (byte)Response.Result.ok;
 
@@ -266,7 +284,7 @@ namespace LankaStocks.DataBases
                         case MemberType.array:
                             try
                             {
-                                solv.Item1[req.para[0]] = req.para[0];
+                                solv.Item1[req.para[0]] = req.para[1];
                             }
                             catch (Exception)
                             {
@@ -293,7 +311,7 @@ namespace LankaStocks.DataBases
 
 
                         case MemberType.dic:
-                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
+                            dynamic d = solv.Item1;
                             try
                             {
                                 d[req.para[0]] = req.para[1];
@@ -315,6 +333,7 @@ namespace LankaStocks.DataBases
 
                     break;
                 case Request.Command.add:
+                    resp.result = (byte)Response.Result.ok;
 
                     switch (solv.Item2)
                     {
@@ -333,7 +352,7 @@ namespace LankaStocks.DataBases
 
 
                         case MemberType.dic:
-                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
+                            dynamic d = solv.Item1;
                             try
                             {
                                 d.Add(req.para[0], req.para[1]);
@@ -361,6 +380,9 @@ namespace LankaStocks.DataBases
                     }
                     break;
                 case Request.Command.rem:
+
+                    resp.result = (byte)Response.Result.ok;
+
                     switch (solv.Item2)
                     {
                         case MemberType.notFound:
@@ -384,7 +406,7 @@ namespace LankaStocks.DataBases
 
 
                         case MemberType.dic:
-                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
+                            dynamic d = solv.Item1;
                             try
                             {
                                 d.Remove(req.para[0]);
@@ -450,10 +472,10 @@ namespace LankaStocks.DataBases
             }
         }
 
-        public override void SetDataMember(string expr, dynamic data)
-        {
-            //No data members here
-        }
+        //public override void SetDataMember(string expr, dynamic data)
+        //{
+        //    //No data members here
+        //}
     }
 
     [Serializable]
@@ -490,18 +512,18 @@ namespace LankaStocks.DataBases
             }
         }
 
-        public override void SetDataMember(string expr, dynamic data)
-        {
-            switch (expr)
-            {
-                case "Session":
-                    Session = data;
-                    break;
-                default:
-                    break;
-            }
+        //public override void SetDataMember(string expr, dynamic data)
+        //{
+        //    switch (expr)
+        //    {
+        //        case "Session":
+        //            Session = data;
+        //            break;
+        //        default:
+        //            break;
+        //    }
 
-        }
+        //}
     }
 
     [Serializable]
@@ -529,18 +551,18 @@ namespace LankaStocks.DataBases
             }
         }
 
-        public override void SetDataMember(string expr, dynamic data)
-        {
-            switch (expr)
-            {
-                case "IdMachine":
-                    IdMachine = data;
-                    break;
-                default:
-                    break;
-            }
+        //public override void SetDataMember(string expr, dynamic data)
+        //{
+        //    switch (expr)
+        //    {
+        //        case "IdMachine":
+        //            IdMachine = data;
+        //            break;
+        //        default:
+        //            break;
+        //    }
 
-        }
+        //}
     }
 
     [Serializable]
@@ -576,21 +598,21 @@ namespace LankaStocks.DataBases
             }
         }
 
-        public override void SetDataMember(string expr, dynamic data)
-        {
-            switch (expr)
-            {
-                case "sessionBegin":
-                    sessionBegin = (DateTime)data;
-                    break;
-                case "sessionEnd":
-                    sessionEnd = (DateTime)data;
-                    break;
-                default:
-                    break;
-            }
+        //public override void SetDataMember(string expr, dynamic data)
+        //{
+        //    switch (expr)
+        //    {
+        //        case "sessionBegin":
+        //            sessionBegin = (DateTime)data;
+        //            break;
+        //        case "sessionEnd":
+        //            sessionEnd = (DateTime)data;
+        //            break;
+        //        default:
+        //            break;
+        //    }
 
-        }
+        //}
     }
 
     [Serializable]
@@ -637,20 +659,20 @@ namespace LankaStocks.DataBases
             }
         }
 
-        public override void SetDataMember(string expr, dynamic data)
-        {
-            switch (expr)
-            {
-                case "sessionBegin":
-                    billSetting = data;
-                    break;
-                case "sessionEnd":
-                    commonSettings = data;
-                    break;
-                default:
-                    break;
-            }
+        //public override void SetDataMember(string expr, dynamic data)
+        //{
+        //    switch (expr)
+        //    {
+        //        case "sessionBegin":
+        //            billSetting = data;
+        //            break;
+        //        case "sessionEnd":
+        //            commonSettings = data;
+        //            break;
+        //        default:
+        //            break;
+        //    }
 
-        }
+        //}
     }
 }

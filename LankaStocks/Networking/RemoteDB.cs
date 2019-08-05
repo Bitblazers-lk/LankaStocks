@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static LankaStocks.Core;
 
-namespace LankaStocks.Remote
+namespace LankaStocks._Remote
 {
     public class DBs
     {
@@ -65,7 +65,7 @@ namespace LankaStocks.Remote
     {
         public string db;
         public string name;
-        public T SetGet
+        public virtual T Get
         {
             get
             {
@@ -81,24 +81,89 @@ namespace LankaStocks.Remote
                 return default;
 
             }
-            set
+        }
+
+
+        public virtual void Set(T value)
+        {
+            var resp = client.Request((byte)Request.Command.set, db, name, new dynamic[] { value });
+            if (resp.result != (byte)Response.Result.ok)
             {
-                var resp = client.Request((byte)Request.Command.set, db, name, new dynamic[] { value });
-                if (resp.result != (byte)Response.Result.ok)
-                {
-                    Log($"Set {db}.{name} failed. {VisualizeObj(resp)}");
-                }
+                Log($"Set {db}.{name} failed. {VisualizeObj(resp)}");
             }
         }
+
+        public virtual T GetSet
+        {
+            get
+            {
+                return Get;
+            }
+            set
+            {
+                Set(value);
+            }
+        }
+
     }
+
 
 
     public class RemoteDic<TKey, TVal> : RemoteMember<Dictionary<TKey, TVal>>
     {
 
+        public void Set(TKey key, TVal value)
+        {
+            var resp = client.Request((byte)Request.Command.set, db, name, new dynamic[] { key, value });
+            if (resp.result != (byte)Response.Result.ok)
+            {
+                Log($"Set dic {db}.{name} failed. {VisualizeObj(resp)}");
+            }
+        }
+        public void Add(TKey key, TVal value)
+        {
+            var resp = client.Request((byte)Request.Command.add, db, name, new dynamic[] { key, value });
+            if (resp.result != (byte)Response.Result.ok)
+            {
+                Log($"Add dic {db}.{name} failed. {VisualizeObj(resp)}");
+            }
+        }
+        public void Remove(TKey key)
+        {
+            var resp = client.Request((byte)Request.Command.rem, db, name, new dynamic[] { key });
+            if (resp.result != (byte)Response.Result.ok)
+            {
+                Log($"Remove dic {db}.{name} failed. {VisualizeObj(resp)}");
+            }
+        }
+
+
     }
     public class RemoteList<T> : RemoteMember<T>
     {
-
+        public void Set(int index, T value)
+        {
+            var resp = client.Request((byte)Request.Command.set, db, name, new dynamic[] { index, value });
+            if (resp.result != (byte)Response.Result.ok)
+            {
+                Log($"Set List {db}.{name} failed. {VisualizeObj(resp)}");
+            }
+        }
+        public void Add(int index, T value)
+        {
+            var resp = client.Request((byte)Request.Command.add, db, name, new dynamic[] { index, value });
+            if (resp.result != (byte)Response.Result.ok)
+            {
+                Log($"Add List {db}.{name} failed. {VisualizeObj(resp)}");
+            }
+        }
+        public void Remove(int index)
+        {
+            var resp = client.Request((byte)Request.Command.rem, db, name, new dynamic[] { index });
+            if (resp.result != (byte)Response.Result.ok)
+            {
+                Log($"Remove List {db}.{name} failed. {VisualizeObj(resp)}");
+            }
+        }
     }
 }

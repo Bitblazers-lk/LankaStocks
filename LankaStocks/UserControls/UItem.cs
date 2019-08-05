@@ -15,10 +15,11 @@ namespace LankaStocks.UserControls
     {
         public UItem(string Code)
         {
+            _Code = Code;
             InitializeComponent();
         }
 
-        private string _Code;
+        private string _Code = "0";
         private void UI_MouseClick(object sender, MouseEventArgs e)
         {
             Console.WriteLine("OKK");

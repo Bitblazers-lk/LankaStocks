@@ -17,7 +17,7 @@ namespace LankaStocks
         #region Vars
 
         public static BaseClient client;
-        public static Remote.DBs RemoteDBs;
+        public static _Remote.DBs RemoteDBs;
 
         public static Random random = new Random();
         //public static DBSession Session => Live.Session;
@@ -33,10 +33,52 @@ namespace LankaStocks
             client = (BaseClient)new IntergratedClient();
             client.Initialize();
 
-            RemoteDBs = new Remote.DBs();
+            RemoteDBs = new _Remote.DBs();
 
-            RemoteDBs.Session.sessionBegin.SetGet = new DateTime(2000, 6, 8);
-            Log(RemoteDBs.Session.sessionBegin.SetGet.ToString());
+
+
+
+            //Testing....
+
+            //Set DateTime object
+            RemoteDBs.Session.sessionBegin.Set(new DateTime(2000, 6, 8));
+
+            //Get it back
+            Log(RemoteDBs.Session.sessionBegin.Get.ToString());
+
+            //Set whole variable. (OK for any data type)
+            RemoteDBs.Session.Sales.Set(new Dictionary<uint, BasicSale>() { { 1U, new BasicSale() { SaleID = 1U } }, { 2U, new BasicSale() { SaleID = 2U } }, { 3U, new BasicSale() { SaleID = 3U } } });
+
+            Log("\n Visualize \n");
+            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
+
+            Log("\n Add to Dic \n");
+            RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, buyerNote = "I'm added", special = true });
+
+            Log("\n Visualize \n");
+            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
+
+            Log("\n Remove from Dic \n");
+            RemoteDBs.Session.Sales.Remove(3);
+
+            Log("\n Visualize \n");
+            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
+
+            Log("\n Set Dic item \n");
+            RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, buyerNote = "I'm added and then changed", special = false, date = DateTime.Now });
+
+            Log("\n Visualize \n");
+            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
+
+
+            //Settings
+
+            //Set color (You can use commonSettings.Get too)
+            RemoteDBs.Settings.commonSettings.GetSet.BackColor = System.Drawing.Color.Aqua;
+            //Get it back (You can use commonSettings.Set too)
+            Log(RemoteDBs.Settings.commonSettings.GetSet.BackColor.ToString());
+
+            Log("Initialized");
         }
 
         #region Loging
