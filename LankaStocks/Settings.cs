@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using static LankaStocks.Core;
 
 namespace LankaStocks.Setting
 {
@@ -30,5 +32,21 @@ namespace LankaStocks.Setting
         public Font Font;
         public string ImagePath;
         public bool OpenAtStat;
+    }
+
+    public static class Settings
+    {
+        public static void LoadCtrlSettings(Control Ctrl)
+        {
+            Ctrl.BackColor = Color.White;
+            try
+            {
+                foreach (Control ctrl in Ctrl.Controls)
+                {
+                    LoadCtrlSettings(ctrl);
+                }
+            }
+            catch (Exception ex) { Core.LogErr(ex); }
+        }
     }
 }
