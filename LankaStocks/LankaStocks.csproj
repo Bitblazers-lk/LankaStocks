@@ -79,7 +79,6 @@
   <ItemGroup>
     <Compile Include="Bills.cs" />
     <Compile Include="core.cs" />
-    <Compile Include="DB.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Networking\Client.cs" />
     <Compile Include="Networking\Server.cs" />
