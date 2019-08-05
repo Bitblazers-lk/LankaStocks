@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LankaStocks.UserControls
 {
-    public partial class UIBasicSale : UserControl
+    public partial class UITransaction : UserControl
     {
-        public UIBasicSale()
+        public UITransaction()
         {
             InitializeComponent();
         }

@@ -29,41 +29,42 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.ColourBox = new System.Windows.Forms.PictureBox();
+            this.Browse = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColourBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.ColourBox);
+            this.panel1.Controls.Add(this.Browse);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(253, 25);
             this.panel1.TabIndex = 17;
             // 
-            // pictureBox1
+            // ColourBox
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 25);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.ColourBox.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ColourBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ColourBox.Location = new System.Drawing.Point(0, 0);
+            this.ColourBox.Name = "ColourBox";
+            this.ColourBox.Size = new System.Drawing.Size(164, 25);
+            this.ColourBox.TabIndex = 2;
+            this.ColourBox.TabStop = false;
             // 
-            // button1
+            // Browse
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(164, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(89, 25);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Browse";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Browse.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Browse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Browse.Location = new System.Drawing.Point(164, 0);
+            this.Browse.Name = "Browse";
+            this.Browse.Size = new System.Drawing.Size(89, 25);
+            this.Browse.TabIndex = 1;
+            this.Browse.Text = "Browse";
+            this.Browse.UseVisualStyleBackColor = true;
             // 
             // UIColour
             // 
@@ -75,7 +76,7 @@
             this.Name = "UIColour";
             this.Size = new System.Drawing.Size(253, 25);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColourBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -83,7 +84,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.PictureBox ColourBox;
+        public System.Windows.Forms.Button Browse;
     }
 }

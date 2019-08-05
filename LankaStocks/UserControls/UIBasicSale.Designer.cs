@@ -30,22 +30,22 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.labelInNO = new System.Windows.Forms.Label();
+            this.btnIssue = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.TxtCode = new System.Windows.Forms.TextBox();
+            this.TxtQty = new System.Windows.Forms.NumericUpDown();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnRefund = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtQty)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,9 +70,9 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.button1, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.labelTotal, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelInNO, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.btnIssue, 0, 2);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(629, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -83,45 +83,45 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(392, 134);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
-            // label1
+            // labelTotal
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Orange;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(386, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Total : ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.ForeColor = System.Drawing.Color.Orange;
+            this.labelTotal.Location = new System.Drawing.Point(3, 0);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(386, 37);
+            this.labelTotal.TabIndex = 0;
+            this.labelTotal.Text = "Total : ";
+            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label2
+            // labelInNO
             // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Orange;
-            this.label2.Location = new System.Drawing.Point(3, 37);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(386, 29);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Invoice NO. :";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelInNO.AutoSize = true;
+            this.labelInNO.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelInNO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInNO.ForeColor = System.Drawing.Color.Orange;
+            this.labelInNO.Location = new System.Drawing.Point(3, 37);
+            this.labelInNO.Name = "labelInNO";
+            this.labelInNO.Size = new System.Drawing.Size(386, 29);
+            this.labelInNO.TabIndex = 1;
+            this.labelInNO.Text = "Invoice NO. :";
+            this.labelInNO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // button1
+            // btnIssue
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatAppearance.BorderSize = 3;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.Location = new System.Drawing.Point(3, 69);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(386, 62);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Issue";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnIssue.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnIssue.FlatAppearance.BorderSize = 3;
+            this.btnIssue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIssue.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIssue.ForeColor = System.Drawing.Color.Orange;
+            this.btnIssue.Location = new System.Drawing.Point(3, 69);
+            this.btnIssue.Name = "btnIssue";
+            this.btnIssue.Size = new System.Drawing.Size(386, 62);
+            this.btnIssue.TabIndex = 2;
+            this.btnIssue.Text = "Issue";
+            this.btnIssue.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel3
             // 
@@ -130,8 +130,8 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 82.55319F));
             this.tableLayoutPanel3.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label4, 0, 1);
-            this.tableLayoutPanel3.Controls.Add(this.textBox1, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.numericUpDown1, 1, 1);
+            this.tableLayoutPanel3.Controls.Add(this.TxtCode, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.TxtQty, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(153, 30);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -168,33 +168,33 @@
             this.label4.Text = "Qty. :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // textBox1
+            // TxtCode
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Orange;
-            this.textBox1.Location = new System.Drawing.Point(85, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(382, 22);
-            this.textBox1.TabIndex = 2;
+            this.TxtCode.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.TxtCode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCode.ForeColor = System.Drawing.Color.Orange;
+            this.TxtCode.Location = new System.Drawing.Point(85, 3);
+            this.TxtCode.Name = "TxtCode";
+            this.TxtCode.Size = new System.Drawing.Size(382, 22);
+            this.TxtCode.TabIndex = 2;
             // 
-            // numericUpDown1
+            // TxtQty
             // 
-            this.numericUpDown1.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.ForeColor = System.Drawing.Color.Orange;
-            this.numericUpDown1.Location = new System.Drawing.Point(85, 38);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(382, 22);
-            this.numericUpDown1.TabIndex = 3;
+            this.TxtQty.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.TxtQty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtQty.ForeColor = System.Drawing.Color.Orange;
+            this.TxtQty.Location = new System.Drawing.Point(85, 38);
+            this.TxtQty.Name = "TxtQty";
+            this.TxtQty.Size = new System.Drawing.Size(382, 22);
+            this.TxtQty.TabIndex = 3;
             // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.button2, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.btnRefund, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.button3, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.button4, 0, 2);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -207,19 +207,20 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(144, 134);
             this.tableLayoutPanel4.TabIndex = 2;
             // 
-            // button2
+            // btnRefund
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Orange;
-            this.button2.Image = global::LankaStocks.Properties.Resources.refund_2_24px;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 38);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Refund";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRefund.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefund.ForeColor = System.Drawing.Color.Orange;
+            this.btnRefund.Image = global::LankaStocks.Properties.Resources.refund_2_24px;
+            this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefund.Location = new System.Drawing.Point(3, 3);
+            this.btnRefund.Name = "btnRefund";
+            this.btnRefund.Size = new System.Drawing.Size(138, 38);
+            this.btnRefund.TabIndex = 0;
+            this.btnRefund.Text = "Refund";
+            this.btnRefund.UseVisualStyleBackColor = true;
+            this.btnRefund.Click += new System.EventHandler(this.btnRefund_Click);
             // 
             // button3
             // 
@@ -258,7 +259,7 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtQty)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -268,17 +269,17 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Label labelInNO;
+        private System.Windows.Forms.Button btnIssue;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnRefund;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.TextBox TxtCode;
+        private System.Windows.Forms.NumericUpDown TxtQty;
     }
 }

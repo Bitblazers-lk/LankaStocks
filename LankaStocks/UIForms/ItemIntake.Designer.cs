@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
-            this.uiStockIntake1 = new LankaStocks.UserControls.UIStockIntake();
+            this.uiStockIntake = new LankaStocks.UserControls.UIStockIntake();
+            this.uiSaveData = new LankaStocks.UserControls.UISaveData();
             this.SuspendLayout();
             // 
             // panel1
@@ -43,25 +43,25 @@
             this.panel1.Size = new System.Drawing.Size(573, 12);
             this.panel1.TabIndex = 14;
             // 
-            // uiSaveData1
+            // uiStockIntake
             // 
-            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
-            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData1.Location = new System.Drawing.Point(0, 636);
-            this.uiSaveData1.Margin = new System.Windows.Forms.Padding(4);
-            this.uiSaveData1.Name = "uiSaveData1";
-            this.uiSaveData1.Size = new System.Drawing.Size(573, 62);
-            this.uiSaveData1.TabIndex = 15;
+            this.uiStockIntake.BackColor = System.Drawing.Color.Transparent;
+            this.uiStockIntake.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiStockIntake.Location = new System.Drawing.Point(0, 0);
+            this.uiStockIntake.Margin = new System.Windows.Forms.Padding(4);
+            this.uiStockIntake.Name = "uiStockIntake";
+            this.uiStockIntake.Size = new System.Drawing.Size(573, 636);
+            this.uiStockIntake.TabIndex = 16;
             // 
-            // uiStockIntake1
+            // uiSaveData
             // 
-            this.uiStockIntake1.BackColor = System.Drawing.Color.Transparent;
-            this.uiStockIntake1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiStockIntake1.Location = new System.Drawing.Point(0, 0);
-            this.uiStockIntake1.Margin = new System.Windows.Forms.Padding(4);
-            this.uiStockIntake1.Name = "uiStockIntake1";
-            this.uiStockIntake1.Size = new System.Drawing.Size(573, 636);
-            this.uiStockIntake1.TabIndex = 16;
+            this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
+            this.uiSaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiSaveData.Location = new System.Drawing.Point(0, 636);
+            this.uiSaveData.Margin = new System.Windows.Forms.Padding(4);
+            this.uiSaveData.Name = "uiSaveData";
+            this.uiSaveData.Size = new System.Drawing.Size(573, 62);
+            this.uiSaveData.TabIndex = 15;
             // 
             // ItemIntake
             // 
@@ -69,8 +69,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(573, 710);
-            this.Controls.Add(this.uiStockIntake1);
-            this.Controls.Add(this.uiSaveData1);
+            this.Controls.Add(this.uiStockIntake);
+            this.Controls.Add(this.uiSaveData);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -84,7 +84,7 @@
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private UserControls.UISaveData uiSaveData1;
-        private UserControls.UIStockIntake uiStockIntake1;
+        private UserControls.UISaveData uiSaveData;
+        private UserControls.UIStockIntake uiStockIntake;
     }
 }

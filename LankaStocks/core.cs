@@ -95,6 +95,7 @@ namespace LankaStocks
 
     public static class Forms
     {
+        public static List<string> FrmList = new List<string>();
         public static Login login;
         public static Dashboard dashboard;
         public static AddData addData;
@@ -105,5 +106,7 @@ namespace LankaStocks
         public static FrmSales frmSales;
         public static FrmTransaction frmTransaction;
         public static FrmSettings frmSettings;
+        public static FrmQuickSale frmQuickSale;
+        public static FrmRefund frmRefund;
     }
 }

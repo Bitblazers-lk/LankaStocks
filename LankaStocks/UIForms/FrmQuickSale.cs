@@ -16,5 +16,38 @@ namespace LankaStocks.UIForms
         {
             InitializeComponent();
         }
+
+        private void btnhide_Click(object sender, EventArgs e)
+        {
+            if (panel1.Width == 143)
+            {
+                panel1.Width = 40;
+            }
+            else if (panel1.Width == 40)
+            {
+                panel1.Width = 143;
+            }
+        }
+
+        private void btnfund_Click(object sender, EventArgs e)
+        {
+            Forms.frmRefund = new FrmRefund();
+            Forms.frmRefund.Show();
+        }
+
+        private void TxtCode_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void TxtQty_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void btnIssue_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.uiSaveData1 = new LankaStocks.UserControls.UISaveData();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -38,7 +37,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -48,10 +46,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.uiColour1 = new LankaStocks.UserControls.UIColour();
-            this.uiColour2 = new LankaStocks.UserControls.UIColour();
-            this.uiColour3 = new LankaStocks.UserControls.UIColour();
-            this.uiColour4 = new LankaStocks.UserControls.UIColour();
+            this.uiColourMenu = new LankaStocks.UserControls.UIColour();
+            this.uiColourBack = new LankaStocks.UserControls.UIColour();
+            this.uiColourItem = new LankaStocks.UserControls.UIColour();
+            this.uiColourFont = new LankaStocks.UserControls.UIColour();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -73,6 +71,22 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.uiSaveData = new LankaStocks.UserControls.UISaveData();
+            this.CD = new System.Windows.Forms.ColorDialog();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.TxtWarnQty = new System.Windows.Forms.NumericUpDown();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -83,17 +97,11 @@
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtWarnQty)).BeginInit();
             this.SuspendLayout();
-            // 
-            // uiSaveData1
-            // 
-            this.uiSaveData1.BackColor = System.Drawing.Color.Transparent;
-            this.uiSaveData1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData1.Location = new System.Drawing.Point(0, 352);
-            this.uiSaveData1.Margin = new System.Windows.Forms.Padding(5);
-            this.uiSaveData1.Name = "uiSaveData1";
-            this.uiSaveData1.Size = new System.Drawing.Size(932, 76);
-            this.uiSaveData1.TabIndex = 1;
             // 
             // tabControl1
             // 
@@ -126,6 +134,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.panel3, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 4);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
@@ -140,10 +149,10 @@
             this.tableLayoutPanel4.ColumnCount = 2;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.76543F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.23457F));
+            this.tableLayoutPanel4.Controls.Add(this.label26, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label10, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.label16, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.label15, 0, 7);
             this.tableLayoutPanel4.Controls.Add(this.label14, 0, 6);
             this.tableLayoutPanel4.Controls.Add(this.label13, 0, 5);
@@ -151,10 +160,10 @@
             this.tableLayoutPanel4.Controls.Add(this.label11, 0, 3);
             this.tableLayoutPanel4.Controls.Add(this.label17, 0, 2);
             this.tableLayoutPanel4.Controls.Add(this.panel1, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.uiColour1, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.uiColour2, 1, 1);
-            this.tableLayoutPanel4.Controls.Add(this.uiColour3, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.uiColour4, 1, 3);
+            this.tableLayoutPanel4.Controls.Add(this.uiColourMenu, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.uiColourBack, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.uiColourItem, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.uiColourFont, 1, 3);
             this.tableLayoutPanel4.Controls.Add(this.numericUpDown1, 1, 5);
             this.tableLayoutPanel4.Controls.Add(this.comboBox3, 1, 7);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -230,18 +239,6 @@
             this.label10.TabIndex = 1;
             this.label10.Text = "Back Colour :";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label16.Location = new System.Drawing.Point(4, 272);
-            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(98, 35);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "Label";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label15
             // 
@@ -348,45 +345,45 @@
             this.button1.Text = "Browse";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // uiColour1
+            // uiColourMenu
             // 
-            this.uiColour1.BackColor = System.Drawing.Color.Transparent;
-            this.uiColour1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColour1.ForeColor = System.Drawing.Color.Orange;
-            this.uiColour1.Location = new System.Drawing.Point(109, 3);
-            this.uiColour1.Name = "uiColour1";
-            this.uiColour1.Size = new System.Drawing.Size(338, 28);
-            this.uiColour1.TabIndex = 18;
+            this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourMenu.Location = new System.Drawing.Point(109, 3);
+            this.uiColourMenu.Name = "uiColourMenu";
+            this.uiColourMenu.Size = new System.Drawing.Size(338, 28);
+            this.uiColourMenu.TabIndex = 18;
             // 
-            // uiColour2
+            // uiColourBack
             // 
-            this.uiColour2.BackColor = System.Drawing.Color.Transparent;
-            this.uiColour2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColour2.ForeColor = System.Drawing.Color.Orange;
-            this.uiColour2.Location = new System.Drawing.Point(109, 37);
-            this.uiColour2.Name = "uiColour2";
-            this.uiColour2.Size = new System.Drawing.Size(338, 28);
-            this.uiColour2.TabIndex = 19;
+            this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourBack.Location = new System.Drawing.Point(109, 37);
+            this.uiColourBack.Name = "uiColourBack";
+            this.uiColourBack.Size = new System.Drawing.Size(338, 28);
+            this.uiColourBack.TabIndex = 19;
             // 
-            // uiColour3
+            // uiColourItem
             // 
-            this.uiColour3.BackColor = System.Drawing.Color.Transparent;
-            this.uiColour3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColour3.ForeColor = System.Drawing.Color.Orange;
-            this.uiColour3.Location = new System.Drawing.Point(109, 71);
-            this.uiColour3.Name = "uiColour3";
-            this.uiColour3.Size = new System.Drawing.Size(338, 28);
-            this.uiColour3.TabIndex = 20;
+            this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourItem.Location = new System.Drawing.Point(109, 71);
+            this.uiColourItem.Name = "uiColourItem";
+            this.uiColourItem.Size = new System.Drawing.Size(338, 28);
+            this.uiColourItem.TabIndex = 20;
             // 
-            // uiColour4
+            // uiColourFont
             // 
-            this.uiColour4.BackColor = System.Drawing.Color.Transparent;
-            this.uiColour4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColour4.ForeColor = System.Drawing.Color.Orange;
-            this.uiColour4.Location = new System.Drawing.Point(109, 105);
-            this.uiColour4.Name = "uiColour4";
-            this.uiColour4.Size = new System.Drawing.Size(338, 28);
-            this.uiColour4.TabIndex = 21;
+            this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourFont.Location = new System.Drawing.Point(109, 105);
+            this.uiColourFont.Name = "uiColourFont";
+            this.uiColourFont.Size = new System.Drawing.Size(338, 28);
+            this.uiColourFont.TabIndex = 21;
             // 
             // numericUpDown1
             // 
@@ -683,6 +680,216 @@
             this.comboBox2.Size = new System.Drawing.Size(336, 24);
             this.comboBox2.TabIndex = 15;
             // 
+            // uiSaveData
+            // 
+            this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
+            this.uiSaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiSaveData.Location = new System.Drawing.Point(0, 352);
+            this.uiSaveData.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.uiSaveData.Name = "uiSaveData";
+            this.uiSaveData.Size = new System.Drawing.Size(932, 76);
+            this.uiSaveData.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.tableLayoutPanel6);
+            this.panel3.Controls.Add(this.tableLayoutPanel5);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(461, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(452, 309);
+            this.panel3.TabIndex = 1;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.78761F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.21239F));
+            this.tableLayoutPanel5.Controls.Add(this.TxtWarnQty, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.label16, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(452, 35);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel6.Controls.Add(this.label25, 0, 7);
+            this.tableLayoutPanel6.Controls.Add(this.label18, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.label19, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label20, 0, 2);
+            this.tableLayoutPanel6.Controls.Add(this.label21, 0, 3);
+            this.tableLayoutPanel6.Controls.Add(this.label22, 0, 4);
+            this.tableLayoutPanel6.Controls.Add(this.label24, 0, 5);
+            this.tableLayoutPanel6.Controls.Add(this.label23, 0, 6);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 35);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 8;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(452, 274);
+            this.tableLayoutPanel6.TabIndex = 2;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label16.Location = new System.Drawing.Point(4, 0);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(207, 35);
+            this.label16.TabIndex = 8;
+            this.label16.Text = "Warn When Item Qty. Less Than :";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label18.Location = new System.Drawing.Point(4, 0);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(105, 34);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Label";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label19.Location = new System.Drawing.Point(4, 34);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(105, 34);
+            this.label19.TabIndex = 9;
+            this.label19.Text = "Label";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Location = new System.Drawing.Point(4, 68);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(105, 34);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "Label";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label21.Location = new System.Drawing.Point(4, 102);
+            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(105, 34);
+            this.label21.TabIndex = 11;
+            this.label21.Text = "Label";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label22.Location = new System.Drawing.Point(4, 136);
+            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(105, 34);
+            this.label22.TabIndex = 12;
+            this.label22.Text = "Label";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label23.Location = new System.Drawing.Point(4, 204);
+            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(105, 34);
+            this.label23.TabIndex = 13;
+            this.label23.Text = "Label";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label24.Location = new System.Drawing.Point(4, 170);
+            this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(105, 34);
+            this.label24.TabIndex = 14;
+            this.label24.Text = "Label";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label25.Location = new System.Drawing.Point(4, 238);
+            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(105, 36);
+            this.label25.TabIndex = 15;
+            this.label25.Text = "Label";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label26.Location = new System.Drawing.Point(4, 272);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(98, 35);
+            this.label26.TabIndex = 25;
+            this.label26.Text = "Label";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // TxtWarnQty
+            // 
+            this.TxtWarnQty.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.TxtWarnQty.DecimalPlaces = 2;
+            this.TxtWarnQty.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtWarnQty.ForeColor = System.Drawing.Color.Orange;
+            this.TxtWarnQty.Location = new System.Drawing.Point(218, 3);
+            this.TxtWarnQty.Maximum = new decimal(new int[] {
+            4000,
+            0,
+            0,
+            131072});
+            this.TxtWarnQty.Minimum = new decimal(new int[] {
+            600,
+            0,
+            0,
+            131072});
+            this.TxtWarnQty.Name = "TxtWarnQty";
+            this.TxtWarnQty.Size = new System.Drawing.Size(231, 22);
+            this.TxtWarnQty.TabIndex = 23;
+            this.TxtWarnQty.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // FrmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -690,7 +897,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.ClientSize = new System.Drawing.Size(932, 428);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.uiSaveData1);
+            this.Controls.Add(this.uiSaveData);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Orange;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -711,13 +918,19 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.TxtWarnQty)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private UserControls.UISaveData uiSaveData1;
+        private UserControls.UISaveData uiSaveData;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -747,20 +960,34 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button1;
-        private UserControls.UIColour uiColour1;
-        private UserControls.UIColour uiColour2;
-        private UserControls.UIColour uiColour3;
-        private UserControls.UIColour uiColour4;
+        private UserControls.UIColour uiColourMenu;
+        private UserControls.UIColour uiColourBack;
+        private UserControls.UIColour uiColourItem;
+        private UserControls.UIColour uiColourFont;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ColorDialog CD;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown TxtWarnQty;
     }
 }

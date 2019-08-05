@@ -62,7 +62,7 @@ namespace LankaStocks.UIForms
             BtnLogin.Visible = state;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             if (ani)
             {
@@ -82,7 +82,7 @@ namespace LankaStocks.UIForms
             }
         }
 
-        private void buttonlogin_Click(object sender, EventArgs e)
+        private void Buttonlogin_Click(object sender, EventArgs e)
         {
             this.gb.Location = new System.Drawing.Point(30, 5);
             line.Height = buttonlogin.Height;

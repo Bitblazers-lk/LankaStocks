@@ -15,6 +15,9 @@ namespace LankaStocks.UIForms
         public AddData()
         {
             InitializeComponent();
+            uiSaveData.Save.Click += Save_Click;
+            uiSaveData.RefreshAll.Click += Refresh_Click;
+            uiSaveData.Cancel.Click += Cancel_Click;
         }
 
         private void btnhide_Click(object sender, EventArgs e)
@@ -27,6 +30,21 @@ namespace LankaStocks.UIForms
             {
                 panel2.Width = 200;
             }
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

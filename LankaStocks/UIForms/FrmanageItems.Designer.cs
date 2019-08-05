@@ -30,12 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnStockIntake = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnhide = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.btnStockIntake = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +52,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
             this.panel2.Controls.Add(this.btnStockIntake);
-            this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.btnhide);
@@ -64,19 +62,21 @@
             this.panel2.Size = new System.Drawing.Size(200, 811);
             this.panel2.TabIndex = 15;
             // 
-            // button3
+            // btnStockIntake
             // 
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.ForeColor = System.Drawing.Color.Orange;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(4, 279);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(196, 57);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "User";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnStockIntake.FlatAppearance.BorderSize = 0;
+            this.btnStockIntake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStockIntake.ForeColor = System.Drawing.Color.Orange;
+            this.btnStockIntake.Image = global::LankaStocks.Properties.Resources.purchase_order_24px;
+            this.btnStockIntake.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStockIntake.Location = new System.Drawing.Point(4, 149);
+            this.btnStockIntake.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStockIntake.Name = "btnStockIntake";
+            this.btnStockIntake.Size = new System.Drawing.Size(196, 57);
+            this.btnStockIntake.TabIndex = 18;
+            this.btnStockIntake.Text = "Stock Intake";
+            this.btnStockIntake.UseVisualStyleBackColor = true;
+            this.btnStockIntake.Click += new System.EventHandler(this.btnStockIntake_Click);
             // 
             // btnAdd
             // 
@@ -134,22 +134,6 @@
             this.panel3.Size = new System.Drawing.Size(1242, 811);
             this.panel3.TabIndex = 17;
             // 
-            // btnStockIntake
-            // 
-            this.btnStockIntake.FlatAppearance.BorderSize = 0;
-            this.btnStockIntake.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStockIntake.ForeColor = System.Drawing.Color.Orange;
-            this.btnStockIntake.Image = global::LankaStocks.Properties.Resources.purchase_order_24px;
-            this.btnStockIntake.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStockIntake.Location = new System.Drawing.Point(4, 149);
-            this.btnStockIntake.Margin = new System.Windows.Forms.Padding(4);
-            this.btnStockIntake.Name = "btnStockIntake";
-            this.btnStockIntake.Size = new System.Drawing.Size(196, 57);
-            this.btnStockIntake.TabIndex = 18;
-            this.btnStockIntake.Text = "Stock Intake";
-            this.btnStockIntake.UseVisualStyleBackColor = true;
-            this.btnStockIntake.Click += new System.EventHandler(this.btnStockIntake_Click);
-            // 
             // FrmanageItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -173,7 +157,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnhide;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel3;

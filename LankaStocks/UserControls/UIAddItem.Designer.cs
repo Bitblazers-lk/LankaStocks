@@ -273,7 +273,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox Barcode;
         private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox Barcode;
     }
 }
