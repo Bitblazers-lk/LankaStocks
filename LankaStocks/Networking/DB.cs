@@ -16,6 +16,7 @@ namespace LankaStocks.DataBases
 
         public const string DBPath = "DB\\";
         public const string LogPath = "DB\\log.txt";
+        public const string StampPath = "DB\\MRC.stamp";
         public const string HistoryPath = "DB\\History\\";
 
 

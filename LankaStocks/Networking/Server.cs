@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LankaStocks.Core;
 
 namespace LankaStocks
 {
@@ -21,9 +22,14 @@ namespace LankaStocks
         public void Initialize()
         {
             {
-                bool isFirstRun = !File.Exists(DB.LogPath);
+                Log("Initializing Server");
+                bool isFirstRun = !File.Exists(DB.StampPath);
                 if (isFirstRun)
                 {
+                    byte[] stamp = new byte[256];
+                    random.NextBytes(stamp);
+                    File.WriteAllBytes(DB.StampPath, stamp);
+
                     File.AppendAllText(DB.LogPath, $"Created new Data Base on {DateTime.Now.Year}/{DateTime.Now.Month}/{DateTime.Now.Day} \n");
                 }
 
@@ -49,14 +55,17 @@ namespace LankaStocks
                         //Forms.dashboard.Hide();
                         Forms.dashboard = new Dashboard();
                         Forms.dashboard.Show();
+                        Log($"User login : {name}");
                         return (true, "Wellcome");
                     }
                     else
                     {
+                        Log($"User wrong password : {name}");
                         return (false, "Wrong password");
                     }
                 }
             }
+            Log($"Wrong user name : {name}");
             return (false, "Wrong user name or password");
         }
 

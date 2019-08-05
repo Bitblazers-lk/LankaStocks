@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static LankaStocks.Core;
 
 namespace LankaStocks.Networking
 {
@@ -31,6 +32,7 @@ namespace LankaStocks.Networking
 
         public override void Initialize()
         {
+            Log("Initializing Client");
             svr = new IntergratedServer();
             svr.Initialize();
         }

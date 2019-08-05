@@ -8,15 +8,17 @@ using LankaStocks.DataBases;
 using System.Windows.Forms;
 using LankaStocks.UIForms;
 using LankaStocks.Networking;
+using System.Runtime.InteropServices;
 
 namespace LankaStocks
 {
     public static class Core
     {
-        #region DataBases
+        #region Vars
 
         public static BaseClient client;
 
+        public static Random random = new Random();
         //public static DBSession Session => Live.Session;
         //public static Dictionary<uint, BasicSale> Sales => Live.Session.Sales;
         //public static Dictionary<uint, StockIntake> StockIntakes => Live.Session.StockIntakes;
@@ -26,6 +28,7 @@ namespace LankaStocks
 
         public static void Initialize()
         {
+            Log("Lanka Stocks - Mahinda Rapaksha College");
             client = (BaseClient)new IntergratedClient();
             client.Initialize();
         }
@@ -33,11 +36,16 @@ namespace LankaStocks
         #region Loging
         public static void Log(string s)
         {
-            string L = TimeStamp + s + Environment.NewLine;
+            string L = TimeStamp + s;// + "\n";
             Console.WriteLine(L);
 
-            new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(LogWriteFile)).Start(L);
+            ThreadLogToFile(L + Environment.NewLine);
 
+        }
+
+        private static void ThreadLogToFile(string L)
+        {
+            new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(LogWriteFile)) { Name = "WriteFile", IsBackground = true, Priority = System.Threading.ThreadPriority.Lowest }.Start(L);
         }
 
         private static bool isLogFileBusy = false;
@@ -80,6 +88,8 @@ namespace LankaStocks
             //Save everything
             Application.Exit();
         }
+
+
     }
 
 
