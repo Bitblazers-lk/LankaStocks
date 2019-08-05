@@ -180,7 +180,7 @@ namespace LankaStocks.DataBases
                             {
                                 resp.result = (byte)Response.Result.notfound;
                                 resp.obj = null;
-                                resp.msg += $"{req.expr}[{req.para[0]}] {solv.Item2.ToString()} member not found";
+                                resp.msg += $"{req.expr} {solv.Item2.ToString()} member not found";
                             }
                             break;
 
@@ -257,7 +257,7 @@ namespace LankaStocks.DataBases
                             {
                                 resp.result = (byte)Response.Result.notfound;
                                 resp.obj = null;
-                                resp.msg += $"{req.expr}[{req.para[0]}] {solv.Item2.ToString()} member not found";
+                                resp.msg += $"{req.expr} {solv.Item2.ToString()} member not found";
                             }
                             break;
 
@@ -405,6 +405,9 @@ namespace LankaStocks.DataBases
                             break;
                     }
                     break;
+
+
+
                 default:
                     resp.result = (byte)Response.Result.unknown;
                     resp.msg += "\n @DB cannot switch your command";

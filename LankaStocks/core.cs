@@ -17,6 +17,7 @@ namespace LankaStocks
         #region Vars
 
         public static BaseClient client;
+        public static Remote.DBs RemoteDBs;
 
         public static Random random = new Random();
         //public static DBSession Session => Live.Session;
@@ -31,6 +32,11 @@ namespace LankaStocks
             Log("Lanka Stocks - Mahinda Rapaksha College");
             client = (BaseClient)new IntergratedClient();
             client.Initialize();
+
+            RemoteDBs = new Remote.DBs();
+
+            RemoteDBs.Session.sessionBegin.SetGet = new DateTime(2000, 6, 8);
+            Log(RemoteDBs.Session.sessionBegin.SetGet.ToString());
         }
 
         #region Loging
@@ -79,6 +85,11 @@ namespace LankaStocks
         }
 
         public static string TimeStamp => $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}\t";
+
+        public static string VisualizeObj(dynamic obj)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
+        }
 
         #endregion
 

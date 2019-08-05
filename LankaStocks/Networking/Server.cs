@@ -127,6 +127,9 @@ namespace LankaStocks
                 case "Settings":
                     Settings.Respond(req, ref resp);
                     break;
+                case "Session":
+                    Live.Session.Respond(req, ref resp);
+                    break;
                 default:
                     resp.result = (byte)Response.Result.unknown;
                     break;
