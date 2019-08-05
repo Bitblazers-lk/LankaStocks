@@ -148,6 +148,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmanageItems";
             this.Text = "LanakaStocks > Manage Item\'s";
+            this.Load += new System.EventHandler(this.FrmanageItems_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

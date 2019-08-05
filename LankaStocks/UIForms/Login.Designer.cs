@@ -41,6 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.BtnLogin = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -202,6 +202,14 @@
             this.panel2.Size = new System.Drawing.Size(640, 380);
             this.panel2.TabIndex = 14;
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(0, 305);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(640, 23);
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar.TabIndex = 11;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -209,7 +217,7 @@
             this.label6.ForeColor = System.Drawing.Color.Orange;
             this.label6.Image = global::LankaStocks.Properties.Resources.password_24px;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(268, 277);
+            this.label6.Location = new System.Drawing.Point(247, 277);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 16);
             this.label6.TabIndex = 10;
@@ -222,7 +230,7 @@
             this.label5.ForeColor = System.Drawing.Color.Orange;
             this.label5.Image = global::LankaStocks.Properties.Resources.user_24px;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(268, 248);
+            this.label5.Location = new System.Drawing.Point(247, 248);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 16);
             this.label5.TabIndex = 9;
@@ -308,14 +316,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = ". . . . . . LankaStocks . . . . . .";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // progressBar
-            // 
-            this.progressBar.Location = new System.Drawing.Point(0, 305);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(640, 23);
-            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar.TabIndex = 11;
             // 
             // Login
             // 

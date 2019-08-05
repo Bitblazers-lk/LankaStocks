@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LankaStocks.Setting;
+using static LankaStocks.Core;
 
 namespace LankaStocks.UIForms
 {
@@ -33,6 +35,16 @@ namespace LankaStocks.UIForms
             {
                 panel2.Width = 200;
             }
+        }
+
+        private void FrmanageData_Load(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                Settings.LoadCtrlSettings(ctrl);
+            }
+            this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+            this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }
     }
 }

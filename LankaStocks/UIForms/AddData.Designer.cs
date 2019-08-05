@@ -159,6 +159,7 @@
             this.MinimizeBox = false;
             this.Name = "AddData";
             this.Text = "LanakaStocks > Add Data";
+            this.Load += new System.EventHandler(this.AddData_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LankaStocks.Setting;
 
 namespace LankaStocks.UIForms
 {
@@ -45,6 +46,14 @@ namespace LankaStocks.UIForms
         private void btnRemove_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void FrmRefund_Load(object sender, EventArgs e)
+        {
+            foreach (Control ctrl in this.Controls)
+            {
+                Settings.LoadCtrlSettings(ctrl);
+            }
         }
     }
 }

@@ -55,7 +55,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(11)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 747);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1452, 11);
             this.panel1.TabIndex = 12;
@@ -76,7 +76,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(220, 747);
             this.panel2.TabIndex = 13;
@@ -91,7 +91,7 @@
             this.btnSettings.Image = global::LankaStocks.Properties.Resources.settings3_24px;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSettings.Location = new System.Drawing.Point(0, 631);
-            this.btnSettings.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(220, 58);
             this.btnSettings.TabIndex = 18;
@@ -108,7 +108,7 @@
             this.button5.ForeColor = System.Drawing.Color.Orange;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(0, 628);
-            this.button5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(209, 58);
             this.button5.TabIndex = 17;
@@ -124,7 +124,7 @@
             this.btnTransaction.Image = global::LankaStocks.Properties.Resources.bank_24px;
             this.btnTransaction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnTransaction.Location = new System.Drawing.Point(0, 560);
-            this.btnTransaction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnTransaction.Margin = new System.Windows.Forms.Padding(4);
             this.btnTransaction.Name = "btnTransaction";
             this.btnTransaction.Size = new System.Drawing.Size(209, 58);
             this.btnTransaction.TabIndex = 16;
@@ -141,7 +141,7 @@
             this.btnSales.Image = global::LankaStocks.Properties.Resources.total_sales_1_24px;
             this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSales.Location = new System.Drawing.Point(4, 494);
-            this.btnSales.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSales.Margin = new System.Windows.Forms.Padding(4);
             this.btnSales.Name = "btnSales";
             this.btnSales.Size = new System.Drawing.Size(209, 58);
             this.btnSales.TabIndex = 15;
@@ -160,7 +160,7 @@
             this.btnabout.Image = global::LankaStocks.Properties.Resources.about_us_24px;
             this.btnabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnabout.Location = new System.Drawing.Point(0, 689);
-            this.btnabout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnabout.Margin = new System.Windows.Forms.Padding(4);
             this.btnabout.Name = "btnabout";
             this.btnabout.Size = new System.Drawing.Size(220, 58);
             this.btnabout.TabIndex = 14;
@@ -177,7 +177,7 @@
             this.btnManageData.Image = global::LankaStocks.Properties.Resources.data_configuration_24px;
             this.btnManageData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManageData.Location = new System.Drawing.Point(4, 428);
-            this.btnManageData.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManageData.Margin = new System.Windows.Forms.Padding(4);
             this.btnManageData.Name = "btnManageData";
             this.btnManageData.Size = new System.Drawing.Size(209, 58);
             this.btnManageData.TabIndex = 13;
@@ -195,7 +195,7 @@
             this.btnManageItem.Image = global::LankaStocks.Properties.Resources.management_24px;
             this.btnManageItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnManageItem.Location = new System.Drawing.Point(4, 361);
-            this.btnManageItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnManageItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnManageItem.Name = "btnManageItem";
             this.btnManageItem.Size = new System.Drawing.Size(209, 58);
             this.btnManageItem.TabIndex = 12;
@@ -214,7 +214,7 @@
             this.btnIssueItem.Image = global::LankaStocks.Properties.Resources.add_shopping_cart_24px;
             this.btnIssueItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIssueItem.Location = new System.Drawing.Point(4, 295);
-            this.btnIssueItem.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnIssueItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnIssueItem.Name = "btnIssueItem";
             this.btnIssueItem.Size = new System.Drawing.Size(209, 58);
             this.btnIssueItem.TabIndex = 11;
@@ -241,7 +241,7 @@
             this.pblogo.BackColor = System.Drawing.Color.Transparent;
             this.pblogo.Image = global::LankaStocks.Properties.Resources.Logo;
             this.pblogo.Location = new System.Drawing.Point(30, 68);
-            this.pblogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pblogo.Margin = new System.Windows.Forms.Padding(4);
             this.pblogo.Name = "pblogo";
             this.pblogo.Size = new System.Drawing.Size(160, 166);
             this.pblogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -270,7 +270,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(220, 0);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1232, 747);
             this.panel4.TabIndex = 14;
@@ -287,7 +287,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));

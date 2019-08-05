@@ -78,6 +78,7 @@
             this.MaximizeBox = false;
             this.Name = "AddItems";
             this.Text = "DesignCommon";
+            this.Load += new System.EventHandler(this.AddItems_Load);
             this.ResumeLayout(false);
 
         }

@@ -32,15 +32,25 @@ namespace LankaStocks.Setting
         public Font Font;
         public string ImagePath;
         public bool OpenAtStat;
+        public float WarnWhen;
     }
 
     public static class Settings
     {
         public static void LoadCtrlSettings(Control Ctrl)
         {
-            Ctrl.BackColor = Color.White;
+            var Data = RemoteDBs.Settings.commonSettings.Get;
+
+            Ctrl.Font = Data.Font;
+            Ctrl.ForeColor = Data.FontColor;
+
             try
             {
+                if (Ctrl is TextBox || Ctrl is MaskedTextBox || Ctrl is ComboBox) Ctrl.BackColor = Data.ItemColor;
+                else if (Ctrl is Panel || Ctrl is TableLayoutPanel || Ctrl is SplitContainer) Ctrl.BackColor = Data.BackColor;
+                else if (Ctrl is Button || Ctrl is PictureBox || Ctrl is Label) ;
+                else Ctrl.BackColor = Data.BackColor;
+
                 foreach (Control ctrl in Ctrl.Controls)
                 {
                     LoadCtrlSettings(ctrl);

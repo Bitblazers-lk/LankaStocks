@@ -78,6 +78,7 @@
             this.MaximizeBox = false;
             this.Name = "ItemIntake";
             this.Text = "LanakaStocks > Stock Intake";
+            this.Load += new System.EventHandler(this.ItemIntake_Load);
             this.ResumeLayout(false);
 
         }

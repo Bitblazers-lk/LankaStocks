@@ -35,9 +35,6 @@ namespace LankaStocks
 
             RemoteDBs = new _Remote.DBs();
 
-
-
-
             //Testing....
 
             //Set DateTime object
@@ -74,7 +71,7 @@ namespace LankaStocks
             //Settings
 
             //Set color (You can use commonSettings.Get too)
-            RemoteDBs.Settings.commonSettings.GetSet.BackColor = System.Drawing.Color.Aqua;
+            //RemoteDBs.Settings.commonSettings.GetSet.BackColor = System.Drawing.Color.Aqua;
             //Get it back (You can use commonSettings.Set too)
             Log(RemoteDBs.Settings.commonSettings.GetSet.BackColor.ToString());
 

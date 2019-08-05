@@ -363,6 +363,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmQuickSale";
             this.Text = "LanakaStocks > Quick Sell";
+            this.Load += new System.EventHandler(this.FrmQuickSale_Load);
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);

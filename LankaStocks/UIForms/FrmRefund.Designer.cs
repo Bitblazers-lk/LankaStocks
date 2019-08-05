@@ -386,6 +386,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmRefund";
             this.Text = "LanakaStocks > Item Refund";
+            this.Load += new System.EventHandler(this.FrmRefund_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

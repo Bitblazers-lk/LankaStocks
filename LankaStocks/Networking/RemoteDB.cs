@@ -19,7 +19,6 @@ namespace LankaStocks._Remote
 
     }
 
-
     public class Live : RemoteDB
     {
         public RemoteDic<uint, Item> Items = new RemoteDic<uint, Item>() { name = "Items", db = "Live" };
@@ -54,12 +53,10 @@ namespace LankaStocks._Remote
         public RemoteMember<CommonSettings> commonSettings = new RemoteMember<CommonSettings>() { name = "commonSettings", db = "Settings" };
     }
 
-
     public class RemoteDB
     {
 
     }
-
 
     public class RemoteMember<T>
     {
@@ -82,7 +79,6 @@ namespace LankaStocks._Remote
 
             }
         }
-
 
         public virtual void Set(T value)
         {
@@ -107,11 +103,8 @@ namespace LankaStocks._Remote
 
     }
 
-
-
     public class RemoteDic<TKey, TVal> : RemoteMember<Dictionary<TKey, TVal>>
     {
-
         public void Set(TKey key, TVal value)
         {
             var resp = client.Request((byte)Request.Command.set, db, name, new dynamic[] { key, value });
@@ -136,8 +129,6 @@ namespace LankaStocks._Remote
                 Log($"Remove dic {db}.{name} failed. {VisualizeObj(resp)}");
             }
         }
-
-
     }
     public class RemoteList<T> : RemoteMember<T>
     {

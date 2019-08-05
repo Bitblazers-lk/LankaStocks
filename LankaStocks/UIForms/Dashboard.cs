@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.Setting;
+using static LankaStocks.Core;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
@@ -82,9 +83,12 @@ namespace LankaStocks.UIForms
         private void Dashboard_Load(object sender, EventArgs e)
         {
             foreach (Control ctrl in this.Controls)
-            {         
+            {
                 Settings.LoadCtrlSettings(ctrl);
             }
+
+            this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+            this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }
     }
 }

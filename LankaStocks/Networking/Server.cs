@@ -17,8 +17,6 @@ namespace LankaStocks
         public static DBHistory History;
         public static DBSettings Settings;
 
-
-
         public void Initialize()
         {
             {
@@ -42,7 +40,6 @@ namespace LankaStocks
             }
 
         }
-
 
         public (bool, string) LoginCheck(string name, string pass)
         {
@@ -69,7 +66,6 @@ namespace LankaStocks
             return (false, "Wrong user name or password");
         }
 
-
         public Response Respond(Request req)
         {
             Response resp = new Response() { msg = "" };
@@ -92,8 +88,6 @@ namespace LankaStocks
                     resp.result = (byte)Response.Result.unknown;
                     break;
             }
-
-
             return resp;
         }
 
@@ -109,7 +103,6 @@ namespace LankaStocks
                     break;
             }
         }
-
 
         public void RespondGetSetAddRem(Request req, ref Response resp)
         {

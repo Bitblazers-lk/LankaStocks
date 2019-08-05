@@ -143,6 +143,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmSales";
             this.Text = "LanakaStocks > Sales";
+            this.Load += new System.EventHandler(this.FrmSales_Load);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 

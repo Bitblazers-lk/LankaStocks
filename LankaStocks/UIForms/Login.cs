@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LankaStocks.Setting;
 using static LankaStocks.Core;
 
 namespace LankaStocks.UIForms
@@ -24,8 +26,48 @@ namespace LankaStocks.UIForms
 
         private void Login_Load(object sender, EventArgs e)
         {
+            this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+            this.tableLayoutPanel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+
+            this.line.BackColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+
+            this.buttonabout.Font = RemoteDBs.Settings.commonSettings.Get.Font;
+            this.buttonabout.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+
+            this.buttonlogin.Font = RemoteDBs.Settings.commonSettings.Get.Font;
+            this.buttonlogin.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+
+            this.BtnLogin.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+
+            this.label1.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+            this.label2.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+            this.label3.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+            this.label4.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+            this.label5.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+            this.label6.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+
+            this.label5.Font = RemoteDBs.Settings.commonSettings.Get.Font;
+            this.label6.Font = RemoteDBs.Settings.commonSettings.Get.Font;
+
+            this.BtnLogin.Font = RemoteDBs.Settings.commonSettings.Get.Font;
+
+            this.TxtName.Font = RemoteDBs.Settings.commonSettings.Get.Font;
+            this.TxtPass.Font = RemoteDBs.Settings.commonSettings.Get.Font;
+
+            this.TxtName.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+            this.TxtPass.ForeColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
+
+            this.TxtName.BackColor = RemoteDBs.Settings.commonSettings.Get.ItemColor;
+            this.TxtPass.BackColor = RemoteDBs.Settings.commonSettings.Get.ItemColor;
+
             VisibaleControls(false);
             TxtName.Focus();
+
+            for(int i = 0; i <= 100; i++)
+            {
+                Thread.Sleep(10);
+                progressBar.Value = i;
+            }
         }
 
         private void Login_Shown(object sender, EventArgs e)
@@ -72,7 +114,7 @@ namespace LankaStocks.UIForms
                 try
                 {
                     Animator.StandardAnimate(gb, XanderUI.XUIObjectAnimator.StandardAnimation.SlideLeft, 2);
-                    Animator.ColorAnimate(panel2, Color.FromArgb(10, 5, 10), XanderUI.XUIObjectAnimator.ColorAnimation.FillEllipse, true, 1);
+                    Animator.ColorAnimate(panel2, RemoteDBs.Settings.commonSettings.Get.BackColor, XanderUI.XUIObjectAnimator.ColorAnimation.FillEllipse, true, 1);
                 }
                 catch
                 {

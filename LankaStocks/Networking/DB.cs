@@ -642,7 +642,8 @@ namespace LankaStocks.DataBases
                 ItemColor = Color.FromKnownColor(KnownColor.WindowFrame),
                 OpenAtStat = false,
                 ImagePath = null,
-                Font = new Font("Microsoft Sans Serif", 9.75f)
+                Font = new Font("Comic Sans MS", 9.75f),
+                WarnWhen = 10.00F
             };
         }
 
