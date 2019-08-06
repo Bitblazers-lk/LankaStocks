@@ -48,7 +48,9 @@ namespace LankaStocks.Setting
             {
                 if (Ctrl is TextBox || Ctrl is MaskedTextBox || Ctrl is ComboBox) Ctrl.BackColor = Data.ItemColor;
                 else if (Ctrl is Panel || Ctrl is TableLayoutPanel || Ctrl is SplitContainer) Ctrl.BackColor = Data.BackColor;
-                else if (Ctrl is Button || Ctrl is PictureBox || Ctrl is Label) ;
+#pragma warning disable CS0642 // Possible mistaken empty statement
+                else if (Ctrl is Button || Ctrl is PictureBox || Ctrl is Label);
+#pragma warning restore CS0642 // Possible mistaken empty statement
                 else Ctrl.BackColor = Data.BackColor;
 
                 foreach (Control ctrl in Ctrl.Controls)

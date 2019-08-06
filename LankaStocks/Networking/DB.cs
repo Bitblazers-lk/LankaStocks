@@ -77,7 +77,6 @@ namespace LankaStocks.DataBases
             IsBusy = false;
         }
 
-
         public DB LoadBinary(bool CreateNewIfNotFound = false)
         {
             while (IsBusy)
@@ -87,8 +86,6 @@ namespace LankaStocks.DataBases
 
             if (LastUpdate != LastSave)
                 SaveBinary();
-
-
 
             System.IO.FileStream FS = null;
             try
@@ -112,7 +109,6 @@ namespace LankaStocks.DataBases
                         return null;
                     }
                 }
-
 
                 Log($"@DB {DBName} File opening...");
 
@@ -147,12 +143,8 @@ namespace LankaStocks.DataBases
         }
 
 
-
         public abstract (dynamic, MemberType) Resolve(string expr);
         // public abstract void SetDataMember(string expr, dynamic data);
-
-
-
         public void SetDataMember(string name, dynamic val)
         {
             // GetType().InvokeMember(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.SetField, Type.DefaultBinder, this, val);

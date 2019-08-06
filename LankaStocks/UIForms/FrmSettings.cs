@@ -95,7 +95,9 @@ namespace LankaStocks.UIForms
             RemoteDBs.Settings.commonSettings.GetSet.FontColor = uiColourFont.ColourBox.BackColor;
             RemoteDBs.Settings.commonSettings.GetSet.ItemColor = uiColourItem.ColourBox.BackColor;
 
-            RemoteDBs.Settings.billSetting.GetSet.H1 = H1.Text;
+            RemoteDBs.Settings.commonSettings.GetSet.Font = new Font("Comic Sans MS", (float)TxtFontSize.Value);
+
+           RemoteDBs.Settings.billSetting.GetSet.H1 = H1.Text;
             RemoteDBs.Settings.billSetting.GetSet.H2 = H2.Text;
             RemoteDBs.Settings.billSetting.GetSet.H3 = H3.Text;
             RemoteDBs.Settings.billSetting.GetSet.E1 = E1.Text;
