@@ -57,7 +57,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 70);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(196, 70);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // l1
@@ -67,7 +67,7 @@
             this.l1.ForeColor = System.Drawing.Color.Orange;
             this.l1.Location = new System.Drawing.Point(3, 0);
             this.l1.Name = "l1";
-            this.l1.Size = new System.Drawing.Size(194, 23);
+            this.l1.Size = new System.Drawing.Size(190, 23);
             this.l1.TabIndex = 0;
             this.l1.Text = "label1";
             this.l1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -79,7 +79,7 @@
             this.l2.ForeColor = System.Drawing.Color.Orange;
             this.l2.Location = new System.Drawing.Point(3, 23);
             this.l2.Name = "l2";
-            this.l2.Size = new System.Drawing.Size(194, 23);
+            this.l2.Size = new System.Drawing.Size(190, 23);
             this.l2.TabIndex = 1;
             this.l2.Text = "label2";
             this.l2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -91,7 +91,7 @@
             this.lp.ForeColor = System.Drawing.Color.Orange;
             this.lp.Location = new System.Drawing.Point(3, 46);
             this.lp.Name = "lp";
-            this.lp.Size = new System.Drawing.Size(194, 24);
+            this.lp.Size = new System.Drawing.Size(190, 24);
             this.lp.TabIndex = 2;
             this.lp.Text = "label3";
             this.lp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -105,7 +105,7 @@
             this.btnaddtoc.ForeColor = System.Drawing.Color.Orange;
             this.btnaddtoc.Image = global::LankaStocks.Properties.Resources.add_shopping_cart_24px;
             this.btnaddtoc.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnaddtoc.Location = new System.Drawing.Point(35, 250);
+            this.btnaddtoc.Location = new System.Drawing.Point(32, 250);
             this.btnaddtoc.Name = "btnaddtoc";
             this.btnaddtoc.Size = new System.Drawing.Size(130, 30);
             this.btnaddtoc.TabIndex = 1;
@@ -115,7 +115,7 @@
             // 
             // PB
             // 
-            this.PB.Location = new System.Drawing.Point(30, 90);
+            this.PB.Location = new System.Drawing.Point(27, 90);
             this.PB.Name = "PB";
             this.PB.Size = new System.Drawing.Size(140, 140);
             this.PB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -138,16 +138,16 @@
             // 
             // UItem
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ContextMenuStrip = this.cms;
             this.Controls.Add(this.PB);
             this.Controls.Add(this.btnaddtoc);
             this.Controls.Add(this.tableLayoutPanel1);
             this.ForeColor = System.Drawing.Color.Crimson;
             this.Name = "UItem";
-            this.Size = new System.Drawing.Size(200, 300);
+            this.Size = new System.Drawing.Size(196, 296);
             this.Load += new System.EventHandler(this.UI_Load);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UI_MouseClick);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -34,8 +34,8 @@
             this.btnVendor = new System.Windows.Forms.Button();
             this.btnPerson = new System.Windows.Forms.Button();
             this.btnhide = new System.Windows.Forms.Button();
-            this.uiSaveData = new LankaStocks.UserControls.UISaveData();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.uiSaveData = new LankaStocks.UserControls.UISaveData();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,6 +77,7 @@
             this.btnUser.TabIndex = 13;
             this.btnUser.Text = "User";
             this.btnUser.UseVisualStyleBackColor = true;
+            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
             // btnVendor
             // 
@@ -92,6 +93,7 @@
             this.btnVendor.TabIndex = 12;
             this.btnVendor.Text = "Vendor";
             this.btnVendor.UseVisualStyleBackColor = true;
+            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
             // 
             // btnPerson
             // 
@@ -107,6 +109,7 @@
             this.btnPerson.TabIndex = 11;
             this.btnPerson.Text = "Person";
             this.btnPerson.UseVisualStyleBackColor = true;
+            this.btnPerson.Click += new System.EventHandler(this.btnPerson_Click);
             // 
             // btnhide
             // 
@@ -124,6 +127,15 @@
             this.btnhide.UseVisualStyleBackColor = true;
             this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
             // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(200, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(543, 407);
+            this.panel3.TabIndex = 17;
+            // 
             // uiSaveData
             // 
             this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
@@ -133,15 +145,6 @@
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(543, 62);
             this.uiSaveData.TabIndex = 16;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(543, 407);
-            this.panel3.TabIndex = 17;
             // 
             // AddData
             // 
@@ -156,8 +159,9 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MinimizeBox = false;
+            this.MaximizeBox = false;
             this.Name = "AddData";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LanakaStocks > Add Data";
             this.Load += new System.EventHandler(this.AddData_Load);
             this.panel2.ResumeLayout(false);

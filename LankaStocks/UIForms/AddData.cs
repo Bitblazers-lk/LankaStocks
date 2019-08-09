@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.Setting;
+using LankaStocks.UserControls;
 using static LankaStocks.Core;
 
 namespace LankaStocks.UIForms
@@ -20,7 +21,18 @@ namespace LankaStocks.UIForms
             uiSaveData.Save.Click += Save_Click;
             uiSaveData.RefreshAll.Click += Refresh_Click;
             uiSaveData.Cancel.Click += Cancel_Click;
+
+            uIPerson.Visible = true;
+            uIVendor.Visible = false;
+            uIUser.Visible = false;
+            uIVendor.Dock = DockStyle.None;
+            uIUser.Dock = DockStyle.None;
+            uIPerson.Dock = DockStyle.Top;
+            panel3.Controls.Add(uIPerson);
         }
+        UIPerson uIPerson = new UIPerson();
+        UIVendor uIVendor = new UIVendor();
+        UIUser uIUser = new UIUser();
 
         private void btnhide_Click(object sender, EventArgs e)
         {
@@ -58,6 +70,66 @@ namespace LankaStocks.UIForms
 
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+        }
+
+        private void btnPerson_Click(object sender, EventArgs e)
+        {
+            if (panel3.Controls.Contains(uIPerson))
+            {
+                uIPerson.Visible = true;
+
+                uIVendor.Visible = false;
+                uIUser.Visible = false;
+
+                uIVendor.Dock = DockStyle.None;
+                uIUser.Dock = DockStyle.None;
+                uIPerson.Dock = DockStyle.Top;
+            }
+            else
+            {
+                uIPerson.Dock = DockStyle.Top;
+                panel3.Controls.Add(uIPerson);
+            }
+        }
+
+        private void btnVendor_Click(object sender, EventArgs e)
+        {
+            if (panel3.Controls.Contains(uIVendor))
+            {
+                uIVendor.Visible = true;
+
+                uIPerson.Visible = false;
+                uIUser.Visible = false;
+
+                uIPerson.Dock = DockStyle.None;             
+                uIUser.Dock = DockStyle.None;
+                uIVendor.Dock = DockStyle.Top;
+            }
+            else
+            {
+                uIVendor.Dock = DockStyle.Top;
+                panel3.Controls.Add(uIVendor);
+            }
+        }
+
+        private void btnUser_Click(object sender, EventArgs e)
+        {
+            if (panel3.Controls.Contains(uIUser))
+            {
+                uIUser.Visible = true;
+
+                uIVendor.Visible = false;
+                uIPerson.Visible = false;
+
+                uIPerson.Dock = DockStyle.None;
+                uIVendor.Dock = DockStyle.None;
+                uIUser.Dock = DockStyle.Top;
+            }
+            else
+            {
+                uIUser.Dock = DockStyle.Top;
+                panel3.Controls.Add(uIUser);
+            }
         }
     }
 }

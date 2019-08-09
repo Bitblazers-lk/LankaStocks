@@ -1,6 +1,6 @@
 ﻿namespace LankaStocks.UIForms
 {
-    partial class FrmSales
+    partial class FrmCharts
     {
         /// <summary>
         /// Required designer variable.
@@ -29,32 +29,32 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnChart = new System.Windows.Forms.Button();
             this.btnhide = new System.Windows.Forms.Button();
+            this.uichNow1 = new LankaStocks.Charts.UICHNow();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // panel3
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 816);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1427, 12);
-            this.panel1.TabIndex = 14;
+            this.panel3.Controls.Add(this.uichNow1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(200, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1249, 808);
+            this.panel3.TabIndex = 20;
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
-            this.panel2.Controls.Add(this.btnChart);
             this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.button1);
@@ -63,8 +63,8 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 816);
-            this.panel2.TabIndex = 15;
+            this.panel2.Size = new System.Drawing.Size(200, 808);
+            this.panel2.TabIndex = 19;
             // 
             // button3
             // 
@@ -105,39 +105,23 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 57);
             this.button1.TabIndex = 11;
-            this.button1.Text = "Person";
+            this.button1.Text = "Now";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // panel1
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1227, 816);
-            this.panel3.TabIndex = 17;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 808);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1449, 12);
+            this.panel1.TabIndex = 18;
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btnChart
-            // 
-            this.btnChart.FlatAppearance.BorderSize = 0;
-            this.btnChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChart.ForeColor = System.Drawing.Color.Orange;
-            this.btnChart.Image = global::LankaStocks.Properties.Resources.combo_chart_24px;
-            this.btnChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChart.Location = new System.Drawing.Point(4, 277);
-            this.btnChart.Margin = new System.Windows.Forms.Padding(4);
-            this.btnChart.Name = "btnChart";
-            this.btnChart.Size = new System.Drawing.Size(196, 57);
-            this.btnChart.TabIndex = 14;
-            this.btnChart.Text = "Charts";
-            this.btnChart.UseVisualStyleBackColor = true;
-            this.btnChart.Click += new System.EventHandler(this.btnChart_Click);
             // 
             // btnhide
             // 
@@ -155,35 +139,41 @@
             this.btnhide.UseVisualStyleBackColor = true;
             this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
             // 
-            // FrmSales
+            // uichNow1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.uichNow1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uichNow1.Location = new System.Drawing.Point(0, 0);
+            this.uichNow1.Name = "uichNow1";
+            this.uichNow1.Size = new System.Drawing.Size(1249, 808);
+            this.uichNow1.TabIndex = 0;
+            // 
+            // FrmCharts
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(1427, 828);
+            this.ClientSize = new System.Drawing.Size(1449, 820);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "FrmSales";
-            this.Text = "LanakaStocks > Sales";
-            this.Load += new System.EventHandler(this.FrmSales_Load);
+            this.Name = "FrmCharts";
+            this.Text = "FrmCharts";
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
+
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnhide;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button btnhide;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnChart;
+        private Charts.UICHNow uichNow1;
     }
 }

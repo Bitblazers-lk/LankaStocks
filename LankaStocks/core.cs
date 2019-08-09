@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using LankaStocks.UIForms;
 using LankaStocks.Networking;
 using System.Runtime.InteropServices;
+using System.Drawing;
 
 namespace LankaStocks
 {
@@ -74,6 +75,12 @@ namespace LankaStocks
             //RemoteDBs.Settings.commonSettings.GetSet.BackColor = System.Drawing.Color.Aqua;
             //Get it back (You can use commonSettings.Set too)
             Log(RemoteDBs.Settings.commonSettings.GetSet.BackColor.ToString());
+
+            Bills.SetHeaderBeginFont(new Font("Arial", 15));
+            Bills.SetFont(new Font("Arial", 11));
+
+            Bills.SetHeaderBegin(RemoteDBs.Settings.billSetting.Get.H1, RemoteDBs.Settings.billSetting.Get.H2, RemoteDBs.Settings.billSetting.Get.H3);
+            Bills.SetHeaderEnd(RemoteDBs.Settings.billSetting.Get.E1, RemoteDBs.Settings.billSetting.Get.E2, RemoteDBs.Settings.billSetting.Get.E3);
 
             Log("Initialized");
         }
@@ -158,5 +165,6 @@ namespace LankaStocks
         public static FrmSettings frmSettings;
         public static FrmQuickSale frmQuickSale;
         public static FrmRefund frmRefund;
+        public static FrmCharts frmCharts;
     }
 }

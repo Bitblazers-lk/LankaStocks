@@ -81,6 +81,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bills.cs" />
+    <Compile Include="Charts\CHSalesRealTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Charts\CHSalesRealTime.Designer.cs">
+      <DependentUpon>CHSalesRealTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Charts\CHUserProfie.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Charts\CHUserProfie.Designer.cs">
+      <DependentUpon>CHUserProfie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Charts\UICHNow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Charts\UICHNow.Designer.cs">
+      <DependentUpon>UICHNow.cs</DependentUpon>
+    </Compile>
     <Compile Include="core.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Networking\Client.cs" />
@@ -118,6 +136,18 @@
     </Compile>
     <Compile Include="UIForms\FrmanageItems.Designer.cs">
       <DependentUpon>FrmanageItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\FrmCharts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmCharts.Designer.cs">
+      <DependentUpon>FrmCharts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIForms\FrmIosButton.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmIosButton.Designer.cs">
+      <DependentUpon>FrmIosButton.cs</DependentUpon>
     </Compile>
     <Compile Include="UIForms\FrmQuickSale.cs">
       <SubType>Form</SubType>
@@ -259,6 +289,15 @@
     <Compile Include="UserControls\UIVendor.Designer.cs">
       <DependentUpon>UIVendor.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Charts\CHSalesRealTime.resx">
+      <DependentUpon>CHSalesRealTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Charts\CHUserProfie.resx">
+      <DependentUpon>CHUserProfie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Charts\UICHNow.resx">
+      <DependentUpon>UICHNow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -286,6 +325,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIForms\FrmanageItems.resx">
       <DependentUpon>FrmanageItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmCharts.resx">
+      <DependentUpon>FrmCharts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmIosButton.resx">
+      <DependentUpon>FrmIosButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIForms\FrmQuickSale.resx">
       <DependentUpon>FrmQuickSale.cs</DependentUpon>
@@ -378,11 +423,13 @@
     <Content Include="Images\bank_24px.png" />
     <Content Include="Images\cancel_2_24px.png" />
     <None Include="Images\Capture.PNG" />
+    <Content Include="Images\combo_chart_24px.png" />
     <Content Include="Images\data_configuration_24px.png" />
     <Content Include="Images\delete_sign_24px.png" />
     <Content Include="Images\edit_24px.png" />
     <Content Include="Images\full_screen_24px.png" />
     <None Include="Images\key_24px.png" />
+    <None Include="Images\home_button_filled_50px.png" />
     <Content Include="Images\kisspng-inventory-management-software-stock-management-sal-warehouse-5ac5d409391c68.7620306315229143132339.jpg" />
     <Content Include="Images\left3_24px.png" />
     <Content Include="Images\Logo.png" />

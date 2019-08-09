@@ -8,28 +8,30 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using static LankaStocks.Core;
 
 namespace LankaStocks.UserControls
 {
     public partial class UItem : UserControl
     {
-        public UItem(string Code)
+        public UItem()
         {
-            _Code = Code;
             InitializeComponent();
+            PB.DoubleClick += btnaddtoc_Click;
+            this.DoubleClick += btnaddtoc_Click;
         }
 
-        private string _Code = "0";
+        public uint _Code;
+
         private void UI_MouseClick(object sender, MouseEventArgs e)
         {
-            Console.WriteLine("OKK");
         }
 
         private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
             OpenFileDialog open = new OpenFileDialog
             {
-                Filter = "Images (*.jpg)|*.jpg|(*.png)|*.png| All Files (*.*)|*.*",
+                Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png"
             };
             if (open.ShowDialog() == DialogResult.OK)
             {
@@ -73,14 +75,20 @@ namespace LankaStocks.UserControls
         {
             //if (!String.IsNullOrWhiteSpace(Pages.Menu.DB.data.Item[_Code].ImPath))
             //    LoadImage(Pages.Menu.DB.data.Item[_Code].ImPath);
-            //l1.Text = Pages.Menu.DB.data.Item[_Code].Name;
-            //l2.Text = Pages.Menu.DB.data.Item[_Code].Code;
-            //lp.Text = $"Rs.{ Pages.Menu.DB.data.Item[_Code].Price.ToString("00.00")}";
+            Setdata(_Code);
+        }
+
+        public void Setdata(uint code)
+        {
+            l1.Text = RemoteDBs.Live.Items.Get[code].name;
+            l2.Text = RemoteDBs.Live.Items.Get[code].itemID.ToString();
+            lp.Text = $"Rs.{ RemoteDBs.Live.Items.Get[code].outPrice.ToString("00.00")}";
         }
 
         private void btnaddtoc_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show(this.Size.ToString());
         }
+
     }
 }

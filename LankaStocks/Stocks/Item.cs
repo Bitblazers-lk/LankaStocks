@@ -10,6 +10,7 @@ namespace LankaStocks
     public class Item
     {
         public uint itemID = 0;
+        public string Barcode;
 
         public string name;
         public uint vendor;

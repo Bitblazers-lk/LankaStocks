@@ -133,13 +133,13 @@
             this.tableLayoutPanel3.Controls.Add(this.TxtCode, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.TxtQty, 1, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(153, 30);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(153, 40);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 3;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(470, 107);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(470, 97);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label3
@@ -150,7 +150,7 @@
             this.label3.ForeColor = System.Drawing.Color.Orange;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 35);
+            this.label3.Size = new System.Drawing.Size(76, 32);
             this.label3.TabIndex = 0;
             this.label3.Text = "Item Code :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -161,9 +161,9 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Orange;
-            this.label4.Location = new System.Drawing.Point(3, 35);
+            this.label4.Location = new System.Drawing.Point(3, 32);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 35);
+            this.label4.Size = new System.Drawing.Size(76, 32);
             this.label4.TabIndex = 1;
             this.label4.Text = "Qty. :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -185,10 +185,25 @@
             this.TxtQty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtQty.ForeColor = System.Drawing.Color.Orange;
-            this.TxtQty.Location = new System.Drawing.Point(85, 38);
+            this.TxtQty.Location = new System.Drawing.Point(85, 35);
+            this.TxtQty.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.TxtQty.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.TxtQty.Name = "TxtQty";
             this.TxtQty.Size = new System.Drawing.Size(382, 22);
             this.TxtQty.TabIndex = 3;
+            this.TxtQty.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // tableLayoutPanel4
             // 
@@ -269,17 +284,17 @@
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label labelTotal;
-        private System.Windows.Forms.Label labelInNO;
-        private System.Windows.Forms.Button btnIssue;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button btnRefund;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TxtCode;
-        private System.Windows.Forms.NumericUpDown TxtQty;
+        public System.Windows.Forms.Label labelTotal;
+        public System.Windows.Forms.Label labelInNO;
+        public System.Windows.Forms.Button btnIssue;
+        public System.Windows.Forms.Button btnRefund;
+        public System.Windows.Forms.TextBox TxtCode;
+        public System.Windows.Forms.NumericUpDown TxtQty;
     }
 }

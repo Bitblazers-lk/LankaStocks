@@ -163,6 +163,16 @@ namespace LankaStocks.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap combo_chart_24px {
+            get {
+                object obj = ResourceManager.GetObject("combo_chart_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap data_configuration_24px {
             get {
                 object obj = ResourceManager.GetObject("data_configuration_24px", resourceCulture);
@@ -206,6 +216,16 @@ namespace LankaStocks.Properties {
         public static System.Drawing.Bitmap full_screen_24px {
             get {
                 object obj = ResourceManager.GetObject("full_screen_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap home_button_filled_50px {
+            get {
+                object obj = ResourceManager.GetObject("home_button_filled_50px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

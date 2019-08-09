@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LankaStocks.UserControls;
 using LankaStocks.Setting;
 using static LankaStocks.Core;
 //41, 11, 31
@@ -17,6 +18,23 @@ namespace LankaStocks.UIForms
         public Dashboard()
         {
             InitializeComponent();
+            UIMenu menu = new UIMenu
+            {
+                Dock = DockStyle.Fill
+            };
+            this.panel4.Controls.Add(menu);
+
+            foreach (Control ctrl in this.Controls)
+            {
+                Settings.LoadCtrlSettings(ctrl);
+            }
+
+            this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+            this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+
+            FrmIosButton b = new FrmIosButton();
+            b.Show();
+
         }
         public List<string> i = new List<string>();
 
@@ -47,7 +65,7 @@ namespace LankaStocks.UIForms
 
         private void btnIssueItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnManageItem_Click(object sender, EventArgs e)
@@ -82,13 +100,7 @@ namespace LankaStocks.UIForms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
 
-            this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
-            this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }
     }
 }
