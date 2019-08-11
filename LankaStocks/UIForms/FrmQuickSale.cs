@@ -34,7 +34,7 @@ namespace LankaStocks.UIForms
         private void btnfund_Click(object sender, EventArgs e)
         {
             Forms.frmRefund = new FrmRefund();
-            Forms.frmRefund.Show();
+            Forms.frmRefund.ShowDialog();
         }
 
         private void TxtCode_KeyDown(object sender, KeyEventArgs e)

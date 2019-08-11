@@ -121,7 +121,7 @@
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // btnChart
             // 
@@ -137,7 +137,7 @@
             this.btnChart.TabIndex = 14;
             this.btnChart.Text = "Charts";
             this.btnChart.UseVisualStyleBackColor = true;
-            this.btnChart.Click += new System.EventHandler(this.btnChart_Click);
+            this.btnChart.Click += new System.EventHandler(this.BtnChart_Click);
             // 
             // btnhide
             // 
@@ -153,7 +153,7 @@
             this.btnhide.Size = new System.Drawing.Size(200, 34);
             this.btnhide.TabIndex = 10;
             this.btnhide.UseVisualStyleBackColor = true;
-            this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
+            this.btnhide.Click += new System.EventHandler(this.Btnhide_Click);
             // 
             // FrmSales
             // 

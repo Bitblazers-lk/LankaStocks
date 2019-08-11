@@ -22,7 +22,7 @@ namespace LankaStocks.UIForms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Forms.addItems = new UIForms.AddItems();
-            Forms.addItems.Show();
+            Forms.addItems.ShowDialog();
         }
 
         private void btnhide_Click(object sender, EventArgs e)
@@ -40,7 +40,7 @@ namespace LankaStocks.UIForms
         private void btnStockIntake_Click(object sender, EventArgs e)
         {
             Forms.itemIntake = new UIForms.ItemIntake();
-            Forms.itemIntake.Show();
+            Forms.itemIntake.ShowDialog();
         }
 
         private void FrmanageItems_Load(object sender, EventArgs e)

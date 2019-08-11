@@ -39,14 +39,11 @@
             this.btnManageData = new System.Windows.Forms.Button();
             this.btnManageItem = new System.Windows.Forms.Button();
             this.btnIssueItem = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pblogo = new System.Windows.Forms.PictureBox();
             this.btnhide = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -206,7 +203,6 @@
             // 
             // btnIssueItem
             // 
-            this.btnIssueItem.ContextMenuStrip = this.contextMenuStrip1;
             this.btnIssueItem.FlatAppearance.BorderSize = 0;
             this.btnIssueItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIssueItem.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -222,19 +218,6 @@
             this.toolTip1.SetToolTip(this.btnIssueItem, "Issue Item\'s To Customer\'s...");
             this.btnIssueItem.UseVisualStyleBackColor = true;
             this.btnIssueItem.Click += new System.EventHandler(this.btnIssueItem_Click);
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(206, 26);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(205, 22);
-            this.toolStripMenuItem1.Text = "Open Quick Sell Window";
             // 
             // pblogo
             // 
@@ -294,7 +277,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel2.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).EndInit();
             this.ResumeLayout(false);
 
@@ -312,8 +294,6 @@
         private System.Windows.Forms.PictureBox pblogo;
         private System.Windows.Forms.Button btnTransaction;
         private System.Windows.Forms.Button btnSales;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnSettings;

@@ -63,7 +63,7 @@ namespace LankaStocks.UIForms
             VisibaleControls(false);
             TxtName.Focus();
 
-            for(int i = 0; i <= 100; i++)
+            for (int i = 0; i <= 100; i++)
             {
                 Thread.Sleep(10);
                 progressBar.Value = i;

@@ -83,7 +83,7 @@ namespace LankaStocks.Charts
         private void SetAxisLimits(System.DateTime now)
         {
             cartesianChart1.AxisX[0].MaxValue = now.Ticks + TimeSpan.FromSeconds(_delay / 1000).Ticks; // lets force the axis to be 100ms ahead
-            cartesianChart1.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(10 * (_delay / 1000)).Ticks; //we only care about the last 8 seconds
+            cartesianChart1.AxisX[0].MinValue = now.Ticks - TimeSpan.FromSeconds(10 * (_delay / 1000) ).Ticks; //we only care about the last 8 seconds
         }
         private void TimerOnTick(object sender, EventArgs eventArgs)
         {

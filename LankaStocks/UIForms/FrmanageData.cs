@@ -22,7 +22,7 @@ namespace LankaStocks.UIForms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Forms.addData = new UIForms.AddData();
-            Forms.addData.Show();
+            Forms.addData.ShowDialog();
         }
 
         private void btnhide_Click(object sender, EventArgs e)

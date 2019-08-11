@@ -35,9 +35,18 @@ namespace LankaStocks.UIForms
             FrmIosButton b = new FrmIosButton();
             b.Show();
 
+            cm.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
+            btnIssueItem.ContextMenu = cm;
         }
-        public List<string> i = new List<string>();
 
+        private void Open_QC_Window_Click(object sender, EventArgs e)
+        {
+            Forms.frmQuickSale = new FrmQuickSale();
+            Forms.frmQuickSale.ShowDialog();
+        }
+
+        public List<string> i = new List<string>();
+        ContextMenu cm = new ContextMenu();
         private void btnhide_Click(object sender, EventArgs e)
         {
             if (panel2.Width == 220)
@@ -95,7 +104,7 @@ namespace LankaStocks.UIForms
         private void btnSettings_Click(object sender, EventArgs e)
         {
             Forms.frmSettings = new UIForms.FrmSettings();
-            Forms.frmSettings.Show();
+            Forms.frmSettings.ShowDialog();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)

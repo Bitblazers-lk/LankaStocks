@@ -19,7 +19,6 @@ namespace LankaStocks.UIForms
         public FrmSettings()
         {
             InitializeComponent();
-
             uiColourMenu.Browse.Click += MenuBrowse_Click;
             uiColourBack.Browse.Click += BackBrowse_Click;
             uiColourItem.Browse.Click += ItemBrowse_Click;

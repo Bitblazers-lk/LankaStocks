@@ -33,10 +33,12 @@ namespace LankaStocks.Charts
             cartesianChart1.Series.Clear();
             foreach (var s in data)
             {
-                CheckBox cb = new CheckBox();
-                cb.Dock = DockStyle.Left;
-                cb.Text = s.Key;
-                cb.Name = s.Key;
+                CheckBox cb = new CheckBox
+                {
+                    Dock = DockStyle.Left,
+                    Text = s.Key,
+                    Name = s.Key
+                };
                 cb.CheckStateChanged += CB_Change;
                 var d = new ChartValues<double>();
                 d.AddRange(s.Value);

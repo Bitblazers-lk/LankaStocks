@@ -31,7 +31,7 @@ namespace LankaStocks.UIForms
         CHSalesRealTime cHSalesRealTime = new CHSalesRealTime(1000, "Sales", true);
         CHUserProfie cHUserProfie = new CHUserProfie();
 
-        private void btnhide_Click(object sender, EventArgs e)
+        private void Btnhide_Click(object sender, EventArgs e)
         {
             if (panel2.Width == 200)
             {
@@ -55,13 +55,13 @@ namespace LankaStocks.UIForms
         }
         Random R = new Random();
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             //cHSalesRealTime.Draw(R.Next(25, 1000));
             //timer1.Interval = R.Next(100, 3000);
         }
 
-        private void btnChart_Click(object sender, EventArgs e)
+        private void BtnChart_Click(object sender, EventArgs e)
         {
             Forms.frmCharts = new FrmCharts();
             Forms.frmCharts.Show();

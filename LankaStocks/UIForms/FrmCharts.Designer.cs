@@ -30,14 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.uichNow1 = new LankaStocks.Charts.UICHNow();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnhide = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnhide = new System.Windows.Forms.Button();
-            this.uichNow1 = new LankaStocks.Charts.UICHNow();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +51,14 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1249, 808);
             this.panel3.TabIndex = 20;
+            // 
+            // uichNow1
+            // 
+            this.uichNow1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uichNow1.Location = new System.Drawing.Point(0, 0);
+            this.uichNow1.Name = "uichNow1";
+            this.uichNow1.Size = new System.Drawing.Size(1249, 808);
+            this.uichNow1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -108,6 +116,22 @@
             this.button1.Text = "Now";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // btnhide
+            // 
+            this.btnhide.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnhide.FlatAppearance.BorderSize = 0;
+            this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnhide.ForeColor = System.Drawing.Color.White;
+            this.btnhide.Image = global::LankaStocks.Properties.Resources.menu_24px;
+            this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnhide.Location = new System.Drawing.Point(0, 0);
+            this.btnhide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnhide.Name = "btnhide";
+            this.btnhide.Size = new System.Drawing.Size(200, 34);
+            this.btnhide.TabIndex = 10;
+            this.btnhide.UseVisualStyleBackColor = true;
+            this.btnhide.Click += new System.EventHandler(this.Btnhide_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
@@ -123,30 +147,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             // 
-            // btnhide
-            // 
-            this.btnhide.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnhide.FlatAppearance.BorderSize = 0;
-            this.btnhide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnhide.ForeColor = System.Drawing.Color.White;
-            this.btnhide.Image = global::LankaStocks.Properties.Resources.menu_24px;
-            this.btnhide.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnhide.Location = new System.Drawing.Point(0, 0);
-            this.btnhide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnhide.Name = "btnhide";
-            this.btnhide.Size = new System.Drawing.Size(200, 34);
-            this.btnhide.TabIndex = 10;
-            this.btnhide.UseVisualStyleBackColor = true;
-            this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
-            // 
-            // uichNow1
-            // 
-            this.uichNow1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uichNow1.Location = new System.Drawing.Point(0, 0);
-            this.uichNow1.Name = "uichNow1";
-            this.uichNow1.Size = new System.Drawing.Size(1249, 808);
-            this.uichNow1.TabIndex = 0;
-            // 
             // FrmCharts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +158,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmCharts";
             this.Text = "FrmCharts";
+            this.Load += new System.EventHandler(this.FrmCharts_Load);
             this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);

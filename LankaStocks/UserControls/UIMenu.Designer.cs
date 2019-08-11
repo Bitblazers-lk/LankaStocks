@@ -211,15 +211,15 @@
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.groupBox2, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.groupBox3, 0, 1);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.584337F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 91.41566F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(824, 664);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -230,7 +230,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.Orange;
             this.groupBox2.Location = new System.Drawing.Point(3, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(818, 51);
+            this.groupBox2.Size = new System.Drawing.Size(818, 44);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Search Store";
@@ -255,7 +255,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(812, 32);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(812, 25);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label3
@@ -264,7 +264,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 32);
+            this.label3.Size = new System.Drawing.Size(57, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Code :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -275,7 +275,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Location = new System.Drawing.Point(273, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 32);
+            this.label4.Size = new System.Drawing.Size(57, 25);
             this.label4.TabIndex = 1;
             this.label4.Text = "Barcode :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -286,7 +286,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(543, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 32);
+            this.label5.Size = new System.Drawing.Size(57, 25);
             this.label5.TabIndex = 2;
             this.label5.Text = "Name :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -324,9 +324,9 @@
             this.groupBox3.Controls.Add(this.flowLayoutPanel1);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.ForeColor = System.Drawing.Color.Orange;
-            this.groupBox3.Location = new System.Drawing.Point(3, 60);
+            this.groupBox3.Location = new System.Drawing.Point(3, 53);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(818, 601);
+            this.groupBox3.Size = new System.Drawing.Size(818, 608);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Store";
@@ -337,7 +337,7 @@
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(812, 582);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(812, 589);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel4
