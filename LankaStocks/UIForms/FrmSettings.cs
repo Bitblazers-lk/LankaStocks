@@ -96,12 +96,24 @@ namespace LankaStocks.UIForms
 
             RemoteDBs.Settings.commonSettings.GetSet.Font = new Font("Comic Sans MS", (float)TxtFontSize.Value);
 
-           RemoteDBs.Settings.billSetting.GetSet.H1 = H1.Text;
+            RemoteDBs.Settings.billSetting.GetSet.H1 = H1.Text;
             RemoteDBs.Settings.billSetting.GetSet.H2 = H2.Text;
             RemoteDBs.Settings.billSetting.GetSet.H3 = H3.Text;
             RemoteDBs.Settings.billSetting.GetSet.E1 = E1.Text;
             RemoteDBs.Settings.billSetting.GetSet.E2 = E2.Text;
             RemoteDBs.Settings.billSetting.GetSet.E3 = E3.Text;
+
+            if (CBOAS.SelectedIndex == 0) RemoteDBs.Settings.commonSettings.GetSet.OpenAtStat = false;
+            else if (CBOAS.SelectedIndex == 1) RemoteDBs.Settings.commonSettings.GetSet.OpenAtStat = true;
+
+            if (CBPreview.SelectedIndex == 0) RemoteDBs.Settings.billSetting.GetSet.Perview = false;
+            else if (CBPreview.SelectedIndex == 1) RemoteDBs.Settings.billSetting.GetSet.Perview = true;
+
+            if (CBPrintBill.SelectedIndex == 0) RemoteDBs.Settings.billSetting.GetSet.PrintBill = false;
+            else if (CBPrintBill.SelectedIndex == 1) RemoteDBs.Settings.billSetting.GetSet.PrintBill = true;
+
+            if (CBNoti.SelectedIndex == 0) RemoteDBs.Settings.commonSettings.GetSet.Show_Notifications = false;
+            else if (CBNoti.SelectedIndex == 1) RemoteDBs.Settings.commonSettings.GetSet.Show_Notifications = true;
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -130,9 +142,17 @@ namespace LankaStocks.UIForms
 
         private void Ref()
         {
-            CBOAS.SelectedIndex = 0;
-            CBPreview.SelectedIndex = 0;
-            CBPrintBill.SelectedIndex = 0;
+            if (RemoteDBs.Settings.commonSettings.GetSet.OpenAtStat) CBOAS.SelectedIndex = 1;
+            else CBOAS.SelectedIndex = 0;
+
+            if (RemoteDBs.Settings.commonSettings.GetSet.Show_Notifications) CBNoti.SelectedIndex = 1;
+            else CBNoti.SelectedIndex = 0;
+
+            if (RemoteDBs.Settings.billSetting.GetSet.Perview) CBPreview.SelectedIndex = 1;
+            else CBPreview.SelectedIndex = 0;
+
+            if (RemoteDBs.Settings.billSetting.GetSet.PrintBill) CBPrintBill.SelectedIndex = 1;
+            else CBPrintBill.SelectedIndex = 0;
 
             uiColourMenu.ColourBox.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             uiColourBack.ColourBox.BackColor = RemoteDBs.Settings.commonSettings.Get.BackColor;

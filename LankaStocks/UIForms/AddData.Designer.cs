@@ -70,7 +70,7 @@
             this.btnUser.ForeColor = System.Drawing.Color.Orange;
             this.btnUser.Image = global::LankaStocks.Properties.Resources.user_male_circle_24px;
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUser.Location = new System.Drawing.Point(4, 212);
+            this.btnUser.Location = new System.Drawing.Point(0, 212);
             this.btnUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(196, 57);
@@ -86,7 +86,7 @@
             this.btnVendor.ForeColor = System.Drawing.Color.Orange;
             this.btnVendor.Image = global::LankaStocks.Properties.Resources.anonymous_mask_24px;
             this.btnVendor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendor.Location = new System.Drawing.Point(4, 148);
+            this.btnVendor.Location = new System.Drawing.Point(0, 148);
             this.btnVendor.Margin = new System.Windows.Forms.Padding(4);
             this.btnVendor.Name = "btnVendor";
             this.btnVendor.Size = new System.Drawing.Size(196, 57);
@@ -102,7 +102,7 @@
             this.btnPerson.ForeColor = System.Drawing.Color.Orange;
             this.btnPerson.Image = global::LankaStocks.Properties.Resources.Tall_Person_24px;
             this.btnPerson.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPerson.Location = new System.Drawing.Point(4, 84);
+            this.btnPerson.Location = new System.Drawing.Point(0, 84);
             this.btnPerson.Margin = new System.Windows.Forms.Padding(4);
             this.btnPerson.Name = "btnPerson";
             this.btnPerson.Size = new System.Drawing.Size(196, 57);

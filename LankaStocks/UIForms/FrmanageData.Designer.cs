@@ -118,7 +118,7 @@
             this.btnAdd.ForeColor = System.Drawing.Color.Orange;
             this.btnAdd.Image = global::LankaStocks.Properties.Resources.plus_math_24px;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(4, 279);
+            this.btnAdd.Location = new System.Drawing.Point(0, 279);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(196, 57);

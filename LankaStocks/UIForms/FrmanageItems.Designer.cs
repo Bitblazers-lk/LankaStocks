@@ -69,7 +69,7 @@
             this.btnStockIntake.ForeColor = System.Drawing.Color.Orange;
             this.btnStockIntake.Image = global::LankaStocks.Properties.Resources.purchase_order_24px;
             this.btnStockIntake.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnStockIntake.Location = new System.Drawing.Point(4, 149);
+            this.btnStockIntake.Location = new System.Drawing.Point(0, 149);
             this.btnStockIntake.Margin = new System.Windows.Forms.Padding(4);
             this.btnStockIntake.Name = "btnStockIntake";
             this.btnStockIntake.Size = new System.Drawing.Size(196, 57);
@@ -85,7 +85,7 @@
             this.btnAdd.ForeColor = System.Drawing.Color.Orange;
             this.btnAdd.Image = global::LankaStocks.Properties.Resources.plus_math_24px;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(4, 214);
+            this.btnAdd.Location = new System.Drawing.Point(0, 214);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(196, 57);
@@ -101,7 +101,7 @@
             this.button1.ForeColor = System.Drawing.Color.Orange;
             this.button1.Image = global::LankaStocks.Properties.Resources.management_24px;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(4, 84);
+            this.button1.Location = new System.Drawing.Point(0, 84);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 57);

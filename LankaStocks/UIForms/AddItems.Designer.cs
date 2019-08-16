@@ -37,17 +37,17 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 310);
+            this.panel1.Location = new System.Drawing.Point(0, 312);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 12);
+            this.panel1.Size = new System.Drawing.Size(540, 10);
             this.panel1.TabIndex = 14;
             // 
             // uiSaveData
             // 
             this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
             this.uiSaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData.Location = new System.Drawing.Point(0, 248);
+            this.uiSaveData.Location = new System.Drawing.Point(0, 250);
             this.uiSaveData.Margin = new System.Windows.Forms.Padding(4);
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(540, 62);
@@ -60,7 +60,7 @@
             this.uiAddItem.Location = new System.Drawing.Point(0, 0);
             this.uiAddItem.Margin = new System.Windows.Forms.Padding(4);
             this.uiAddItem.Name = "uiAddItem";
-            this.uiAddItem.Size = new System.Drawing.Size(540, 248);
+            this.uiAddItem.Size = new System.Drawing.Size(540, 250);
             this.uiAddItem.TabIndex = 17;
             // 
             // AddItems
@@ -77,7 +77,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "AddItems";
-            this.Text = "DesignCommon";
+            this.Text = "LankaStocks > Add Item\'s";
             this.Load += new System.EventHandler(this.AddItems_Load);
             this.ResumeLayout(false);
 

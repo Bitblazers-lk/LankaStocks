@@ -34,6 +34,7 @@ namespace LankaStocks.Setting
         public string ImagePath;
         public bool OpenAtStat;
         public float WarnWhen;
+        public bool Show_Notifications;
     }
 
     public static class Settings

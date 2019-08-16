@@ -46,11 +46,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TxtFont = new System.Windows.Forms.TextBox();
-            this.btnFontBrowse = new System.Windows.Forms.Button();
-            this.uiColourMenu = new LankaStocks.UserControls.UIColour();
-            this.uiColourBack = new LankaStocks.UserControls.UIColour();
-            this.uiColourItem = new LankaStocks.UserControls.UIColour();
-            this.uiColourFont = new LankaStocks.UserControls.UIColour();
             this.TxtFontSize = new System.Windows.Forms.NumericUpDown();
             this.CBOAS = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -86,7 +81,13 @@
             this.CBPrintBill = new System.Windows.Forms.ComboBox();
             this.CBPreview = new System.Windows.Forms.ComboBox();
             this.CD = new System.Windows.Forms.ColorDialog();
+            this.btnFontBrowse = new System.Windows.Forms.Button();
+            this.uiColourMenu = new LankaStocks.UserControls.UIColour();
+            this.uiColourBack = new LankaStocks.UserControls.UIColour();
+            this.uiColourItem = new LankaStocks.UserControls.UIColour();
+            this.uiColourFont = new LankaStocks.UserControls.UIColour();
             this.uiSaveData = new LankaStocks.UserControls.UISaveData();
+            this.CBNoti = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -147,8 +148,9 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.76543F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.23457F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76F));
+            this.tableLayoutPanel4.Controls.Add(this.CBNoti, 1, 8);
             this.tableLayoutPanel4.Controls.Add(this.label26, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 6);
             this.tableLayoutPanel4.Controls.Add(this.label9, 0, 0);
@@ -190,9 +192,9 @@
             this.label26.Location = new System.Drawing.Point(4, 272);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(98, 35);
+            this.label26.Size = new System.Drawing.Size(100, 35);
             this.label26.TabIndex = 25;
-            this.label26.Text = "Label";
+            this.label26.Text = "Notification\'s :";
             this.label26.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // panel2
@@ -200,9 +202,9 @@
             this.panel2.Controls.Add(this.textBox8);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(109, 207);
+            this.panel2.Location = new System.Drawing.Point(111, 207);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(338, 28);
+            this.panel2.Size = new System.Drawing.Size(336, 28);
             this.panel2.TabIndex = 23;
             // 
             // textBox8
@@ -213,7 +215,7 @@
             this.textBox8.Location = new System.Drawing.Point(0, 0);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(251, 22);
+            this.textBox8.Size = new System.Drawing.Size(249, 22);
             this.textBox8.TabIndex = 1;
             // 
             // button2
@@ -221,7 +223,7 @@
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Dock = System.Windows.Forms.DockStyle.Right;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(251, 0);
+            this.button2.Location = new System.Drawing.Point(249, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 28);
             this.button2.TabIndex = 0;
@@ -235,7 +237,7 @@
             this.label9.Location = new System.Drawing.Point(4, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 34);
+            this.label9.Size = new System.Drawing.Size(100, 34);
             this.label9.TabIndex = 0;
             this.label9.Text = "Menu Colour :";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -247,7 +249,7 @@
             this.label10.Location = new System.Drawing.Point(4, 34);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(98, 34);
+            this.label10.Size = new System.Drawing.Size(100, 34);
             this.label10.TabIndex = 1;
             this.label10.Text = "Back Colour :";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -259,7 +261,7 @@
             this.label15.Location = new System.Drawing.Point(4, 238);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(98, 34);
+            this.label15.Size = new System.Drawing.Size(100, 34);
             this.label15.TabIndex = 6;
             this.label15.Text = "Open At Start :";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -271,7 +273,7 @@
             this.label14.Location = new System.Drawing.Point(4, 204);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(98, 34);
+            this.label14.Size = new System.Drawing.Size(100, 34);
             this.label14.TabIndex = 5;
             this.label14.Text = "Image :";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -283,7 +285,7 @@
             this.label13.Location = new System.Drawing.Point(4, 170);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 34);
+            this.label13.Size = new System.Drawing.Size(100, 34);
             this.label13.TabIndex = 4;
             this.label13.Text = "Font Size :";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -295,7 +297,7 @@
             this.label12.Location = new System.Drawing.Point(4, 136);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(98, 34);
+            this.label12.Size = new System.Drawing.Size(100, 34);
             this.label12.TabIndex = 3;
             this.label12.Text = "Font :";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -307,7 +309,7 @@
             this.label11.Location = new System.Drawing.Point(4, 102);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(98, 34);
+            this.label11.Size = new System.Drawing.Size(100, 34);
             this.label11.TabIndex = 2;
             this.label11.Text = "Font Colour :";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -319,7 +321,7 @@
             this.label17.Location = new System.Drawing.Point(4, 68);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(98, 34);
+            this.label17.Size = new System.Drawing.Size(100, 34);
             this.label17.TabIndex = 16;
             this.label17.Text = "Item\'s Colour :";
             this.label17.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -329,9 +331,9 @@
             this.panel1.Controls.Add(this.TxtFont);
             this.panel1.Controls.Add(this.btnFontBrowse);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(109, 139);
+            this.panel1.Location = new System.Drawing.Point(111, 139);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(338, 28);
+            this.panel1.Size = new System.Drawing.Size(336, 28);
             this.panel1.TabIndex = 17;
             // 
             // TxtFont
@@ -342,60 +344,8 @@
             this.TxtFont.Location = new System.Drawing.Point(0, 0);
             this.TxtFont.Name = "TxtFont";
             this.TxtFont.ReadOnly = true;
-            this.TxtFont.Size = new System.Drawing.Size(251, 22);
+            this.TxtFont.Size = new System.Drawing.Size(249, 22);
             this.TxtFont.TabIndex = 1;
-            // 
-            // btnFontBrowse
-            // 
-            this.btnFontBrowse.BackColor = System.Drawing.Color.Transparent;
-            this.btnFontBrowse.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFontBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFontBrowse.Location = new System.Drawing.Point(251, 0);
-            this.btnFontBrowse.Name = "btnFontBrowse";
-            this.btnFontBrowse.Size = new System.Drawing.Size(87, 28);
-            this.btnFontBrowse.TabIndex = 0;
-            this.btnFontBrowse.Text = "Browse";
-            this.btnFontBrowse.UseVisualStyleBackColor = false;
-            // 
-            // uiColourMenu
-            // 
-            this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourMenu.Location = new System.Drawing.Point(109, 3);
-            this.uiColourMenu.Name = "uiColourMenu";
-            this.uiColourMenu.Size = new System.Drawing.Size(338, 28);
-            this.uiColourMenu.TabIndex = 18;
-            // 
-            // uiColourBack
-            // 
-            this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourBack.Location = new System.Drawing.Point(109, 37);
-            this.uiColourBack.Name = "uiColourBack";
-            this.uiColourBack.Size = new System.Drawing.Size(338, 28);
-            this.uiColourBack.TabIndex = 19;
-            // 
-            // uiColourItem
-            // 
-            this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourItem.Location = new System.Drawing.Point(109, 71);
-            this.uiColourItem.Name = "uiColourItem";
-            this.uiColourItem.Size = new System.Drawing.Size(338, 28);
-            this.uiColourItem.TabIndex = 20;
-            // 
-            // uiColourFont
-            // 
-            this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourFont.Location = new System.Drawing.Point(109, 105);
-            this.uiColourFont.Name = "uiColourFont";
-            this.uiColourFont.Size = new System.Drawing.Size(338, 28);
-            this.uiColourFont.TabIndex = 21;
             // 
             // TxtFontSize
             // 
@@ -408,7 +358,7 @@
             0,
             0,
             131072});
-            this.TxtFontSize.Location = new System.Drawing.Point(109, 173);
+            this.TxtFontSize.Location = new System.Drawing.Point(111, 173);
             this.TxtFontSize.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -420,7 +370,7 @@
             0,
             131072});
             this.TxtFontSize.Name = "TxtFontSize";
-            this.TxtFontSize.Size = new System.Drawing.Size(338, 22);
+            this.TxtFontSize.Size = new System.Drawing.Size(336, 22);
             this.TxtFontSize.TabIndex = 22;
             this.TxtFontSize.Value = new decimal(new int[] {
             600,
@@ -437,9 +387,9 @@
             this.CBOAS.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.CBOAS.Location = new System.Drawing.Point(109, 241);
+            this.CBOAS.Location = new System.Drawing.Point(111, 241);
             this.CBOAS.Name = "CBOAS";
-            this.CBOAS.Size = new System.Drawing.Size(338, 24);
+            this.CBOAS.Size = new System.Drawing.Size(336, 24);
             this.CBOAS.TabIndex = 24;
             // 
             // panel3
@@ -889,6 +839,58 @@
             this.CBPreview.Size = new System.Drawing.Size(336, 24);
             this.CBPreview.TabIndex = 15;
             // 
+            // btnFontBrowse
+            // 
+            this.btnFontBrowse.BackColor = System.Drawing.Color.Transparent;
+            this.btnFontBrowse.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnFontBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFontBrowse.Location = new System.Drawing.Point(249, 0);
+            this.btnFontBrowse.Name = "btnFontBrowse";
+            this.btnFontBrowse.Size = new System.Drawing.Size(87, 28);
+            this.btnFontBrowse.TabIndex = 0;
+            this.btnFontBrowse.Text = "Browse";
+            this.btnFontBrowse.UseVisualStyleBackColor = false;
+            // 
+            // uiColourMenu
+            // 
+            this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourMenu.Location = new System.Drawing.Point(111, 3);
+            this.uiColourMenu.Name = "uiColourMenu";
+            this.uiColourMenu.Size = new System.Drawing.Size(336, 28);
+            this.uiColourMenu.TabIndex = 18;
+            // 
+            // uiColourBack
+            // 
+            this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourBack.Location = new System.Drawing.Point(111, 37);
+            this.uiColourBack.Name = "uiColourBack";
+            this.uiColourBack.Size = new System.Drawing.Size(336, 28);
+            this.uiColourBack.TabIndex = 19;
+            // 
+            // uiColourItem
+            // 
+            this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourItem.Location = new System.Drawing.Point(111, 71);
+            this.uiColourItem.Name = "uiColourItem";
+            this.uiColourItem.Size = new System.Drawing.Size(336, 28);
+            this.uiColourItem.TabIndex = 20;
+            // 
+            // uiColourFont
+            // 
+            this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourFont.Location = new System.Drawing.Point(111, 105);
+            this.uiColourFont.Name = "uiColourFont";
+            this.uiColourFont.Size = new System.Drawing.Size(336, 28);
+            this.uiColourFont.TabIndex = 21;
+            // 
             // uiSaveData
             // 
             this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
@@ -898,6 +900,20 @@
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(932, 76);
             this.uiSaveData.TabIndex = 1;
+            // 
+            // CBNoti
+            // 
+            this.CBNoti.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.CBNoti.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CBNoti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CBNoti.FormattingEnabled = true;
+            this.CBNoti.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.CBNoti.Location = new System.Drawing.Point(111, 275);
+            this.CBNoti.Name = "CBNoti";
+            this.CBNoti.Size = new System.Drawing.Size(336, 24);
+            this.CBNoti.TabIndex = 26;
             // 
             // FrmSettings
             // 
@@ -999,5 +1015,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown TxtWarnQty;
+        private System.Windows.Forms.ComboBox CBNoti;
     }
 }

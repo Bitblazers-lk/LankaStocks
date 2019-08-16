@@ -16,7 +16,7 @@ namespace LankaStocks.Shared
         {
             ctrl.BackColor = Color.FromKnownColor(KnownColor.Red);
             //Core.Log(txt);
-           // MessageBox.Show(txt, "LankaStocks - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            // MessageBox.Show(txt, "LankaStocks - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return false;
         }
 

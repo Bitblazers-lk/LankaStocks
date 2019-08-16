@@ -23,9 +23,9 @@ namespace LankaStocks.UIForms
         {
             if (panel1.Width == 143)
             {
-                panel1.Width = 40;
+                panel1.Width = 35;
             }
-            else if (panel1.Width == 40)
+            else if (panel1.Width == 35)
             {
                 panel1.Width = 143;
             }

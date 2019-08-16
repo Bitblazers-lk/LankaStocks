@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSettings = new System.Windows.Forms.Button();
@@ -43,6 +44,7 @@
             this.btnhide = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             this.SuspendLayout();
@@ -137,7 +139,7 @@
             this.btnSales.ForeColor = System.Drawing.Color.Orange;
             this.btnSales.Image = global::LankaStocks.Properties.Resources.total_sales_1_24px;
             this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSales.Location = new System.Drawing.Point(4, 494);
+            this.btnSales.Location = new System.Drawing.Point(0, 494);
             this.btnSales.Margin = new System.Windows.Forms.Padding(4);
             this.btnSales.Name = "btnSales";
             this.btnSales.Size = new System.Drawing.Size(209, 58);
@@ -173,7 +175,7 @@
             this.btnManageData.ForeColor = System.Drawing.Color.Orange;
             this.btnManageData.Image = global::LankaStocks.Properties.Resources.data_configuration_24px;
             this.btnManageData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageData.Location = new System.Drawing.Point(4, 428);
+            this.btnManageData.Location = new System.Drawing.Point(0, 428);
             this.btnManageData.Margin = new System.Windows.Forms.Padding(4);
             this.btnManageData.Name = "btnManageData";
             this.btnManageData.Size = new System.Drawing.Size(209, 58);
@@ -191,7 +193,7 @@
             this.btnManageItem.ForeColor = System.Drawing.Color.Orange;
             this.btnManageItem.Image = global::LankaStocks.Properties.Resources.management_24px;
             this.btnManageItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageItem.Location = new System.Drawing.Point(4, 361);
+            this.btnManageItem.Location = new System.Drawing.Point(0, 361);
             this.btnManageItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnManageItem.Name = "btnManageItem";
             this.btnManageItem.Size = new System.Drawing.Size(209, 58);
@@ -209,7 +211,7 @@
             this.btnIssueItem.ForeColor = System.Drawing.Color.Orange;
             this.btnIssueItem.Image = global::LankaStocks.Properties.Resources.add_shopping_cart_24px;
             this.btnIssueItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnIssueItem.Location = new System.Drawing.Point(4, 295);
+            this.btnIssueItem.Location = new System.Drawing.Point(0, 295);
             this.btnIssueItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnIssueItem.Name = "btnIssueItem";
             this.btnIssueItem.Size = new System.Drawing.Size(209, 58);
@@ -259,6 +261,12 @@
             this.panel4.TabIndex = 14;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -297,5 +305,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

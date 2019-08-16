@@ -118,11 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="total_sales_1_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\total_sales_1_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="plus_math_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\plus_math_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Capture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Capture.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="combo_chart_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\combo_chart_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="minus_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\minus_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -133,8 +136,8 @@
   <data name="password_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\password_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="data_configuration_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\data_configuration_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Capture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Capture.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="squared_menu_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\squared_menu_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -148,23 +151,20 @@
   <data name="kisspng_inventory_management_software_stock_management_sal_warehouse_5ac5d409391c68_7620306315229143132339" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\kisspng-inventory-management-software-stock-management-sal-warehouse-5ac5d409391c68.7620306315229143132339.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="data_configuration_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\data_configuration_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bank_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\bank_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ms_excel_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\ms_excel_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="money_bag_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\money_bag_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settings_3_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\settings_3_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="flag-1024x430" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flag-1024x430.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\edit_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ba" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\ba.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AssetManagement_63182410___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\AssetManagement_63182410 - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,14 +178,14 @@
   <data name="picture1_2el_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\picture1_2el_icon.ico;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="menu_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\menu_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="sell_property_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\sell_property_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="about_us_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\about_us_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="flag-1024x430" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flag-1024x430.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="management_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\management_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -208,14 +208,14 @@
   <data name="full_screen_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\full_screen_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="save_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\save_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settings_3_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\settings_3_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Stock_Management_System" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Stock_Management_System.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="total_sales_1_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\total_sales_1_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ms_excel_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\ms_excel_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Tall_Person_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Tall Person_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -232,8 +232,8 @@
   <data name="refund_2_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\refund_2_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="menu_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\menu_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ba" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\ba.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="user_male_circle_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\user_male_circle_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -244,13 +244,13 @@
   <data name="left3_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\left3_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="save_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\save_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="user_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\user_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="cancel_2_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\cancel_2_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="combo_chart_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\combo_chart_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

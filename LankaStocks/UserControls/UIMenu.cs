@@ -144,5 +144,10 @@ namespace LankaStocks.UserControls
         {
 
         }
+
+        private void TxtCode_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

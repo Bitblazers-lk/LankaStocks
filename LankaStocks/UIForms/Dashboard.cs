@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.UserControls;
 using LankaStocks.Setting;
+using LankaStocks.Shared;
 using static LankaStocks.Core;
 //41, 11, 31
 namespace LankaStocks.UIForms
@@ -28,7 +29,7 @@ namespace LankaStocks.UIForms
             {
                 Settings.LoadCtrlSettings(ctrl);
             }
-
+            
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
 
@@ -37,6 +38,8 @@ namespace LankaStocks.UIForms
 
             cm.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
             btnIssueItem.ContextMenu = cm;
+
+            notifyIcon1.ShowBalloonTip(1500, "HI", "Hari", ToolTipIcon.Info);
         }
 
         private void Open_QC_Window_Click(object sender, EventArgs e)
@@ -51,11 +54,11 @@ namespace LankaStocks.UIForms
         {
             if (panel2.Width == 220)
             {
-                panel2.Width = 40;
+                panel2.Width = 35;
                 btnabout.Text = "";
                 btnSettings.Text = "";
             }
-            else if (panel2.Width == 40)
+            else if (panel2.Width == 35)
             {
                 panel2.Width = 220;
                 btnabout.Text = "About";
