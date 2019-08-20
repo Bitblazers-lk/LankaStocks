@@ -33,10 +33,8 @@ namespace LankaStocks.UIForms
 
         private void FrmCharts_Load(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
+            Settings.LoadCtrlSettings(this);
+
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }
     }

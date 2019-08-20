@@ -32,6 +32,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.CBNoti = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.textBox8 = new System.Windows.Forms.TextBox();
@@ -46,6 +47,11 @@
             this.label17 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.TxtFont = new System.Windows.Forms.TextBox();
+            this.btnFontBrowse = new System.Windows.Forms.Button();
+            this.uiColourMenu = new LankaStocks.UserControls.UIColour();
+            this.uiColourBack = new LankaStocks.UserControls.UIColour();
+            this.uiColourItem = new LankaStocks.UserControls.UIColour();
+            this.uiColourFont = new LankaStocks.UserControls.UIColour();
             this.TxtFontSize = new System.Windows.Forms.NumericUpDown();
             this.CBOAS = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -81,13 +87,7 @@
             this.CBPrintBill = new System.Windows.Forms.ComboBox();
             this.CBPreview = new System.Windows.Forms.ComboBox();
             this.CD = new System.Windows.Forms.ColorDialog();
-            this.btnFontBrowse = new System.Windows.Forms.Button();
-            this.uiColourMenu = new LankaStocks.UserControls.UIColour();
-            this.uiColourBack = new LankaStocks.UserControls.UIColour();
-            this.uiColourItem = new LankaStocks.UserControls.UIColour();
-            this.uiColourFont = new LankaStocks.UserControls.UIColour();
             this.uiSaveData = new LankaStocks.UserControls.UISaveData();
-            this.CBNoti = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -184,6 +184,20 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.00013F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(450, 307);
             this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // CBNoti
+            // 
+            this.CBNoti.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.CBNoti.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CBNoti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CBNoti.FormattingEnabled = true;
+            this.CBNoti.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.CBNoti.Location = new System.Drawing.Point(111, 275);
+            this.CBNoti.Name = "CBNoti";
+            this.CBNoti.Size = new System.Drawing.Size(336, 24);
+            this.CBNoti.TabIndex = 26;
             // 
             // label26
             // 
@@ -346,6 +360,58 @@
             this.TxtFont.ReadOnly = true;
             this.TxtFont.Size = new System.Drawing.Size(249, 22);
             this.TxtFont.TabIndex = 1;
+            // 
+            // btnFontBrowse
+            // 
+            this.btnFontBrowse.BackColor = System.Drawing.Color.Transparent;
+            this.btnFontBrowse.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnFontBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFontBrowse.Location = new System.Drawing.Point(249, 0);
+            this.btnFontBrowse.Name = "btnFontBrowse";
+            this.btnFontBrowse.Size = new System.Drawing.Size(87, 28);
+            this.btnFontBrowse.TabIndex = 0;
+            this.btnFontBrowse.Text = "Browse";
+            this.btnFontBrowse.UseVisualStyleBackColor = false;
+            // 
+            // uiColourMenu
+            // 
+            this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourMenu.Location = new System.Drawing.Point(111, 3);
+            this.uiColourMenu.Name = "uiColourMenu";
+            this.uiColourMenu.Size = new System.Drawing.Size(336, 28);
+            this.uiColourMenu.TabIndex = 18;
+            // 
+            // uiColourBack
+            // 
+            this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourBack.Location = new System.Drawing.Point(111, 37);
+            this.uiColourBack.Name = "uiColourBack";
+            this.uiColourBack.Size = new System.Drawing.Size(336, 28);
+            this.uiColourBack.TabIndex = 19;
+            // 
+            // uiColourItem
+            // 
+            this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourItem.Location = new System.Drawing.Point(111, 71);
+            this.uiColourItem.Name = "uiColourItem";
+            this.uiColourItem.Size = new System.Drawing.Size(336, 28);
+            this.uiColourItem.TabIndex = 20;
+            // 
+            // uiColourFont
+            // 
+            this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
+            this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
+            this.uiColourFont.Location = new System.Drawing.Point(111, 105);
+            this.uiColourFont.Name = "uiColourFont";
+            this.uiColourFont.Size = new System.Drawing.Size(336, 28);
+            this.uiColourFont.TabIndex = 21;
             // 
             // TxtFontSize
             // 
@@ -839,58 +905,6 @@
             this.CBPreview.Size = new System.Drawing.Size(336, 24);
             this.CBPreview.TabIndex = 15;
             // 
-            // btnFontBrowse
-            // 
-            this.btnFontBrowse.BackColor = System.Drawing.Color.Transparent;
-            this.btnFontBrowse.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnFontBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFontBrowse.Location = new System.Drawing.Point(249, 0);
-            this.btnFontBrowse.Name = "btnFontBrowse";
-            this.btnFontBrowse.Size = new System.Drawing.Size(87, 28);
-            this.btnFontBrowse.TabIndex = 0;
-            this.btnFontBrowse.Text = "Browse";
-            this.btnFontBrowse.UseVisualStyleBackColor = false;
-            // 
-            // uiColourMenu
-            // 
-            this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourMenu.Location = new System.Drawing.Point(111, 3);
-            this.uiColourMenu.Name = "uiColourMenu";
-            this.uiColourMenu.Size = new System.Drawing.Size(336, 28);
-            this.uiColourMenu.TabIndex = 18;
-            // 
-            // uiColourBack
-            // 
-            this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourBack.Location = new System.Drawing.Point(111, 37);
-            this.uiColourBack.Name = "uiColourBack";
-            this.uiColourBack.Size = new System.Drawing.Size(336, 28);
-            this.uiColourBack.TabIndex = 19;
-            // 
-            // uiColourItem
-            // 
-            this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourItem.Location = new System.Drawing.Point(111, 71);
-            this.uiColourItem.Name = "uiColourItem";
-            this.uiColourItem.Size = new System.Drawing.Size(336, 28);
-            this.uiColourItem.TabIndex = 20;
-            // 
-            // uiColourFont
-            // 
-            this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
-            this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourFont.Location = new System.Drawing.Point(111, 105);
-            this.uiColourFont.Name = "uiColourFont";
-            this.uiColourFont.Size = new System.Drawing.Size(336, 28);
-            this.uiColourFont.TabIndex = 21;
-            // 
             // uiSaveData
             // 
             this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
@@ -900,20 +914,6 @@
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(932, 76);
             this.uiSaveData.TabIndex = 1;
-            // 
-            // CBNoti
-            // 
-            this.CBNoti.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.CBNoti.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CBNoti.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CBNoti.FormattingEnabled = true;
-            this.CBNoti.Items.AddRange(new object[] {
-            "No",
-            "Yes"});
-            this.CBNoti.Location = new System.Drawing.Point(111, 275);
-            this.CBNoti.Name = "CBNoti";
-            this.CBNoti.Size = new System.Drawing.Size(336, 24);
-            this.CBNoti.TabIndex = 26;
             // 
             // FrmSettings
             // 

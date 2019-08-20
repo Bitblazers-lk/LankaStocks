@@ -49,7 +49,7 @@
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1249, 808);
+            this.panel3.Size = new System.Drawing.Size(1249, 815);
             this.panel3.TabIndex = 20;
             // 
             // uichNow1
@@ -57,7 +57,7 @@
             this.uichNow1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uichNow1.Location = new System.Drawing.Point(0, 0);
             this.uichNow1.Name = "uichNow1";
-            this.uichNow1.Size = new System.Drawing.Size(1249, 808);
+            this.uichNow1.Size = new System.Drawing.Size(1249, 815);
             this.uichNow1.TabIndex = 0;
             // 
             // panel2
@@ -71,7 +71,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 808);
+            this.panel2.Size = new System.Drawing.Size(200, 815);
             this.panel2.TabIndex = 19;
             // 
             // button3
@@ -136,10 +136,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 808);
+            this.panel1.Location = new System.Drawing.Point(0, 815);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1449, 12);
+            this.panel1.Size = new System.Drawing.Size(1449, 5);
             this.panel1.TabIndex = 18;
             // 
             // timer1

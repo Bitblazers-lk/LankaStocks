@@ -49,6 +49,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.DGV = new System.Windows.Forms.DataGridView();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -146,7 +147,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Size = new System.Drawing.Size(686, 524);
-            this.splitContainer1.SplitterDistance = 207;
+            this.splitContainer1.SplitterDistance = 205;
             this.splitContainer1.TabIndex = 1;
             // 
             // tableLayoutPanel1
@@ -166,7 +167,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 207);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 205);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel2
@@ -174,7 +175,7 @@
             this.panel2.Controls.Add(this.btnIssue);
             this.panel2.Controls.Add(this.tableLayoutPanel2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(107, 63);
+            this.panel2.Location = new System.Drawing.Point(107, 62);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(472, 114);
             this.panel2.TabIndex = 4;
@@ -265,7 +266,7 @@
             // 
             this.CBspecialSale.AutoSize = true;
             this.CBspecialSale.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CBspecialSale.Location = new System.Drawing.Point(107, 183);
+            this.CBspecialSale.Location = new System.Drawing.Point(107, 182);
             this.CBspecialSale.Name = "CBspecialSale";
             this.CBspecialSale.Size = new System.Drawing.Size(472, 20);
             this.CBspecialSale.TabIndex = 5;
@@ -284,7 +285,7 @@
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28.35052F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.16495F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(472, 54);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(472, 53);
             this.tableLayoutPanel4.TabIndex = 6;
             // 
             // labelInNO
@@ -295,7 +296,7 @@
             this.labelInNO.ForeColor = System.Drawing.Color.Orange;
             this.labelInNO.Location = new System.Drawing.Point(3, 0);
             this.labelInNO.Name = "labelInNO";
-            this.labelInNO.Size = new System.Drawing.Size(466, 30);
+            this.labelInNO.Size = new System.Drawing.Size(466, 29);
             this.labelInNO.TabIndex = 0;
             this.labelInNO.Text = "Total : ";
             this.labelInNO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -306,7 +307,7 @@
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Orange;
-            this.label4.Location = new System.Drawing.Point(3, 30);
+            this.label4.Location = new System.Drawing.Point(3, 29);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(466, 24);
             this.label4.TabIndex = 1;
@@ -320,7 +321,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.Orange;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(686, 313);
+            this.groupBox1.Size = new System.Drawing.Size(686, 315);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cart";
@@ -335,7 +336,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.50685F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(680, 292);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(680, 294);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // DGV
@@ -347,8 +348,16 @@
             this.DGV.GridColor = System.Drawing.Color.Orange;
             this.DGV.Location = new System.Drawing.Point(3, 3);
             this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(674, 286);
+            this.DGV.Size = new System.Drawing.Size(674, 288);
             this.DGV.TabIndex = 0;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(143, 519);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(686, 5);
+            this.panel3.TabIndex = 2;
             // 
             // FrmQuickSale
             // 
@@ -356,6 +365,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(5)))), ((int)(((byte)(10)))));
             this.ClientSize = new System.Drawing.Size(829, 524);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -387,6 +397,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel2;

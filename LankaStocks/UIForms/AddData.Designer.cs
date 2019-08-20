@@ -43,10 +43,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 469);
+            this.panel1.Location = new System.Drawing.Point(0, 476);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(743, 12);
+            this.panel1.Size = new System.Drawing.Size(743, 5);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -60,7 +60,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 469);
+            this.panel2.Size = new System.Drawing.Size(200, 476);
             this.panel2.TabIndex = 15;
             // 
             // btnUser
@@ -133,14 +133,14 @@
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(543, 407);
+            this.panel3.Size = new System.Drawing.Size(543, 414);
             this.panel3.TabIndex = 17;
             // 
             // uiSaveData
             // 
             this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
             this.uiSaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData.Location = new System.Drawing.Point(200, 407);
+            this.uiSaveData.Location = new System.Drawing.Point(200, 414);
             this.uiSaveData.Margin = new System.Windows.Forms.Padding(4);
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(543, 62);

@@ -53,10 +53,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(11)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 747);
+            this.panel1.Location = new System.Drawing.Point(0, 753);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1452, 11);
+            this.panel1.Size = new System.Drawing.Size(1452, 5);
             this.panel1.TabIndex = 12;
             // 
             // panel2
@@ -77,7 +77,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(220, 747);
+            this.panel2.Size = new System.Drawing.Size(220, 753);
             this.panel2.TabIndex = 13;
             // 
             // btnSettings
@@ -89,7 +89,7 @@
             this.btnSettings.ForeColor = System.Drawing.Color.Orange;
             this.btnSettings.Image = global::LankaStocks.Properties.Resources.settings3_24px;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(0, 631);
+            this.btnSettings.Location = new System.Drawing.Point(0, 637);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(220, 58);
@@ -97,7 +97,7 @@
             this.btnSettings.Text = "Settings";
             this.toolTip1.SetToolTip(this.btnSettings, "About");
             this.btnSettings.UseVisualStyleBackColor = true;
-            this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
+            this.btnSettings.Click += new System.EventHandler(this.BtnSettings_Click);
             // 
             // button5
             // 
@@ -129,7 +129,7 @@
             this.btnTransaction.TabIndex = 16;
             this.btnTransaction.Text = "Transactions";
             this.btnTransaction.UseVisualStyleBackColor = true;
-            this.btnTransaction.Click += new System.EventHandler(this.btnTransaction_Click);
+            this.btnTransaction.Click += new System.EventHandler(this.BtnTransaction_Click);
             // 
             // btnSales
             // 
@@ -147,7 +147,7 @@
             this.btnSales.Text = "Sales";
             this.toolTip1.SetToolTip(this.btnSales, "View Sales History & Summary");
             this.btnSales.UseVisualStyleBackColor = true;
-            this.btnSales.Click += new System.EventHandler(this.btnSales_Click);
+            this.btnSales.Click += new System.EventHandler(this.BtnSales_Click);
             // 
             // btnabout
             // 
@@ -158,7 +158,7 @@
             this.btnabout.ForeColor = System.Drawing.Color.Orange;
             this.btnabout.Image = global::LankaStocks.Properties.Resources.about_us_24px;
             this.btnabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnabout.Location = new System.Drawing.Point(0, 689);
+            this.btnabout.Location = new System.Drawing.Point(0, 695);
             this.btnabout.Margin = new System.Windows.Forms.Padding(4);
             this.btnabout.Name = "btnabout";
             this.btnabout.Size = new System.Drawing.Size(220, 58);
@@ -183,7 +183,7 @@
             this.btnManageData.Text = "Manage Data";
             this.toolTip1.SetToolTip(this.btnManageData, "Manage User\'s, Person\'s & Vendor\'s...");
             this.btnManageData.UseVisualStyleBackColor = true;
-            this.btnManageData.Click += new System.EventHandler(this.btnManageData_Click);
+            this.btnManageData.Click += new System.EventHandler(this.BtnManageData_Click);
             // 
             // btnManageItem
             // 
@@ -201,7 +201,7 @@
             this.btnManageItem.Text = "Manage Item\'s";
             this.toolTip1.SetToolTip(this.btnManageItem, "Add, Remove, Manage Item\'s");
             this.btnManageItem.UseVisualStyleBackColor = true;
-            this.btnManageItem.Click += new System.EventHandler(this.btnManageItem_Click);
+            this.btnManageItem.Click += new System.EventHandler(this.BtnManageItem_Click);
             // 
             // btnIssueItem
             // 
@@ -219,7 +219,7 @@
             this.btnIssueItem.Text = "Issue Item\'s";
             this.toolTip1.SetToolTip(this.btnIssueItem, "Issue Item\'s To Customer\'s...");
             this.btnIssueItem.UseVisualStyleBackColor = true;
-            this.btnIssueItem.Click += new System.EventHandler(this.btnIssueItem_Click);
+            this.btnIssueItem.Click += new System.EventHandler(this.BtnIssueItem_Click);
             // 
             // pblogo
             // 
@@ -247,7 +247,7 @@
             this.btnhide.Size = new System.Drawing.Size(220, 38);
             this.btnhide.TabIndex = 9;
             this.btnhide.UseVisualStyleBackColor = true;
-            this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
+            this.btnhide.Click += new System.EventHandler(this.Btnhide_Click);
             // 
             // panel4
             // 
@@ -257,9 +257,8 @@
             this.panel4.Location = new System.Drawing.Point(220, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1232, 747);
+            this.panel4.Size = new System.Drawing.Size(1232, 753);
             this.panel4.TabIndex = 14;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // notifyIcon1
             // 

@@ -50,10 +50,7 @@ namespace LankaStocks.UIForms
 
         private void FrmRefund_Load(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
+            Settings.LoadCtrlSettings(this);
         }
     }
 }

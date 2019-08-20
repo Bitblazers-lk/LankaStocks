@@ -11,6 +11,7 @@ using LankaStocks.UserControls;
 using LankaStocks.Setting;
 using LankaStocks.Shared;
 using static LankaStocks.Core;
+using System.Runtime.InteropServices;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
@@ -25,11 +26,8 @@ namespace LankaStocks.UIForms
             };
             this.panel4.Controls.Add(menu);
 
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
-            
+            Settings.LoadCtrlSettings(this);
+
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
 
@@ -50,7 +48,7 @@ namespace LankaStocks.UIForms
 
         public List<string> i = new List<string>();
         ContextMenu cm = new ContextMenu();
-        private void btnhide_Click(object sender, EventArgs e)
+        private void Btnhide_Click(object sender, EventArgs e)
         {
             if (panel2.Width == 220)
             {
@@ -65,46 +63,42 @@ namespace LankaStocks.UIForms
                 btnSettings.Text = "Settings";
             }
         }
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Core.Shutdown();
         }
 
-        private void btnIssueItem_Click(object sender, EventArgs e)
+        private void BtnIssueItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnManageItem_Click(object sender, EventArgs e)
+        private void BtnManageItem_Click(object sender, EventArgs e)
         {
             Forms.frmanageItems = new UIForms.FrmanageItems();
             Forms.frmanageItems.Show();
         }
 
-        private void btnManageData_Click(object sender, EventArgs e)
+        private void BtnManageData_Click(object sender, EventArgs e)
         {
             Forms.frmanageData = new UIForms.FrmanageData();
             Forms.frmanageData.Show();
         }
 
-        private void btnSales_Click(object sender, EventArgs e)
+        private void BtnSales_Click(object sender, EventArgs e)
         {
             Forms.frmSales = new UIForms.FrmSales();
             Forms.frmSales.Show();
         }
 
-        private void btnTransaction_Click(object sender, EventArgs e)
+        private void BtnTransaction_Click(object sender, EventArgs e)
         {
             Forms.frmTransaction = new UIForms.FrmTransaction();
             Forms.frmTransaction.Show();
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
+        private void BtnSettings_Click(object sender, EventArgs e)
         {
             Forms.frmSettings = new UIForms.FrmSettings();
             Forms.frmSettings.ShowDialog();
@@ -112,7 +106,7 @@ namespace LankaStocks.UIForms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-
+            Settings.FocusFrm(this);
         }
     }
 }

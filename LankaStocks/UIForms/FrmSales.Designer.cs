@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnChart = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnhide = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnChart = new System.Windows.Forms.Button();
-            this.btnhide = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,10 +45,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 816);
+            this.panel1.Location = new System.Drawing.Point(0, 823);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1427, 12);
+            this.panel1.Size = new System.Drawing.Size(1427, 5);
             this.panel1.TabIndex = 14;
             // 
             // panel2
@@ -63,8 +63,24 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 816);
+            this.panel2.Size = new System.Drawing.Size(200, 823);
             this.panel2.TabIndex = 15;
+            // 
+            // btnChart
+            // 
+            this.btnChart.FlatAppearance.BorderSize = 0;
+            this.btnChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChart.ForeColor = System.Drawing.Color.Orange;
+            this.btnChart.Image = global::LankaStocks.Properties.Resources.combo_chart_24px;
+            this.btnChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnChart.Location = new System.Drawing.Point(4, 277);
+            this.btnChart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnChart.Name = "btnChart";
+            this.btnChart.Size = new System.Drawing.Size(196, 57);
+            this.btnChart.TabIndex = 14;
+            this.btnChart.Text = "Charts";
+            this.btnChart.UseVisualStyleBackColor = true;
+            this.btnChart.Click += new System.EventHandler(this.BtnChart_Click);
             // 
             // button3
             // 
@@ -108,37 +124,6 @@
             this.button1.Text = "Person";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 0);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1227, 816);
-            this.panel3.TabIndex = 17;
-            // 
-            // timer1
-            // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
-            // 
-            // btnChart
-            // 
-            this.btnChart.FlatAppearance.BorderSize = 0;
-            this.btnChart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChart.ForeColor = System.Drawing.Color.Orange;
-            this.btnChart.Image = global::LankaStocks.Properties.Resources.combo_chart_24px;
-            this.btnChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChart.Location = new System.Drawing.Point(4, 277);
-            this.btnChart.Margin = new System.Windows.Forms.Padding(4);
-            this.btnChart.Name = "btnChart";
-            this.btnChart.Size = new System.Drawing.Size(196, 57);
-            this.btnChart.TabIndex = 14;
-            this.btnChart.Text = "Charts";
-            this.btnChart.UseVisualStyleBackColor = true;
-            this.btnChart.Click += new System.EventHandler(this.BtnChart_Click);
-            // 
             // btnhide
             // 
             this.btnhide.Dock = System.Windows.Forms.DockStyle.Top;
@@ -154,6 +139,21 @@
             this.btnhide.TabIndex = 10;
             this.btnhide.UseVisualStyleBackColor = true;
             this.btnhide.Click += new System.EventHandler(this.Btnhide_Click);
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(200, 0);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1227, 823);
+            this.panel3.TabIndex = 17;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // FrmSales
             // 

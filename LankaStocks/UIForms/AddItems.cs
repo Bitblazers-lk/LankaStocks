@@ -89,18 +89,14 @@ namespace LankaStocks.UIForms
 
         }
 
-        void Additem(uint ICode,string IName,string IBarcode,uint IVendeorID,decimal IPrice,decimal IOutParice,uint IAlternative)
+        void Additem(uint ICode, string IName, string IBarcode, uint IVendeorID, decimal IPrice, decimal IOutParice, uint IAlternative)
         {
-            
+
         }
 
         private void AddItems_Load(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
-            this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+            Settings.LoadCtrlSettings(this);
         }
     }
 }

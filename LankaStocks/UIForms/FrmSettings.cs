@@ -82,9 +82,7 @@ namespace LankaStocks.UIForms
 
         private void Save_Click(object sender, EventArgs e)
         {
-
             SaveData();
-
         }
 
         private void SaveData()
@@ -133,10 +131,9 @@ namespace LankaStocks.UIForms
 
         private void FrmSettings_Load(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
+
+            Settings.LoadCtrlSettings(this);
+
             Ref();
         }
 

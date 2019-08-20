@@ -54,12 +54,11 @@ namespace LankaStocks.UIForms
 
         private void FrmQuickSale_Load(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
+            Settings.LoadCtrlSettings(this);
+
 
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+            this.panel3.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }
     }
 }

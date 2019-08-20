@@ -28,26 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
             this.uiSaveData = new LankaStocks.UserControls.UISaveData();
             this.uiAddItem = new LankaStocks.UserControls.UIAddItem();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 312);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(540, 10);
-            this.panel1.TabIndex = 14;
             // 
             // uiSaveData
             // 
             this.uiSaveData.BackColor = System.Drawing.Color.Transparent;
             this.uiSaveData.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiSaveData.Location = new System.Drawing.Point(0, 250);
+            this.uiSaveData.Location = new System.Drawing.Point(0, 260);
             this.uiSaveData.Margin = new System.Windows.Forms.Padding(4);
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(540, 62);
@@ -60,7 +49,7 @@
             this.uiAddItem.Location = new System.Drawing.Point(0, 0);
             this.uiAddItem.Margin = new System.Windows.Forms.Padding(4);
             this.uiAddItem.Name = "uiAddItem";
-            this.uiAddItem.Size = new System.Drawing.Size(540, 250);
+            this.uiAddItem.Size = new System.Drawing.Size(540, 260);
             this.uiAddItem.TabIndex = 17;
             // 
             // AddItems
@@ -71,7 +60,6 @@
             this.ClientSize = new System.Drawing.Size(540, 322);
             this.Controls.Add(this.uiAddItem);
             this.Controls.Add(this.uiSaveData);
-            this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -84,7 +72,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Panel panel1;
         private UserControls.UISaveData uiSaveData;
         private UserControls.UIAddItem uiAddItem;
     }

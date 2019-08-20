@@ -63,10 +63,7 @@ namespace LankaStocks.UIForms
 
         private void AddData_Load(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
+            Settings.LoadCtrlSettings(this);
 
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
@@ -101,7 +98,7 @@ namespace LankaStocks.UIForms
                 uIPerson.Visible = false;
                 uIUser.Visible = false;
 
-                uIPerson.Dock = DockStyle.None;             
+                uIPerson.Dock = DockStyle.None;
                 uIUser.Dock = DockStyle.None;
                 uIVendor.Dock = DockStyle.Top;
             }

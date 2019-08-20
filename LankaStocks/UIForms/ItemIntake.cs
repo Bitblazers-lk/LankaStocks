@@ -81,10 +81,7 @@ namespace LankaStocks.UIForms
 
         private void ItemIntake_Load(object sender, EventArgs e)
         {
-            foreach (Control ctrl in this.Controls)
-            {
-                Settings.LoadCtrlSettings(ctrl);
-            }
+            Settings.LoadCtrlSettings(this);
         }
     }
 }
