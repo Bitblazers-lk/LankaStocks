@@ -106,7 +106,7 @@ namespace LankaStocks.UIForms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            Settings.FocusFrm(this);
+           // Settings.FocusFrm(this);
         }
     }
 }
