@@ -157,6 +157,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmCharts";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCharts";
             this.Load += new System.EventHandler(this.FrmCharts_Load);
             this.panel3.ResumeLayout(false);

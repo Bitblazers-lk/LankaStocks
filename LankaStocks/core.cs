@@ -145,8 +145,6 @@ namespace LankaStocks
             //Save everything
             Application.Exit();
         }
-
-
     }
 
     public static class Forms
@@ -165,5 +163,6 @@ namespace LankaStocks
         public static FrmQuickSale frmQuickSale;
         public static FrmRefund frmRefund;
         public static FrmCharts frmCharts;
+        public static FrmEditQty frmEditQty;
     }
 }

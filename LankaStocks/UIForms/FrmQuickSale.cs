@@ -18,16 +18,16 @@ namespace LankaStocks.UIForms
         {
             InitializeComponent();
         }
-
+        int ToolBarWidth;
         private void btnhide_Click(object sender, EventArgs e)
         {
-            if (panel1.Width == 143)
+            if (panel1.Width == ToolBarWidth)
             {
                 panel1.Width = 35;
             }
             else if (panel1.Width == 35)
             {
-                panel1.Width = 143;
+                panel1.Width = ToolBarWidth;
             }
         }
 
@@ -55,7 +55,7 @@ namespace LankaStocks.UIForms
         private void FrmQuickSale_Load(object sender, EventArgs e)
         {
             Settings.LoadCtrlSettings(this);
-
+            ToolBarWidth = panel1.Width;
 
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel3.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;

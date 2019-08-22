@@ -69,7 +69,7 @@ namespace LankaStocks.UIForms
                 progressBar.Value = i;
             }
 
-            RemoteDBs.Settings.commonSettings.GetSet.Font = new Font("Comic Sans MS", 12f);
+            //RemoteDBs.Settings.commonSettings.GetSet.Font = new Font("Comic Sans MS", 7f);
         }
 
         private void Login_Shown(object sender, EventArgs e)

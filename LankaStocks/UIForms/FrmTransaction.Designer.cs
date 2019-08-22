@@ -142,6 +142,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmTransaction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LanakaStocks > Transactions";
             this.Load += new System.EventHandler(this.FrmTransaction_Load);
             this.panel2.ResumeLayout(false);

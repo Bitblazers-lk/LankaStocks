@@ -18,13 +18,12 @@ namespace LankaStocks.UIForms
 {
     public partial class Dashboard : Form
     {
+        UIMenu menu = new UIMenu { Dock = DockStyle.Fill };
+
         public Dashboard()
         {
             InitializeComponent();
-            UIMenu menu = new UIMenu
-            {
-                Dock = DockStyle.Fill
-            };
+
             this.panel4.Controls.Add(menu);
 
             Settings.LoadCtrlSettings(this);
@@ -37,31 +36,25 @@ namespace LankaStocks.UIForms
 
             cm.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
             btnIssueItem.ContextMenu = cm;
-
-            notifyIcon1.ShowBalloonTip(1500, "HI", "Hari", ToolTipIcon.Info);
-        }
-
-        private void Open_QC_Window_Click(object sender, EventArgs e)
-        {
-            Forms.frmQuickSale = new FrmQuickSale();
-            Forms.frmQuickSale.ShowDialog();
         }
 
         public List<string> i = new List<string>();
-
         int ToolBarWidth;
-
         ContextMenu cm = new ContextMenu();
+
+        #region This Form
         private void Btnhide_Click(object sender, EventArgs e)
         {
             if (panel2.Width == ToolBarWidth)
             {
                 panel2.Width = 35;
+                pblogo.Visible = false;
                 btnabout.Text = "";
                 btnSettings.Text = "";
             }
             else if (panel2.Width == 35)
             {
+                pblogo.Visible = true;
                 panel2.Width = ToolBarWidth;
                 btnabout.Text = "About";
                 btnSettings.Text = "Settings";
@@ -108,6 +101,13 @@ namespace LankaStocks.UIForms
             Forms.frmSettings.ShowDialog();
         }
 
+        private void Open_QC_Window_Click(object sender, EventArgs e)
+        {
+            Forms.frmQuickSale = new FrmQuickSale();
+            Forms.frmQuickSale.ShowDialog();
+        }
+        #endregion
+
         private void Dashboard_Load(object sender, EventArgs e)
         {
             ToolBarWidth = panel2.Width;
@@ -118,6 +118,11 @@ namespace LankaStocks.UIForms
             //    Settings.Virtual_Mouse_Move(i*5, 100);
             //    Thread.Sleep(10);
             //}
+        }
+
+        void IssueItems(Dictionary<uint, float> Cart)
+        {
+
         }
     }
 }

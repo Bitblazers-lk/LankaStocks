@@ -332,6 +332,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LankaStocks > Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.Shown += new System.EventHandler(this.Login_Shown);

@@ -17,15 +17,11 @@ namespace LankaStocks.UserControls
         public UItem()
         {
             InitializeComponent();
-            PB.DoubleClick += btnaddtoc_Click;
-            this.DoubleClick += btnaddtoc_Click;
+            //PB.DoubleClick += btnaddtoc_Click;
+            //this.DoubleClick += btnaddtoc_Click;
         }
 
         public uint _Code;
-
-        private void UI_MouseClick(object sender, MouseEventArgs e)
-        {
-        }
 
         private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -75,20 +71,24 @@ namespace LankaStocks.UserControls
         {
             //if (!String.IsNullOrWhiteSpace(Pages.Menu.DB.data.Item[_Code].ImPath))
             //    LoadImage(Pages.Menu.DB.data.Item[_Code].ImPath);
-            Setdata(_Code);
+            Setdata(_Code);           
         }
 
         public void Setdata(uint code)
         {
-            l1.Text = RemoteDBs.Live.Items.Get[code].name;
-            l2.Text = RemoteDBs.Live.Items.Get[code].itemID.ToString();
-            lp.Text = $"Rs.{ RemoteDBs.Live.Items.Get[code].outPrice.ToString("00.00")}";
+            _Code = code;
+            var data = RemoteDBs.Live.Items.Get[code];
+            //this.Name = code.ToString();
+            l1.Text = data.name;
+            l2.Text = data.itemID.ToString();
+            lp.Text = $"Rs.{ data.outPrice.ToString("00.00")}";
+            if (data.Quantity <= RemoteDBs.Settings.commonSettings.Get.WarnWhen) this.BackColor = Color.FromArgb(200, 0, 0, 100);
         }
 
-        private void btnaddtoc_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(this.Size.ToString());
-        }
+        //private void btnaddtoc_Click(object sender, EventArgs e)
+        //{
+        //    MessageBox.Show(this.Size.ToString());
+        //}
 
     }
 }

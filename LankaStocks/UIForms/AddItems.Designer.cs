@@ -65,6 +65,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "AddItems";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LankaStocks > Add Item\'s";
             this.Load += new System.EventHandler(this.AddItems_Load);
             this.ResumeLayout(false);

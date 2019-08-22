@@ -111,7 +111,6 @@
             this.btnaddtoc.TabIndex = 1;
             this.btnaddtoc.Text = "Add To Cart";
             this.btnaddtoc.UseVisualStyleBackColor = true;
-            this.btnaddtoc.Click += new System.EventHandler(this.btnaddtoc_Click);
             // 
             // PB
             // 
@@ -149,7 +148,6 @@
             this.Name = "UItem";
             this.Size = new System.Drawing.Size(196, 296);
             this.Load += new System.EventHandler(this.UI_Load);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UI_MouseClick);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB)).EndInit();
@@ -161,12 +159,12 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button btnaddtoc;
         private System.Windows.Forms.Label l1;
         private System.Windows.Forms.Label l2;
         private System.Windows.Forms.Label lp;
-        private System.Windows.Forms.PictureBox PB;
         private System.Windows.Forms.ContextMenuStrip cms;
         private System.Windows.Forms.ToolStripMenuItem AddItem;
+        public System.Windows.Forms.Button btnaddtoc;
+        public System.Windows.Forms.PictureBox PB;
     }
 }

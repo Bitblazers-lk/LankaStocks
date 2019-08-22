@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static LankaStocks.Core;
 
 namespace LankaStocks
@@ -52,6 +53,7 @@ namespace LankaStocks
                         //Forms.dashboard.Hide();
                         Forms.dashboard = new Dashboard();
                         Forms.dashboard.Show();
+                        Forms.dashboard.notifyIcon1.ShowBalloonTip(1500, "Welcome!", $"User : {usr.name}", ToolTipIcon.Info);
                         Log($"User login : {name}");
                         return (true, "Wellcome");
                     }

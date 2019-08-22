@@ -12,7 +12,7 @@ namespace LankaStocks
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        [MTAThread]
         public static void Main()
         {
             Application.EnableVisualStyles();

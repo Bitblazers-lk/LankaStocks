@@ -372,6 +372,7 @@
             this.ForeColor = System.Drawing.Color.Orange;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmQuickSale";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LanakaStocks > Quick Sell";
             this.Load += new System.EventHandler(this.FrmQuickSale_Load);
             this.panel1.ResumeLayout(false);

@@ -65,6 +65,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "ItemIntake";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LanakaStocks > Stock Intake";
             this.Load += new System.EventHandler(this.ItemIntake_Load);
             this.ResumeLayout(false);
