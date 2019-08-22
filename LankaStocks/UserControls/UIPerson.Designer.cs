@@ -173,12 +173,12 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox PersonName;
-        public System.Windows.Forms.TextBox Details;
         public System.Windows.Forms.TextBox ContactInfo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox Details;
+        public System.Windows.Forms.TextBox PersonName;
         private System.Windows.Forms.TextBox PersonID;
         private System.Windows.Forms.Label label4;
     }

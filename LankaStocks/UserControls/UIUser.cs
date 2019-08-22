@@ -41,5 +41,30 @@ namespace LankaStocks.UserControls
                 Error.Txt(IsAdmin);
             }
         }
+
+
+        public User GenerateUser()
+        {
+
+            if (UserID.Text == "") UserID.Text = "0";
+            if (!uint.TryParse(UserID.Text, out uint userID))
+            {
+                throw new ArgumentException("Value must be a positive integer", "UserID");
+            }
+
+
+            User u = new User
+            {
+                UserID = userID,
+                userName = UserName.Text,
+                pass = UserPass.Text,
+                isAdmin = IsAdmin.SelectedIndex == 1
+            };
+
+            uiPerson1.ApplyToPerson(u);
+
+            return u;
+
+        }
     }
 }

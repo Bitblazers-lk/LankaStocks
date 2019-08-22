@@ -82,6 +82,11 @@ namespace LankaStocks.Setting
             catch (Exception ex) { Core.LogErr(ex); }
         }
 
+
+        /// <summary>
+        /// Do not use this
+        /// </summary>
+        /// <param name="frm"></param>
         public static void FocusFrm(Form frm)
         {
             SetWindowPos(frm.Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);

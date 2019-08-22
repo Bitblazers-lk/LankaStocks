@@ -24,6 +24,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <LangVersion>7.1</LangVersion>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -105,6 +106,7 @@
     <Compile Include="Networking\DB.cs" />
     <Compile Include="Networking\RemoteDB.cs" />
     <Compile Include="Networking\Server.cs" />
+    <Compile Include="Networking\Server.Execute.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Shared.cs" />
     <Compile Include="UIForms\AddItems.cs">
@@ -142,12 +144,6 @@
     </Compile>
     <Compile Include="UIForms\FrmCharts.Designer.cs">
       <DependentUpon>FrmCharts.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\FrmIosButton.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\FrmIosButton.Designer.cs">
-      <DependentUpon>FrmIosButton.cs</DependentUpon>
     </Compile>
     <Compile Include="UIForms\FrmQuickSale.cs">
       <SubType>Form</SubType>
@@ -329,9 +325,6 @@
     <EmbeddedResource Include="UIForms\FrmCharts.resx">
       <DependentUpon>FrmCharts.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\FrmIosButton.resx">
-      <DependentUpon>FrmIosButton.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\FrmQuickSale.resx">
       <DependentUpon>FrmQuickSale.cs</DependentUpon>
     </EmbeddedResource>
@@ -460,6 +453,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\flag-1024x430.jpg" />
+    <Content Include="Ways.txt" />
     <Content Include="XanderUI.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

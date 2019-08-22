@@ -105,6 +105,21 @@ namespace LankaStocks._Remote
 
     public class RemoteDic<TKey, TVal> : RemoteMember<Dictionary<TKey, TVal>>
     {
+        public TVal GetItem(TKey key)
+        {
+
+            var resp = client.Request((byte)Request.Command.get, db, name, (dynamic)key);
+            if (resp.result == (byte)Response.Result.ok)
+            {
+                return resp.obj;
+            }
+            else
+            {
+                Log($"Get {db}.{name} failed. {VisualizeObj(resp)}");
+            }
+            return default;
+
+        }
         public void Set(TKey key, TVal value)
         {
             var resp = client.Request((byte)Request.Command.set, db, name, new dynamic[] { key, value });

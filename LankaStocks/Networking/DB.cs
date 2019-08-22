@@ -33,7 +33,7 @@ namespace LankaStocks.DataBases
         [NonSerialized]
         public string FileName;
 
-        public abstract void CreateNew();
+        public abstract void CreateNewDatabase();
 
 
         public void SaveBinary()
@@ -41,10 +41,12 @@ namespace LankaStocks.DataBases
             while (IsBusy)
                 System.Threading.Thread.Sleep(100);
 
-            IsBusy = true;
-
             if (LastUpdate == LastSave)
                 return;
+
+            IsBusy = true;
+
+
 
             ulong changes = LastUpdate - LastSave;
             LastSave = LastUpdate;
@@ -84,8 +86,8 @@ namespace LankaStocks.DataBases
 
             IsBusy = true;
 
-            if (LastUpdate != LastSave)
-                SaveBinary();
+            if (LastUpdate != LastSave) { IsBusy = false; SaveBinary(); }
+
 
             System.IO.FileStream FS = null;
             try
@@ -97,7 +99,7 @@ namespace LankaStocks.DataBases
                     if (CreateNewIfNotFound)
                     {
                         LastUpdate++;
-                        CreateNew();
+                        CreateNewDatabase();
                         IsBusy = false;
                         SaveBinary();
                         IsBusy = true;
@@ -142,6 +144,11 @@ namespace LankaStocks.DataBases
             return null;
         }
 
+        public void ForceSave()
+        {
+            LastUpdate++;
+            SaveBinary();
+        }
 
         public abstract (dynamic, MemberType) Resolve(string expr);
         // public abstract void SetDataMember(string expr, dynamic data);
@@ -439,14 +446,14 @@ namespace LankaStocks.DataBases
         public Dictionary<uint, User> Users;
         public Dictionary<uint, Person> OtherPeople;
 
-        public override void CreateNew()
+        public override void CreateNewDatabase()
         {
             Vendors = new Dictionary<uint, Vendor>();
             Users = new Dictionary<uint, User>();
             OtherPeople = new Dictionary<uint, Person>();
 
-            Users.Add(100, new User() { userName = "amanda", userID = 100, isAdmin = true, name = "Amanda Nanda", pass = "200" });
-            Users.Add(200, new User() { userName = "nimal", userID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "123" });
+            Users.Add(100, new User() { userName = "amanda", ID = 100, isAdmin = true, name = "Amanda Nanda", pass = "200" });
+            Users.Add(200, new User() { userName = "nimal", ID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "123" });
         }
 
         public override (dynamic, MemberType) Resolve(string expr)
@@ -479,7 +486,7 @@ namespace LankaStocks.DataBases
         public DBSession Session;
 
 
-        public override void CreateNew()
+        public override void CreateNewDatabase()
         {
             //TODO: Add cashiers for users
             Cashiers = new Dictionary<uint, decimal>();
@@ -490,7 +497,7 @@ namespace LankaStocks.DataBases
             };
 
             Session = new DBSession();
-            Session.CreateNew();
+            Session.CreateNewDatabase();
 
         }
 
@@ -529,7 +536,7 @@ namespace LankaStocks.DataBases
         public List<string> Sessions;
         public IDMachine IdMachine;
 
-        public override void CreateNew()
+        public override void CreateNewDatabase()
         {
             Sessions = new List<string>();
             IdMachine = new IDMachine();
@@ -571,7 +578,7 @@ namespace LankaStocks.DataBases
         public Dictionary<uint, BasicSale> Sales;
         public Dictionary<uint, StockIntake> StockIntakes;
 
-        public override void CreateNew()
+        public override void CreateNewDatabase()
         {
             sessionBegin = DateTime.Now;
             Sales = new Dictionary<uint, BasicSale>();
@@ -618,7 +625,7 @@ namespace LankaStocks.DataBases
         public BillSettings billSetting;
         public CommonSettings commonSettings;
 
-        public override void CreateNew()
+        public override void CreateNewDatabase()
         {
             billSetting = new BillSettings
             {

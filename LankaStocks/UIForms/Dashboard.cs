@@ -31,8 +31,7 @@ namespace LankaStocks.UIForms
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
 
-            FrmIosButton b = new FrmIosButton();
-            b.Show();
+
 
             cm.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
             btnIssueItem.ContextMenu = cm;
@@ -106,7 +105,7 @@ namespace LankaStocks.UIForms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-           // Settings.FocusFrm(this);
+            // Settings.FocusFrm(this);
         }
     }
 }

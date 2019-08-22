@@ -9,6 +9,7 @@ namespace LankaStocks
     [Serializable]
     public class Person
     {
+        public uint ID;
         public string name;
         public string details;
         public string contactInfo;
@@ -19,7 +20,7 @@ namespace LankaStocks
     [Serializable]
     public class User : Person
     {
-        public uint userID;
+        public uint UserID;
         public string userName;
         public string pass;
         public bool isAdmin;
@@ -28,9 +29,9 @@ namespace LankaStocks
     [Serializable]
     public class Vendor : Person
     {
-        public uint vendorID;
+        public uint VendorID;
         public string BusinessInfo;
 
-        public List<uint> supplyingItems;//<ItemID>
+        public List<uint> supplyingItems = new List<uint>();//<ItemID>
     }
 }
