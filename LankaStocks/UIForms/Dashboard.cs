@@ -12,6 +12,7 @@ using LankaStocks.Setting;
 using LankaStocks.Shared;
 using static LankaStocks.Core;
 using System.Runtime.InteropServices;
+using System.Threading;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
@@ -47,10 +48,13 @@ namespace LankaStocks.UIForms
         }
 
         public List<string> i = new List<string>();
+
+        int ToolBarWidth;
+
         ContextMenu cm = new ContextMenu();
         private void Btnhide_Click(object sender, EventArgs e)
         {
-            if (panel2.Width == 220)
+            if (panel2.Width == ToolBarWidth)
             {
                 panel2.Width = 35;
                 btnabout.Text = "";
@@ -58,7 +62,7 @@ namespace LankaStocks.UIForms
             }
             else if (panel2.Width == 35)
             {
-                panel2.Width = 220;
+                panel2.Width = ToolBarWidth;
                 btnabout.Text = "About";
                 btnSettings.Text = "Settings";
             }
@@ -106,7 +110,14 @@ namespace LankaStocks.UIForms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            Settings.FocusFrm(this);
+            ToolBarWidth = panel2.Width;
+            //Settings.FocusFrm(this);
+            //Settings.Virtual_Mouse_Move(100, 0);
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    Settings.Virtual_Mouse_Move(i*5, 100);
+            //    Thread.Sleep(10);
+            //}
         }
     }
 }

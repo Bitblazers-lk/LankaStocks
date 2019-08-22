@@ -149,7 +149,6 @@ namespace LankaStocks
 
     }
 
-
     public static class Forms
     {
         public static List<string> FrmList = new List<string>();
