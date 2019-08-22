@@ -333,6 +333,7 @@
             this.MaximizeBox = false;
             this.Name = "Login";
             this.Text = "LankaStocks > Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
             this.Shown += new System.EventHandler(this.Login_Shown);
             this.panel1.ResumeLayout(false);

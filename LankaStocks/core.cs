@@ -143,7 +143,7 @@ namespace LankaStocks
 
         public static string ErrorStamp(Exception ex, string note)
         {
-            return $"!!! Error {ex.ToString()} \t {note} \t {ex.Message} \t source : {ex.Source};\t Inner : {ex.InnerException?.ToString()} {ex.InnerException?.Message}; \n @{ex.StackTrace} \n Inner @{ex.InnerException?.StackTrace}";
+            return $"!!! Error {ex.ToString()} \n {note} \n {ex.Message} \t source : {ex.Source};\t Inner : {ex.InnerException?.ToString()} {ex.InnerException?.Message}; \n @{ex.StackTrace} \n Inner @{ex.InnerException?.StackTrace}";
         }
 
         public static string TimeStamp => $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}\t";
@@ -162,50 +162,70 @@ namespace LankaStocks
             string s = Prompt("\n \n Enter Command").ToLower();
             string[] A = s.Split(' ');
 
-            switch (A[0])
+            try
             {
-                case "list":
-                    switch (A[1])
-                    {
-                        case "users":
-                            Log(VisualizeObj(RemoteDBs.People.Users.Get));
-                            break;
-
-                        case "vendors":
-                            Log(VisualizeObj(RemoteDBs.People.Vendors.Get));
-                            break;
-
-                        case "otherpeople":
-                            Log(VisualizeObj(RemoteDBs.People.OtherPeople.Get));
-                            break;
-
-                        case "items":
-                            Log(VisualizeObj(RemoteDBs.Live.Items.Get));
-                            break;
-                        default:
-                            break;
-                    }
-                    break;
-
-                case "fix":
-                    switch (A[1])
-                    {
-                        case "vendors":
-                            foreach (var vend in Core.Svr.People.Vendors.Values)
-                            {
-                                vend.supplyingItems = new List<uint>();
-                            }
-                            break;
-                        default:
-                            break;
-                    }
 
 
-                    break;
-                default:
-                    break;
+                switch (A[0])
+                {
+                    case "list":
+                        switch (A[1])
+                        {
+                            case "users":
+                                Log(VisualizeObj(RemoteDBs.People.Users.Get));
+                                break;
+
+                            case "vendors":
+                                Log(VisualizeObj(RemoteDBs.People.Vendors.Get));
+                                break;
+
+                            case "otherpeople":
+                                Log(VisualizeObj(RemoteDBs.People.OtherPeople.Get));
+                                break;
+
+                            case "items":
+                                Log(VisualizeObj(RemoteDBs.Live.Items.Get));
+                                break;
+                            default:
+                                break;
+                        }
+                        break;
+
+                    case "fix":
+                        switch (A[1])
+                        {
+                            case "vendors":
+                                foreach (var vend in Core.Svr.People.Vendors.Values)
+                                {
+                                    vend.supplyingItems = new List<uint>();
+                                }
+                                break;
+                            default:
+                                break;
+                        }
+
+                        break;
+
+                    case "exit":
+                        Core.Shutdown();
+                        break;
+
+
+                    default:
+                        break;
+                }
+
             }
+            catch (System.IndexOutOfRangeException ex)
+            {
 
+                LogErr(ex, "Cannot Parse command.Maybe this command needs more arguments");
+            }
+            catch (Exception ex)
+            {
+
+                LogErr(ex, "Cannot Parse and Excecute command");
+            }
 
             goto Begin;
         }
