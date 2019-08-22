@@ -41,5 +41,28 @@ namespace LankaStocks.UserControls
                 Error.Txt(ContactInfo);
             }
         }
+
+        public Person GeneratePerson()
+        {
+            Person p = new Person();
+            ApplyToPerson(p);
+
+            return p;
+        }
+
+        public void ApplyToPerson(Person p)
+        {
+            if (PersonID.Text == "") PersonID.Text = "0";
+            if (!uint.TryParse(PersonID.Text, out uint personID))
+            {
+                throw new ArgumentException("Value must be a positive integer", "PersonID");
+            }
+
+            p.ID = personID;
+            p.name = PersonName.Text;
+            p.contactInfo = ContactInfo.Text;
+            p.details = Details.Text;
+            p.summary = new Transaction();
+        }
     }
 }

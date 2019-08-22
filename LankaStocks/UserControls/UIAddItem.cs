@@ -59,5 +59,63 @@ namespace LankaStocks.UserControls
         {
             Error.Num(OutPrice);
         }
+
+        private void VendorID_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public List<uint> vendors = new List<uint>();
+        public List<uint> Items = new List<uint>();
+
+        private void UIAddItem_Load(object sender, EventArgs e)
+        {
+            if (!Core.IsInitialized) return;
+
+            VendorID.Items.Clear();
+            Core.client.vendors = Core.RemoteDBs.People.Vendors.Get;
+
+            Alternative.Items.Clear();
+            Core.client.Items = Core.RemoteDBs.Live.Items.Get;
+
+            vendors.Clear();
+            Items.Clear();
+
+
+            foreach (var vend in Core.client.vendors.Values)
+            {
+                VendorID.Items.Add($"{vend.VendorID}. {vend.name}  - supplies {((vend == null) ? (string.Join(",", vend.supplyingItems)) : "nothing") }");
+                vendors.Add(vend.ID);
+            }
+
+
+
+            foreach (var itm in Core.client.Items.Values)
+            {
+                Alternative.Items.Add($"{itm.itemID}. {itm.name}   available {itm.Quantity} from {itm.vendor}");
+                Items.Add(itm.itemID);
+            }
+
+
+        }
+
+
+
+        public Item GenerateItem()
+        {
+
+            if (ItemID.Text == "") ItemID.Text = "0";
+            if (!uint.TryParse(ItemID.Text, out uint itemID))
+            {
+                throw new ArgumentException("Value must be a positive integer", "ItemID");
+            }
+
+            uint vend = VendorID.SelectedIndex == -1 ? 0 : vendors[VendorID.SelectedIndex];
+            uint alt = Alternative.SelectedIndex == -1 ? 0 : Items[Alternative.SelectedIndex];
+
+            Item itm = new Item() { itemID = itemID, Barcode = Barcode.Text, inPrice = decimal.Parse(InPrice.Text), name = ItemName.Text, outPrice = decimal.Parse(OutPrice.Text), vendor = vend, Alternative = alt, Quantity = 0 };
+
+            return itm;
+        }
     }
 }

@@ -13,10 +13,12 @@ namespace LankaStocks
 {
     public abstract class BaseServer
     {
-        public static DBLive Live;
-        public static DBPeople People;
-        public static DBHistory History;
-        public static DBSettings Settings;
+        public DBLive Live;
+        public DBPeople People;
+        public DBHistory History;
+        public DBSettings Settings;
+
+        public ServerExecute exe;
 
         public void Initialize()
         {
@@ -37,13 +39,16 @@ namespace LankaStocks
                 History = (DBHistory)new DBHistory() { DBName = "DBHistory", FileName = DB.DBPath + "DBHistory.db" }.LoadBinary(isFirstRun);
                 Settings = (DBSettings)new DBSettings() { DBName = "DBSettings", FileName = DB.DBPath + "DBSettings.db" }.LoadBinary(isFirstRun);
 
+                exe = new ServerExecute { svr = this };
+
                 Statics.ReCalculate();
             }
 
         }
 
-        public (bool, string) LoginCheck(string name, string pass)
+        public void Shutdown()
         {
+<<<<<<< HEAD
             foreach (var usr in People.Users.Values)
             {
                 if (usr.userName == name)
@@ -66,7 +71,15 @@ namespace LankaStocks
             }
             Log($"Wrong user name : {name}");
             return (false, "Wrong user name or password");
+=======
+            Log("Sever shutingdown");
+            Live.ForceSave();
+            People.ForceSave();
+            History.ForceSave();
+            Settings.ForceSave();
+>>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
         }
+
 
         public Response Respond(Request req)
         {
@@ -99,8 +112,33 @@ namespace LankaStocks
             switch (req.expr)
             {
                 case "login":
-                    resp.obj = LoginCheck(req.para[0], req.para[1]);
+                    resp.obj = exe.LoginCheck(req.para[0], req.para[1]);
                     break;
+                case "AddNewVendor":
+                    resp.obj = exe.AddNewVendor(req.para[0]);
+                    break;
+                case "AddNewUser":
+                    resp.obj = exe.AddNewUser(req.para[0]);
+                    break;
+                case "AddNewPerson":
+                    resp.obj = exe.AddNewPerson(req.para[0]);
+                    break;
+                case "SetVendor":
+                    resp.obj = exe.SetVendor(req.para[0]);
+                    break;
+                case "SetUser":
+                    resp.obj = exe.SetUser(req.para[0]);
+                    break;
+                case "SetPerson":
+                    resp.obj = exe.SetPerson(req.para[0]);
+                    break;
+                case "AddItem":
+                    resp.obj = exe.AddItem(req.para[0]);
+                    break;
+                case "SetItem":
+                    resp.obj = exe.SetItem(req.para[0]);
+                    break;
+
                 default:
                     break;
             }
@@ -168,7 +206,22 @@ namespace LankaStocks
         public string expr;
         public dynamic obj;
 
-        public enum Result : byte { unknown, ok, failed, notfound, warning, retry }
+        public enum Result : byte { unknown, ok, failed, notfound, warning, retry, wrongInputs }
+
+        public Response() { }
+
+        public Response(Result result, string msg = null, string expr = null, dynamic obj = null)
+        {
+            this.result = (byte)result;
+            this.msg = msg;
+            this.expr = expr;
+            this.obj = obj;
+        }
+
+        public static Response CreateError(Result res, string message, dynamic obj = null)
+        {
+            return new Response() { expr = null, msg = message, result = (byte)res, obj = obj };
+        }
     }
 
 }

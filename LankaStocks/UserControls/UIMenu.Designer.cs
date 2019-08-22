@@ -30,15 +30,19 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.uiBasicSale1 = new LankaStocks.UserControls.UIBasicSale();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.button3 = new System.Windows.Forms.Button();
             this.DGV = new System.Windows.Forms.DataGridView();
+<<<<<<< HEAD
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+=======
+>>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -56,9 +60,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CBItemCount = new System.Windows.Forms.ComboBox();
+<<<<<<< HEAD
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.uiBasicSale1 = new LankaStocks.UserControls.UIBasicSale();
+=======
+>>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -68,7 +75,10 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
+<<<<<<< HEAD
             this.contextMenuStrip1.SuspendLayout();
+=======
+>>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,6 +96,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1250, 130);
             this.panel1.TabIndex = 0;
+            // 
+            // uiBasicSale1
+            // 
+            this.uiBasicSale1.BackColor = System.Drawing.Color.Transparent;
+            this.uiBasicSale1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiBasicSale1.Location = new System.Drawing.Point(0, 0);
+            this.uiBasicSale1.Name = "uiBasicSale1";
+            this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
+            this.uiBasicSale1.TabIndex = 0;
             // 
             // splitContainer1
             // 
@@ -193,6 +212,17 @@
             this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
             this.removeToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem1.Text = "Remove";
+            // 
+            // DGV
+            // 
+            this.DGV.AllowUserToOrderColumns = true;
+            this.DGV.BackgroundColor = System.Drawing.Color.Black;
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV.Location = new System.Drawing.Point(3, 3);
+            this.DGV.Name = "DGV";
+            this.DGV.Size = new System.Drawing.Size(404, 610);
+            this.DGV.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -428,6 +458,7 @@
             this.CBItemCount.TabIndex = 3;
             this.CBItemCount.SelectedIndexChanged += new System.EventHandler(this.CBItemCount_SelectedIndexChanged);
             // 
+<<<<<<< HEAD
             // btnRemove
             // 
             this.btnRemove.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -467,6 +498,8 @@
             this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
             this.uiBasicSale1.TabIndex = 0;
             // 
+=======
+>>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
             // UIMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -487,7 +520,10 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
+<<<<<<< HEAD
             this.contextMenuStrip1.ResumeLayout(false);
+=======
+>>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

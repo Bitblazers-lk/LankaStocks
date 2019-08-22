@@ -25,5 +25,28 @@ namespace LankaStocks.UserControls
                 Error.Txt(BusinessInfo);
             }
         }
+
+
+
+        public Vendor GenerateVendor()
+        {
+            if (VendorID.Text == "") VendorID.Text = "0";
+            if (!uint.TryParse(VendorID.Text, out uint vendorID))
+            {
+                throw new ArgumentException("Value must be a positive integer", "vendorID");
+            }
+
+
+            Vendor v = new Vendor
+            {
+                BusinessInfo = BusinessInfo.Text,
+                ID = vendorID
+            };
+
+            uiPerson1.ApplyToPerson(v);
+
+            return v;
+
+        }
     }
 }

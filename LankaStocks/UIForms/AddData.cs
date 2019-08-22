@@ -30,6 +30,10 @@ namespace LankaStocks.UIForms
             uIPerson.Dock = DockStyle.Top;
             panel3.Controls.Add(uIPerson);
         }
+
+
+        public char selUI = 'n';
+
         UIPerson uIPerson = new UIPerson();
         UIVendor uIVendor = new UIVendor();
         UIUser uIUser = new UIUser();
@@ -60,7 +64,28 @@ namespace LankaStocks.UIForms
 
         private void Save_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            switch (selUI)
+            {
+                case 'v':
+                    var v = uIVendor.GenerateVendor();
+                    client.AddNewVendor(v);
+                    break;
+
+                case 'u':
+                    var u = uIUser.GenerateUser();
+                    client.AddNewUser(u);
+                    break;
+
+                case 'p':
+                    var p = uIPerson.GeneratePerson();
+                    client.AddNewPerson(p);
+                    break;
+
+                default:
+                    break;
+            }
+            Close();
+            //throw new NotImplementedException();
         }
 
         private void AddData_Load(object sender, EventArgs e)
@@ -89,6 +114,7 @@ namespace LankaStocks.UIForms
                 uIPerson.Dock = DockStyle.Top;
                 panel3.Controls.Add(uIPerson);
             }
+            selUI = 'p';
         }
 
         private void btnVendor_Click(object sender, EventArgs e)
@@ -109,6 +135,7 @@ namespace LankaStocks.UIForms
                 uIVendor.Dock = DockStyle.Top;
                 panel3.Controls.Add(uIVendor);
             }
+            selUI = 'v';
         }
 
         private void btnUser_Click(object sender, EventArgs e)
@@ -129,6 +156,12 @@ namespace LankaStocks.UIForms
                 uIUser.Dock = DockStyle.Top;
                 panel3.Controls.Add(uIUser);
             }
+            selUI = 'u';
+        }
+
+        private void UiSaveData_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

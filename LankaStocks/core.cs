@@ -17,10 +17,16 @@ namespace LankaStocks
     {
         #region Vars
 
+        public static bool IsInitialized = false;
+
+        public static BaseServer Svr;
+
         public static BaseClient client;
         public static _Remote.DBs RemoteDBs;
 
         public static Random random = new Random();
+
+        public static System.Threading.Thread CLIThread;
         //public static DBSession Session => Live.Session;
         //public static Dictionary<uint, BasicSale> Sales => Live.Session.Sales;
         //public static Dictionary<uint, StockIntake> StockIntakes => Live.Session.StockIntakes;
@@ -30,6 +36,7 @@ namespace LankaStocks
 
         public static void Initialize()
         {
+            IsInitialized = true;
             Log("Lanka Stocks - Mahinda Rapaksha College");
             client = (BaseClient)new IntergratedClient();
             client.Initialize();
@@ -83,6 +90,9 @@ namespace LankaStocks
             Bills.SetHeaderEnd(RemoteDBs.Settings.billSetting.Get.E1, RemoteDBs.Settings.billSetting.Get.E2, RemoteDBs.Settings.billSetting.Get.E3);
 
             Log("Initialized");
+
+            CLIThread = new System.Threading.Thread(new System.Threading.ThreadStart(CLIProgram)) { Name = "CLIProgram", Priority = System.Threading.ThreadPriority.Lowest };
+            CLIThread.Start();
         }
 
         #region Loging
@@ -93,6 +103,12 @@ namespace LankaStocks
 
             ThreadLogToFile(L + Environment.NewLine);
 
+        }
+
+        public static string Prompt(string s)
+        {
+            Console.WriteLine(s);
+            return Console.ReadLine();
         }
 
         private static void ThreadLogToFile(string L)
@@ -137,13 +153,75 @@ namespace LankaStocks
             return Newtonsoft.Json.JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
         }
 
+
+        private static void CLIProgram()
+        {
+            Begin:
+
+
+            string s = Prompt("\n \n Enter Command").ToLower();
+            string[] A = s.Split(' ');
+
+            switch (A[0])
+            {
+                case "list":
+                    switch (A[1])
+                    {
+                        case "users":
+                            Log(VisualizeObj(RemoteDBs.People.Users.Get));
+                            break;
+
+                        case "vendors":
+                            Log(VisualizeObj(RemoteDBs.People.Vendors.Get));
+                            break;
+
+                        case "otherpeople":
+                            Log(VisualizeObj(RemoteDBs.People.OtherPeople.Get));
+                            break;
+
+                        case "items":
+                            Log(VisualizeObj(RemoteDBs.Live.Items.Get));
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+
+                case "fix":
+                    switch (A[1])
+                    {
+                        case "vendors":
+                            foreach (var vend in Core.Svr.People.Vendors.Values)
+                            {
+                                vend.supplyingItems = new List<uint>();
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+
+                    break;
+                default:
+                    break;
+            }
+
+
+            goto Begin;
+        }
+
+
         #endregion
 
 
         public static void Shutdown()
         {
             //Save everything
+            client.Shutdown();
+            CLIThread.Abort();
+            Log("Press Enter to Exit");
             Application.Exit();
+
         }
     }
 
