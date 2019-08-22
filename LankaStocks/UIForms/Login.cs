@@ -88,8 +88,9 @@ namespace LankaStocks.UIForms
 
             if (logInResults.Item1)
             {
-                Hide();
+                Forms.dashboard = new Dashboard();
                 Forms.dashboard.Show();
+                Hide();
             }
             else
             {

@@ -9,11 +9,15 @@ namespace LankaStocks
     [Serializable]
     public class IDMachine
     {
-        public uint PersonID = 100U;
+        public uint PersonID = 0U;
         public uint ItemID = 10U;
 
-        public uint IntakeID = 1U;
-        public uint SaleID = 1U;
+
+        public uint VendorID = 0U;
+        public uint UserID = 0U;
+
+        public uint IntakeID = 0U;
+        public uint SaleID = 0U;
 
         public uint TransactionID = 100U;
     }

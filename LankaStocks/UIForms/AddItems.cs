@@ -86,7 +86,9 @@ namespace LankaStocks.UIForms
 
         private void Save_Click(object sender, EventArgs e)
         {
-
+            var itm = uiAddItem.GenerateItem();
+            client.AddItem(itm);
+            Close();
         }
 
         void Additem(uint ICode, string IName, string IBarcode, uint IVendeorID, decimal IPrice, decimal IOutParice, uint IAlternative)
@@ -97,6 +99,12 @@ namespace LankaStocks.UIForms
         private void AddItems_Load(object sender, EventArgs e)
         {
             Settings.LoadCtrlSettings(this);
+
+        }
+
+        private void UiAddItem_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

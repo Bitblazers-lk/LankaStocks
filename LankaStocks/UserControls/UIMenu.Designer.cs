@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.uiBasicSale1 = new LankaStocks.UserControls.UIBasicSale();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -36,6 +37,7 @@
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.DGV = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -53,8 +55,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CBItemCount = new System.Windows.Forms.ComboBox();
-            this.uiBasicSale1 = new LankaStocks.UserControls.UIBasicSale();
-            this.DGV = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -63,6 +63,7 @@
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,7 +71,6 @@
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtPageON)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,6 +81,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1250, 130);
             this.panel1.TabIndex = 0;
+            // 
+            // uiBasicSale1
+            // 
+            this.uiBasicSale1.BackColor = System.Drawing.Color.Transparent;
+            this.uiBasicSale1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiBasicSale1.Location = new System.Drawing.Point(0, 0);
+            this.uiBasicSale1.Name = "uiBasicSale1";
+            this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
+            this.uiBasicSale1.TabIndex = 0;
             // 
             // splitContainer1
             // 
@@ -180,6 +189,17 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            // 
+            // DGV
+            // 
+            this.DGV.AllowUserToOrderColumns = true;
+            this.DGV.BackgroundColor = System.Drawing.Color.Black;
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV.Location = new System.Drawing.Point(3, 3);
+            this.DGV.Name = "DGV";
+            this.DGV.Size = new System.Drawing.Size(404, 610);
+            this.DGV.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -413,26 +433,6 @@
             this.CBItemCount.TabIndex = 3;
             this.CBItemCount.SelectedIndexChanged += new System.EventHandler(this.CBItemCount_SelectedIndexChanged);
             // 
-            // uiBasicSale1
-            // 
-            this.uiBasicSale1.BackColor = System.Drawing.Color.Transparent;
-            this.uiBasicSale1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiBasicSale1.Location = new System.Drawing.Point(0, 0);
-            this.uiBasicSale1.Name = "uiBasicSale1";
-            this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
-            this.uiBasicSale1.TabIndex = 0;
-            // 
-            // DGV
-            // 
-            this.DGV.AllowUserToOrderColumns = true;
-            this.DGV.BackgroundColor = System.Drawing.Color.Black;
-            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV.Location = new System.Drawing.Point(3, 3);
-            this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(404, 610);
-            this.DGV.TabIndex = 2;
-            // 
             // UIMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -452,6 +452,7 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -461,7 +462,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtPageON)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.ResumeLayout(false);
 
         }

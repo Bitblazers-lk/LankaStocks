@@ -174,6 +174,7 @@
             this.VendorID.Name = "VendorID";
             this.VendorID.Size = new System.Drawing.Size(314, 21);
             this.VendorID.TabIndex = 2;
+            this.VendorID.SelectedIndexChanged += new System.EventHandler(this.VendorID_SelectedIndexChanged);
             this.VendorID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VendorID_KeyDown);
             // 
             // ItemName
@@ -252,6 +253,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UIAddItem";
             this.Size = new System.Drawing.Size(400, 190);
+            this.Load += new System.EventHandler(this.UIAddItem_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

@@ -145,6 +145,7 @@
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(543, 62);
             this.uiSaveData.TabIndex = 16;
+            this.uiSaveData.Load += new System.EventHandler(this.UiSaveData_Load);
             // 
             // AddData
             // 
