@@ -159,97 +159,23 @@ namespace LankaStocks
             Begin:
 
 
-            string s = Prompt("\n \n Enter Command").ToLower();
-            string[] A = s.Split(' ');
+            string s = Prompt("\n \n Enter Command \t ").ToLower();
 
-            try
+
+
+            var resp = Core.client.CLIRun(s);
+
+            if (resp.result == (byte)Response.Result.ok)
             {
-
-
-                switch (A[0])
-                {
-                    case "list":
-                        switch (A[1])
-                        {
-                            case "users":
-                                Log(VisualizeObj(RemoteDBs.People.Users.Get));
-                                break;
-
-                            case "vendors":
-                                Log(VisualizeObj(RemoteDBs.People.Vendors.Get));
-                                break;
-
-                            case "otherpeople":
-                                Log(VisualizeObj(RemoteDBs.People.OtherPeople.Get));
-                                break;
-
-                            case "items":
-                                Log(VisualizeObj(RemoteDBs.Live.Items.Get));
-                                break;
-                            default:
-                                break;
-                        }
-                        break;
-
-                    case "fix":
-                        switch (A[1])
-                        {
-                            case "vendors":
-                                foreach (var vend in Core.Svr.People.Vendors.Values)
-                                {
-                                    vend.supplyingItems = new List<uint>();
-                                }
-                                break;
-
-                            case "items":
-                                foreach (var item in Core.Svr.Live.Items.Values)
-                                {
-                                    if (item.vendors == null) { item.vendors = new List<uint>(); Log($"Set empty list for null vendors of item {item.name}"); }
-                                    foreach (var v in item.vendors)
-                                    {
-                                        if (!Core.Svr.People.Vendors.ContainsKey(v))
-                                        {
-                                            item.vendors.Remove(v);
-
-                                            Log($"Fixed incorrect vendor for item. Set {item.name}.vendor to {Core.Svr.People.Vendors.First().Value.name}({item.vendors})");
-                                        }
-                                    }
-                                    if (item.vendors.Count == 0)
-                                    {
-
-                                        item.vendors.Add(Core.Svr.People.Vendors.First().Key);
-                                        Log($"Vendors for this Item is empty. Add {Core.Svr.People.Vendors.First().Value.name}({item.vendors[0]}) {item.name}.vendor");
-                                    }
-
-                                }
-
-                                break;
-
-                            default:
-                                break;
-                        }
-
-                        break;
-
-                    case "exit":
-                        Core.Shutdown();
-                        break;
-
-
-                    default:
-                        break;
-                }
-
+                Log("\n \t >>> \n " + resp.msg);
             }
-            catch (System.IndexOutOfRangeException ex)
+            else if (resp.result == (byte)Response.Result.failed)
             {
-
-                LogErr(ex, "Cannot Parse command.Maybe this command needs more arguments");
+                LogErr((Exception)resp.obj, "CLI Program Error on server \t " + resp.msg);
             }
-            catch (Exception ex)
+            else
             {
-
-                LogErr(ex, "Cannot Parse and Excecute command");
+                Log("Fatel CLI Program Error on server \t " + resp.msg);
             }
 
             goto Begin;
@@ -262,14 +188,49 @@ namespace LankaStocks
         public static void Shutdown()
         {
             //Save everything
-            client.Shutdown();
-            CLIThread.Abort();
-            Log("Press Enter to Exit");
-            Application.Exit();
+            new System.Threading.Thread(new System.Threading.ThreadStart(ThrShutDown)) { Name = "Thread of Death", Priority = System.Threading.ThreadPriority.Highest }.Start();
 
         }
 
+        private static void ThrShutDown()
+        {
+            try
+            {
+                client.Shutdown();
+            }
+            catch (Exception ex)
+            {
+                LogErr(ex, "Error on client.Shutdown()");
+            }
 
+            try
+            {
+                CLIThread.Abort();
+            }
+            catch (Exception ex)
+            {
+                LogErr(ex, "Error on CLIThread.Abort()");
+            }
+
+
+
+            try
+            {
+                Log("Press Enter to Exit");
+            }
+            catch (Exception)
+            {
+            }
+
+            try
+            {
+                Application.Exit();
+            }
+            catch (Exception ex)
+            {
+                LogErr(ex, "Error on Application.Exit()");
+            }
+        }
     }
 
     public static class Forms
