@@ -34,16 +34,21 @@ namespace LankaStocks
                     File.AppendAllText(DB.LogPath, $"Created new Data Base on {DateTime.Now.Year}/{DateTime.Now.Month}/{DateTime.Now.Day} \n");
                 }
 
-                Live = (DBLive)new DBLive() { DBName = "DBLive", FileName = DB.DBPath + "DBLive.db" }.LoadBinary(isFirstRun);
-                People = (DBPeople)new DBPeople() { DBName = "DBPeople", FileName = DB.DBPath + "DBPeople.db" }.LoadBinary(isFirstRun);
-                History = (DBHistory)new DBHistory() { DBName = "DBHistory", FileName = DB.DBPath + "DBHistory.db" }.LoadBinary(isFirstRun);
-                Settings = (DBSettings)new DBSettings() { DBName = "DBSettings", FileName = DB.DBPath + "DBSettings.db" }.LoadBinary(isFirstRun);
+                LoadDatabasesFromDisk(isFirstRun);
 
                 exe = new ServerExecute { svr = this };
 
                 Statics.ReCalculate();
             }
 
+        }
+
+        private void LoadDatabasesFromDisk(bool isFirstRun)
+        {
+            Live = (DBLive)new DBLive() { DBName = "DBLive", FileName = DB.DBPath + "DBLive.db" }.LoadBinary(isFirstRun);
+            People = (DBPeople)new DBPeople() { DBName = "DBPeople", FileName = DB.DBPath + "DBPeople.db" }.LoadBinary(isFirstRun);
+            History = (DBHistory)new DBHistory() { DBName = "DBHistory", FileName = DB.DBPath + "DBHistory.db" }.LoadBinary(isFirstRun);
+            Settings = (DBSettings)new DBSettings() { DBName = "DBSettings", FileName = DB.DBPath + "DBSettings.db" }.LoadBinary(isFirstRun);
         }
 
         public void Shutdown()
@@ -137,6 +142,11 @@ namespace LankaStocks
 
                 case "ListItems":
                     resp.obj = exe.ListItems();
+                    break;
+
+
+                case "CLIRun":
+                    exe.CLIRun(req.para[0], ref resp);
                     break;
 
                 default:

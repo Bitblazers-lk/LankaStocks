@@ -151,6 +151,14 @@ namespace LankaStocks.DataBases
             SaveBinary();
         }
 
+        /// <summary>
+        /// returns DB from list  _ _ _ 
+        /// Usage : DBName = DBName.DiscardChanges();
+        /// </summary>
+        public DB DiscardChanges() { LastUpdate = LastSave; return LoadBinary(); }
+
+
+
         public abstract (dynamic, MemberType) Resolve(string expr);
         // public abstract void SetDataMember(string expr, dynamic data);
         public void SetDataMember(string name, dynamic val)

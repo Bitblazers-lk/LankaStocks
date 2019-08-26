@@ -12,10 +12,10 @@ namespace LankaStocks
     {
         public BaseServer svr;
 
-        public DBLive Live => svr.Live;
-        public DBPeople People => svr.People;
-        public DBHistory History => svr.History;
-        public DBSettings Settings => svr.Settings;
+        public DBLive Live { get => svr.Live; set => svr.Live = value; }
+        public DBPeople People { get => svr.People; set => svr.People = value; }
+        public DBHistory History { get => svr.History; set => svr.History = value; }
+        public DBSettings Settings { get => svr.Settings; set => svr.Settings = value; }
 
 
 
@@ -186,5 +186,196 @@ namespace LankaStocks
 
 
 
+
+        public void CLIRun(string s, ref Response resp)
+        {
+            string[] A = s.Split(' ');
+
+            StringBuilder sb = new StringBuilder();
+
+            try
+            {
+                try
+                {
+
+
+                    switch (A[0])
+                    {
+                        case "list":
+                            switch (A[1])
+                            {
+                                case "users":
+                                    sb.AppendLine(VisualizeObj(People.Users));
+                                    break;
+
+                                case "vendors":
+                                    sb.AppendLine(VisualizeObj(People.Vendors));
+                                    break;
+
+                                case "otherpeople":
+                                    sb.AppendLine(VisualizeObj(People.OtherPeople));
+                                    break;
+
+                                case "items":
+                                    sb.AppendLine(VisualizeObj(Live.Items));
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+
+                        case "fix":
+                            switch (A[1])
+                            {
+                                case "vendors":
+                                    foreach (var vend in People.Vendors.Values)
+                                    {
+                                        vend.supplyingItems = new List<uint>();
+                                    }
+                                    break;
+
+                                case "items":
+                                    foreach (var item in Live.Items.Values)
+                                    {
+                                        if (item.vendors == null) { item.vendors = new List<uint>(); sb.AppendLine($"Set empty list for null vendors of item {item.name}"); }
+                                        foreach (var v in item.vendors)
+                                        {
+                                            if (!People.Vendors.ContainsKey(v))
+                                            {
+                                                item.vendors.Remove(v);
+
+                                                sb.AppendLine($"Fixed incorrect vendor for item. Set {item.name}.vendor to {People.Vendors.First().Value.name}({item.vendors})");
+                                            }
+                                        }
+                                        if (item.vendors.Count == 0)
+                                        {
+
+                                            item.vendors.Add(People.Vendors.First().Key);
+                                            sb.AppendLine($"Vendors for this Item is empty. Add {People.Vendors.First().Value.name}({item.vendors[0]}) {item.name}.vendor");
+                                        }
+
+                                    }
+
+                                    break;
+
+                                default:
+                                    break;
+                            }
+
+                            break;
+
+                        case "exit":
+                            Core.Shutdown();
+                            break;
+
+                        case "save":
+                            if (A.Length == 1)
+                            {
+                                Live.ForceSave();
+                                People.ForceSave();
+                                History.ForceSave();
+                                Settings.ForceSave();
+                            }
+                            else
+                            {
+                                switch (A[1])
+                                {
+                                    case "all":
+                                        Live.ForceSave();
+                                        People.ForceSave();
+                                        History.ForceSave();
+                                        Settings.ForceSave();
+                                        break;
+
+                                    case "live":
+                                        Live.ForceSave();
+                                        break;
+                                    case "people":
+                                        People.ForceSave();
+                                        break;
+                                    case "history":
+                                        History.ForceSave();
+                                        break;
+                                    case "settings":
+                                        Settings.ForceSave();
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+                            }
+                            break;
+
+
+                        case "revert":
+                            if (A.Length == 1)
+                            {
+                                Live = (DBLive)Live.DiscardChanges();
+                                People = (DBPeople)People.DiscardChanges();
+                                History = (DBHistory)History.DiscardChanges();
+                                Settings = (DBSettings)Settings.DiscardChanges();
+                            }
+                            else
+                            {
+                                switch (A[1])
+                                {
+                                    case "all":
+                                        Live = (DBLive)Live.DiscardChanges();
+                                        People = (DBPeople)People.DiscardChanges();
+                                        History = (DBHistory)History.DiscardChanges();
+                                        Settings = (DBSettings)Settings.DiscardChanges();
+                                        break;
+
+                                    case "live":
+                                        Live = (DBLive)Live.DiscardChanges();
+                                        break;
+                                    case "people":
+                                        People = (DBPeople)People.DiscardChanges();
+                                        break;
+                                    case "history":
+                                        History = (DBHistory)History.DiscardChanges();
+                                        break;
+                                    case "settings":
+                                        Settings = (DBSettings)Settings.DiscardChanges();
+                                        break;
+
+                                    default:
+                                        break;
+                                }
+                            }
+                            break;
+
+
+
+                        default:
+                            break;
+                    }
+
+                }
+                catch (System.IndexOutOfRangeException ex)
+                {
+
+                    LogErr(ex, "Cannot Parse command.Maybe this command needs more arguments");
+                    throw;
+                }
+                catch (Exception ex)
+                {
+
+                    LogErr(ex, "Cannot Parse and Excecute command");
+                    throw;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                resp.msg = ErrorStamp(ex, "Cannot Parse and Excecute command");
+                resp.result = (byte)Response.Result.failed;
+                resp.obj = ex;
+                return;
+            }
+
+            resp.result = (byte)Response.Result.ok;
+            resp.msg = sb.ToString();
+        }
     }
 }

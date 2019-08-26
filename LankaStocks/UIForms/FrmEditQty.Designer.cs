@@ -73,7 +73,7 @@
             // btnOK
             // 
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Image = global::LankaStocks.Properties.Resources.ok_24px;
+            this.btnOK.Image = global::LankaStocks.Properties.Resources.ms_excel_24px;
             this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOK.Location = new System.Drawing.Point(12, 69);
             this.btnOK.Name = "btnOK";

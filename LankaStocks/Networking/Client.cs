@@ -31,6 +31,7 @@ namespace LankaStocks.Networking
         public Response StockIntake(StockIntake v) => Excecute("StockIntake", v);
         public Response ListItems() => Excecute("ListItems");
 
+        public Response CLIRun(string s) => Excecute("CLIRun", s);
 
         public Dictionary<uint, Vendor> vendors = new Dictionary<uint, Vendor>();
         public Dictionary<uint, Item> Items = new Dictionary<uint, Item>();

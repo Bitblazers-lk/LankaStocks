@@ -145,6 +145,12 @@
     <Compile Include="UIForms\FrmCharts.Designer.cs">
       <DependentUpon>FrmCharts.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIForms\FrmEditQty.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmEditQty.Designer.cs">
+      <DependentUpon>FrmEditQty.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIForms\FrmQuickSale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -336,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIForms\FrmCharts.resx">
       <DependentUpon>FrmCharts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmEditQty.resx">
+      <DependentUpon>FrmEditQty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIForms\FrmQuickSale.resx">
       <DependentUpon>FrmQuickSale.cs</DependentUpon>
