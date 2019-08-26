@@ -48,7 +48,6 @@ namespace LankaStocks
 
         public void Shutdown()
         {
-<<<<<<< HEAD
             foreach (var usr in People.Users.Values)
             {
                 if (usr.userName == name)
@@ -58,7 +57,6 @@ namespace LankaStocks
                         //Forms.dashboard.Hide();
                         Forms.dashboard = new Dashboard();
                         Forms.dashboard.Show();
-                        Forms.dashboard.notifyIcon1.ShowBalloonTip(1500, "Welcome!", $"User : {usr.name}", ToolTipIcon.Info);
                         Log($"User login : {name}");
                         return (true, "Wellcome");
                     }
@@ -71,13 +69,6 @@ namespace LankaStocks
             }
             Log($"Wrong user name : {name}");
             return (false, "Wrong user name or password");
-=======
-            Log("Sever shutingdown");
-            Live.ForceSave();
-            People.ForceSave();
-            History.ForceSave();
-            Settings.ForceSave();
->>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
         }
 
 
@@ -137,6 +128,15 @@ namespace LankaStocks
                     break;
                 case "SetItem":
                     resp.obj = exe.SetItem(req.para[0]);
+                    break;
+                case "StockIntake":
+                    resp.obj = exe.StockIntake(req.para[0]);
+                    break;
+
+
+
+                case "ListItems":
+                    resp.obj = exe.ListItems();
                     break;
 
                 default:

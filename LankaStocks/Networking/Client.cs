@@ -13,7 +13,7 @@ namespace LankaStocks.Networking
         public abstract void Initialize();
         public abstract void Shutdown();
         public abstract Response Request(Request req);
-        public Response Request(byte command, string db, string expr, dynamic[] para) => Request(new LankaStocks.Request() { command = command, db = db, expr = expr, para = para });
+        public Response Request(byte command, string db, string expr, params dynamic[] para) => Request(new LankaStocks.Request() { command = command, db = db, expr = expr, para = para });
         public Response Excecute(string expr, params dynamic[] para) => Request(new LankaStocks.Request() { command = (byte)LankaStocks.Request.Command.exec, expr = expr, para = para });
 
 
@@ -28,6 +28,8 @@ namespace LankaStocks.Networking
         public Response SetPerson(Vendor v) => Excecute("SetPerson", v);
         public Response AddItem(Item v) => Excecute("AddItem", v);
         public Response SetItem(Item v) => Excecute("SetItem", v);
+        public Response StockIntake(StockIntake v) => Excecute("StockIntake", v);
+        public Response ListItems() => Excecute("ListItems");
 
 
         public Dictionary<uint, Vendor> vendors = new Dictionary<uint, Vendor>();

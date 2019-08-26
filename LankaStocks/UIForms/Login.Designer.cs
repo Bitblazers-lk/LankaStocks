@@ -321,7 +321,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DimGray;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(11)))), ((int)(((byte)(31)))));
             this.ClientSize = new System.Drawing.Size(807, 380);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.panel2);
@@ -334,6 +334,7 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LankaStocks > Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.Load += new System.EventHandler(this.Login_Load);
             this.Shown += new System.EventHandler(this.Login_Shown);
             this.panel1.ResumeLayout(false);

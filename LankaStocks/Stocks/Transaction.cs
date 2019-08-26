@@ -12,7 +12,7 @@ namespace LankaStocks
         public uint ID;
 
         public decimal total;
-        public decimal payed;
+        public decimal paid;
         public decimal Liability;
 
         public Types type;
@@ -35,6 +35,5 @@ namespace LankaStocks
 
         }
 
-        public uint OfficePersonID = 2U;
     }
 }

@@ -9,6 +9,7 @@ using LankaStocks;
 using static LankaStocks.Core;
 using LankaStocks.Setting;
 using System.Reflection;
+using System.Collections;
 
 namespace LankaStocks.DataBases
 {
@@ -231,10 +232,11 @@ namespace LankaStocks.DataBases
 
 
                         case MemberType.dic:
-                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
-                            if (d.TryGetValue(req.para[0], out dynamic val))
+                            var d = (IDictionary)solv.Item1;
+
+                            if (d.Contains(req.para[0]))
                             {
-                                resp.obj = val;
+                                resp.obj = d[req.para[0]];
                             }
                             else
                             {

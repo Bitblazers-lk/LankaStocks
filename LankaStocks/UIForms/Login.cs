@@ -163,5 +163,10 @@ namespace LankaStocks.UIForms
         {
 
         }
+
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Core.Shutdown();
+        }
     }
 }

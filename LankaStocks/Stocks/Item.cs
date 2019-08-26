@@ -13,7 +13,7 @@ namespace LankaStocks
         public string Barcode;
 
         public string name;
-        public uint vendor;
+        public List<uint> vendors;
 
         public decimal inPrice = 0M;
         public decimal outPrice = 0M;

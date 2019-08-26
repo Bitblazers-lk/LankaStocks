@@ -84,7 +84,7 @@ namespace LankaStocks.UserControls
 
             foreach (var vend in Core.client.vendors.Values)
             {
-                VendorID.Items.Add($"{vend.VendorID}. {vend.name}  - supplies {((vend == null) ? (string.Join(",", vend.supplyingItems)) : "nothing") }");
+                VendorID.Items.Add($"{vend.VendorID}. {vend.name}  - supplies {((vend.supplyingItems == null) ? "nothing" : (string.Join(",", vend.supplyingItems))) }");
                 vendors.Add(vend.ID);
             }
 
@@ -92,7 +92,7 @@ namespace LankaStocks.UserControls
 
             foreach (var itm in Core.client.Items.Values)
             {
-                Alternative.Items.Add($"{itm.itemID}. {itm.name}   available {itm.Quantity} from {itm.vendor}");
+                Alternative.Items.Add($"{itm.itemID}. {itm.name}   available {itm.Quantity} from {itm.vendors}");
                 Items.Add(itm.itemID);
             }
 
@@ -113,7 +113,7 @@ namespace LankaStocks.UserControls
             uint vend = VendorID.SelectedIndex == -1 ? 0 : vendors[VendorID.SelectedIndex];
             uint alt = Alternative.SelectedIndex == -1 ? 0 : Items[Alternative.SelectedIndex];
 
-            Item itm = new Item() { itemID = itemID, Barcode = Barcode.Text, inPrice = decimal.Parse(InPrice.Text), name = ItemName.Text, outPrice = decimal.Parse(OutPrice.Text), vendor = vend, Alternative = alt, Quantity = 0 };
+            Item itm = new Item() { itemID = itemID, Barcode = Barcode.Text, inPrice = decimal.Parse(InPrice.Text), name = ItemName.Text, outPrice = decimal.Parse(OutPrice.Text), vendors = new List<uint>() { vend }, Alternative = alt, Quantity = 0 };
 
             return itm;
         }

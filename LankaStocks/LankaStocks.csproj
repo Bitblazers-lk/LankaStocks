@@ -145,21 +145,6 @@
     <Compile Include="UIForms\FrmCharts.Designer.cs">
       <DependentUpon>FrmCharts.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="UIForms\FrmEditQty.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\FrmEditQty.Designer.cs">
-      <DependentUpon>FrmEditQty.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UIForms\FrmIosButton.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UIForms\FrmIosButton.Designer.cs">
-      <DependentUpon>FrmIosButton.cs</DependentUpon>
-    </Compile>
-=======
->>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
     <Compile Include="UIForms\FrmQuickSale.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -270,6 +255,18 @@
     <Compile Include="UserControls\UISaveData.Designer.cs">
       <DependentUpon>UISaveData.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UISelectPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UISelectPerson.Designer.cs">
+      <DependentUpon>UISelectPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UISelItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UISelItem.Designer.cs">
+      <DependentUpon>UISelItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UIStockIntake.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -340,15 +337,6 @@
     <EmbeddedResource Include="UIForms\FrmCharts.resx">
       <DependentUpon>FrmCharts.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="UIForms\FrmEditQty.resx">
-      <DependentUpon>FrmEditQty.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIForms\FrmIosButton.resx">
-      <DependentUpon>FrmIosButton.cs</DependentUpon>
-    </EmbeddedResource>
-=======
->>>>>>> b2c949ca35f301d4727a421249bbc365cdc8e015
     <EmbeddedResource Include="UIForms\FrmQuickSale.resx">
       <DependentUpon>FrmQuickSale.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,6 +384,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UISaveData.resx">
       <DependentUpon>UISaveData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UISelectPerson.resx">
+      <DependentUpon>UISelectPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UISelItem.resx">
+      <DependentUpon>UISelItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIStockIntake.resx">
       <DependentUpon>UIStockIntake.cs</DependentUpon>
@@ -449,7 +443,6 @@
     <None Include="Images\home_button_filled_50px.png" />
     <Content Include="Images\kisspng-inventory-management-software-stock-management-sal-warehouse-5ac5d409391c68.7620306315229143132339.jpg" />
     <Content Include="Images\left3_24px.png" />
-    <None Include="Images\Logo Test.png" />
     <Content Include="Images\Logo.png" />
     <Content Include="Images\management_24px.png" />
     <None Include="Images\menu_24px.png" />
@@ -458,11 +451,9 @@
     <None Include="Images\password_24px.png" />
     <None Include="Images\ms_excel_24px.png" />
     <None Include="Images\open_view_24px.png" />
-    <None Include="Images\ok_24px.png" />
     <Content Include="Images\Picture1.png" />
     <Content Include="Images\plus_math_24px.png" />
     <None Include="Images\purchase_order_24px.png" />
-    <None Include="Images\purchase-guy.png" />
     <Content Include="Images\recurring_appointment_24px.png" />
     <None Include="Images\refund_2_24px.png" />
     <Content Include="Images\save_24px.png" />
