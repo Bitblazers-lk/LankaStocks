@@ -119,7 +119,7 @@ namespace LankaStocks.UserControls
         {
             if (Cart.ContainsKey(code))
             {
-                 Cart[code] += qty;
+                Cart[code] += qty;
             }
             else Cart.Add(code, qty);
         }
