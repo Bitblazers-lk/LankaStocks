@@ -133,18 +133,18 @@ namespace LankaStocks
 
             if (Live.Items.TryGetValue(v.itemID, out Item old))
             {
-                if (v.vendor != 0U)
+                foreach (var vend in v.vendors)
                 {
-                    People.Vendors[v.vendor].supplyingItems.Remove(v.itemID);
+                    People.Vendors[vend].supplyingItems.Remove(v.itemID);
                 }
             }
 
 
-            if (v.vendor != 0U)
+            foreach (var vend in v.vendors)
             {
-                if (People.Vendors.TryGetValue(v.vendor, out Vendor vend))
+                if (People.Vendors.TryGetValue(vend, out Vendor vendor))
                 {
-                    vend.supplyingItems.Add(v.itemID);
+                    vendor.supplyingItems.Add(v.itemID);
                 }
             }
 
@@ -153,5 +153,38 @@ namespace LankaStocks
             Log($"Set {v.ToString()} \n {Core.VisualizeObj(v)}");
             return new Response(Response.Result.ok);
         }
+
+        public Response StockIntake(StockIntake si)
+        {
+            if (si.IntakeID == 0) { History.IdMachine.IntakeID++; si.IntakeID = History.IdMachine.IntakeID; }
+            if (Live.Session.StockIntakes.ContainsKey(si.IntakeID))
+            {
+                return Response.CreateError(Response.Result.wrongInputs, "StockIntakeID already exists");
+            }
+
+
+            Live.Session.StockIntakes.Add(si.IntakeID, si);
+
+            Log($"Taken new {si.ToString()} \n {Core.VisualizeObj(si)}");
+
+            return new Response(Response.Result.ok);
+        }
+
+
+        public Dictionary<uint, string> ListItems()
+        {
+            Dictionary<uint, string> items = new Dictionary<uint, string>(Live.Items.Count);
+
+            foreach (var item in Live.Items.Values)
+            {
+                items.Add(item.itemID, $"{item.itemID}.{item.name} - Rs. {item.outPrice} - {item.Quantity} available");
+            }
+
+
+            return items;
+        }
+
+
+
     }
 }

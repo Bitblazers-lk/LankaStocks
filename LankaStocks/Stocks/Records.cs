@@ -16,7 +16,7 @@ namespace LankaStocks
     {
         public uint IntakeID;
         public uint vendorID;
-        public List<Item> items;
+        public Item item;
 
         public Transaction trans;
     }

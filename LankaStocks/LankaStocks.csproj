@@ -255,6 +255,18 @@
     <Compile Include="UserControls\UISaveData.Designer.cs">
       <DependentUpon>UISaveData.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UISelectPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UISelectPerson.Designer.cs">
+      <DependentUpon>UISelectPerson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UISelItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UISelItem.Designer.cs">
+      <DependentUpon>UISelItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UIStockIntake.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -372,6 +384,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UISaveData.resx">
       <DependentUpon>UISaveData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UISelectPerson.resx">
+      <DependentUpon>UISelectPerson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UISelItem.resx">
+      <DependentUpon>UISelItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIStockIntake.resx">
       <DependentUpon>UIStockIntake.cs</DependentUpon>

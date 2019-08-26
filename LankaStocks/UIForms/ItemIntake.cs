@@ -17,56 +17,15 @@ namespace LankaStocks.UIForms
         {
             InitializeComponent();
 
-            uiStockIntake.VendorID.KeyDown += VendorID_KeyDown;
-            uiStockIntake.ItemID.KeyDown += ItemID_KeyDown;
-            uiStockIntake.Qty.KeyDown += Qty_KeyDown;
-            uiStockIntake.uiTransaction.Paid.KeyDown += Paid_KeyDown;
-            uiStockIntake.uiTransaction.Secondparty.KeyDown += Secondparty_KeyDown;
-            uiStockIntake.uiTransaction.Confirm.KeyDown += Confirm_KeyDown;
-            uiStockIntake.uiTransaction.Note.KeyDown += Note_KeyDown;
-            uiStockIntake.uiTransaction.OfficePersonID.KeyDown += OfficePersonID_KeyDown;
 
             uiSaveData.Save.Click += Save_Click;
             uiSaveData.RefreshAll.Click += Refresh_Click;
             uiSaveData.Cancel.Click += Cancel_Click;
         }
 
-        private void VendorID_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        private void ItemID_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        private void Qty_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        private void Paid_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        private void Secondparty_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        private void Confirm_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        private void Note_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-        private void OfficePersonID_KeyDown(object sender, KeyEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void Cancel_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Hide();
         }
 
         private void Refresh_Click(object sender, EventArgs e)
@@ -76,7 +35,8 @@ namespace LankaStocks.UIForms
 
         private void Save_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            Core.client.StockIntake(uiStockIntake.GenerateStockIntake());
+            Hide();
         }
 
         private void ItemIntake_Load(object sender, EventArgs e)

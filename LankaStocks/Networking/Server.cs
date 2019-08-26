@@ -112,6 +112,15 @@ namespace LankaStocks
                 case "SetItem":
                     resp.obj = exe.SetItem(req.para[0]);
                     break;
+                case "StockIntake":
+                    resp.obj = exe.StockIntake(req.para[0]);
+                    break;
+
+
+
+                case "ListItems":
+                    resp.obj = exe.ListItems();
+                    break;
 
                 default:
                     break;

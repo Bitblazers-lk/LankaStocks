@@ -9,6 +9,7 @@ using LankaStocks;
 using static LankaStocks.Core;
 using LankaStocks.Setting;
 using System.Reflection;
+using System.Collections;
 
 namespace LankaStocks.DataBases
 {
@@ -231,10 +232,11 @@ namespace LankaStocks.DataBases
 
 
                         case MemberType.dic:
-                            var d = (Dictionary<dynamic, dynamic>)solv.Item1;
-                            if (d.TryGetValue(req.para[0], out dynamic val))
+                            var d = (IDictionary)solv.Item1;
+
+                            if (d.Contains(req.para[0]))
                             {
-                                resp.obj = val;
+                                resp.obj = d[req.para[0]];
                             }
                             else
                             {
@@ -492,8 +494,8 @@ namespace LankaStocks.DataBases
             Cashiers = new Dictionary<uint, decimal>();
             Items = new Dictionary<uint, Item>
             {
-                { 1, new Item { itemID = 1, inPrice = 100, outPrice = 125, name = "Box", Quantity = 100, vendor = 1 } },
-                { 2, new Item { itemID = 2, inPrice = 90, outPrice = 100, name = "Box1", Quantity = 100, vendor = 1 } }
+                { 1, new Item { itemID = 1, inPrice = 100, outPrice = 125, name = "Box", Quantity = 100, vendors=new List<uint>(){0} } },
+                { 2, new Item { itemID = 2, inPrice = 90, outPrice = 100, name = "Box1", Quantity = 100,  vendors=new List<uint>(){0} } }
             };
 
             Session = new DBSession();

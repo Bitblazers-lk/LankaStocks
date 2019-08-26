@@ -18,21 +18,8 @@ namespace LankaStocks.UserControls
             InitializeComponent();
         }
 
-        private void VendorID_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Error.Txt(VendorID);
-            }
-        }
 
-        private void ItemID_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Error.Txt(ItemID);
-            }
-        }
+
 
         private void Qty_KeyDown_1(object sender, KeyEventArgs e)
         {
@@ -46,5 +33,63 @@ namespace LankaStocks.UserControls
         {
             Error.Num(Qty);
         }
+
+
+
+
+        public StockIntake GenerateStockIntake()
+        {
+            if (IntakeID.Text == "") IntakeID.Text = "0";
+            if (!uint.TryParse(IntakeID.Text, out uint intakeID))
+            {
+                throw new ArgumentException("Value must be a positive integer", "intakeID");
+            }
+
+
+            StockIntake intake = new StockIntake() { IntakeID = intakeID, item = new Item() };
+            ApplyTo(intake);
+            return intake;
+
+        }
+
+        public void ApplyTo(StockIntake si)
+        {
+
+
+            si.item.itemID = uiSelItem.GetItem();
+
+            Item RootItem;
+            //try
+            //{
+            RootItem = Core.RemoteDBs.Live.Items.GetItem(si.item.itemID);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception($"Item {si.item.itemID} is not found in the server", ex);
+            //}
+
+
+            if (!int.TryParse(Qty.Text, out int qty)) throw new ArgumentNullException("Qty", "Quantity cannot be null");
+
+            si.item.Quantity = qty;
+
+            si.trans = uiTransaction.GenerateTransaction();
+
+            uint vendID = uiSelecVendor.GetPersonTypeAndID().ID;
+            si.item.vendors = new List<uint>() { vendID };
+
+
+            if (!RootItem.vendors.Contains(vendID)) RootItem.vendors.Add(vendID);
+
+            si.item.inPrice = RootItem.inPrice;
+            si.item.outPrice = RootItem.outPrice;
+
+
+            RootItem.Quantity += qty;
+        }
+
+
     }
+
 }
+

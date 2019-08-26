@@ -200,6 +200,31 @@ namespace LankaStocks
                                     vend.supplyingItems = new List<uint>();
                                 }
                                 break;
+
+                            case "items":
+                                foreach (var item in Core.Svr.Live.Items.Values)
+                                {
+                                    if (item.vendors == null) { item.vendors = new List<uint>(); Log($"Set empty list for null vendors of item {item.name}"); }
+                                    foreach (var v in item.vendors)
+                                    {
+                                        if (!Core.Svr.People.Vendors.ContainsKey(v))
+                                        {
+                                            item.vendors.Remove(v);
+
+                                            Log($"Fixed incorrect vendor for item. Set {item.name}.vendor to {Core.Svr.People.Vendors.First().Value.name}({item.vendors})");
+                                        }
+                                    }
+                                    if (item.vendors.Count == 0)
+                                    {
+
+                                        item.vendors.Add(Core.Svr.People.Vendors.First().Key);
+                                        Log($"Vendors for this Item is empty. Add {Core.Svr.People.Vendors.First().Value.name}({item.vendors[0]}) {item.name}.vendor");
+                                    }
+
+                                }
+
+                                break;
+
                             default:
                                 break;
                         }
