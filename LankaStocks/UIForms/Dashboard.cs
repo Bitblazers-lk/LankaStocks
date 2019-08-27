@@ -32,13 +32,42 @@ namespace LankaStocks.UIForms
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
 
            
-            cm.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
-            btnIssueItem.ContextMenu = cm;
+            cmOQC.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
+            btnIssueItem.ContextMenu = cmOQC;
+
+            cmLout.MenuItems.Add("Sign Out", new EventHandler(Sign_Out_Click));
+            cmLout.MenuItems.Add("Restart", new EventHandler(Restart_Click));
+            cmLout.MenuItems.Add("Exit", new EventHandler(Exit_Click));
+            cmLout.MenuItems.Add("Help", new EventHandler(Help_Click));
+            btnhide.ContextMenu = cmLout;
+        }
+
+        private void Help_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void Restart_Click(object sender, EventArgs e)
+        {
+            Core.Shutdown();
+            Application.Restart();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Core.Shutdown();
+        }
+
+        private void Sign_Out_Click(object sender, EventArgs e)
+        {
+            Forms.login.Show();
+            this.Hide();
         }
 
         public List<string> i = new List<string>();
         int ToolBarWidth;
-        ContextMenu cm = new ContextMenu();
+        ContextMenu cmOQC = new ContextMenu();
+        ContextMenu cmLout = new ContextMenu();
 
         #region This Form
         private void Btnhide_Click(object sender, EventArgs e)
