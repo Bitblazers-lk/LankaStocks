@@ -11,7 +11,6 @@ namespace LankaStocks.dev
         static void Main(string[] args)
         {
             LankaStocks.Program.Main();
-
         }
     }
 }
