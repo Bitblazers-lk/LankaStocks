@@ -43,7 +43,6 @@ namespace LankaStocks
             return (false, "Wrong user name or password");
         }
 
-
         public Response AddNewVendor(Vendor v)
         {
             if (v.ID == 0) { History.IdMachine.PersonID++; v.ID = History.IdMachine.PersonID; }
@@ -66,7 +65,6 @@ namespace LankaStocks
 
             return new Response(Response.Result.ok);
         }
-
 
         public Response AddNewUser(User v)
         {
@@ -109,6 +107,16 @@ namespace LankaStocks
         {
             People.OtherPeople[v.ID] = v;
             Log($"Set {v.ToString()} \n {Core.VisualizeObj(v)}");
+            return new Response(Response.Result.ok);
+        }
+
+        public Response IssueItem(Dictionary<uint, float> LstItems)
+        {
+            return new Response(Response.Result.ok);
+        }
+
+        public Response RefundItem(uint InvoiceNO,Dictionary<uint, float> LstItems)
+        {
             return new Response(Response.Result.ok);
         }
 

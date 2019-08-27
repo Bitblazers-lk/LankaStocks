@@ -82,7 +82,11 @@ namespace LankaStocks.UserControls
                 }
                 else
                 {
-                    if (ItemBarcodes.Contains(uiBasicSale1.TxtCode.Text)) uiBasicSale1.TxtQty.Focus();
+                    if (ItemBarcodes.Contains(uiBasicSale1.TxtCode.Text))
+                    {
+                        uiBasicSale1.TxtQty.Focus();
+                        ItemCode = GetUCode(uiBasicSale1.TxtCode.Text);
+                    }
                     else
                     {
                         MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -97,6 +101,8 @@ namespace LankaStocks.UserControls
             if (e.KeyCode == Keys.Enter)
             {
                 AddToCart(ItemCode, (float)uiBasicSale1.TxtQty.Value);
+                uiBasicSale1.TxtCode.Clear();
+                uiBasicSale1.TxtQty.Value = 1;
             }
         }
 
@@ -141,6 +147,15 @@ namespace LankaStocks.UserControls
                 Data.Add(new DGV_Data { Code = s.Key, Name = i.name, Price = i.outPrice, Qty = s.Value, Total = i.outPrice * (decimal)s.Value });
             }
             DGV.DataSource = Data;
+        }
+
+        uint GetUCode(string Barcode)
+        {
+            foreach (var s in RemoteDBs.Live.Items.Get)
+            {
+                if (s.Value.Barcode == Barcode) return s.Key;
+            }
+            return 0;
         }
         #endregion
 
@@ -233,6 +248,8 @@ namespace LankaStocks.UserControls
         }
         #endregion
 
+        #region Edit Cart
+
         private void DGV_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
@@ -249,10 +266,20 @@ namespace LankaStocks.UserControls
                 Forms.frmEditQty = new UIForms.FrmEditQty { Code = a };
                 Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}\t Code : {a.ToString()}";
                 Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
+                Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
                 Forms.frmEditQty.ShowDialog();
             }
             btnEdit.Enabled = false;
             btnRemove.Enabled = false;
+        }
+
+        private void EditQtyOK_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value);
+                Forms.frmEditQty.Close();
+            }
         }
 
         private void EditQtyOK_Click(object sender, EventArgs e)
@@ -267,6 +294,7 @@ namespace LankaStocks.UserControls
             btnEdit.Enabled = false;
             btnRemove.Enabled = false;
         }
+        #endregion
     }
 
     public struct DGV_Data

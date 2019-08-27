@@ -153,15 +153,11 @@ namespace LankaStocks
             return Newtonsoft.Json.JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
         }
 
-
         private static void CLIProgram()
         {
             Begin:
 
-
             string s = Prompt("\n \n Enter Command \t ").ToLower();
-
-
 
             var resp = Core.client.CLIRun(s);
 
@@ -180,7 +176,6 @@ namespace LankaStocks
 
             goto Begin;
         }
-
 
         #endregion
 

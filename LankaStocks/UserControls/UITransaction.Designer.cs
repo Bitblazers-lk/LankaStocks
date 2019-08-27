@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Type = new System.Windows.Forms.ComboBox();
             this.TransactionID = new System.Windows.Forms.TextBox();
             this.Total = new System.Windows.Forms.TextBox();
             this.Paid = new System.Windows.Forms.TextBox();
@@ -47,6 +46,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.uiUserParty = new LankaStocks.UserControls.UISelectPerson();
             this.uiSecondParty = new LankaStocks.UserControls.UISelectPerson();
+            this.Type = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +56,6 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel1.Controls.Add(this.Type, 1, 4);
             this.tableLayoutPanel1.Controls.Add(this.TransactionID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.Total, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.Paid, 1, 2);
@@ -74,6 +73,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 8);
             this.tableLayoutPanel1.Controls.Add(this.uiUserParty, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.uiSecondParty, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.Type, 1, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -90,18 +90,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(622, 587);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // Type
-            // 
-            this.Type.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.Type.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Type.ForeColor = System.Drawing.Color.Orange;
-            this.Type.FormattingEnabled = true;
-            this.Type.Location = new System.Drawing.Point(127, 191);
-            this.Type.Name = "Type";
-            this.Type.Size = new System.Drawing.Size(492, 21);
-            this.Type.TabIndex = 2;
             // 
             // TransactionID
             // 
@@ -298,6 +286,18 @@
             this.uiSecondParty.Size = new System.Drawing.Size(492, 85);
             this.uiSecondParty.TabIndex = 4;
             // 
+            // Type
+            // 
+            this.Type.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.Type.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Type.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Type.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Type.FormattingEnabled = true;
+            this.Type.Location = new System.Drawing.Point(127, 191);
+            this.Type.Name = "Type";
+            this.Type.Size = new System.Drawing.Size(492, 21);
+            this.Type.TabIndex = 19;
+            // 
             // UITransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,7 +315,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        public System.Windows.Forms.ComboBox Type;
         public System.Windows.Forms.TextBox TransactionID;
         public System.Windows.Forms.TextBox Total;
         public System.Windows.Forms.TextBox Paid;
@@ -333,5 +332,6 @@
         private System.Windows.Forms.Label label9;
         private UISelectPerson uiUserParty;
         private UISelectPerson uiSecondParty;
+        private System.Windows.Forms.ComboBox Type;
     }
 }
