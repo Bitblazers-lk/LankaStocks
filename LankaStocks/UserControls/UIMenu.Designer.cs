@@ -35,6 +35,8 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRemove = new System.Windows.Forms.Button();
+            this.btnEdit = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.DGV = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -57,9 +59,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CBItemCount = new System.Windows.Forms.ComboBox();
-            this.btnRemove = new System.Windows.Forms.Button();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.uiBasicSale1 = new LankaStocks.UserControls.UIBasicSale();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -158,6 +157,36 @@
             this.tableLayoutPanel6.Size = new System.Drawing.Size(404, 44);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
+            // btnRemove
+            // 
+            this.btnRemove.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRemove.Enabled = false;
+            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemove.Image = global::LankaStocks.Properties.Resources.delete_sign_24px;
+            this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRemove.Location = new System.Drawing.Point(271, 3);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(130, 38);
+            this.btnRemove.TabIndex = 0;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.Enabled = false;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Image = global::LankaStocks.Properties.Resources.edit_24px;
+            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEdit.Location = new System.Drawing.Point(137, 3);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(128, 38);
+            this.btnEdit.TabIndex = 1;
+            this.btnEdit.Text = "Edit";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            // 
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,17 +232,6 @@
             this.removeToolStripMenuItem1.Name = "removeToolStripMenuItem1";
             this.removeToolStripMenuItem1.Size = new System.Drawing.Size(117, 22);
             this.removeToolStripMenuItem1.Text = "Remove";
-            // 
-            // DGV
-            // 
-            this.DGV.AllowUserToOrderColumns = true;
-            this.DGV.BackgroundColor = System.Drawing.Color.Black;
-            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV.Location = new System.Drawing.Point(3, 3);
-            this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(404, 610);
-            this.DGV.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -448,45 +466,6 @@
             this.CBItemCount.Size = new System.Drawing.Size(100, 21);
             this.CBItemCount.TabIndex = 3;
             this.CBItemCount.SelectedIndexChanged += new System.EventHandler(this.CBItemCount_SelectedIndexChanged);
-            // 
-            // btnRemove
-            // 
-            this.btnRemove.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRemove.Enabled = false;
-            this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemove.Image = global::LankaStocks.Properties.Resources.delete_sign_24px;
-            this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemove.Location = new System.Drawing.Point(271, 3);
-            this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(130, 38);
-            this.btnRemove.TabIndex = 0;
-            this.btnRemove.Text = "Remove";
-            this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnEdit.Enabled = false;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Image = global::LankaStocks.Properties.Resources.edit_24px;
-            this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEdit.Location = new System.Drawing.Point(137, 3);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(128, 38);
-            this.btnEdit.TabIndex = 1;
-            this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
-            // 
-            // uiBasicSale1
-            // 
-            this.uiBasicSale1.BackColor = System.Drawing.Color.Transparent;
-            this.uiBasicSale1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiBasicSale1.Location = new System.Drawing.Point(0, 0);
-            this.uiBasicSale1.Name = "uiBasicSale1";
-            this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
-            this.uiBasicSale1.TabIndex = 0;
             // 
             // UIMenu
             // 

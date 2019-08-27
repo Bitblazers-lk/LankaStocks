@@ -245,5 +245,6 @@ namespace LankaStocks
         public static FrmRefund frmRefund;
         public static FrmCharts frmCharts;
         public static FrmEditQty frmEditQty;
+        public static FrmWaiting frmWaiting;
     }
 }

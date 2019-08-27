@@ -38,6 +38,8 @@ namespace LankaStocks.UserControls
             uiBasicSale1.TxtCode.KeyDown += TxtCode_KeyDown;
             uiBasicSale1.TxtQty.KeyDown += TxtQty_KeyDown;
             uiBasicSale1.btnIssue.Click += BtnIssue_Click;
+            Forms.frmWaiting = new UIForms.FrmWaiting();
+            //Forms.frmWaiting.ShowDialog();
         }
 
         //private void BtnAddToCart_Click(object sender, EventArgs e)

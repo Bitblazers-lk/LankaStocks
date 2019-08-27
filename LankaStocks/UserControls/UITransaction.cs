@@ -16,13 +16,13 @@ namespace LankaStocks.UserControls
         {
             InitializeComponent();
 
-            System.Type.Items.Clear();
+            Type.Items.Clear();
             foreach (var item in Enum.GetNames(typeof(Transaction.Types)))
             {
-                System.Type.Items.Add(item);
+         Type.Items.Add(item);
             }
 
-            System.Type.SelectedIndex = 0;
+           Type.SelectedIndex = 0;
         }
 
 
@@ -59,7 +59,7 @@ namespace LankaStocks.UserControls
             tr.note = Note.Text;
             tr.User = uiUserParty.GetPerson().ID;
             tr.SecondParty = uiSecondParty.GetPerson().ID;
-            tr.type = (Transaction.Types)System.Type.SelectedIndex;
+            tr.type = (Transaction.Types)Type.SelectedIndex;
 
         }
 

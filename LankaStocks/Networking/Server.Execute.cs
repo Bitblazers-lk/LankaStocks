@@ -17,9 +17,6 @@ namespace LankaStocks
         public DBHistory History { get => svr.History; set => svr.History = value; }
         public DBSettings Settings { get => svr.Settings; set => svr.Settings = value; }
 
-
-
-
         public (bool, string) LoginCheck(string name, string pass)
         {
             foreach (var usr in People.Users.Values)
@@ -120,10 +117,6 @@ namespace LankaStocks
             return new Response(Response.Result.ok);
         }
 
-
-
-
-
         public Response AddItem(Item v)
         {
             if (v.itemID == 0) { History.IdMachine.ItemID++; v.itemID = History.IdMachine.ItemID; }
@@ -136,6 +129,7 @@ namespace LankaStocks
 
             return SetItem(v);
         }
+
         public Response SetItem(Item v)
         {
 
@@ -178,7 +172,6 @@ namespace LankaStocks
             return new Response(Response.Result.ok);
         }
 
-
         public Dictionary<uint, string> ListItems()
         {
             Dictionary<uint, string> items = new Dictionary<uint, string>(Live.Items.Count);
@@ -191,9 +184,6 @@ namespace LankaStocks
 
             return items;
         }
-
-
-
 
         public void CLIRun(string s, ref Response resp)
         {
