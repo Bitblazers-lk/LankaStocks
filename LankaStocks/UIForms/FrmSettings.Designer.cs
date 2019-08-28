@@ -64,6 +64,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.CbInterface = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.TxtWarnQty = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
@@ -87,6 +88,7 @@
             this.CBPrintBill = new System.Windows.Forms.ComboBox();
             this.CBPreview = new System.Windows.Forms.ComboBox();
             this.CD = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.uiSaveData = new LankaStocks.UserControls.UISaveData();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -372,6 +374,7 @@
             this.btnFontBrowse.TabIndex = 0;
             this.btnFontBrowse.Text = "Browse";
             this.btnFontBrowse.UseVisualStyleBackColor = false;
+            this.btnFontBrowse.Click += new System.EventHandler(this.btnFontBrowse_Click);
             // 
             // uiColourMenu
             // 
@@ -443,6 +446,7 @@
             0,
             0,
             131072});
+            this.TxtFontSize.ValueChanged += new System.EventHandler(this.TxtFontSize_ValueChanged);
             // 
             // CBOAS
             // 
@@ -457,6 +461,7 @@
             this.CBOAS.Name = "CBOAS";
             this.CBOAS.Size = new System.Drawing.Size(336, 24);
             this.CBOAS.TabIndex = 24;
+            this.CBOAS.SelectedIndexChanged += new System.EventHandler(this.CBOAS_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -481,6 +486,7 @@
             this.tableLayoutPanel6.Controls.Add(this.label22, 0, 4);
             this.tableLayoutPanel6.Controls.Add(this.label24, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.label23, 0, 6);
+            this.tableLayoutPanel6.Controls.Add(this.CbInterface, 1, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 35);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -518,7 +524,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(105, 34);
             this.label18.TabIndex = 8;
-            this.label18.Text = "Label";
+            this.label18.Text = "Interface :";
             this.label18.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label19
@@ -593,6 +599,21 @@
             this.label23.Text = "Label";
             this.label23.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // CbInterface
+            // 
+            this.CbInterface.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.CbInterface.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CbInterface.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbInterface.FormattingEnabled = true;
+            this.CbInterface.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.CbInterface.Location = new System.Drawing.Point(116, 3);
+            this.CbInterface.Name = "CbInterface";
+            this.CbInterface.Size = new System.Drawing.Size(333, 24);
+            this.CbInterface.TabIndex = 27;
+            this.CbInterface.SelectedIndexChanged += new System.EventHandler(this.CbInterface_SelectedIndexChanged);
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -616,7 +637,7 @@
             this.TxtWarnQty.ForeColor = System.Drawing.Color.Orange;
             this.TxtWarnQty.Location = new System.Drawing.Point(224, 3);
             this.TxtWarnQty.Maximum = new decimal(new int[] {
-            4000,
+            10100,
             0,
             0,
             131072});
@@ -633,6 +654,7 @@
             0,
             0,
             0});
+            this.TxtWarnQty.ValueChanged += new System.EventHandler(this.TxtWarnQty_ValueChanged);
             // 
             // label16
             // 
@@ -817,6 +839,7 @@
             this.H1.Name = "H1";
             this.H1.Size = new System.Drawing.Size(336, 22);
             this.H1.TabIndex = 8;
+            this.H1.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // H2
             // 
@@ -828,6 +851,7 @@
             this.H2.Name = "H2";
             this.H2.Size = new System.Drawing.Size(336, 22);
             this.H2.TabIndex = 9;
+            this.H2.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // H3
             // 
@@ -839,6 +863,7 @@
             this.H3.Name = "H3";
             this.H3.Size = new System.Drawing.Size(336, 22);
             this.H3.TabIndex = 10;
+            this.H3.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // E1
             // 
@@ -850,6 +875,7 @@
             this.E1.Name = "E1";
             this.E1.Size = new System.Drawing.Size(336, 22);
             this.E1.TabIndex = 11;
+            this.E1.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // E2
             // 
@@ -861,6 +887,7 @@
             this.E2.Name = "E2";
             this.E2.Size = new System.Drawing.Size(336, 22);
             this.E2.TabIndex = 12;
+            this.E2.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // E3
             // 
@@ -872,6 +899,7 @@
             this.E3.Name = "E3";
             this.E3.Size = new System.Drawing.Size(336, 22);
             this.E3.TabIndex = 13;
+            this.E3.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // CBPrintBill
             // 
@@ -888,6 +916,7 @@
             this.CBPrintBill.Name = "CBPrintBill";
             this.CBPrintBill.Size = new System.Drawing.Size(336, 24);
             this.CBPrintBill.TabIndex = 14;
+            this.CBPrintBill.SelectedIndexChanged += new System.EventHandler(this.CBPrintBill_SelectedIndexChanged);
             // 
             // CBPreview
             // 
@@ -904,6 +933,7 @@
             this.CBPreview.Name = "CBPreview";
             this.CBPreview.Size = new System.Drawing.Size(336, 24);
             this.CBPreview.TabIndex = 15;
+            this.CBPreview.SelectedIndexChanged += new System.EventHandler(this.CBPreview_SelectedIndexChanged);
             // 
             // uiSaveData
             // 
@@ -1017,5 +1047,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown TxtWarnQty;
         private System.Windows.Forms.ComboBox CBNoti;
+        private System.Windows.Forms.ComboBox CbInterface;
+        private System.Windows.Forms.FontDialog fontDialog1;
     }
 }

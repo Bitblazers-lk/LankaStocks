@@ -261,6 +261,12 @@
     <Compile Include="UserControls\UIMenu.Designer.cs">
       <DependentUpon>UIMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UIMenuA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UIMenuA.Designer.cs">
+      <DependentUpon>UIMenuA.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UIPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -402,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIMenu.resx">
       <DependentUpon>UIMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UIMenuA.resx">
+      <DependentUpon>UIMenuA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIPerson.resx">
       <DependentUpon>UIPerson.cs</DependentUpon>

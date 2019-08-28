@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LankaStocks.UIForms;
 using LankaStocks.UserControls;
 using static LankaStocks.Core;
 
@@ -36,6 +37,7 @@ namespace LankaStocks.Setting
         public bool OpenAtStat;
         public float WarnWhen;
         public bool Show_Notifications;
+        public MenuInterfaceType Interface;
     }
 
     public static class Settings

@@ -18,13 +18,15 @@ namespace LankaStocks.UIForms
 {
     public partial class Dashboard : Form
     {
-        UIMenu menu = new UIMenu { Dock = DockStyle.Fill };
+        UIMenu menuModern = new UIMenu { Dock = DockStyle.Fill };
+        UIMenuA menuClassic = new UIMenuA { Dock = DockStyle.Fill };
 
         public Dashboard()
         {
             InitializeComponent();
-
-            this.panel4.Controls.Add(menu);
+            if(RemoteDBs.Settings.commonSettings.Get.Interface==MenuInterfaceType.Classic)
+            this.panel4.Controls.Add(menuClassic);
+            else this.panel4.Controls.Add(menuModern);
 
             Settings.LoadCtrlSettings(this);
 
