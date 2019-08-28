@@ -49,7 +49,7 @@ namespace LankaStocks.UserControls
 
         List<uint> DrawCodes = new List<uint> { 1, 2 }; // Uint Item Codes To Draw In  FlowLayoutPanel
 
-        List<string> ItemBarcodes = new List<string>();
+       public List<string> ItemBarcodes = new List<string>();
 
         public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
 
@@ -252,7 +252,7 @@ namespace LankaStocks.UserControls
 
         private void DGV_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
+            if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
             {
                 btnEdit.Enabled = true;
                 btnRemove.Enabled = true;
@@ -261,7 +261,7 @@ namespace LankaStocks.UserControls
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
+            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
             {
                 Forms.frmEditQty = new UIForms.FrmEditQty { Code = a };
                 Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}\t Code : {a.ToString()}";
@@ -290,7 +290,7 @@ namespace LankaStocks.UserControls
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a)) RemoveCart(a);
+            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a)) RemoveCart(a);
             btnEdit.Enabled = false;
             btnRemove.Enabled = false;
         }

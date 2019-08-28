@@ -39,6 +39,8 @@
             this.DGVcart = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnRef = new System.Windows.Forms.Button();
+            this.DGV = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,9 +49,8 @@
             this.TxtCode = new System.Windows.Forms.TextBox();
             this.TxtBarcode = new System.Windows.Forms.TextBox();
             this.TxtName = new System.Windows.Forms.TextBox();
-            this.DGV = new System.Windows.Forms.DataGridView();
-            this.BtnRef = new System.Windows.Forms.Button();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnRefund = new System.Windows.Forms.Button();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelTotal = new System.Windows.Forms.Label();
             this.labelInNO = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.CodeItem = new System.Windows.Forms.TextBox();
             this.TxtQty = new System.Windows.Forms.NumericUpDown();
             this.btnIssue = new System.Windows.Forms.Button();
-            this.btnRefund = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -74,9 +74,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVcart)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -246,6 +246,32 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(803, 320);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // BtnRef
+            // 
+            this.BtnRef.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
+            this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRef.Location = new System.Drawing.Point(3, 281);
+            this.BtnRef.Name = "BtnRef";
+            this.BtnRef.Size = new System.Drawing.Size(797, 36);
+            this.BtnRef.TabIndex = 4;
+            this.BtnRef.Text = "Refresh";
+            this.BtnRef.UseVisualStyleBackColor = true;
+            this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
+            // 
+            // DGV
+            // 
+            this.DGV.AllowUserToOrderColumns = true;
+            this.DGV.BackgroundColor = System.Drawing.Color.Black;
+            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGV.Location = new System.Drawing.Point(3, 57);
+            this.DGV.Name = "DGV";
+            this.DGV.Size = new System.Drawing.Size(797, 218);
+            this.DGV.TabIndex = 3;
+            this.DGV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_CellMouseDoubleClick);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel5);
@@ -345,32 +371,6 @@
             this.TxtName.TabIndex = 5;
             this.TxtName.TextChanged += new System.EventHandler(this.TxtName_TextChanged);
             // 
-            // DGV
-            // 
-            this.DGV.AllowUserToOrderColumns = true;
-            this.DGV.BackgroundColor = System.Drawing.Color.Black;
-            this.DGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGV.Location = new System.Drawing.Point(3, 57);
-            this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(797, 218);
-            this.DGV.TabIndex = 3;
-            this.DGV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_CellMouseDoubleClick);
-            // 
-            // BtnRef
-            // 
-            this.BtnRef.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
-            this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRef.Location = new System.Drawing.Point(3, 281);
-            this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(797, 36);
-            this.BtnRef.TabIndex = 4;
-            this.BtnRef.Text = "Refresh";
-            this.BtnRef.UseVisualStyleBackColor = true;
-            this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 1;
@@ -390,6 +390,21 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(361, 669);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // btnRefund
+            // 
+            this.btnRefund.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRefund.ForeColor = System.Drawing.Color.Orange;
+            this.btnRefund.Image = global::LankaStocks.Properties.Resources.refund_2_24px;
+            this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRefund.Location = new System.Drawing.Point(3, 631);
+            this.btnRefund.Name = "btnRefund";
+            this.btnRefund.Size = new System.Drawing.Size(355, 35);
+            this.btnRefund.TabIndex = 4;
+            this.btnRefund.Text = "Refund";
+            this.btnRefund.UseVisualStyleBackColor = true;
+            this.btnRefund.Click += new System.EventHandler(this.btnRefund_Click);
             // 
             // tableLayoutPanel4
             // 
@@ -458,7 +473,7 @@
             this.label1.ForeColor = System.Drawing.Color.Orange;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 33);
+            this.label1.Size = new System.Drawing.Size(78, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "Item Code :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -471,7 +486,7 @@
             this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(3, 33);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 34);
+            this.label2.Size = new System.Drawing.Size(78, 34);
             this.label2.TabIndex = 1;
             this.label2.Text = "Qty. :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -482,9 +497,9 @@
             this.CodeItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CodeItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CodeItem.ForeColor = System.Drawing.Color.Orange;
-            this.CodeItem.Location = new System.Drawing.Point(88, 3);
+            this.CodeItem.Location = new System.Drawing.Point(87, 3);
             this.CodeItem.Name = "CodeItem";
-            this.CodeItem.Size = new System.Drawing.Size(264, 22);
+            this.CodeItem.Size = new System.Drawing.Size(265, 22);
             this.CodeItem.TabIndex = 2;
             this.CodeItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CodeItem_KeyDown);
             // 
@@ -494,7 +509,7 @@
             this.TxtQty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtQty.ForeColor = System.Drawing.Color.Orange;
-            this.TxtQty.Location = new System.Drawing.Point(88, 36);
+            this.TxtQty.Location = new System.Drawing.Point(87, 36);
             this.TxtQty.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -506,7 +521,7 @@
             0,
             0});
             this.TxtQty.Name = "TxtQty";
-            this.TxtQty.Size = new System.Drawing.Size(264, 22);
+            this.TxtQty.Size = new System.Drawing.Size(265, 22);
             this.TxtQty.TabIndex = 3;
             this.TxtQty.Value = new decimal(new int[] {
             1,
@@ -528,21 +543,6 @@
             this.btnIssue.TabIndex = 3;
             this.btnIssue.Text = "Issue";
             this.btnIssue.UseVisualStyleBackColor = true;
-            // 
-            // btnRefund
-            // 
-            this.btnRefund.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnRefund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRefund.ForeColor = System.Drawing.Color.Orange;
-            this.btnRefund.Image = global::LankaStocks.Properties.Resources.refund_2_24px;
-            this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefund.Location = new System.Drawing.Point(3, 631);
-            this.btnRefund.Name = "btnRefund";
-            this.btnRefund.Size = new System.Drawing.Size(355, 35);
-            this.btnRefund.TabIndex = 4;
-            this.btnRefund.Text = "Refund";
-            this.btnRefund.UseVisualStyleBackColor = true;
-            this.btnRefund.Click += new System.EventHandler(this.btnRefund_Click);
             // 
             // UIMenuA
             // 
@@ -567,10 +567,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGVcart)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();

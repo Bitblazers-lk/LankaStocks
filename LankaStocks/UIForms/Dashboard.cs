@@ -13,6 +13,10 @@ using LankaStocks.Shared;
 using static LankaStocks.Core;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows.Input;
+using System.Globalization;
+using System.Diagnostics;
+using System.Management;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
@@ -24,8 +28,8 @@ namespace LankaStocks.UIForms
         public Dashboard()
         {
             InitializeComponent();
-            if(RemoteDBs.Settings.commonSettings.Get.Interface==MenuInterfaceType.Classic)
-            this.panel4.Controls.Add(menuClassic);
+            if (RemoteDBs.Settings.commonSettings.Get.Interface == MenuInterfaceType.Classic)
+                this.panel4.Controls.Add(menuClassic);
             else this.panel4.Controls.Add(menuModern);
 
             Settings.LoadCtrlSettings(this);
@@ -33,7 +37,7 @@ namespace LankaStocks.UIForms
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
 
-           
+
             cmOQC.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
             btnIssueItem.ContextMenu = cmOQC;
 
@@ -42,11 +46,22 @@ namespace LankaStocks.UIForms
             cmLout.MenuItems.Add("Exit", new EventHandler(Exit_Click));
             cmLout.MenuItems.Add("Help", new EventHandler(Help_Click));
             btnhide.ContextMenu = cmLout;
+
+            //Keyboard.PrimaryDevice.ToString();
+
+            SelectQuery Sq = new SelectQuery("Win32_Keyboard");
+            ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
+            ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
+            foreach (ManagementObject mo in osDetailsCollection)
+            {
+                Console.WriteLine(string.Format("Description: {0}", (string)mo["Description"]));
+                
+            }
         }
 
         private void Help_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void Restart_Click(object sender, EventArgs e)
