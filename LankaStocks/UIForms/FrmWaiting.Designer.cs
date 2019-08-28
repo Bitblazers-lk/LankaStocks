@@ -30,6 +30,7 @@
         {
             this.circularProgressBar1 = new CircularProgressBar.CircularProgressBar();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // circularProgressBar1
@@ -44,13 +45,12 @@
             this.circularProgressBar1.InnerWidth = -1;
             this.circularProgressBar1.Location = new System.Drawing.Point(100, 25);
             this.circularProgressBar1.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar1.Maximum = 120;
             this.circularProgressBar1.Name = "circularProgressBar1";
             this.circularProgressBar1.OuterColor = System.Drawing.Color.Gray;
             this.circularProgressBar1.OuterMargin = -25;
             this.circularProgressBar1.OuterWidth = 26;
             this.circularProgressBar1.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(153)))), ((int)(((byte)(46)))));
-            this.circularProgressBar1.ProgressWidth = 15;
+            this.circularProgressBar1.ProgressWidth = 12;
             this.circularProgressBar1.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
             this.circularProgressBar1.Size = new System.Drawing.Size(100, 100);
             this.circularProgressBar1.StartAngle = 0;
@@ -70,9 +70,17 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F);
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 16);
+            this.label1.Size = new System.Drawing.Size(0, 16);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 108);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "LankaStocks";
             // 
             // FrmWaiting
             // 
@@ -80,6 +88,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 130);
             this.ControlBox = false;
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.circularProgressBar1);
             this.DoubleBuffered = true;
@@ -101,5 +110,6 @@
 
         private CircularProgressBar.CircularProgressBar circularProgressBar1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
