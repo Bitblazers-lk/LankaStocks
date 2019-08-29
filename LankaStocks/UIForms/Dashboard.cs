@@ -119,7 +119,7 @@ namespace LankaStocks.UIForms
 
         private void BtnSettings_Click(object sender, EventArgs e)
         {
-            Forms.frmSettings = new UIForms.FrmSettings(false);
+            Forms.frmSettings = new UIForms.FrmSettings(true);
             Forms.frmSettings.ShowDialog();
         }
 

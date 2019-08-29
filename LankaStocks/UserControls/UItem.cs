@@ -87,8 +87,25 @@ namespace LankaStocks.UserControls
 
         private void Btnaddtoc_Click(object sender, EventArgs e)
         {
+            var handler = CartItemSelected;
+            handler?.Invoke(new CartItemSelectedEventArgs(_Code));
 
         }
+
+
+        public event CartItemSelectedEventHandler CartItemSelected;
+        public delegate void CartItemSelectedEventHandler(CartItemSelectedEventArgs args);
+        public class CartItemSelectedEventArgs : EventArgs
+        {
+            public uint Item;
+
+            public CartItemSelectedEventArgs(uint item)
+            {
+                Item = item;
+            }
+        }
+
+        // public delegate void MouseEventHandler(object sender, MouseEventArgs e);
 
         //private void btnaddtoc_Click(object sender, EventArgs e)
         //{
