@@ -285,8 +285,8 @@ namespace LankaStocks.UIForms
                 //if (DList[i] == RegSettings.Read("POSbar")?.ToString()) Posbar.SelectedIndex = i;
             }
 
-            RemoteDBs.Settings.commonSettings.Set(commonSettings);
-            RemoteDBs.Settings.billSetting.Set(billSetting);
+            //.Settings.commonSettings.Set(commonSettings);
+            //RemoteDBs.Settings.billSetting.Set(billSetting);
         }
 
         #region Get Changes
