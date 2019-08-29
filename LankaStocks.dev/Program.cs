@@ -10,6 +10,7 @@ namespace LankaStocks.dev
     {
         static void Main(string[] args)
         {
+            Core.IsDebug = true;
             LankaStocks.Program.Main();
         }
     }

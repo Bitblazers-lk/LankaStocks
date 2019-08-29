@@ -71,7 +71,7 @@ namespace LankaStocks.UserControls
         {
             //if (!String.IsNullOrWhiteSpace(Pages.Menu.DB.data.Item[_Code].ImPath))
             //    LoadImage(Pages.Menu.DB.data.Item[_Code].ImPath);
-            Setdata(_Code);           
+            Setdata(_Code);
         }
 
         public void Setdata(uint code)
@@ -83,6 +83,11 @@ namespace LankaStocks.UserControls
             l2.Text = data.itemID.ToString();
             lp.Text = $"Rs.{ data.outPrice.ToString("00.00")}";
             if (data.Quantity <= RemoteDBs.Settings.commonSettings.Get.WarnWhen) this.BackColor = Color.FromArgb(200, 0, 0, 100);
+        }
+
+        private void Btnaddtoc_Click(object sender, EventArgs e)
+        {
+
         }
 
         //private void btnaddtoc_Click(object sender, EventArgs e)

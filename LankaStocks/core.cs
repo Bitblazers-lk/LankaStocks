@@ -18,6 +18,7 @@ namespace LankaStocks
         #region Vars
 
         public static bool IsInitialized = false;
+        public static bool IsDebug = false;
 
         public static BaseServer Svr;
 
@@ -91,8 +92,12 @@ namespace LankaStocks
 
             Log("Initialized");
 
-            CLIThread = new System.Threading.Thread(new System.Threading.ThreadStart(CLIProgram)) { Name = "CLIProgram", Priority = System.Threading.ThreadPriority.Lowest };
-            CLIThread.Start();
+
+            if (IsDebug)
+            {
+                Core.CLIThread = new System.Threading.Thread(new System.Threading.ThreadStart(Core.CLIProgram)) { Name = "CLIProgram", Priority = System.Threading.ThreadPriority.Lowest };
+                Core.CLIThread.Start();
+            }
         }
 
         #region Loging
@@ -153,11 +158,15 @@ namespace LankaStocks
             return Newtonsoft.Json.JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
         }
 
-        private static void CLIProgram()
+
+        public static void CLIProgram()
         {
             Begin:
 
+
             string s = Prompt("\n \n Enter Command \t ").ToLower();
+
+
 
             var resp = Core.client.CLIRun(s);
 
@@ -177,6 +186,7 @@ namespace LankaStocks
             goto Begin;
         }
 
+
         #endregion
 
 
@@ -191,7 +201,7 @@ namespace LankaStocks
         {
             try
             {
-                client.Shutdown();
+                client?.Shutdown();
             }
             catch (Exception ex)
             {
@@ -200,7 +210,7 @@ namespace LankaStocks
 
             try
             {
-                CLIThread.Abort();
+                CLIThread?.Abort();
             }
             catch (Exception ex)
             {
@@ -245,6 +255,5 @@ namespace LankaStocks
         public static FrmRefund frmRefund;
         public static FrmCharts frmCharts;
         public static FrmEditQty frmEditQty;
-        public static FrmWaiting frmWaiting;
     }
 }
