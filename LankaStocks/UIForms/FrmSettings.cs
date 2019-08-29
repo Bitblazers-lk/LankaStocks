@@ -13,6 +13,8 @@ using LankaStocks.Setting;
 using static LankaStocks.Core;
 using System.Management;
 using Microsoft.Win32;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace LankaStocks.UIForms
 {
@@ -43,7 +45,6 @@ namespace LankaStocks.UIForms
             {
                 DList.Add((string)mo["Description"]);
             }
-            Poskey.DataSource = DList;
             Posbar.DataSource = DList;
         }
 
@@ -174,12 +175,7 @@ namespace LankaStocks.UIForms
             if (CbInterface.SelectedIndex == 0) RemoteDBs.Settings.commonSettings.GetSet.Interface = MenuInterfaceType.Classic;
             else if (CbInterface.SelectedIndex == 1) RemoteDBs.Settings.commonSettings.GetSet.Interface = MenuInterfaceType.Modern;
 
-            if (DList[Posbar.SelectedIndex] == DList[Poskey.SelectedIndex])
-            {
-                MessageBox.Show("You Can't Select POS Keyboard As POS Barcode Reader!", "LankaStocks > POS Devices Information. - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //RemoteDBs.Settings.commonSettings.GetSet.POS_Keyboard = DList[Poskey.SelectedIndex];
-            //RemoteDBs.Settings.commonSettings.GetSet.POS_Barcode = DList[Posbar.SelectedIndex];
+            RegSettings.Write("POSbar", DList[Posbar.SelectedIndex]);
 
         }
 
@@ -205,7 +201,6 @@ namespace LankaStocks.UIForms
                 {
                     DList.Add((string)mo["Description"]);
                 }
-                Poskey.DataSource = DList;
                 Posbar.DataSource = DList;
                 Ref();
             }
@@ -252,6 +247,11 @@ namespace LankaStocks.UIForms
             E1.Text = RemoteDBs.Settings.billSetting.Get.E1;
             E2.Text = RemoteDBs.Settings.billSetting.Get.E2;
             E3.Text = RemoteDBs.Settings.billSetting.Get.E3;
+
+            for (int i = 0; i < DList.Count; i++)
+            {
+                //if (DList[i] == RegSettings.Read("POSbar")?.ToString()) Posbar.SelectedIndex = i;
+            }
         }
 
         #region Get Changes
@@ -326,45 +326,32 @@ namespace LankaStocks.UIForms
         Classic = 0,
         Modern
     }
-
-    public static class RegSettings
+    public static class SaveSettings
     {
-        private static RegistryKey key;
+        private static string DBdir = @"DB\";
+        private static string DBpath = @"DB\DBSettings.dat";
 
-        public static object Read(string Name)
+        public static void Read(SettingsData data)
         {
             X:
-            key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\LankaStocks");
-            if (key == null)
-            {
-                CreateNew();
-                goto X;
-            }
-            else
-            {
-                return key.GetValue(Name);
-            }          
+            if (!Directory.Exists(DBdir)) Directory.CreateDirectory(DBdir);
+            if (!File.Exists(DBpath)) File.Create(DBpath);
+
+
+            // StreamReader reader = new StreamReader(DBpath);
         }
-        public static void Write(string Name, object Val)
+
+        public static void Save(SettingsData data)
         {
             X:
-            key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\LankaStocks");
-            if (key == null)
-            {
-                CreateNew();
-                goto X;
-            }
-            else
-            {
-                key.SetValue(Name, Val);
-            }
-        }
-        private static void CreateNew()
-        {
-            key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\LankaStocks");
-            key.SetValue("POSkey", null);
-            key.SetValue("POSbar", null);
+            if (!Directory.Exists(DBdir)) Directory.CreateDirectory(DBdir);
+            if (!File.Exists(DBpath)) File.Create(DBpath);
+
+            // StreamReader reader = new StreamReader(DBpath);
         }
     }
-
+    public class SettingsData
+    {
+        public string POSBarcode;
+    }
 }
