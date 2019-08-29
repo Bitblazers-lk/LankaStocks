@@ -214,7 +214,8 @@ namespace LankaStocks.UIForms
             RemoteDBs.Settings.commonSettings.Set(commonSettings);
             RemoteDBs.Settings.billSetting.Set(billSetting);
 
-            //RegSettings.Write("POSbar", DList[Posbar.SelectedIndex]);
+            localSettings.Data.POSBarcodeID = DList.Keys.ToList()[Posbar.SelectedIndex];
+            localSettings.Data.POSBarcodeID = DList[DList.Keys.ToList()[Posbar.SelectedIndex]];
 
         }
 
@@ -239,7 +240,7 @@ namespace LankaStocks.UIForms
 
         private void FrmSettings_Load(object sender, EventArgs e)
         {
-
+            Posbar.SelectedIndex = 0;
             Settings.LoadCtrlSettings(this);
 
             Ref();
@@ -288,11 +289,11 @@ namespace LankaStocks.UIForms
 
             for (int i = 0; i < DList.Count; i++)
             {
-                //if (DList[i] == RegSettings.Read("POSbar")?.ToString()) Posbar.SelectedIndex = i;
+                if (DList[DList.Keys.ToList()[i]]==localSettings.Data.POSBarcodeID)
+                {
+                    Posbar.SelectedIndex = i;
+                }
             }
-
-            //.Settings.commonSettings.Set(commonSettings);
-            //RemoteDBs.Settings.billSetting.Set(billSetting);
         }
 
         #region Get Changes
@@ -389,6 +390,7 @@ namespace LankaStocks.UIForms
     [Serializable]
     public class LocalData
     {
-        public string POSBarcode;
+        public string POSBarcodeName;
+        public string POSBarcodeID;
     }
 }

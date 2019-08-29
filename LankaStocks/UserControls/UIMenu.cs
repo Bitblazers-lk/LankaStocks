@@ -100,7 +100,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtCode_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemBarcodes, ItemCode, Device, Pos_Barcode, BeginChar, DGV);
+                RepeatedFunctions.TxtCode_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV);
             }
         }
 
@@ -108,7 +108,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtQty_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemCode, Device, DGV);
+                RepeatedFunctions.TxtQty_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ref ItemCode, Device, DGV);
             }
         }
 

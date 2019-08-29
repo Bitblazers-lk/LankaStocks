@@ -65,11 +65,11 @@ namespace LankaStocks.Shared
             string a;
             foreach (ManagementObject mo in osDetailsCollection)
             {
-                DList.Add((string)mo["Description"]);
                 a = (string)mo["DeviceID"];
-                Debug.WriteLine($"{(string)mo["Description"]}\t{a.Substring(a.IndexOf(@"\") + 1, a.Substring(a.IndexOf(@"\") + 1).IndexOf(@"\")).ToLower()}");
+                a = a.Substring(a.IndexOf(@"\") + 1, a.Substring(a.IndexOf(@"\") + 1).IndexOf(@"\")).ToLower();
+                DList.Add(a);
             }
-            if (!DList.Contains("USB Input Device"))
+            if (!DList.Contains(localSettings.Data.POSBarcodeID.ToLower()) && localSettings.Data.POSBarcodeID.ToLower() != "null")
             {
                 if (mess)
                     MessageBox.Show("Barcode Reader Not Found!", "LankaStocks > Barcode Reader? - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -118,7 +118,8 @@ namespace LankaStocks.Shared
         {
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
-                if (s.Value.Barcode == Barcode) return s.Key;
+                if (s.Value.Barcode.ToLower() == Barcode.ToLower())
+                    return s.Key;
             }
             return 0;
         }
@@ -185,9 +186,9 @@ namespace LankaStocks.Shared
         }
         #endregion
 
-        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, List<string> _ItemBarcodes, uint _ItemCode, string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart)
+        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode, string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart)
         {
-            if (_Device.ToLower().Contains(_Pos_Barcode.ToLower())) ;
+            if (_Device.ToLower().Contains(_Pos_Barcode.ToLower()))
             {
                 if (_ItemBarcodes.Contains(_TxtCode.Text))
                 {
@@ -219,8 +220,8 @@ namespace LankaStocks.Shared
                 {
                     if (_ItemBarcodes.Contains(_TxtCode.Text))
                     {
-                        _TxtQty.Focus();
                         _ItemCode = GetUCode(_TxtCode.Text);
+                        _TxtQty.Focus();
                     }
                     else
                     {
@@ -232,7 +233,7 @@ namespace LankaStocks.Shared
             _Device = null;
         }
 
-        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, uint _ItemCode, string _Device, DataGridView _DGVcart)
+        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, ref uint _ItemCode, string _Device, DataGridView _DGVcart)
         {
             AddToCart(_ItemCode, (float)_TxtQty.Value, _Cart);
             RefCart(_Cart, _DGVcart);

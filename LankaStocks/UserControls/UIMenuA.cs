@@ -36,7 +36,7 @@ namespace LankaStocks.UserControls
         private readonly RawInput _KeyInput;
 
         string Device;
-        string Pos_Barcode = "";
+        string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
@@ -161,14 +161,14 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtCode_Handle(CodeItem, TxtQty, Cart, ItemBarcodes, ItemCode, Device, Pos_Barcode, BeginChar, DGVcart);
+                RepeatedFunctions.TxtCode_Handle(CodeItem, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGVcart);
             }
         }
         private void TxtQty_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtQty_Handle(CodeItem, TxtQty, Cart, ItemCode, Device, DGVcart);
+                RepeatedFunctions.TxtQty_Handle(CodeItem, TxtQty, Cart, ref ItemCode, Device, DGVcart);
             }
         }
 
