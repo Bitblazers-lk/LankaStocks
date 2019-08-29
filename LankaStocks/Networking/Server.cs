@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using static LankaStocks.Core;
 
 namespace LankaStocks
@@ -53,27 +52,11 @@ namespace LankaStocks
 
         public void Shutdown()
         {
-            foreach (var usr in People.Users.Values)
-            {
-                if (usr.userName == name)
-                {
-                    if (usr.pass == pass)
-                    {
-                        //Forms.dashboard.Hide();
-                        Forms.dashboard = new Dashboard();
-                        Forms.dashboard.Show();
-                        Log($"User login : {name}");
-                        return (true, "Wellcome");
-                    }
-                    else
-                    {
-                        Log($"User wrong password : {name}");
-                        return (false, "Wrong password");
-                    }
-                }
-            }
-            Log($"Wrong user name : {name}");
-            return (false, "Wrong user name or password");
+            Log("Sever shutingdown");
+            Live.ForceSave();
+            People.ForceSave();
+            History.ForceSave();
+            Settings.ForceSave();
         }
 
 
