@@ -321,7 +321,7 @@ namespace LankaStocks.UIForms
                 HasChanges = true;
         }
 
-        private void btnFontBrowse_Click(object sender, EventArgs e)
+        private void BtnFontBrowse_Click(object sender, EventArgs e)
         {
             fontDialog1.ShowDialog();
         }

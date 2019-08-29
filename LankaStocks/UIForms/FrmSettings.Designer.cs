@@ -374,7 +374,7 @@
             this.btnFontBrowse.TabIndex = 0;
             this.btnFontBrowse.Text = "Browse";
             this.btnFontBrowse.UseVisualStyleBackColor = false;
-            this.btnFontBrowse.Click += new System.EventHandler(this.btnFontBrowse_Click);
+            this.btnFontBrowse.Click += new System.EventHandler(this.BtnFontBrowse_Click);
             // 
             // uiColourMenu
             // 

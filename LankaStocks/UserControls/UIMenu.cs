@@ -52,7 +52,7 @@ namespace LankaStocks.UserControls
             _KeyInput.KeyPressed += OnKeyPressed;
             #endregion
 
-            foreach (var s in _KeyInput._keyboardDriver.GetNames()) Debug.WriteLine($">>{s}");
+            //foreach (var s in _KeyInput._keyboardDriver.GetNames()) Debug.WriteLine($">>{s}");
         }
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {

@@ -39,6 +39,14 @@ namespace LankaStocks.UIForms
         string Device;
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
+        int ToolBarWidth;
+        uint ItemCode = 0;
+        string BeginChar = "i";
+        List<string> ItemBarcodes = new List<string>();
+        public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
+
+        ContextMenuStrip cm = new ContextMenuStrip();
+
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
             Device = e.KeyPressEvent.DeviceName;
@@ -86,14 +94,6 @@ namespace LankaStocks.UIForms
             RepeatedFunctions.RefCart(Cart, DGV);
             Forms.frmEditQty.Close();
         }
-
-        int ToolBarWidth;
-        uint ItemCode = 0;
-        string BeginChar = "i";
-        List<string> ItemBarcodes = new List<string>();
-        public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
-
-        ContextMenuStrip cm = new ContextMenuStrip();
 
         private void Btnhide_Click(object sender, EventArgs e)
         {
