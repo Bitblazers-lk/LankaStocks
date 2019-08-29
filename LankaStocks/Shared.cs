@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Management;
@@ -61,11 +62,14 @@ namespace LankaStocks.Shared
             SelectQuery Sq = new SelectQuery("Win32_Keyboard");
             ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
             ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
+            string a;
             foreach (ManagementObject mo in osDetailsCollection)
             {
                 DList.Add((string)mo["Description"]);
+                a = (string)mo["DeviceID"];
+                Debug.WriteLine($"{(string)mo["Description"]}\t{a.Substring(a.IndexOf(@"\") + 1, a.Substring(a.IndexOf(@"\") + 1).IndexOf(@"\")).ToLower()}");
             }
-            if (!DList.Contains(""))
+            if (!DList.Contains("USB Input Device"))
             {
                 if (mess)
                     MessageBox.Show("Barcode Reader Not Found!", "LankaStocks > Barcode Reader? - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -100,7 +104,7 @@ namespace LankaStocks.Shared
             }
             // RefCart(Cart);
         }
-        public static void RefCart(Dictionary<uint, float> _Cart, DataGridView DGVcart)
+        public static void RefCart(Dictionary<uint, float> _Cart, DataGridView _DGVcart)
         {
             List<DGVcart_Data> Data = new List<DGVcart_Data>();
             foreach (var s in _Cart)
@@ -108,7 +112,7 @@ namespace LankaStocks.Shared
                 var i = RemoteDBs.Live.Items.Get[s.Key];
                 Data.Add(new DGVcart_Data { Code = s.Key, Name = i.name, Price = i.outPrice, Qty = s.Value, Total = i.outPrice * (decimal)s.Value });
             }
-            DGVcart.DataSource = Data;
+            _DGVcart.DataSource = Data;
         }
         public static uint GetUCode(string Barcode)
         {
@@ -119,5 +123,123 @@ namespace LankaStocks.Shared
             return 0;
         }
         #endregion
+
+        #region DGV
+        public static void MarkWarning(int QtyCindex, DataGridView _DGV)
+        {
+            float min = RemoteDBs.Settings.commonSettings.Get.WarnWhen;
+
+            for (int a = 0; a < _DGV.RowCount; a++)
+            {
+                for (int i = 0; i < _DGV.ColumnCount; i++)
+                {
+                    if (i == QtyCindex && float.TryParse(_DGV.Rows[a].Cells[i].Value.ToString(), out float c) && c <= min)
+                    {
+                        for (int x = 0; x < _DGV.ColumnCount; x++)
+                        {
+                            _DGV.Rows[a].Cells[x].Style.ForeColor = Color.Red;
+                            //DGV.Rows[a].Cells[i].Style.BackColor = Color.Red;
+                        }
+                    }
+                }
+            }
+        }
+        public static List<DGV_Data> RefStore()
+        {
+            List<DGV_Data> Data = new List<DGV_Data>();
+            foreach (var s in RemoteDBs.Live.Items.Get)
+            {
+                Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+            }
+            return Data;
+        }
+        public static List<DGV_Data> Search_Item(uint Code)
+        {
+            List<DGV_Data> Data = new List<DGV_Data>();
+            foreach (var s in RemoteDBs.Live.Items.Get)
+            {
+                if (s.Key.ToString().Contains(Code.ToString()))
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+            }
+            return Data;
+        }
+        public static List<DGV_Data> Search_Item_Barcode(string Barcode)
+        {
+            List<DGV_Data> Data = new List<DGV_Data>();
+            foreach (var s in RemoteDBs.Live.Items.Get)
+            {
+                if (s.Value.Barcode.ToLower().Contains(Barcode.ToLower()))
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+            }
+            return Data;
+        }
+        public static List<DGV_Data> Search_Item_Name(string Name)
+        {
+            List<DGV_Data> Data = new List<DGV_Data>();
+            foreach (var s in RemoteDBs.Live.Items.Get)
+            {
+                if (s.Value.name.ToLower().Contains(Name.ToLower()))
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+            }
+            return Data;
+        }
+        #endregion
+
+        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, List<string> _ItemBarcodes, uint _ItemCode, string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart)
+        {
+            if (_Device.ToLower().Contains(_Pos_Barcode.ToLower())) ;
+            {
+                if (_ItemBarcodes.Contains(_TxtCode.Text))
+                {
+                    _ItemCode = GetUCode(_TxtCode.Text);
+                    AddToCart(_ItemCode, 1, _Cart);
+                    RefCart(_Cart, _DGVcart);
+                    _TxtCode.Clear();
+                    _TxtQty.Value = 1;
+                    _TxtCode.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _TxtCode.Clear();
+                }
+            }
+            else
+            {
+                if (_TxtCode.Text.Substring(0, 1) == _BeginChar)
+                {
+                    if (uint.TryParse(_TxtCode.Text.Substring(1), out _ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(_ItemCode)) _TxtQty.Focus();
+                    else
+                    {
+                        MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _TxtCode.Clear();
+                    }
+                }
+                else
+                {
+                    if (_ItemBarcodes.Contains(_TxtCode.Text))
+                    {
+                        _TxtQty.Focus();
+                        _ItemCode = GetUCode(_TxtCode.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        _TxtCode.Clear();
+                    }
+                }
+            }
+            _Device = null;
+        }
+
+        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, uint _ItemCode, string _Device, DataGridView _DGVcart)
+        {
+            AddToCart(_ItemCode, (float)_TxtQty.Value, _Cart);
+            RefCart(_Cart, _DGVcart);
+            _TxtCode.Clear();
+            _TxtQty.Value = 1;
+            _TxtCode.Focus();
+            _Device = null;
+        }
     }
 }

@@ -6,6 +6,7 @@ using static LankaStocks.Core;
 using LankaStocks.KeyInput;
 using System.Diagnostics;
 using LankaStocks.Shared;
+using System.Management;
 
 namespace LankaStocks.UserControls
 {
@@ -22,8 +23,6 @@ namespace LankaStocks.UserControls
             #region KeyInput Handle
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             _KeyInput = new RawInput(this.Handle, true);
-            _KeyInput.AddMessageFilter();   // Adding a message filter will cause keypresses to be handled
-            Win32.DeviceAudit();            // Writes a file DeviceAudit.txt to the current directory
 
             _KeyInput.KeyPressed += OnKeyPressed;
             #endregion
@@ -41,9 +40,7 @@ namespace LankaStocks.UserControls
 
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
-            Device = e.KeyPressEvent.Name;
-            Debug.WriteLine(e.KeyPressEvent.Name);
-            //CodeItem_KeyDown(sender, new KeyEventArgs((Keys)e.KeyPressEvent.VKey));
+            Device = e.KeyPressEvent.DeviceName;
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -52,71 +49,6 @@ namespace LankaStocks.UserControls
         }
 
         #region Search In Store
-
-        void RefStore()
-        {
-            List<DGV_Data> Data = new List<DGV_Data>();
-            foreach (var s in RemoteDBs.Live.Items.Get)
-            {
-                Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
-            }
-            DGV.DataSource = Data;
-            MarkWarning();
-        }
-
-        private void MarkWarning()
-        {
-            float min = RemoteDBs.Settings.commonSettings.Get.WarnWhen;
-
-            for (int a = 0; a < DGV.RowCount; a++)
-            {
-                for (int i = 0; i < DGV.ColumnCount; i++)
-                {
-                    if (i == DGV.ColumnCount - 1 && float.TryParse(DGV.Rows[a].Cells[i].Value.ToString(), out float c) && c <= min)
-                    {
-                        for (int x = 0; x < DGV.ColumnCount; x++)
-                        {
-                            DGV.Rows[a].Cells[x].Style.ForeColor = Color.Red;
-                            //DGV.Rows[a].Cells[i].Style.BackColor = Color.Red;
-                        }
-                    }
-                }
-            }
-        }
-
-        void Search_Item(uint Code)
-        {
-            List<DGV_Data> Data = new List<DGV_Data>();
-            foreach (var s in RemoteDBs.Live.Items.Get)
-            {
-                if (s.Key.ToString().Contains(Code.ToString()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
-            }
-            DGV.DataSource = Data;
-            MarkWarning();
-        }
-        void Search_Item(string Barcode)
-        {
-            List<DGV_Data> Data = new List<DGV_Data>();
-            foreach (var s in RemoteDBs.Live.Items.Get)
-            {
-                if (s.Value.Barcode.ToLower().Contains(Barcode.ToLower()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
-            }
-            DGV.DataSource = Data;
-            MarkWarning();
-        }
-        void Search_Item_Name(string Name)
-        {
-            List<DGV_Data> Data = new List<DGV_Data>();
-            foreach (var s in RemoteDBs.Live.Items.Get)
-            {
-                if (s.Value.name.ToLower().Contains(Name.ToLower()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
-            }
-            DGV.DataSource = Data;
-            MarkWarning();
-        }
 
         private void TxtCode_TextChanged(object sender, EventArgs e)
         {
@@ -127,9 +59,30 @@ namespace LankaStocks.UserControls
             else if (uint.TryParse(TxtCode.Text, out uint o)) Search_Item(o);
         }
 
+        private void Search_Item(uint o)
+        {
+            DGV.DataSource = RepeatedFunctions.Search_Item(o);
+            RepeatedFunctions.MarkWarning(DGV.ColumnCount - 1, DGV);
+        }
+        private void Search_Item_Name(string v)
+        {
+            DGV.DataSource = RepeatedFunctions.Search_Item_Name(v);
+            RepeatedFunctions.MarkWarning(DGV.ColumnCount - 1, DGV);
+        }
+        private void Search_Item_Barcode(string text)
+        {
+            DGV.DataSource = RepeatedFunctions.Search_Item_Barcode(text);
+            RepeatedFunctions.MarkWarning(DGV.ColumnCount - 1, DGV);
+        }
+        private void RefStore()
+        {
+            DGV.DataSource = RepeatedFunctions.RefStore();
+            RepeatedFunctions.MarkWarning(DGV.ColumnCount - 1, DGV);
+        }
+
         private void TxtBarcode_TextChanged(object sender, EventArgs e)
         {
-            Search_Item(TxtBarcode.Text);
+            Search_Item_Barcode(TxtBarcode.Text);
         }
 
         private void TxtName_TextChanged(object sender, EventArgs e)
@@ -208,61 +161,14 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (Device == Pos_Barcode)
-                {
-                    if (ItemBarcodes.Contains(CodeItem.Text))
-                    {
-                        ItemCode = RepeatedFunctions.GetUCode(CodeItem.Text);
-                        RepeatedFunctions.AddToCart(ItemCode, 1, Cart);
-                        RepeatedFunctions.RefCart(Cart, DGVcart);
-                        CodeItem.Clear();
-                        TxtQty.Value = 1;
-                        CodeItem.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        CodeItem.Clear();
-                    }
-                }
-                else
-                {
-                    if (CodeItem.Text.Substring(0, 1) == BeginChar)
-                    {
-                        if (uint.TryParse(CodeItem.Text.Substring(1), out ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(ItemCode)) TxtQty.Focus();
-                        else
-                        {
-                            MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            CodeItem.Clear();
-                        }
-                    }
-                    else
-                    {
-                        if (ItemBarcodes.Contains(CodeItem.Text))
-                        {
-                            TxtQty.Focus();
-                            ItemCode = RepeatedFunctions.GetUCode(CodeItem.Text);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            CodeItem.Clear();
-                        }
-                    }
-                }
-                Device = null;
+                RepeatedFunctions.TxtCode_Handle(CodeItem, TxtQty, Cart, ItemBarcodes, ItemCode, Device, Pos_Barcode, BeginChar, DGVcart);
             }
         }
         private void TxtQty_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.AddToCart(ItemCode, (float)TxtQty.Value, Cart);
-                RepeatedFunctions.RefCart(Cart, DGVcart);
-                CodeItem.Clear();
-                TxtQty.Value = 1;
-                CodeItem.Focus();
-                Device = null;
+                RepeatedFunctions.TxtQty_Handle(CodeItem, TxtQty, Cart, ItemCode, Device, DGVcart);
             }
         }
 

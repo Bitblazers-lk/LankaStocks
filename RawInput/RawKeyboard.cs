@@ -108,13 +108,27 @@ namespace LankaStocks.KeyInput
 			throw new Win32Exception(Marshal.GetLastWin32Error());
 		}
 	   
+        public List<string> GetNames()
+        {
+            List<string> OUT = new List<string>();
+
+            foreach (var item in _deviceList)
+            {
+                OUT.Add(item.Value.DeviceName);
+            }
+            return OUT;
+        }
+
 		public void ProcessRawInput(IntPtr hdevice)
 		{
-			//Debug.WriteLine(_rawBuffer.data.keyboard.ToString());
-			//Debug.WriteLine(_rawBuffer.data.hid.ToString());
-			//Debug.WriteLine(_rawBuffer.header.ToString());
+            //Debug.WriteLine("__________________________________________");
+            //Debug.WriteLine(_rawBuffer.data.keyboard.ToString());
+            //Debug.WriteLine(_rawBuffer.data.hid.ToString());
+            //Debug.WriteLine(_rawBuffer.header.ToString());
+            //Debug.WriteLine("__________________________________________");
 
-			if (_deviceList.Count == 0) return;
+
+            if (_deviceList.Count == 0) return;
 
 			var dwSize = 0;
 			Win32.GetRawInputData(hdevice, DataCommand.RID_INPUT, IntPtr.Zero, ref dwSize, Marshal.SizeOf(typeof(Rawinputheader)));
