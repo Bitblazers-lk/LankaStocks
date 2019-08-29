@@ -88,6 +88,8 @@ namespace LankaStocks.UIForms
 
             if (logInResults.Item1)
             {
+                Core.user = logInResults.Item3;
+
                 Forms.dashboard = new Dashboard();
                 Forms.dashboard.Show();
                 Hide();

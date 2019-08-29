@@ -18,8 +18,20 @@ namespace LankaStocks
         public decimal inPrice = 0M;
         public decimal outPrice = 0M;
 
-        public int Quantity = 0;
+        public decimal Quantity = 0;
 
         public uint Alternative = 0; // Switch after this item is over
+    }
+
+
+    [Serializable]
+    public class BusinessItem
+    {
+        public uint itemID = 0;
+        public uint Seller;
+        public uint Buyer;
+        public decimal Value;//Money/Price
+        public decimal Quantity = 0;
+
     }
 }

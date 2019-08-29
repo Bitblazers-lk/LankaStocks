@@ -72,7 +72,7 @@ namespace LankaStocks.UIForms
 
         void LockControls(Control ctrl)
         {
-            if (ctrl is TabControl || ctrl is Label || ctrl is TableLayoutPanel || ctrl is Panel || ctrl is UISaveData) ctrl.Enabled=true;
+            if (ctrl is TabControl || ctrl is Label || ctrl is TableLayoutPanel || ctrl is Panel || ctrl is UISaveData) ctrl.Enabled = true;
             else ctrl.Enabled = false;
 
             foreach (Control s in ctrl.Controls)
@@ -184,7 +184,7 @@ namespace LankaStocks.UIForms
             commonSettings.FontColor = uiColourFont.ColourBox.BackColor;
             commonSettings.ItemColor = uiColourItem.ColourBox.BackColor;
 
-            commonSettings.WarnWhen = (float)TxtWarnQty.Value;
+            commonSettings.WarnWhen = TxtWarnQty.Value;
 
             commonSettings.Font = new Font("Comic Sans MS", (float)TxtFontSize.Value);
             var billSetting = RemoteDBs.Settings.billSetting.Get;
@@ -289,7 +289,7 @@ namespace LankaStocks.UIForms
 
             for (int i = 0; i < DList.Count; i++)
             {
-                if (DList[DList.Keys.ToList()[i]]==localSettings.Data.POSBarcodeID)
+                if (DList[DList.Keys.ToList()[i]] == localSettings.Data.POSBarcodeID)
                 {
                     Posbar.SelectedIndex = i;
                 }
@@ -375,10 +375,11 @@ namespace LankaStocks.UIForms
     public class LocalSettings : DB
     {
         public LocalData Data;
-
+        public string DeviceName;
         public override void CreateNewDatabase()
         {
             Data = new LocalData();
+
         }
 
         public override (dynamic, MemberType) Resolve(string expr)

@@ -1,4 +1,5 @@
 ﻿using LankaStocks.DataBases;
+using LankaStocks.Networking;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,12 +13,12 @@ namespace LankaStocks
     {
         public BaseServer svr;
 
-        public DBLive Live { get => svr.Live; set => svr.Live = value; }
-        public DBPeople People { get => svr.People; set => svr.People = value; }
-        public DBHistory History { get => svr.History; set => svr.History = value; }
-        public DBSettings Settings { get => svr.Settings; set => svr.Settings = value; }
+        public DBLive Live { get { svr.Live.LastUpdate++; return svr.Live; } set { svr.Live.LastUpdate++; svr.Live = value; } }
+        public DBPeople People { get { svr.People.LastUpdate++; return svr.People; } set { svr.People.LastUpdate++; svr.People = value; } }
+        public DBHistory History { get { svr.History.LastUpdate++; return svr.History; } set { svr.History.LastUpdate++; svr.History = value; } }
+        public DBSettings Settings { get { svr.Settings.LastUpdate++; return svr.Settings; } set { svr.Settings.LastUpdate++; svr.Settings = value; } }
 
-        public (bool, string) LoginCheck(string name, string pass)
+        public (bool, string, User) LoginCheck(string name, string pass)
         {
             foreach (var usr in People.Users.Values)
             {
@@ -27,17 +28,17 @@ namespace LankaStocks
                     {
 
                         Log($"User login : {name}");
-                        return (true, "Wellcome");
+                        return (true, "Wellcome", usr);
                     }
                     else
                     {
                         Log($"User wrong password : {name}");
-                        return (false, "Wrong password");
+                        return (false, "Wrong password", null);
                     }
                 }
             }
             Log($"Wrong user name : {name}");
-            return (false, "Wrong user name or password");
+            return (false, "Wrong user name or password", null);
         }
 
         public Response AddNewVendor(Vendor v)
@@ -107,14 +108,101 @@ namespace LankaStocks
             return new Response(Response.Result.ok);
         }
 
-        public Response IssueItem(Dictionary<uint, float> LstItems)
+
+
+        /// <summary>
+        /// For Both Basic Sales and Special Sales
+        /// </summary>
+        /// <param name="sale"></param>
+        /// <returns></returns>
+        public Response Sale(BasicSale sale)
         {
-            return new Response(Response.Result.ok);
+
+
+
+            //Check Errors
+
+            List<(BusinessItem, Item)> Items = new List<(BusinessItem, Item)>(sale.items.Count);
+
+            foreach (var i in sale.items)
+            {
+
+
+                if (!Live.Items.TryGetValue(i.itemID, out Item root))
+                {
+                    return new Response(Response.Result.notfound, $"Item {i.itemID} not found");
+                }
+
+                if (root.Quantity < i.Quantity)
+                {
+                    return new Response(Response.Result.wrongInputs, $"We only have {root.Quantity} units of {root.name}. You Can't issue {i.Quantity}", null, root);
+                }
+
+
+                Items.Add((i, root));
+
+            }
+
+
+            //Apply changes to DBs
+
+            if (People.Users.TryGetValue(sale.UserID, out User user))
+            {
+                user.summary.date = DateTime.Now;
+                user.summary.total += sale.total;
+            }
+            else
+            {
+                return new Response(Response.Result.failed, $"UserID {sale.UserID} not found.");
+            }
+
+
+            if (sale is SpecialSale special)
+            {
+                user.summary.Liability += special.transaction.Liability;
+            }
+
+
+
+
+            if (sale.SaleID == 0)
+            {
+                History.IdMachine.SaleID++; sale.SaleID = History.IdMachine.SaleID;
+                sale.date = DateTime.Now;
+            }
+
+
+
+            foreach ((BusinessItem itm, Item root) tup in Items)
+            {
+                tup.root.Quantity -= tup.itm.Quantity;
+            }
+
+
+            Live.Session.Sales.Add(sale.SaleID, sale);
+
+            return new Response(Response.Result.ok, null, null, sale);
         }
 
-        public Response RefundItem(uint InvoiceNO,Dictionary<uint, float> LstItems)
+        public Response RefundItem(BasicSale sale)
         {
-            return new Response(Response.Result.ok);
+            //Refund is an inverted Sale
+            if (sale.total > 0)
+            {
+                sale.total *= -1;
+            }
+
+
+            foreach (var i in sale.items)
+            {
+                if (i.Value > 0)
+                {
+                    i.Value *= -1;
+                }
+            }
+
+            return Sale(sale);
+
         }
 
         public Response AddItem(Item v)
@@ -133,7 +221,7 @@ namespace LankaStocks
         public Response SetItem(Item v)
         {
 
-            if (Live.Items.TryGetValue(v.itemID, out Item old))
+            if (Live.Items.ContainsKey(v.itemID))
             {
                 foreach (var vend in v.vendors)
                 {
@@ -254,6 +342,14 @@ namespace LankaStocks
 
                                     }
 
+                                    break;
+
+
+                                case "users":
+                                    foreach (var usr in People.Users.Values)
+                                    {
+                                        usr.summary = new Transaction() { User = usr.ID, ID = 1, SecondParty = usr.ID, type = Transaction.Types.Summary };
+                                    }
                                     break;
 
                                 default:

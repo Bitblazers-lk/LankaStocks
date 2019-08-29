@@ -10,15 +10,17 @@ namespace LankaStocks.Networking
 
     public abstract class BaseClient
     {
+        public PeerServer ps;
+
         public abstract void Initialize();
         public abstract void Shutdown();
         public abstract Response Request(Request req);
-        public Response Request(byte command, string db, string expr, params dynamic[] para) => Request(new LankaStocks.Request() { command = command, db = db, expr = expr, para = para });
-        public Response Excecute(string expr, params dynamic[] para) => Request(new LankaStocks.Request() { command = (byte)LankaStocks.Request.Command.exec, expr = expr, para = para });
+        public Response Request(byte command, string db, string expr, params dynamic[] para) => Request(new Networking.Request() { command = command, db = db, expr = expr, para = para });
+        public Response Excecute(string expr, params dynamic[] para) => Request(new Networking.Request() { command = (byte)Networking.Request.Command.exec, expr = expr, para = para });
 
 
 
-        public (bool, string) LoginCheck(string name, string pass) => Excecute("login", name, pass).obj;
+        public (bool, string, User) LoginCheck(string name, string pass) => Excecute("login", name, pass).obj;
 
         public Response AddNewVendor(Vendor v) => Excecute("AddNewVendor", v);
         public Response AddNewUser(User v) => Excecute("AddNewUser", v);
@@ -31,10 +33,22 @@ namespace LankaStocks.Networking
         public Response StockIntake(StockIntake v) => Excecute("StockIntake", v);
         public Response ListItems() => Excecute("ListItems");
 
+        public Response Sale(BasicSale sale) => Excecute("Sale", sale);
+        public Response RefundItem(BasicSale sale) => Excecute("RefundItem", sale);
+
+
         public Response CLIRun(string s) => Excecute("CLIRun", s);
+        public Response Peer(string peerID, string expr = null) => Request((byte)Networking.Request.Command.peer, peerID, expr, null);
 
         public Dictionary<uint, Vendor> vendors = new Dictionary<uint, Vendor>();
         public Dictionary<uint, Item> Items = new Dictionary<uint, Item>();
+
+
+
+
+
+
+
 
     }
     public class IntergratedClient : BaseClient
@@ -47,6 +61,9 @@ namespace LankaStocks.Networking
             svr = new IntergratedServer();
             Core.Svr = svr;
             svr.Initialize();
+
+            ps = new PeerServer() { client = this };
+            ps.Initialize();
         }
 
         public override Response Request(Request req) => svr.Respond(req);

@@ -33,7 +33,7 @@ namespace LankaStocks
         //public static DBSession Session => Live.Session;
         //public static Dictionary<uint, BasicSale> Sales => Live.Session.Sales;
         //public static Dictionary<uint, StockIntake> StockIntakes => Live.Session.StockIntakes;
-
+        public static User user;
         #endregion
 
 
@@ -72,7 +72,7 @@ namespace LankaStocks
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
             Log("\n Add to Dic \n");
-            RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, buyerNote = "I'm added", special = true });
+            RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, special = true });
 
             Log("\n Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
@@ -84,7 +84,7 @@ namespace LankaStocks
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
             Log("\n Set Dic item \n");
-            RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, buyerNote = "I'm added and then changed", special = false, date = DateTime.Now });
+            RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, special = false, date = DateTime.Now });
 
             Log("\n Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
@@ -134,17 +134,30 @@ namespace LankaStocks
             new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(LogWriteFile)) { Name = "WriteFile", IsBackground = true, Priority = System.Threading.ThreadPriority.Lowest }.Start(L);
         }
 
+        private static StringBuilder SLog = new StringBuilder();
+        private static bool SLogAvailable = false;
         private static bool isLogFileBusy = false;
         private static void LogWriteFile(object o)
         {
             string s = (string)o;
             try
             {
-                while (isLogFileBusy)
-                    System.Threading.Thread.Sleep(100);
+                if (isLogFileBusy) { SLog.Append(s); SLogAvailable = true; return; }
+
+                //while (isLogFileBusy)
+                //    System.Threading.Thread.Sleep(500);
 
                 isLogFileBusy = true;
+
                 File.AppendAllText(DB.LogPath, s);
+
+                if (SLogAvailable)
+                {
+                    s = SLog.ToString();
+                    SLog.Clear();
+                    File.AppendAllText(DB.LogPath, s);
+                }
+
                 isLogFileBusy = false;
             }
             catch (Exception ex)

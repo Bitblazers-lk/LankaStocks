@@ -58,7 +58,8 @@ namespace LankaStocks.UserControls
                 UserID = userID,
                 userName = UserName.Text,
                 pass = UserPass.Text,
-                isAdmin = IsAdmin.SelectedIndex == 1
+                isAdmin = IsAdmin.SelectedIndex == 1,
+                summary = new Transaction() { User = userID, ID = 1, SecondParty = userID, type = Transaction.Types.Summary }
             };
 
             uiPerson1.ApplyToPerson(u);

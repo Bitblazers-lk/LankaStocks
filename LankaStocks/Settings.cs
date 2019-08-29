@@ -35,7 +35,7 @@ namespace LankaStocks.Setting
         public Font Font;
         public string ImagePath;
         public bool OpenAtStat;
-        public float WarnWhen;
+        public decimal WarnWhen;
         public bool Show_Notifications;
         public MenuInterfaceType Interface;
         public Dictionary<string, ComputerSettings> ComSettings;
@@ -50,10 +50,10 @@ namespace LankaStocks.Setting
 
     public static class Settings
     {
-      
+
         public static void LoadCtrlSettings(Form frm)
         {
-           // frm.ShowInTaskbar = false;
+            // frm.ShowInTaskbar = false;
             frm.Font = RemoteDBs.Settings.commonSettings.Get.Font;
             frm.BackColor = RemoteDBs.Settings.commonSettings.Get.BackColor;
             foreach (Control ctrl in frm.Controls)

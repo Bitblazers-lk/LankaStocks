@@ -22,5 +22,10 @@ namespace LankaStocks.UserControls
             Forms.frmRefund = new UIForms.FrmRefund();
             Forms.frmRefund.ShowDialog();
         }
+
+        private void BtnIssue_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

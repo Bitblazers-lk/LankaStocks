@@ -43,7 +43,7 @@ namespace LankaStocks.UserControls
             uiBasicSale1.TxtQty.KeyDown += TxtQty_KeyDown;
             uiBasicSale1.btnIssue.Click += BtnIssue_Click;
             Forms.frmWaiting = new UIForms.FrmWaiting(UIForms.ServerStatus.Waiting);
-           // Forms.frmWaiting.Show();
+            Forms.frmWaiting.Show();
 
             #region KeyInput Handle
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;

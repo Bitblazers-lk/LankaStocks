@@ -128,13 +128,13 @@ namespace LankaStocks.Shared
         #region DGV
         public static void MarkWarning(int QtyCindex, DataGridView _DGV)
         {
-            float min = RemoteDBs.Settings.commonSettings.Get.WarnWhen;
+            decimal min = RemoteDBs.Settings.commonSettings.Get.WarnWhen;
 
             for (int a = 0; a < _DGV.RowCount; a++)
             {
                 for (int i = 0; i < _DGV.ColumnCount; i++)
                 {
-                    if (i == QtyCindex && float.TryParse(_DGV.Rows[a].Cells[i].Value.ToString(), out float c) && c <= min)
+                    if (i == QtyCindex && decimal.TryParse(_DGV.Rows[a].Cells[i].Value.ToString(), out decimal c) && c <= min)
                     {
                         for (int x = 0; x < _DGV.ColumnCount; x++)
                         {

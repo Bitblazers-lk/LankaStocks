@@ -122,6 +122,7 @@
             this.btnIssue.TabIndex = 2;
             this.btnIssue.Text = "Issue";
             this.btnIssue.UseVisualStyleBackColor = true;
+            this.btnIssue.Click += new System.EventHandler(this.BtnIssue_Click);
             // 
             // tableLayoutPanel3
             // 

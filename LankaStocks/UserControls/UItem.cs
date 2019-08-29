@@ -77,7 +77,7 @@ namespace LankaStocks.UserControls
         public void Setdata(uint code)
         {
             _Code = code;
-            var data = RemoteDBs.Live.Items.Get[code];
+            var data = RemoteDBs.Live.Items.GetItem(code);
             //this.Name = code.ToString();
             l1.Text = data.name;
             l2.Text = data.itemID.ToString();

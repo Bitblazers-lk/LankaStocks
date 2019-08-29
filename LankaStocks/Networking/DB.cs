@@ -10,6 +10,7 @@ using static LankaStocks.Core;
 using LankaStocks.Setting;
 using System.Reflection;
 using System.Collections;
+using LankaStocks.Networking;
 
 namespace LankaStocks.DataBases
 {
@@ -502,8 +503,8 @@ namespace LankaStocks.DataBases
             Cashiers = new Dictionary<uint, decimal>();
             Items = new Dictionary<uint, Item>
             {
-                { 1, new Item { itemID = 1, inPrice = 100, outPrice = 125, name = "Box", Quantity = 100, vendors=new List<uint>(){0} } },
-                { 2, new Item { itemID = 2, inPrice = 90, outPrice = 100, name = "Box1", Quantity = 100,  vendors=new List<uint>(){0} } }
+                { 10, new Item { itemID = 10, inPrice = 100, outPrice = 125, name = "Box", Quantity = 100, vendors=new List<uint>(){0} } },
+                { 11, new Item { itemID = 11, inPrice = 90, outPrice = 100, name = "Box1", Quantity = 100,  vendors=new List<uint>(){0} } }
             };
 
             Session = new DBSession();
@@ -657,7 +658,7 @@ namespace LankaStocks.DataBases
                 OpenAtStat = false,
                 ImagePath = null,
                 Font = new Font("Comic Sans MS", 9.75f),
-                WarnWhen = 10.00F
+                WarnWhen = 10.00M
             };
         }
 
