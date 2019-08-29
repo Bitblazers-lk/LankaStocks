@@ -111,6 +111,7 @@
             this.btnaddtoc.TabIndex = 1;
             this.btnaddtoc.Text = "Add To Cart";
             this.btnaddtoc.UseVisualStyleBackColor = true;
+            this.btnaddtoc.Click += new System.EventHandler(this.Btnaddtoc_Click);
             // 
             // PB
             // 
@@ -126,13 +127,13 @@
             this.cms.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.AddItem});
             this.cms.Name = "cms";
-            this.cms.Size = new System.Drawing.Size(182, 26);
+            this.cms.Size = new System.Drawing.Size(219, 30);
             this.cms.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.cms_ItemClicked);
             // 
             // AddItem
             // 
             this.AddItem.Name = "AddItem";
-            this.AddItem.Size = new System.Drawing.Size(181, 22);
+            this.AddItem.Size = new System.Drawing.Size(218, 26);
             this.AddItem.Text = "Add/ Change Image";
             // 
             // UItem

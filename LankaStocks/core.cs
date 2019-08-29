@@ -18,6 +18,7 @@ namespace LankaStocks
         #region Vars
 
         public static bool IsInitialized = false;
+        public static bool IsDebug = false;
 
         public static BaseServer Svr;
 
@@ -27,6 +28,8 @@ namespace LankaStocks
         public static Random random = new Random();
 
         public static System.Threading.Thread CLIThread;
+
+        public static LocalSettings localSettings;
         //public static DBSession Session => Live.Session;
         //public static Dictionary<uint, BasicSale> Sales => Live.Session.Sales;
         //public static Dictionary<uint, StockIntake> StockIntakes => Live.Session.StockIntakes;
@@ -38,6 +41,17 @@ namespace LankaStocks
         {
             IsInitialized = true;
             Log("Lanka Stocks - Mahinda Rapaksha College");
+
+
+            localSettings = (LocalSettings)new LocalSettings() { DBName = "LocalSettings", FileName = DB.DBPath + "LocalSettings.db" }.LoadBinary(true);
+
+            if (localSettings == null)
+            {
+                Log("Local Settings Malfunctioned. Creating new LocalSettings file");
+                localSettings = new LocalSettings() { DBName = "LocalSettings", FileName = DB.DBPath + "LocalSettings.db" };
+                localSettings.ForceSave();
+            }
+
             client = (BaseClient)new IntergratedClient();
             client.Initialize();
 
@@ -91,8 +105,12 @@ namespace LankaStocks
 
             Log("Initialized");
 
-            CLIThread = new System.Threading.Thread(new System.Threading.ThreadStart(CLIProgram)) { Name = "CLIProgram", Priority = System.Threading.ThreadPriority.Lowest };
-            CLIThread.Start();
+
+            if (IsDebug)
+            {
+                Core.CLIThread = new System.Threading.Thread(new System.Threading.ThreadStart(Core.CLIProgram)) { Name = "CLIProgram", Priority = System.Threading.ThreadPriority.Lowest };
+                Core.CLIThread.Start();
+            }
         }
 
         #region Loging
@@ -153,11 +171,15 @@ namespace LankaStocks
             return Newtonsoft.Json.JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
         }
 
-        private static void CLIProgram()
+
+        public static void CLIProgram()
         {
             Begin:
 
+
             string s = Prompt("\n \n Enter Command \t ").ToLower();
+
+
 
             var resp = Core.client.CLIRun(s);
 
@@ -177,12 +199,15 @@ namespace LankaStocks
             goto Begin;
         }
 
+
         #endregion
 
 
         public static void Shutdown()
         {
             //Save everything
+            localSettings.ForceSave();
+
             new System.Threading.Thread(new System.Threading.ThreadStart(ThrShutDown)) { Name = "Thread of Death", Priority = System.Threading.ThreadPriority.Highest }.Start();
 
         }
@@ -191,7 +216,7 @@ namespace LankaStocks
         {
             try
             {
-                client.Shutdown();
+                client?.Shutdown();
             }
             catch (Exception ex)
             {
@@ -200,7 +225,7 @@ namespace LankaStocks
 
             try
             {
-                CLIThread.Abort();
+                CLIThread?.Abort();
             }
             catch (Exception ex)
             {

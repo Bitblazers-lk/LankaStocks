@@ -8,8 +8,10 @@ namespace LankaStocks.dev
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
+            Core.IsDebug = true;
             LankaStocks.Program.Main();
         }
     }
