@@ -43,7 +43,7 @@ namespace LankaStocks.UserControls
             uiBasicSale1.TxtQty.KeyDown += TxtQty_KeyDown;
             uiBasicSale1.btnIssue.Click += BtnIssue_Click;
             Forms.frmWaiting = new UIForms.FrmWaiting(UIForms.ServerStatus.Waiting);
-            //Forms.frmWaiting.Show();
+            Forms.frmWaiting.Show();
 
             #region KeyInput Handle
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -56,8 +56,7 @@ namespace LankaStocks.UserControls
         }
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
-            Device = e.KeyPressEvent.Name;
-            Debug.WriteLine(e.KeyPressEvent.DeviceName);
+            Device = e.KeyPressEvent.DeviceName;
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -68,12 +67,7 @@ namespace LankaStocks.UserControls
         private readonly RawInput _KeyInput;
 
         string Device;
-        string Pos_Barcode = "";
-
-        //private void BtnAddToCart_Click(object sender, EventArgs e)
-        //{
-        //    if (sender is UItem U) MessageBox.Show(U.Name);
-        //}
+        string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
         List<uint> DrawCodes = new List<uint> { 1, 2 }; // Uint Item Codes To Draw In  FlowLayoutPanel
 
@@ -217,7 +211,7 @@ namespace LankaStocks.UserControls
             }
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
             {
@@ -248,7 +242,7 @@ namespace LankaStocks.UserControls
             Forms.frmEditQty.Close();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void BtnRemove_Click(object sender, EventArgs e)
         {
             if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
             {

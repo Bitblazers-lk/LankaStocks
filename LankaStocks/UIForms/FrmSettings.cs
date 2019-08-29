@@ -72,7 +72,7 @@ namespace LankaStocks.UIForms
 
         void LockControls(Control ctrl)
         {
-            if (ctrl is TabControl || ctrl is Label || ctrl is TableLayoutPanel || ctrl is Panel || ctrl is UISaveData) ;
+            if (ctrl is TabControl || ctrl is Label || ctrl is TableLayoutPanel || ctrl is Panel || ctrl is UISaveData) ctrl.Enabled=true;
             else ctrl.Enabled = false;
 
             foreach (Control s in ctrl.Controls)

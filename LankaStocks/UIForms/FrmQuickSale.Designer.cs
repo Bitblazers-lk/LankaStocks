@@ -101,7 +101,7 @@
             this.btnfund.TabIndex = 12;
             this.btnfund.Text = "Refund";
             this.btnfund.UseVisualStyleBackColor = true;
-            this.btnfund.Click += new System.EventHandler(this.btnfund_Click);
+            this.btnfund.Click += new System.EventHandler(this.Btnfund_Click);
             // 
             // button5
             // 
@@ -130,7 +130,7 @@
             this.btnhide.Size = new System.Drawing.Size(143, 34);
             this.btnhide.TabIndex = 10;
             this.btnhide.UseVisualStyleBackColor = true;
-            this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
+            this.btnhide.Click += new System.EventHandler(this.Btnhide_Click);
             // 
             // splitContainer1
             // 
@@ -193,7 +193,7 @@
             this.btnIssue.TabIndex = 3;
             this.btnIssue.Text = "Issue";
             this.btnIssue.UseVisualStyleBackColor = true;
-            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
+            this.btnIssue.Click += new System.EventHandler(this.BtnIssue_Click);
             // 
             // tableLayoutPanel2
             // 

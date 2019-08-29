@@ -29,8 +29,6 @@ namespace LankaStocks.UIForms
             #region KeyInput Handle
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             _KeyInput = new RawInput(this.Handle, true);
-            _KeyInput.AddMessageFilter();   // Adding a message filter will cause keypresses to be handled
-            Win32.DeviceAudit();            // Writes a file DeviceAudit.txt to the current directory
 
             _KeyInput.KeyPressed += OnKeyPressed;
             #endregion
@@ -39,12 +37,11 @@ namespace LankaStocks.UIForms
         private readonly RawInput _KeyInput;
 
         string Device;
-        string Pos_Barcode = "";
+        string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
-            Device = e.KeyPressEvent.Name;
-            Debug.WriteLine(e.KeyPressEvent.Name);
+            Device = e.KeyPressEvent.DeviceName;
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -98,7 +95,7 @@ namespace LankaStocks.UIForms
 
         ContextMenuStrip cm = new ContextMenuStrip();
 
-        private void btnhide_Click(object sender, EventArgs e)
+        private void Btnhide_Click(object sender, EventArgs e)
         {
             if (panel1.Width == ToolBarWidth)
             {
@@ -110,7 +107,7 @@ namespace LankaStocks.UIForms
             }
         }
 
-        private void btnfund_Click(object sender, EventArgs e)
+        private void Btnfund_Click(object sender, EventArgs e)
         {
             Forms.frmRefund = new FrmRefund();
             Forms.frmRefund.ShowDialog();
@@ -120,49 +117,7 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (Device == Pos_Barcode)
-                {
-                    if (ItemBarcodes.Contains(TxtCode.Text))
-                    {
-                        ItemCode = RepeatedFunctions.GetUCode(TxtCode.Text);
-                        RepeatedFunctions.AddToCart(ItemCode, 1, Cart);
-                        RepeatedFunctions.RefCart(Cart, DGV);
-                        TxtCode.Clear();
-                        TxtQty.Value = 1;
-                        TxtCode.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        TxtCode.Clear();
-                    }
-                }
-                else
-                {
-                    if (TxtCode.Text.Substring(0, 1) == BeginChar)
-                    {
-                        if (uint.TryParse(TxtCode.Text.Substring(1), out ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(ItemCode)) TxtQty.Focus();
-                        else
-                        {
-                            MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            TxtCode.Clear();
-                        }
-                    }
-                    else
-                    {
-                        if (ItemBarcodes.Contains(TxtCode.Text))
-                        {
-                            TxtQty.Focus();
-                            ItemCode = RepeatedFunctions.GetUCode(TxtCode.Text);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            TxtCode.Clear();
-                        }
-                    }
-                }
-                Device = null;
+                RepeatedFunctions.TxtCode_Handle(TxtCode, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV);
             }
         }
 
@@ -170,16 +125,11 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.AddToCart(ItemCode, (float)TxtQty.Value, Cart);
-                RepeatedFunctions.RefCart(Cart, DGV);
-                TxtCode.Clear();
-                TxtQty.Value = 1;
-                TxtCode.Focus();
-                Device = null;
+                RepeatedFunctions.TxtQty_Handle(TxtCode, TxtQty, Cart, ref ItemCode, Device, DGV);
             }
         }
 
-        private void btnIssue_Click(object sender, EventArgs e)
+        private void BtnIssue_Click(object sender, EventArgs e)
         {
 
         }
