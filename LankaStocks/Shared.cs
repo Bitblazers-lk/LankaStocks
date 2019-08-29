@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Text;
@@ -69,7 +70,7 @@ namespace LankaStocks.Shared
                 a = a.Substring(a.IndexOf(@"\") + 1, a.Substring(a.IndexOf(@"\") + 1).IndexOf(@"\")).ToLower();
                 DList.Add(a);
             }
-            if (!DList.Contains(localSettings.Data.POSBarcodeID?.ToLower()) && localSettings.Data.POSBarcodeID?.ToLower() != "null")
+            if (localSettings.Data.POSBarcodeID == null || !DList.Contains(localSettings.Data.POSBarcodeID.ToLower()) && localSettings.Data.POSBarcodeID.ToLower() != "null")
             {
                 if (mess)
                     MessageBox.Show("Barcode Reader Not Found!", "LankaStocks > Barcode Reader? - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -241,6 +242,38 @@ namespace LankaStocks.Shared
             _TxtQty.Value = 1;
             _TxtCode.Focus();
             _Device = null;
+        }
+
+        public static void SaveAsExcel(DataGridView DGV, string FName, string[] Headers)
+        {          
+            if (DGV.DataSource != null)
+            {
+                SaveFileDialog savefile = new SaveFileDialog
+                {
+                    InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                    Filter = "CSV file (*.csv)|*.csv| All Files (*.*)|*.*",
+                    FileName = FName + "csv"
+                };
+                if (savefile.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamWriter writer = new StreamWriter(savefile.FileName, false))
+                    {
+                        for (int i = 0; i < Headers.Length; i++)
+                        {
+                            writer.Write(Headers[i] + ",");
+                        }
+                        writer.Write("\n");
+                        for (int a = 0; a < DGV.RowCount; a++)
+                        {
+                            for (int i = 0; i < DGV.ColumnCount; i++)
+                            {
+                                writer.Write(DGV[i, a].Value.ToString() + ",");
+                            }
+                            writer.Write("\n");
+                        }
+                    }
+                }
+            }
         }
     }
 }
