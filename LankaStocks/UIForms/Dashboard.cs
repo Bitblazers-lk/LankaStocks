@@ -11,6 +11,7 @@ using LankaStocks.UserControls;
 using LankaStocks.Setting;
 using LankaStocks.Shared;
 using static LankaStocks.Core;
+using LankaStocks.KeyInput;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Input;
@@ -25,6 +26,12 @@ namespace LankaStocks.UIForms
         UIMenu menuModern = new UIMenu { Dock = DockStyle.Fill };
         UIMenuA menuClassic = new UIMenuA { Dock = DockStyle.Fill };
 
+        private readonly RawInput _KeyInput;
+
+        string Device;
+        string Pos_Keyboard;
+        string Pos_Barcode;
+
         public Dashboard()
         {
             InitializeComponent();
@@ -37,7 +44,7 @@ namespace LankaStocks.UIForms
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
 
-
+            #region ContextMenu
             cmOQC.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
             btnIssueItem.ContextMenu = cmOQC;
 
@@ -46,17 +53,28 @@ namespace LankaStocks.UIForms
             cmLout.MenuItems.Add("Exit", new EventHandler(Exit_Click));
             cmLout.MenuItems.Add("Help", new EventHandler(Help_Click));
             btnhide.ContextMenu = cmLout;
+            #endregion
 
-            //Keyboard.PrimaryDevice.ToString();
+            #region KeyInput Handle
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            _KeyInput = new RawInput(this.Handle, true);
+            _KeyInput.AddMessageFilter();   // Adding a message filter will cause keypresses to be handled
+            Win32.DeviceAudit();            // Writes a file DeviceAudit.txt to the current directory
 
-            SelectQuery Sq = new SelectQuery("Win32_Keyboard");
-            ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
-            ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
-            foreach (ManagementObject mo in osDetailsCollection)
-            {
-                Console.WriteLine(string.Format("Description: {0}", (string)mo["Description"]));
-                
-            }
+            _KeyInput.KeyPressed += OnKeyPressed;
+            #endregion
+
+        }
+
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnKeyPressed(object sender, RawInputEventArg e)
+        {
+            Device = e.KeyPressEvent.Name;
+            Debug.WriteLine(e.KeyPressEvent.Name);
         }
 
         private void Help_Click(object sender, EventArgs e)

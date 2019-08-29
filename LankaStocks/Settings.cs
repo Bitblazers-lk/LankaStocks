@@ -38,6 +38,14 @@ namespace LankaStocks.Setting
         public float WarnWhen;
         public bool Show_Notifications;
         public MenuInterfaceType Interface;
+        public Dictionary<string, ComputerSettings> ComSettings;
+    }
+
+    [Serializable]
+    public class ComputerSettings
+    {
+        public string POS_Keyboard;
+        public string POS_Barcode;
     }
 
     public static class Settings

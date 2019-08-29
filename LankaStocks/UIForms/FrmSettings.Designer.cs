@@ -58,13 +58,13 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label25 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.CbInterface = new System.Windows.Forms.ComboBox();
+            this.Posbar = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.TxtWarnQty = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
@@ -480,13 +480,13 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel6.Controls.Add(this.label25, 0, 7);
             this.tableLayoutPanel6.Controls.Add(this.label18, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label19, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label20, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.label21, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.label22, 0, 4);
             this.tableLayoutPanel6.Controls.Add(this.label24, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.label23, 0, 6);
             this.tableLayoutPanel6.Controls.Add(this.CbInterface, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.Posbar, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label20, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 35);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -527,28 +527,16 @@
             this.label18.Text = "Interface :";
             this.label18.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Location = new System.Drawing.Point(4, 34);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(105, 34);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "Label";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Location = new System.Drawing.Point(4, 68);
+            this.label20.Location = new System.Drawing.Point(4, 34);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(105, 34);
             this.label20.TabIndex = 10;
-            this.label20.Text = "Label";
+            this.label20.Text = "POS Barcode :";
             this.label20.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label21
@@ -614,6 +602,21 @@
             this.CbInterface.TabIndex = 27;
             this.CbInterface.SelectedIndexChanged += new System.EventHandler(this.CbInterface_SelectedIndexChanged);
             // 
+            // Posbar
+            // 
+            this.Posbar.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.Posbar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Posbar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Posbar.FormattingEnabled = true;
+            this.Posbar.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.Posbar.Location = new System.Drawing.Point(116, 37);
+            this.Posbar.Name = "Posbar";
+            this.Posbar.Size = new System.Drawing.Size(333, 24);
+            this.Posbar.TabIndex = 29;
+            this.Posbar.SelectedIndexChanged += new System.EventHandler(this.Posbar_SelectedIndexChanged);
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -635,7 +638,7 @@
             this.TxtWarnQty.DecimalPlaces = 2;
             this.TxtWarnQty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtWarnQty.ForeColor = System.Drawing.Color.Orange;
-            this.TxtWarnQty.Location = new System.Drawing.Point(226, 3);
+            this.TxtWarnQty.Location = new System.Drawing.Point(225, 3);
             this.TxtWarnQty.Maximum = new decimal(new int[] {
             10100,
             0,
@@ -647,7 +650,7 @@
             0,
             131072});
             this.TxtWarnQty.Name = "TxtWarnQty";
-            this.TxtWarnQty.Size = new System.Drawing.Size(223, 22);
+            this.TxtWarnQty.Size = new System.Drawing.Size(224, 22);
             this.TxtWarnQty.TabIndex = 23;
             this.TxtWarnQty.Value = new decimal(new int[] {
             10,
@@ -663,7 +666,7 @@
             this.label16.Location = new System.Drawing.Point(4, 0);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(215, 35);
+            this.label16.Size = new System.Drawing.Size(214, 35);
             this.label16.TabIndex = 8;
             this.label16.Text = "Warn When Item Qty. Less Than :";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -1037,7 +1040,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
@@ -1049,5 +1051,6 @@
         private System.Windows.Forms.ComboBox CBNoti;
         private System.Windows.Forms.ComboBox CbInterface;
         private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ComboBox Posbar;
     }
 }

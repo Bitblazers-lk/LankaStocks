@@ -507,5 +507,11 @@
     <Content Include="Ways.txt" />
     <Content Include="XanderUI.dll" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RawInput\LankaStocks.RawInput.csproj">
+      <Project>{4143d085-38cf-4640-bb05-2fdffaf94d76}</Project>
+      <Name>LankaStocks.RawInput</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

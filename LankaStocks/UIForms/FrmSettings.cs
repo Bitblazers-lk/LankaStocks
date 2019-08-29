@@ -11,11 +11,14 @@ using LankaStocks.DataBases;
 using LankaStocks;
 using LankaStocks.Setting;
 using static LankaStocks.Core;
+using System.Management;
+using Microsoft.Win32;
 
 namespace LankaStocks.UIForms
 {
     public partial class FrmSettings : Form
     {
+        List<string> DList = new List<string> { "Null" };
         public FrmSettings()
         {
             InitializeComponent();
@@ -31,6 +34,17 @@ namespace LankaStocks.UIForms
             CbInterface.DataSource = new List<MenuInterfaceType> { MenuInterfaceType.Classic, MenuInterfaceType.Modern };
             cm.MenuItems.Add("Restore Default", new EventHandler(Restore_Click));
             tabControl1.ContextMenu = cm;
+
+            SelectQuery Sq = new SelectQuery("Win32_Keyboard");
+            ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
+            ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
+            DList.Clear();
+            foreach (ManagementObject mo in osDetailsCollection)
+            {
+                DList.Add((string)mo["Description"]);
+            }
+            Poskey.DataSource = DList;
+            Posbar.DataSource = DList;
         }
 
         bool HasChanges = false;
@@ -159,6 +173,14 @@ namespace LankaStocks.UIForms
 
             if (CbInterface.SelectedIndex == 0) RemoteDBs.Settings.commonSettings.GetSet.Interface = MenuInterfaceType.Classic;
             else if (CbInterface.SelectedIndex == 1) RemoteDBs.Settings.commonSettings.GetSet.Interface = MenuInterfaceType.Modern;
+
+            if (DList[Posbar.SelectedIndex] == DList[Poskey.SelectedIndex])
+            {
+                MessageBox.Show("You Can't Select POS Keyboard As POS Barcode Reader!", "LankaStocks > POS Devices Information. - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            //RemoteDBs.Settings.commonSettings.GetSet.POS_Keyboard = DList[Poskey.SelectedIndex];
+            //RemoteDBs.Settings.commonSettings.GetSet.POS_Barcode = DList[Posbar.SelectedIndex];
+
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -173,7 +195,20 @@ namespace LankaStocks.UIForms
                 DialogResult result = MessageBox.Show("There Are Some Unsaved Changes. Do You Realy Want To Refresh Now?", "LankaStocks - Warning!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK) Ref();
             }
-            else Ref();
+            else
+            {
+                SelectQuery Sq = new SelectQuery("Win32_Keyboard");
+                ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
+                ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
+                DList.Clear();
+                foreach (ManagementObject mo in osDetailsCollection)
+                {
+                    DList.Add((string)mo["Description"]);
+                }
+                Poskey.DataSource = DList;
+                Posbar.DataSource = DList;
+                Ref();
+            }
         }
 
         private void FrmSettings_Load(object sender, EventArgs e)
@@ -219,6 +254,7 @@ namespace LankaStocks.UIForms
             E3.Text = RemoteDBs.Settings.billSetting.Get.E3;
         }
 
+        #region Get Changes
         private void CbInterface_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (load)
@@ -271,11 +307,64 @@ namespace LankaStocks.UIForms
             if (load)
                 HasChanges = true;
         }
+
+        private void Poskey_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (load)
+                HasChanges = true;
+        }
+
+        private void Posbar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (load)
+                HasChanges = true;
+        }
+        #endregion
     }
     public enum MenuInterfaceType
     {
         Classic = 0,
         Modern
+    }
+
+    public static class RegSettings
+    {
+        private static RegistryKey key;
+
+        public static object Read(string Name)
+        {
+            X:
+            key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\LankaStocks");
+            if (key == null)
+            {
+                CreateNew();
+                goto X;
+            }
+            else
+            {
+                return key.GetValue(Name);
+            }          
+        }
+        public static void Write(string Name, object Val)
+        {
+            X:
+            key = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\LankaStocks");
+            if (key == null)
+            {
+                CreateNew();
+                goto X;
+            }
+            else
+            {
+                key.SetValue(Name, Val);
+            }
+        }
+        private static void CreateNew()
+        {
+            key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\LankaStocks");
+            key.SetValue("POSkey", null);
+            key.SetValue("POSbar", null);
+        }
     }
 
 }
