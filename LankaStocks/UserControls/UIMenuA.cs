@@ -45,7 +45,7 @@ namespace LankaStocks.UserControls
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            // throw new NotImplementedException();
+             throw new Exception(e.ExceptionObject.ToString());
         }
 
         #region Search In Store

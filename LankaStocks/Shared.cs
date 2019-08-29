@@ -69,7 +69,7 @@ namespace LankaStocks.Shared
                 a = a.Substring(a.IndexOf(@"\") + 1, a.Substring(a.IndexOf(@"\") + 1).IndexOf(@"\")).ToLower();
                 DList.Add(a);
             }
-            if (localSettings.Data.POSBarcodeID == null && !DList.Contains(localSettings.Data.POSBarcodeID?.ToLower()) && localSettings.Data.POSBarcodeID?.ToLower() != "null")
+            if (!DList.Contains(localSettings.Data.POSBarcodeID?.ToLower()) && localSettings.Data.POSBarcodeID?.ToLower() != "null")
             {
                 if (mess)
                     MessageBox.Show("Barcode Reader Not Found!", "LankaStocks > Barcode Reader? - Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);

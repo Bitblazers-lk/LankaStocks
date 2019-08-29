@@ -54,7 +54,7 @@ namespace LankaStocks.UIForms
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            // throw new NotImplementedException();
+            throw new Exception(e.ExceptionObject.ToString());
         }
 
         private void Edit_Click(object sender, EventArgs e)
