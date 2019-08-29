@@ -11,6 +11,7 @@ using static LankaStocks.Core;
 using LankaStocks.KeyInput;
 using System.Diagnostics;
 using LankaStocks.Shared;
+using System.Management;
 
 namespace LankaStocks.UserControls
 {
@@ -47,17 +48,16 @@ namespace LankaStocks.UserControls
             #region KeyInput Handle
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
             _KeyInput = new RawInput(this.Handle, true);
-            _KeyInput.AddMessageFilter();   // Adding a message filter will cause keypresses to be handled
-            Win32.DeviceAudit();            // Writes a file DeviceAudit.txt to the current directory
 
             _KeyInput.KeyPressed += OnKeyPressed;
             #endregion
-        }
 
+            foreach (var s in _KeyInput._keyboardDriver.GetNames()) Debug.WriteLine($">>{s}");
+        }
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
             Device = e.KeyPressEvent.Name;
-            Debug.WriteLine(e.KeyPressEvent.Name);
+            Debug.WriteLine(e.KeyPressEvent.DeviceName);
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -100,49 +100,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (Device == Pos_Barcode)
-                {
-                    if (ItemBarcodes.Contains(uiBasicSale1.TxtCode.Text))
-                    {
-                        ItemCode = RepeatedFunctions.GetUCode(uiBasicSale1.TxtCode.Text);
-                        RepeatedFunctions.AddToCart(ItemCode, 1, Cart);
-                        RepeatedFunctions.RefCart(Cart, DGV);
-                        uiBasicSale1.TxtCode.Clear();
-                        uiBasicSale1.TxtQty.Value = 1;
-                        uiBasicSale1.TxtCode.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        uiBasicSale1.TxtCode.Clear();
-                    }
-                }
-                else
-                {
-                    if (uiBasicSale1.TxtCode.Text.Substring(0, 1) == BeginChar)
-                    {
-                        if (uint.TryParse(uiBasicSale1.TxtCode.Text.Substring(1), out ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(ItemCode)) uiBasicSale1.TxtQty.Focus();
-                        else
-                        {
-                            MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            uiBasicSale1.TxtCode.Clear();
-                        }
-                    }
-                    else
-                    {
-                        if (ItemBarcodes.Contains(uiBasicSale1.TxtCode.Text))
-                        {
-                            uiBasicSale1.TxtQty.Focus();
-                            ItemCode = RepeatedFunctions.GetUCode(uiBasicSale1.TxtCode.Text);
-                        }
-                        else
-                        {
-                            MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            uiBasicSale1.TxtCode.Clear();
-                        }
-                    }
-                }
-                Device = null;
+                RepeatedFunctions.TxtCode_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemBarcodes, ItemCode, Device, Pos_Barcode, BeginChar, DGV);
             }
         }
 
@@ -150,12 +108,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.AddToCart(ItemCode, (float)uiBasicSale1.TxtQty.Value, Cart);
-                RepeatedFunctions.RefCart(Cart, DGV);
-                uiBasicSale1.TxtCode.Clear();
-                uiBasicSale1.TxtQty.Value = 1;
-                uiBasicSale1.TxtCode.Focus();
-                Device = null;
+                RepeatedFunctions.TxtQty_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemCode, Device, DGV);
             }
         }
 

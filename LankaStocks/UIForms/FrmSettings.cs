@@ -16,12 +16,16 @@ using Microsoft.Win32;
 using System.IO;
 using Newtonsoft.Json;
 using LankaStocks.UserControls;
+using System.Diagnostics;
 
 namespace LankaStocks.UIForms
 {
     public partial class FrmSettings : Form
     {
-        List<string> DList = new List<string> { "Null" };
+        Dictionary<string, string> DList = new Dictionary<string, string>
+            {
+                { "Null", "Null" }
+            };
         public FrmSettings(bool Admin)
         {
             InitializeComponent();
@@ -38,27 +42,37 @@ namespace LankaStocks.UIForms
             cm.MenuItems.Add("Restore Default", new EventHandler(Restore_Click));
             tabControl1.ContextMenu = cm;
 
-            SelectQuery Sq = new SelectQuery("Win32_Keyboard");
-            ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
-            ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
-            DList.Clear();
-            foreach (ManagementObject mo in osDetailsCollection)
-            {
-                DList.Add((string)mo["Description"]);
-            }
-            Posbar.DataSource = DList;
+            GetKeyboards();
             if (!Admin)
             {
-                foreach (Control a in this.Controls)
+                foreach (Control x in this.Controls)
                 {
-                    LockControls(a);
+                    LockControls(x);
                 }
             }
         }
 
+        private void GetKeyboards()
+        {
+            SelectQuery Sq = new SelectQuery("Win32_Keyboard");
+            ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
+            ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
+            string a;
+            DList.Clear();
+            DList.Add("Null", "Null");
+            foreach (ManagementObject mo in osDetailsCollection)
+            {
+                a = (string)mo["DeviceID"];
+                a = a.Substring(a.IndexOf(@"\") + 1, a.Substring(a.IndexOf(@"\") + 1).IndexOf(@"\")).ToLower();
+                DList.Add((string)mo["Description"], a);
+                Debug.WriteLine($"{a}");
+            }
+            Posbar.DataSource = DList.Keys.ToList();
+        }
+
         void LockControls(Control ctrl)
         {
-            if (ctrl is TabControl || ctrl is Label || ctrl is TableLayoutPanel || ctrl is Panel||ctrl is UISaveData) ;
+            if (ctrl is TabControl || ctrl is Label || ctrl is TableLayoutPanel || ctrl is Panel || ctrl is UISaveData) ;
             else ctrl.Enabled = false;
 
             foreach (Control s in ctrl.Controls)
@@ -218,15 +232,7 @@ namespace LankaStocks.UIForms
             }
             else
             {
-                SelectQuery Sq = new SelectQuery("Win32_Keyboard");
-                ManagementObjectSearcher objOSDetails = new ManagementObjectSearcher(Sq);
-                ManagementObjectCollection osDetailsCollection = objOSDetails.Get();
-                DList.Clear();
-                foreach (ManagementObject mo in osDetailsCollection)
-                {
-                    DList.Add((string)mo["Description"]);
-                }
-                Posbar.DataSource = DList;
+                GetKeyboards();
                 Ref();
             }
         }
