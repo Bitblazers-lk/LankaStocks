@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LankaStocks.Core;
+using LankaStocks.KeyInput;
+using System.Diagnostics;
+using LankaStocks.Shared;
 
 namespace LankaStocks.UserControls
 {
@@ -19,7 +17,16 @@ namespace LankaStocks.UserControls
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 ItemBarcodes.Add(s.Value.Barcode);
-            }           
+            }
+
+            #region KeyInput Handle
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            _KeyInput = new RawInput(this.Handle, true);
+            _KeyInput.AddMessageFilter();   // Adding a message filter will cause keypresses to be handled
+            Win32.DeviceAudit();            // Writes a file DeviceAudit.txt to the current directory
+
+            _KeyInput.KeyPressed += OnKeyPressed;
+            #endregion
         }
         uint ItemCode = 0;
         string BeginChar = "i";
@@ -27,51 +34,22 @@ namespace LankaStocks.UserControls
         List<string> ItemBarcodes = new List<string>();
         public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
 
-        #region Cart
-        public void AddToCart(uint code, float qty)
+        private readonly RawInput _KeyInput;
+
+        string Device;
+        string Pos_Barcode = "";
+
+        private void OnKeyPressed(object sender, RawInputEventArg e)
         {
-            if (Cart.ContainsKey(code))
-            {
-                Cart[code] += qty;
-            }
-            else Cart.Add(code, qty);
-            RefCart(Cart);
+            Device = e.KeyPressEvent.Name;
+            Debug.WriteLine(e.KeyPressEvent.Name);
+            //CodeItem_KeyDown(sender, new KeyEventArgs((Keys)e.KeyPressEvent.VKey));
         }
-        public void EditCart(uint code, float Newqty)
+
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            if (Cart.ContainsKey(code))
-            {
-                Cart[code] = Newqty;
-            }
-            RefCart(Cart);
+            // throw new NotImplementedException();
         }
-        public void RemoveCart(uint code)
-        {
-            if (Cart.ContainsKey(code))
-            {
-                Cart.Remove(code);
-            }
-            RefCart(Cart);
-        }
-        void RefCart(Dictionary<uint, float> Cart)
-        {
-            List<DGVcart_Data> Data = new List<DGVcart_Data>();
-            foreach (var s in Cart)
-            {
-                var i = RemoteDBs.Live.Items.Get[s.Key];
-                Data.Add(new DGVcart_Data { Code = s.Key, Name = i.name, Price = i.outPrice, Qty = s.Value, Total = i.outPrice * (decimal)s.Value });
-            }
-            DGVcart.DataSource = Data;
-        }
-        uint GetUCode(string Barcode)
-        {
-            foreach (var s in RemoteDBs.Live.Items.Get)
-            {
-                if (s.Value.Barcode == Barcode) return s.Key;
-            }
-            return 0;
-        }
-        #endregion
 
         #region Search In Store
 
@@ -188,20 +166,26 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value);
+                RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
+                RepeatedFunctions.RefCart(Cart, DGVcart);
                 Forms.frmEditQty.Close();
             }
         }
 
         private void EditQtyOK_Click(object sender, EventArgs e)
         {
-            EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value);
+            RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
+            RepeatedFunctions.RefCart(Cart, DGVcart);
             Forms.frmEditQty.Close();
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (DGVcart.CurrentCell != null && uint.TryParse(DGVcart.Rows?[DGVcart.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a)) RemoveCart(a);
+            if (DGVcart.CurrentCell != null && uint.TryParse(DGVcart.Rows?[DGVcart.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
+            {
+                RepeatedFunctions.RemoveCart(a, Cart);
+                RepeatedFunctions.RefCart(Cart, DGVcart);
+            }
             btnEdit.Enabled = false;
             btnRemove.Enabled = false;
         }
@@ -211,7 +195,10 @@ namespace LankaStocks.UserControls
             if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
             {
                 if (uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out ItemCode))
-                    AddToCart(ItemCode, (float)TxtQty.Value);
+                {
+                    RepeatedFunctions.AddToCart(ItemCode, (float)TxtQty.Value, Cart);
+                    RepeatedFunctions.RefCart(Cart, DGVcart);
+                }
             }
         }
 
@@ -221,21 +208,16 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (CodeItem.Text.Substring(0, 1) == BeginChar)
-                {
-                    if (uint.TryParse(CodeItem.Text.Substring(1), out ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(ItemCode)) TxtQty.Focus();
-                    else
-                    {
-                        MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        CodeItem.Clear();
-                    }
-                }
-                else
+                if (Device == Pos_Barcode)
                 {
                     if (ItemBarcodes.Contains(CodeItem.Text))
                     {
-                        TxtQty.Focus();
-                        ItemCode = GetUCode(CodeItem.Text);
+                        ItemCode = RepeatedFunctions.GetUCode(CodeItem.Text);
+                        RepeatedFunctions.AddToCart(ItemCode, 1, Cart);
+                        RepeatedFunctions.RefCart(Cart, DGVcart);
+                        CodeItem.Clear();
+                        TxtQty.Value = 1;
+                        CodeItem.Focus();
                     }
                     else
                     {
@@ -243,15 +225,44 @@ namespace LankaStocks.UserControls
                         CodeItem.Clear();
                     }
                 }
+                else
+                {
+                    if (CodeItem.Text.Substring(0, 1) == BeginChar)
+                    {
+                        if (uint.TryParse(CodeItem.Text.Substring(1), out ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(ItemCode)) TxtQty.Focus();
+                        else
+                        {
+                            MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            CodeItem.Clear();
+                        }
+                    }
+                    else
+                    {
+                        if (ItemBarcodes.Contains(CodeItem.Text))
+                        {
+                            TxtQty.Focus();
+                            ItemCode = RepeatedFunctions.GetUCode(CodeItem.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            CodeItem.Clear();
+                        }
+                    }
+                }
+                Device = null;
             }
         }
         private void TxtQty_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                AddToCart(ItemCode, (float)TxtQty.Value);
+                RepeatedFunctions.AddToCart(ItemCode, (float)TxtQty.Value, Cart);
+                RepeatedFunctions.RefCart(Cart, DGVcart);
                 CodeItem.Clear();
                 TxtQty.Value = 1;
+                CodeItem.Focus();
+                Device = null;
             }
         }
 
@@ -260,7 +271,7 @@ namespace LankaStocks.UserControls
             RefStore();
         }
 
-        private void btnRefund_Click(object sender, EventArgs e)
+        private void BtnRefund_Click(object sender, EventArgs e)
         {
             Forms.frmRefund = new UIForms.FrmRefund();
             Forms.frmRefund.ShowDialog();
@@ -271,6 +282,7 @@ namespace LankaStocks.UserControls
             labelTotal.Font = new Font(labelTotal.Font.Name.ToString(), labelTotal.Font.Size + 5);
             labelInNO.Font = new Font(labelInNO.Font.Name.ToString(), labelInNO.Font.Size + 2);
             RefStore();
+            RepeatedFunctions.CheckBarcodeReader();
         }
     }
 

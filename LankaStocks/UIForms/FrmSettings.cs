@@ -15,13 +15,14 @@ using System.Management;
 using Microsoft.Win32;
 using System.IO;
 using Newtonsoft.Json;
+using LankaStocks.UserControls;
 
 namespace LankaStocks.UIForms
 {
     public partial class FrmSettings : Form
     {
         List<string> DList = new List<string> { "Null" };
-        public FrmSettings()
+        public FrmSettings(bool Admin)
         {
             InitializeComponent();
             uiColourMenu.Browse.Click += MenuBrowse_Click;
@@ -46,6 +47,24 @@ namespace LankaStocks.UIForms
                 DList.Add((string)mo["Description"]);
             }
             Posbar.DataSource = DList;
+            if (!Admin)
+            {
+                foreach (Control a in this.Controls)
+                {
+                    LockControls(a);
+                }
+            }
+        }
+
+        void LockControls(Control ctrl)
+        {
+            if (ctrl is TabControl || ctrl is Label || ctrl is TableLayoutPanel || ctrl is Panel||ctrl is UISaveData) ;
+            else ctrl.Enabled = false;
+
+            foreach (Control s in ctrl.Controls)
+            {
+                LockControls(s);
+            }
         }
 
         bool HasChanges = false;
@@ -212,6 +231,10 @@ namespace LankaStocks.UIForms
             Settings.LoadCtrlSettings(this);
 
             Ref();
+            uiSaveData.Save.Enabled = true;
+            uiSaveData.RefreshAll.Enabled = true;
+            uiSaveData.Cancel.Enabled = true;
+            Posbar.Enabled = true;
             load = true;
         }
 

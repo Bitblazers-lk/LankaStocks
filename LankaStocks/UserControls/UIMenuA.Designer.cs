@@ -404,7 +404,7 @@
             this.btnRefund.TabIndex = 4;
             this.btnRefund.Text = "Refund";
             this.btnRefund.UseVisualStyleBackColor = true;
-            this.btnRefund.Click += new System.EventHandler(this.btnRefund_Click);
+            this.btnRefund.Click += new System.EventHandler(this.BtnRefund_Click);
             // 
             // tableLayoutPanel4
             // 

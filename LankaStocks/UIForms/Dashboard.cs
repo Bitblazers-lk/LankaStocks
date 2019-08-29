@@ -1,23 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.UserControls;
 using LankaStocks.Setting;
-using LankaStocks.Shared;
 using static LankaStocks.Core;
-using LankaStocks.KeyInput;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Windows.Input;
-using System.Globalization;
-using System.Diagnostics;
-using System.Management;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
@@ -25,12 +11,6 @@ namespace LankaStocks.UIForms
     {
         UIMenu menuModern = new UIMenu { Dock = DockStyle.Fill };
         UIMenuA menuClassic = new UIMenuA { Dock = DockStyle.Fill };
-
-        private readonly RawInput _KeyInput;
-
-        string Device;
-        string Pos_Keyboard;
-        string Pos_Barcode;
 
         public Dashboard()
         {
@@ -55,26 +35,6 @@ namespace LankaStocks.UIForms
             btnhide.ContextMenu = cmLout;
             #endregion
 
-            #region KeyInput Handle
-            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            _KeyInput = new RawInput(this.Handle, true);
-            _KeyInput.AddMessageFilter();   // Adding a message filter will cause keypresses to be handled
-            Win32.DeviceAudit();            // Writes a file DeviceAudit.txt to the current directory
-
-            _KeyInput.KeyPressed += OnKeyPressed;
-            #endregion
-
-        }
-
-        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void OnKeyPressed(object sender, RawInputEventArg e)
-        {
-            Device = e.KeyPressEvent.Name;
-            Debug.WriteLine(e.KeyPressEvent.Name);
         }
 
         private void Help_Click(object sender, EventArgs e)
@@ -159,7 +119,7 @@ namespace LankaStocks.UIForms
 
         private void BtnSettings_Click(object sender, EventArgs e)
         {
-            Forms.frmSettings = new UIForms.FrmSettings();
+            Forms.frmSettings = new UIForms.FrmSettings(false);
             Forms.frmSettings.ShowDialog();
         }
 
