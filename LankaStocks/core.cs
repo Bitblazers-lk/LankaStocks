@@ -18,6 +18,7 @@ namespace LankaStocks
         #region Vars
 
         public static bool IsInitialized = false;
+        public static bool IsDebug = false;
 
         public static BaseServer Svr;
 
@@ -91,8 +92,12 @@ namespace LankaStocks
 
             Log("Initialized");
 
-            CLIThread = new System.Threading.Thread(new System.Threading.ThreadStart(CLIProgram)) { Name = "CLIProgram", Priority = System.Threading.ThreadPriority.Lowest };
-            CLIThread.Start();
+
+            if (IsDebug)
+            {
+                Core.CLIThread = new System.Threading.Thread(new System.Threading.ThreadStart(Core.CLIProgram)) { Name = "CLIProgram", Priority = System.Threading.ThreadPriority.Lowest };
+                Core.CLIThread.Start();
+            }
         }
 
         #region Loging
@@ -154,7 +159,7 @@ namespace LankaStocks
         }
 
 
-        private static void CLIProgram()
+        public static void CLIProgram()
         {
             Begin:
 
@@ -196,7 +201,7 @@ namespace LankaStocks
         {
             try
             {
-                client.Shutdown();
+                client?.Shutdown();
             }
             catch (Exception ex)
             {
@@ -205,7 +210,7 @@ namespace LankaStocks
 
             try
             {
-                CLIThread.Abort();
+                CLIThread?.Abort();
             }
             catch (Exception ex)
             {
