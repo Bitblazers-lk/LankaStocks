@@ -58,13 +58,13 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label25 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.CbInterface = new System.Windows.Forms.ComboBox();
             this.Posbar = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.TxtWarnQty = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
@@ -527,18 +527,6 @@
             this.label18.Text = "Interface :";
             this.label18.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Location = new System.Drawing.Point(4, 34);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(105, 34);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "POS Barcode :";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -616,6 +604,18 @@
             this.Posbar.Size = new System.Drawing.Size(333, 24);
             this.Posbar.TabIndex = 29;
             this.Posbar.SelectedIndexChanged += new System.EventHandler(this.Posbar_SelectedIndexChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Location = new System.Drawing.Point(4, 34);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(105, 34);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "POS Barcode :";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // tableLayoutPanel5
             // 

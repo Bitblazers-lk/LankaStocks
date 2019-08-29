@@ -175,7 +175,7 @@ namespace LankaStocks.UIForms
             if (CbInterface.SelectedIndex == 0) RemoteDBs.Settings.commonSettings.GetSet.Interface = MenuInterfaceType.Classic;
             else if (CbInterface.SelectedIndex == 1) RemoteDBs.Settings.commonSettings.GetSet.Interface = MenuInterfaceType.Modern;
 
-            RegSettings.Write("POSbar", DList[Posbar.SelectedIndex]);
+            //RegSettings.Write("POSbar", DList[Posbar.SelectedIndex]);
 
         }
 
@@ -326,12 +326,12 @@ namespace LankaStocks.UIForms
         Classic = 0,
         Modern
     }
-    public static class SaveSettings
+    public static class LocalSettings
     {
-        private static string DBdir = @"DB\";
-        private static string DBpath = @"DB\DBSettings.dat";
+        private static string DBdir = @"DB\\";
+        private static string DBpath = @"DB\\DBSettings.json";
 
-        public static void Read(SettingsData data)
+        public static void Read(LocalData data)
         {
             X:
             if (!Directory.Exists(DBdir)) Directory.CreateDirectory(DBdir);
@@ -341,7 +341,7 @@ namespace LankaStocks.UIForms
             // StreamReader reader = new StreamReader(DBpath);
         }
 
-        public static void Save(SettingsData data)
+        public static void Save(LocalData data)
         {
             X:
             if (!Directory.Exists(DBdir)) Directory.CreateDirectory(DBdir);
@@ -350,7 +350,7 @@ namespace LankaStocks.UIForms
             // StreamReader reader = new StreamReader(DBpath);
         }
     }
-    public class SettingsData
+    public class LocalData
     {
         public string POSBarcode;
     }
