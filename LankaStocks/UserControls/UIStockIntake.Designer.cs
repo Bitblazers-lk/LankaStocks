@@ -35,10 +35,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.Qty = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.uiTransaction = new LankaStocks.UserControls.UITransaction();
             this.uiSelecVendor = new LankaStocks.UserControls.UISelectPerson();
             this.uiSelItem = new LankaStocks.UserControls.UISelItem();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.uiTransaction = new LankaStocks.UserControls.UITransaction();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -139,6 +139,25 @@
             this.Qty.TextChanged += new System.EventHandler(this.Qty_TextChanged);
             this.Qty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Qty_KeyDown_1);
             // 
+            // uiSelecVendor
+            // 
+            this.uiSelecVendor.BackColor = System.Drawing.Color.Transparent;
+            this.uiSelecVendor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiSelecVendor.Location = new System.Drawing.Point(87, 30);
+            this.uiSelecVendor.Name = "uiSelecVendor";
+            this.uiSelecVendor.PreferedPeopleGroup = "vendors";
+            this.uiSelecVendor.ShowRadioButtons = false;
+            this.uiSelecVendor.Size = new System.Drawing.Size(334, 21);
+            this.uiSelecVendor.TabIndex = 0;
+            // 
+            // uiSelItem
+            // 
+            this.uiSelItem.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiSelItem.Location = new System.Drawing.Point(87, 57);
+            this.uiSelItem.Name = "uiSelItem";
+            this.uiSelItem.Size = new System.Drawing.Size(334, 21);
+            this.uiSelItem.TabIndex = 1;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.uiTransaction);
@@ -159,24 +178,6 @@
             this.uiTransaction.Name = "uiTransaction";
             this.uiTransaction.Size = new System.Drawing.Size(418, 357);
             this.uiTransaction.TabIndex = 3;
-            // 
-            // uiSelecVendor
-            // 
-            this.uiSelecVendor.BackColor = System.Drawing.Color.Transparent;
-            this.uiSelecVendor.Location = new System.Drawing.Point(87, 30);
-            this.uiSelecVendor.Name = "uiSelecVendor";
-            this.uiSelecVendor.PreferedPeopleGroup = "vendors";
-            this.uiSelecVendor.ShowRadioButtons = false;
-            this.uiSelecVendor.Size = new System.Drawing.Size(334, 21);
-            this.uiSelecVendor.TabIndex = 0;
-            // 
-            // uiSelItem
-            // 
-            this.uiSelItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiSelItem.Location = new System.Drawing.Point(87, 57);
-            this.uiSelItem.Name = "uiSelItem";
-            this.uiSelItem.Size = new System.Drawing.Size(334, 21);
-            this.uiSelItem.TabIndex = 1;
             // 
             // UIStockIntake
             // 

@@ -19,10 +19,10 @@ namespace LankaStocks.UserControls
             Type.Items.Clear();
             foreach (var item in Enum.GetNames(typeof(Transaction.Types)))
             {
-                Type.Items.Add(item);
+         Type.Items.Add(item);
             }
 
-            Type.SelectedIndex = 0;
+           Type.SelectedIndex = 0;
         }
 
 

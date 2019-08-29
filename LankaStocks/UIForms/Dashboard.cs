@@ -11,34 +11,98 @@ using LankaStocks.UserControls;
 using LankaStocks.Setting;
 using LankaStocks.Shared;
 using static LankaStocks.Core;
+using LankaStocks.KeyInput;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Windows.Input;
+using System.Globalization;
+using System.Diagnostics;
+using System.Management;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
     public partial class Dashboard : Form
     {
-        UIMenu menu = new UIMenu { Dock = DockStyle.Fill };
+        UIMenu menuModern = new UIMenu { Dock = DockStyle.Fill };
+        UIMenuA menuClassic = new UIMenuA { Dock = DockStyle.Fill };
+
+        private readonly RawInput _KeyInput;
+
+        string Device;
+        string Pos_Keyboard;
+        string Pos_Barcode;
 
         public Dashboard()
         {
             InitializeComponent();
-
-            this.panel4.Controls.Add(menu);
+            if (RemoteDBs.Settings.commonSettings.Get.Interface == MenuInterfaceType.Classic)
+                this.panel4.Controls.Add(menuClassic);
+            else this.panel4.Controls.Add(menuModern);
 
             Settings.LoadCtrlSettings(this);
 
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
 
-           
-            cm.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
-            btnIssueItem.ContextMenu = cm;
+            #region ContextMenu
+            cmOQC.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
+            btnIssueItem.ContextMenu = cmOQC;
+
+            cmLout.MenuItems.Add("Sign Out", new EventHandler(Sign_Out_Click));
+            cmLout.MenuItems.Add("Restart", new EventHandler(Restart_Click));
+            cmLout.MenuItems.Add("Exit", new EventHandler(Exit_Click));
+            cmLout.MenuItems.Add("Help", new EventHandler(Help_Click));
+            btnhide.ContextMenu = cmLout;
+            #endregion
+
+            #region KeyInput Handle
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            _KeyInput = new RawInput(this.Handle, true);
+            _KeyInput.AddMessageFilter();   // Adding a message filter will cause keypresses to be handled
+            Win32.DeviceAudit();            // Writes a file DeviceAudit.txt to the current directory
+
+            _KeyInput.KeyPressed += OnKeyPressed;
+            #endregion
+
+        }
+
+        private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnKeyPressed(object sender, RawInputEventArg e)
+        {
+            Device = e.KeyPressEvent.Name;
+            Debug.WriteLine(e.KeyPressEvent.Name);
+        }
+
+        private void Help_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Restart_Click(object sender, EventArgs e)
+        {
+            Core.Shutdown();
+            Application.Restart();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Core.Shutdown();
+        }
+
+        private void Sign_Out_Click(object sender, EventArgs e)
+        {
+            Forms.login.Show();
+            this.Hide();
         }
 
         public List<string> i = new List<string>();
         int ToolBarWidth;
-        ContextMenu cm = new ContextMenu();
+        ContextMenu cmOQC = new ContextMenu();
+        ContextMenu cmLout = new ContextMenu();
 
         #region This Form
         private void Btnhide_Click(object sender, EventArgs e)

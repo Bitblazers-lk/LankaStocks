@@ -58,12 +58,13 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.label25 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
+            this.CbInterface = new System.Windows.Forms.ComboBox();
+            this.Posbar = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.TxtWarnQty = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
@@ -87,6 +88,7 @@
             this.CBPrintBill = new System.Windows.Forms.ComboBox();
             this.CBPreview = new System.Windows.Forms.ComboBox();
             this.CD = new System.Windows.Forms.ColorDialog();
+            this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.uiSaveData = new LankaStocks.UserControls.UISaveData();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -148,8 +150,8 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.11111F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.88889F));
             this.tableLayoutPanel4.Controls.Add(this.CBNoti, 1, 8);
             this.tableLayoutPanel4.Controls.Add(this.label26, 0, 8);
             this.tableLayoutPanel4.Controls.Add(this.panel2, 1, 6);
@@ -194,9 +196,9 @@
             this.CBNoti.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.CBNoti.Location = new System.Drawing.Point(111, 275);
+            this.CBNoti.Location = new System.Drawing.Point(115, 275);
             this.CBNoti.Name = "CBNoti";
-            this.CBNoti.Size = new System.Drawing.Size(336, 24);
+            this.CBNoti.Size = new System.Drawing.Size(332, 24);
             this.CBNoti.TabIndex = 26;
             // 
             // label26
@@ -206,7 +208,7 @@
             this.label26.Location = new System.Drawing.Point(4, 272);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(100, 35);
+            this.label26.Size = new System.Drawing.Size(104, 35);
             this.label26.TabIndex = 25;
             this.label26.Text = "Notification\'s :";
             this.label26.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -216,9 +218,9 @@
             this.panel2.Controls.Add(this.textBox8);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(111, 207);
+            this.panel2.Location = new System.Drawing.Point(115, 207);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(336, 28);
+            this.panel2.Size = new System.Drawing.Size(332, 28);
             this.panel2.TabIndex = 23;
             // 
             // textBox8
@@ -229,7 +231,7 @@
             this.textBox8.Location = new System.Drawing.Point(0, 0);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(249, 22);
+            this.textBox8.Size = new System.Drawing.Size(245, 22);
             this.textBox8.TabIndex = 1;
             // 
             // button2
@@ -237,7 +239,7 @@
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.Dock = System.Windows.Forms.DockStyle.Right;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(249, 0);
+            this.button2.Location = new System.Drawing.Point(245, 0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 28);
             this.button2.TabIndex = 0;
@@ -251,7 +253,7 @@
             this.label9.Location = new System.Drawing.Point(4, 0);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 34);
+            this.label9.Size = new System.Drawing.Size(104, 34);
             this.label9.TabIndex = 0;
             this.label9.Text = "Menu Colour :";
             this.label9.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -263,7 +265,7 @@
             this.label10.Location = new System.Drawing.Point(4, 34);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(100, 34);
+            this.label10.Size = new System.Drawing.Size(104, 34);
             this.label10.TabIndex = 1;
             this.label10.Text = "Back Colour :";
             this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -275,7 +277,7 @@
             this.label15.Location = new System.Drawing.Point(4, 238);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(100, 34);
+            this.label15.Size = new System.Drawing.Size(104, 34);
             this.label15.TabIndex = 6;
             this.label15.Text = "Open At Start :";
             this.label15.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -287,7 +289,7 @@
             this.label14.Location = new System.Drawing.Point(4, 204);
             this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(100, 34);
+            this.label14.Size = new System.Drawing.Size(104, 34);
             this.label14.TabIndex = 5;
             this.label14.Text = "Image :";
             this.label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -299,7 +301,7 @@
             this.label13.Location = new System.Drawing.Point(4, 170);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 34);
+            this.label13.Size = new System.Drawing.Size(104, 34);
             this.label13.TabIndex = 4;
             this.label13.Text = "Font Size :";
             this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -311,7 +313,7 @@
             this.label12.Location = new System.Drawing.Point(4, 136);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 34);
+            this.label12.Size = new System.Drawing.Size(104, 34);
             this.label12.TabIndex = 3;
             this.label12.Text = "Font :";
             this.label12.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -323,7 +325,7 @@
             this.label11.Location = new System.Drawing.Point(4, 102);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(100, 34);
+            this.label11.Size = new System.Drawing.Size(104, 34);
             this.label11.TabIndex = 2;
             this.label11.Text = "Font Colour :";
             this.label11.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -335,7 +337,7 @@
             this.label17.Location = new System.Drawing.Point(4, 68);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 34);
+            this.label17.Size = new System.Drawing.Size(104, 34);
             this.label17.TabIndex = 16;
             this.label17.Text = "Item\'s Colour :";
             this.label17.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -345,9 +347,9 @@
             this.panel1.Controls.Add(this.TxtFont);
             this.panel1.Controls.Add(this.btnFontBrowse);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(111, 139);
+            this.panel1.Location = new System.Drawing.Point(115, 139);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(336, 28);
+            this.panel1.Size = new System.Drawing.Size(332, 28);
             this.panel1.TabIndex = 17;
             // 
             // TxtFont
@@ -358,7 +360,7 @@
             this.TxtFont.Location = new System.Drawing.Point(0, 0);
             this.TxtFont.Name = "TxtFont";
             this.TxtFont.ReadOnly = true;
-            this.TxtFont.Size = new System.Drawing.Size(249, 22);
+            this.TxtFont.Size = new System.Drawing.Size(245, 22);
             this.TxtFont.TabIndex = 1;
             // 
             // btnFontBrowse
@@ -366,21 +368,22 @@
             this.btnFontBrowse.BackColor = System.Drawing.Color.Transparent;
             this.btnFontBrowse.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnFontBrowse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFontBrowse.Location = new System.Drawing.Point(249, 0);
+            this.btnFontBrowse.Location = new System.Drawing.Point(245, 0);
             this.btnFontBrowse.Name = "btnFontBrowse";
             this.btnFontBrowse.Size = new System.Drawing.Size(87, 28);
             this.btnFontBrowse.TabIndex = 0;
             this.btnFontBrowse.Text = "Browse";
             this.btnFontBrowse.UseVisualStyleBackColor = false;
+            this.btnFontBrowse.Click += new System.EventHandler(this.btnFontBrowse_Click);
             // 
             // uiColourMenu
             // 
             this.uiColourMenu.BackColor = System.Drawing.Color.Transparent;
             this.uiColourMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiColourMenu.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourMenu.Location = new System.Drawing.Point(111, 3);
+            this.uiColourMenu.Location = new System.Drawing.Point(115, 3);
             this.uiColourMenu.Name = "uiColourMenu";
-            this.uiColourMenu.Size = new System.Drawing.Size(336, 28);
+            this.uiColourMenu.Size = new System.Drawing.Size(332, 28);
             this.uiColourMenu.TabIndex = 18;
             // 
             // uiColourBack
@@ -388,9 +391,9 @@
             this.uiColourBack.BackColor = System.Drawing.Color.Transparent;
             this.uiColourBack.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiColourBack.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourBack.Location = new System.Drawing.Point(111, 37);
+            this.uiColourBack.Location = new System.Drawing.Point(115, 37);
             this.uiColourBack.Name = "uiColourBack";
-            this.uiColourBack.Size = new System.Drawing.Size(336, 28);
+            this.uiColourBack.Size = new System.Drawing.Size(332, 28);
             this.uiColourBack.TabIndex = 19;
             // 
             // uiColourItem
@@ -398,9 +401,9 @@
             this.uiColourItem.BackColor = System.Drawing.Color.Transparent;
             this.uiColourItem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiColourItem.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourItem.Location = new System.Drawing.Point(111, 71);
+            this.uiColourItem.Location = new System.Drawing.Point(115, 71);
             this.uiColourItem.Name = "uiColourItem";
-            this.uiColourItem.Size = new System.Drawing.Size(336, 28);
+            this.uiColourItem.Size = new System.Drawing.Size(332, 28);
             this.uiColourItem.TabIndex = 20;
             // 
             // uiColourFont
@@ -408,9 +411,9 @@
             this.uiColourFont.BackColor = System.Drawing.Color.Transparent;
             this.uiColourFont.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiColourFont.ForeColor = System.Drawing.Color.Orange;
-            this.uiColourFont.Location = new System.Drawing.Point(111, 105);
+            this.uiColourFont.Location = new System.Drawing.Point(115, 105);
             this.uiColourFont.Name = "uiColourFont";
-            this.uiColourFont.Size = new System.Drawing.Size(336, 28);
+            this.uiColourFont.Size = new System.Drawing.Size(332, 28);
             this.uiColourFont.TabIndex = 21;
             // 
             // TxtFontSize
@@ -424,7 +427,7 @@
             0,
             0,
             131072});
-            this.TxtFontSize.Location = new System.Drawing.Point(111, 173);
+            this.TxtFontSize.Location = new System.Drawing.Point(115, 173);
             this.TxtFontSize.Maximum = new decimal(new int[] {
             4000,
             0,
@@ -436,13 +439,14 @@
             0,
             131072});
             this.TxtFontSize.Name = "TxtFontSize";
-            this.TxtFontSize.Size = new System.Drawing.Size(336, 22);
+            this.TxtFontSize.Size = new System.Drawing.Size(332, 22);
             this.TxtFontSize.TabIndex = 22;
             this.TxtFontSize.Value = new decimal(new int[] {
             600,
             0,
             0,
             131072});
+            this.TxtFontSize.ValueChanged += new System.EventHandler(this.TxtFontSize_ValueChanged);
             // 
             // CBOAS
             // 
@@ -453,10 +457,11 @@
             this.CBOAS.Items.AddRange(new object[] {
             "No",
             "Yes"});
-            this.CBOAS.Location = new System.Drawing.Point(111, 241);
+            this.CBOAS.Location = new System.Drawing.Point(115, 241);
             this.CBOAS.Name = "CBOAS";
-            this.CBOAS.Size = new System.Drawing.Size(336, 24);
+            this.CBOAS.Size = new System.Drawing.Size(332, 24);
             this.CBOAS.TabIndex = 24;
+            this.CBOAS.SelectedIndexChanged += new System.EventHandler(this.CBOAS_SelectedIndexChanged);
             // 
             // panel3
             // 
@@ -475,12 +480,13 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tableLayoutPanel6.Controls.Add(this.label25, 0, 7);
             this.tableLayoutPanel6.Controls.Add(this.label18, 0, 0);
-            this.tableLayoutPanel6.Controls.Add(this.label19, 0, 1);
-            this.tableLayoutPanel6.Controls.Add(this.label20, 0, 2);
             this.tableLayoutPanel6.Controls.Add(this.label21, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.label22, 0, 4);
             this.tableLayoutPanel6.Controls.Add(this.label24, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.label23, 0, 6);
+            this.tableLayoutPanel6.Controls.Add(this.CbInterface, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.Posbar, 1, 1);
+            this.tableLayoutPanel6.Controls.Add(this.label20, 0, 1);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 35);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -518,32 +524,8 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(105, 34);
             this.label18.TabIndex = 8;
-            this.label18.Text = "Label";
+            this.label18.Text = "Interface :";
             this.label18.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label19.Location = new System.Drawing.Point(4, 34);
-            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(105, 34);
-            this.label19.TabIndex = 9;
-            this.label19.Text = "Label";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label20.Location = new System.Drawing.Point(4, 68);
-            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(105, 34);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "Label";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label21
             // 
@@ -593,11 +575,53 @@
             this.label23.Text = "Label";
             this.label23.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // CbInterface
+            // 
+            this.CbInterface.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.CbInterface.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CbInterface.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CbInterface.FormattingEnabled = true;
+            this.CbInterface.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.CbInterface.Location = new System.Drawing.Point(116, 3);
+            this.CbInterface.Name = "CbInterface";
+            this.CbInterface.Size = new System.Drawing.Size(333, 24);
+            this.CbInterface.TabIndex = 27;
+            this.CbInterface.SelectedIndexChanged += new System.EventHandler(this.CbInterface_SelectedIndexChanged);
+            // 
+            // Posbar
+            // 
+            this.Posbar.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.Posbar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Posbar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Posbar.FormattingEnabled = true;
+            this.Posbar.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.Posbar.Location = new System.Drawing.Point(116, 37);
+            this.Posbar.Name = "Posbar";
+            this.Posbar.Size = new System.Drawing.Size(333, 24);
+            this.Posbar.TabIndex = 29;
+            this.Posbar.SelectedIndexChanged += new System.EventHandler(this.Posbar_SelectedIndexChanged);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label20.Location = new System.Drawing.Point(4, 34);
+            this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(105, 34);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "POS Barcode :";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.11504F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.88496F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.33628F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.66372F));
             this.tableLayoutPanel5.Controls.Add(this.TxtWarnQty, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.label16, 0, 0);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top;
@@ -614,9 +638,9 @@
             this.TxtWarnQty.DecimalPlaces = 2;
             this.TxtWarnQty.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtWarnQty.ForeColor = System.Drawing.Color.Orange;
-            this.TxtWarnQty.Location = new System.Drawing.Point(224, 3);
+            this.TxtWarnQty.Location = new System.Drawing.Point(225, 3);
             this.TxtWarnQty.Maximum = new decimal(new int[] {
-            4000,
+            10100,
             0,
             0,
             131072});
@@ -626,13 +650,14 @@
             0,
             131072});
             this.TxtWarnQty.Name = "TxtWarnQty";
-            this.TxtWarnQty.Size = new System.Drawing.Size(225, 22);
+            this.TxtWarnQty.Size = new System.Drawing.Size(224, 22);
             this.TxtWarnQty.TabIndex = 23;
             this.TxtWarnQty.Value = new decimal(new int[] {
             10,
             0,
             0,
             0});
+            this.TxtWarnQty.ValueChanged += new System.EventHandler(this.TxtWarnQty_ValueChanged);
             // 
             // label16
             // 
@@ -641,7 +666,7 @@
             this.label16.Location = new System.Drawing.Point(4, 0);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(213, 35);
+            this.label16.Size = new System.Drawing.Size(214, 35);
             this.label16.TabIndex = 8;
             this.label16.Text = "Warn When Item Qty. Less Than :";
             this.label16.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -817,6 +842,7 @@
             this.H1.Name = "H1";
             this.H1.Size = new System.Drawing.Size(336, 22);
             this.H1.TabIndex = 8;
+            this.H1.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // H2
             // 
@@ -828,6 +854,7 @@
             this.H2.Name = "H2";
             this.H2.Size = new System.Drawing.Size(336, 22);
             this.H2.TabIndex = 9;
+            this.H2.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // H3
             // 
@@ -839,6 +866,7 @@
             this.H3.Name = "H3";
             this.H3.Size = new System.Drawing.Size(336, 22);
             this.H3.TabIndex = 10;
+            this.H3.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // E1
             // 
@@ -850,6 +878,7 @@
             this.E1.Name = "E1";
             this.E1.Size = new System.Drawing.Size(336, 22);
             this.E1.TabIndex = 11;
+            this.E1.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // E2
             // 
@@ -861,6 +890,7 @@
             this.E2.Name = "E2";
             this.E2.Size = new System.Drawing.Size(336, 22);
             this.E2.TabIndex = 12;
+            this.E2.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // E3
             // 
@@ -872,6 +902,7 @@
             this.E3.Name = "E3";
             this.E3.Size = new System.Drawing.Size(336, 22);
             this.E3.TabIndex = 13;
+            this.E3.TextChanged += new System.EventHandler(this.H1_TextChanged);
             // 
             // CBPrintBill
             // 
@@ -888,6 +919,7 @@
             this.CBPrintBill.Name = "CBPrintBill";
             this.CBPrintBill.Size = new System.Drawing.Size(336, 24);
             this.CBPrintBill.TabIndex = 14;
+            this.CBPrintBill.SelectedIndexChanged += new System.EventHandler(this.CBPrintBill_SelectedIndexChanged);
             // 
             // CBPreview
             // 
@@ -904,6 +936,7 @@
             this.CBPreview.Name = "CBPreview";
             this.CBPreview.Size = new System.Drawing.Size(336, 24);
             this.CBPreview.TabIndex = 15;
+            this.CBPreview.SelectedIndexChanged += new System.EventHandler(this.CBPreview_SelectedIndexChanged);
             // 
             // uiSaveData
             // 
@@ -1007,7 +1040,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
@@ -1017,5 +1049,8 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.NumericUpDown TxtWarnQty;
         private System.Windows.Forms.ComboBox CBNoti;
+        private System.Windows.Forms.ComboBox CbInterface;
+        private System.Windows.Forms.FontDialog fontDialog1;
+        private System.Windows.Forms.ComboBox Posbar;
     }
 }

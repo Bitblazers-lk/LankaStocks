@@ -5,7 +5,6 @@ using System.Windows.Forms;
 using LiveCharts;
 using LiveCharts.Wpf;
 
-
 namespace LankaStocks.Charts
 {
     public partial class CHUserProfie : UserControl

@@ -47,6 +47,9 @@
     <StartupObject>LankaStocks.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CircularProgressBar, Version=2.7.0.7, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CircularProgressBar.2.7.0.7\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
     </Reference>
@@ -78,6 +81,9 @@
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
     <Reference Include="XanderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
@@ -181,6 +187,12 @@
     <Compile Include="UIForms\FrmTransaction.Designer.cs">
       <DependentUpon>FrmTransaction.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIForms\FrmWaiting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIForms\FrmWaiting.Designer.cs">
+      <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </Compile>
     <Compile Include="UIForms\ItemIntake.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -248,6 +260,12 @@
     </Compile>
     <Compile Include="UserControls\UIMenu.Designer.cs">
       <DependentUpon>UIMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UIMenuA.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UIMenuA.Designer.cs">
+      <DependentUpon>UIMenuA.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UIPerson.cs">
       <SubType>UserControl</SubType>
@@ -361,6 +379,9 @@
     <EmbeddedResource Include="UIForms\FrmTransaction.resx">
       <DependentUpon>FrmTransaction.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UIForms\FrmWaiting.resx">
+      <DependentUpon>FrmWaiting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UIForms\ItemIntake.resx">
       <DependentUpon>ItemIntake.cs</DependentUpon>
     </EmbeddedResource>
@@ -387,6 +408,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIMenu.resx">
       <DependentUpon>UIMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UIMenuA.resx">
+      <DependentUpon>UIMenuA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIPerson.resx">
       <DependentUpon>UIPerson.cs</DependentUpon>
@@ -482,6 +506,12 @@
     <None Include="Resources\flag-1024x430.jpg" />
     <Content Include="Ways.txt" />
     <Content Include="XanderUI.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RawInput\LankaStocks.RawInput.csproj">
+      <Project>{4143d085-38cf-4640-bb05-2fdffaf94d76}</Project>
+      <Name>LankaStocks.RawInput</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

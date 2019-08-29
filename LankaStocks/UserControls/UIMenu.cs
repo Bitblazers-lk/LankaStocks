@@ -38,6 +38,8 @@ namespace LankaStocks.UserControls
             uiBasicSale1.TxtCode.KeyDown += TxtCode_KeyDown;
             uiBasicSale1.TxtQty.KeyDown += TxtQty_KeyDown;
             uiBasicSale1.btnIssue.Click += BtnIssue_Click;
+            Forms.frmWaiting = new UIForms.FrmWaiting(UIForms.ServerStatus.Waiting);
+            //Forms.frmWaiting.Show();
         }
 
         //private void BtnAddToCart_Click(object sender, EventArgs e)
@@ -47,7 +49,7 @@ namespace LankaStocks.UserControls
 
         List<uint> DrawCodes = new List<uint> { 1, 2 }; // Uint Item Codes To Draw In  FlowLayoutPanel
 
-        List<string> ItemBarcodes = new List<string>();
+       public List<string> ItemBarcodes = new List<string>();
 
         public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
 
@@ -63,7 +65,6 @@ namespace LankaStocks.UserControls
             }
             uiBasicSale1.labelTotal.Font = new Font(uiBasicSale1.labelTotal.Font.Name.ToString(), uiBasicSale1.labelTotal.Font.Size + 5);
             uiBasicSale1.labelInNO.Font = new Font(uiBasicSale1.labelInNO.Font.Name.ToString(), uiBasicSale1.labelInNO.Font.Size + 2);
-            DGV.DataSource = Cart;
         }
 
         private void TxtCode_KeyDown(object sender, KeyEventArgs e)
@@ -72,8 +73,7 @@ namespace LankaStocks.UserControls
             {
                 if (uiBasicSale1.TxtCode.Text.Substring(0, 1) == BeginChar)
                 {
-                    uint.TryParse(uiBasicSale1.TxtCode.Text.Substring(1), out ItemCode);
-                    if (RemoteDBs.Live.Items.Get.ContainsKey(ItemCode)) uiBasicSale1.TxtQty.Focus();
+                    if (uint.TryParse(uiBasicSale1.TxtCode.Text.Substring(1), out ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(ItemCode)) uiBasicSale1.TxtQty.Focus();
                     else
                     {
                         MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -82,7 +82,11 @@ namespace LankaStocks.UserControls
                 }
                 else
                 {
-                    if (ItemBarcodes.Contains(uiBasicSale1.TxtCode.Text)) uiBasicSale1.TxtQty.Focus();
+                    if (ItemBarcodes.Contains(uiBasicSale1.TxtCode.Text))
+                    {
+                        uiBasicSale1.TxtQty.Focus();
+                        ItemCode = GetUCode(uiBasicSale1.TxtCode.Text);
+                    }
                     else
                     {
                         MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -97,6 +101,8 @@ namespace LankaStocks.UserControls
             if (e.KeyCode == Keys.Enter)
             {
                 AddToCart(ItemCode, (float)uiBasicSale1.TxtQty.Value);
+                uiBasicSale1.TxtCode.Clear();
+                uiBasicSale1.TxtQty.Value = 1;
             }
         }
 
@@ -134,13 +140,22 @@ namespace LankaStocks.UserControls
 
         void RefCart(Dictionary<uint, float> Cart)
         {
-            List<DGV_Data> Data = new List<DGV_Data>();
+            List<DGVcart_Data> Data = new List<DGVcart_Data>();
             foreach (var s in Cart)
             {
                 var i = RemoteDBs.Live.Items.Get[s.Key];
-                Data.Add(new DGV_Data { Code = s.Key, Name = i.name, Price = i.outPrice, Qty = s.Value, Total = i.outPrice * (decimal)s.Value });
+                Data.Add(new DGVcart_Data { Code = s.Key, Name = i.name, Price = i.outPrice, Qty = s.Value, Total = i.outPrice * (decimal)s.Value });
             }
             DGV.DataSource = Data;
+        }
+
+        uint GetUCode(string Barcode)
+        {
+            foreach (var s in RemoteDBs.Live.Items.Get)
+            {
+                if (s.Value.Barcode == Barcode) return s.Key;
+            }
+            return 0;
         }
         #endregion
 
@@ -233,9 +248,11 @@ namespace LankaStocks.UserControls
         }
         #endregion
 
+        #region Edit Handle
+
         private void DGV_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
+            if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
             {
                 btnEdit.Enabled = true;
                 btnRemove.Enabled = true;
@@ -244,15 +261,25 @@ namespace LankaStocks.UserControls
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
+            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
             {
                 Forms.frmEditQty = new UIForms.FrmEditQty { Code = a };
                 Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}\t Code : {a.ToString()}";
                 Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
+                Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
                 Forms.frmEditQty.ShowDialog();
             }
             btnEdit.Enabled = false;
             btnRemove.Enabled = false;
+        }
+
+        private void EditQtyOK_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value);
+                Forms.frmEditQty.Close();
+            }
         }
 
         private void EditQtyOK_Click(object sender, EventArgs e)
@@ -263,13 +290,14 @@ namespace LankaStocks.UserControls
 
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if (uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a)) RemoveCart(a);
+            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a)) RemoveCart(a);
             btnEdit.Enabled = false;
             btnRemove.Enabled = false;
         }
+        #endregion
     }
 
-    public struct DGV_Data
+    public struct DGVcart_Data
     {
         public uint Code { get; set; }
         public string Name { get; set; }

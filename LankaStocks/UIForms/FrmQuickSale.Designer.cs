@@ -221,9 +221,19 @@
             this.TxtQty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtQty.ForeColor = System.Drawing.Color.Orange;
             this.TxtQty.Location = new System.Drawing.Point(72, 37);
+            this.TxtQty.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.TxtQty.Name = "TxtQty";
             this.TxtQty.Size = new System.Drawing.Size(397, 22);
             this.TxtQty.TabIndex = 4;
+            this.TxtQty.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.TxtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtQty_KeyDown);
             // 
             // TxtCode

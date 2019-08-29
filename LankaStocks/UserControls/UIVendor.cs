@@ -25,9 +25,6 @@ namespace LankaStocks.UserControls
                 Error.Txt(BusinessInfo);
             }
         }
-
-
-
         public Vendor GenerateVendor()
         {
             if (VendorID.Text == "") VendorID.Text = "0";
@@ -35,7 +32,6 @@ namespace LankaStocks.UserControls
             {
                 throw new ArgumentException("Value must be a positive integer", "vendorID");
             }
-
 
             Vendor v = new Vendor
             {
@@ -46,7 +42,6 @@ namespace LankaStocks.UserControls
             uiPerson1.ApplyToPerson(v);
 
             return v;
-
         }
     }
 }
