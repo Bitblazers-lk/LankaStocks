@@ -144,36 +144,42 @@ namespace LankaStocks.UIForms
 
         private void SaveData()
         {
-            RemoteDBs.Settings.commonSettings.GetSet.MenuColor = uiColourMenu.ColourBox.BackColor;
-            RemoteDBs.Settings.commonSettings.GetSet.BackColor = uiColourBack.ColourBox.BackColor;
-            RemoteDBs.Settings.commonSettings.GetSet.FontColor = uiColourFont.ColourBox.BackColor;
-            RemoteDBs.Settings.commonSettings.GetSet.ItemColor = uiColourItem.ColourBox.BackColor;
+            var commonSettings = RemoteDBs.Settings.commonSettings.Get;
 
-            RemoteDBs.Settings.commonSettings.GetSet.WarnWhen = (float)TxtWarnQty.Value;
+            commonSettings.MenuColor = uiColourMenu.ColourBox.BackColor;
+            commonSettings.BackColor = uiColourBack.ColourBox.BackColor;
+            commonSettings.FontColor = uiColourFont.ColourBox.BackColor;
+            commonSettings.ItemColor = uiColourItem.ColourBox.BackColor;
 
-            RemoteDBs.Settings.commonSettings.GetSet.Font = new Font("Comic Sans MS", (float)TxtFontSize.Value);
+            commonSettings.WarnWhen = (float)TxtWarnQty.Value;
 
-            RemoteDBs.Settings.billSetting.GetSet.H1 = H1.Text;
-            RemoteDBs.Settings.billSetting.GetSet.H2 = H2.Text;
-            RemoteDBs.Settings.billSetting.GetSet.H3 = H3.Text;
-            RemoteDBs.Settings.billSetting.GetSet.E1 = E1.Text;
-            RemoteDBs.Settings.billSetting.GetSet.E2 = E2.Text;
-            RemoteDBs.Settings.billSetting.GetSet.E3 = E3.Text;
+            commonSettings.Font = new Font("Comic Sans MS", (float)TxtFontSize.Value);
+            var billSetting = RemoteDBs.Settings.billSetting.Get;
+            billSetting.H1 = H1.Text;
+            billSetting.H2 = H2.Text;
+            billSetting.H3 = H3.Text;
+            billSetting.E1 = E1.Text;
+            billSetting.E2 = E2.Text;
+            billSetting.E3 = E3.Text;
 
-            if (CBOAS.SelectedIndex == 0) RemoteDBs.Settings.commonSettings.GetSet.OpenAtStat = false;
-            else if (CBOAS.SelectedIndex == 1) RemoteDBs.Settings.commonSettings.GetSet.OpenAtStat = true;
+            if (CBOAS.SelectedIndex == 0) commonSettings.OpenAtStat = false;
+            else if (CBOAS.SelectedIndex == 1) commonSettings.OpenAtStat = true;
 
-            if (CBPreview.SelectedIndex == 0) RemoteDBs.Settings.billSetting.GetSet.Perview = false;
-            else if (CBPreview.SelectedIndex == 1) RemoteDBs.Settings.billSetting.GetSet.Perview = true;
+            if (CBPreview.SelectedIndex == 0) billSetting.Perview = false;
+            else if (CBPreview.SelectedIndex == 1) billSetting.Perview = true;
 
-            if (CBPrintBill.SelectedIndex == 0) RemoteDBs.Settings.billSetting.GetSet.PrintBill = false;
-            else if (CBPrintBill.SelectedIndex == 1) RemoteDBs.Settings.billSetting.GetSet.PrintBill = true;
+            if (CBPrintBill.SelectedIndex == 0) billSetting.PrintBill = false;
+            else if (CBPrintBill.SelectedIndex == 1) billSetting.PrintBill = true;
 
-            if (CBNoti.SelectedIndex == 0) RemoteDBs.Settings.commonSettings.GetSet.Show_Notifications = false;
-            else if (CBNoti.SelectedIndex == 1) RemoteDBs.Settings.commonSettings.GetSet.Show_Notifications = true;
+            if (CBNoti.SelectedIndex == 0) commonSettings.Show_Notifications = false;
+            else if (CBNoti.SelectedIndex == 1) commonSettings.Show_Notifications = true;
 
-            if (CbInterface.SelectedIndex == 0) RemoteDBs.Settings.commonSettings.GetSet.Interface = MenuInterfaceType.Classic;
-            else if (CbInterface.SelectedIndex == 1) RemoteDBs.Settings.commonSettings.GetSet.Interface = MenuInterfaceType.Modern;
+            if (CbInterface.SelectedIndex == 0) commonSettings.Interface = MenuInterfaceType.Classic;
+            else if (CbInterface.SelectedIndex == 1) commonSettings.Interface = MenuInterfaceType.Modern;
+
+
+            RemoteDBs.Settings.commonSettings.Set(commonSettings);
+            RemoteDBs.Settings.billSetting.Set(billSetting);
 
             //RegSettings.Write("POSbar", DList[Posbar.SelectedIndex]);
 
@@ -217,41 +223,47 @@ namespace LankaStocks.UIForms
 
         private void Ref()
         {
-            if (RemoteDBs.Settings.commonSettings.Get.OpenAtStat) CBOAS.SelectedIndex = 1;
+            var commonSettings = RemoteDBs.Settings.commonSettings.Get;
+            var billSetting = RemoteDBs.Settings.billSetting.Get;
+
+            if (commonSettings.OpenAtStat) CBOAS.SelectedIndex = 1;
             else CBOAS.SelectedIndex = 0;
 
-            if (RemoteDBs.Settings.commonSettings.Get.Show_Notifications) CBNoti.SelectedIndex = 1;
+            if (commonSettings.Show_Notifications) CBNoti.SelectedIndex = 1;
             else CBNoti.SelectedIndex = 0;
 
-            if (RemoteDBs.Settings.billSetting.Get.Perview) CBPreview.SelectedIndex = 1;
+            if (billSetting.Perview) CBPreview.SelectedIndex = 1;
             else CBPreview.SelectedIndex = 0;
 
-            if (RemoteDBs.Settings.billSetting.Get.PrintBill) CBPrintBill.SelectedIndex = 1;
+            if (billSetting.PrintBill) CBPrintBill.SelectedIndex = 1;
             else CBPrintBill.SelectedIndex = 0;
 
-            if (RemoteDBs.Settings.commonSettings.Get.Interface == MenuInterfaceType.Classic) CbInterface.SelectedIndex = 0;
+            if (commonSettings.Interface == MenuInterfaceType.Classic) CbInterface.SelectedIndex = 0;
             else CbInterface.SelectedIndex = 1;
 
-            uiColourMenu.ColourBox.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
-            uiColourBack.ColourBox.BackColor = RemoteDBs.Settings.commonSettings.Get.BackColor;
-            uiColourFont.ColourBox.BackColor = RemoteDBs.Settings.commonSettings.Get.FontColor;
-            uiColourItem.ColourBox.BackColor = RemoteDBs.Settings.commonSettings.Get.ItemColor;
-            TxtFont.Text = RemoteDBs.Settings.commonSettings.Get.Font.Name;
-            TxtFontSize.Value = (decimal)RemoteDBs.Settings.commonSettings.Get.Font.Size;
-            TxtWarnQty.Value = (decimal)RemoteDBs.Settings.commonSettings.Get.WarnWhen;
+            uiColourMenu.ColourBox.BackColor = commonSettings.MenuColor;
+            uiColourBack.ColourBox.BackColor = commonSettings.BackColor;
+            uiColourFont.ColourBox.BackColor = commonSettings.FontColor;
+            uiColourItem.ColourBox.BackColor = commonSettings.ItemColor;
+            TxtFont.Text = commonSettings.Font.Name;
+            TxtFontSize.Value = (decimal)commonSettings.Font.Size;
+            TxtWarnQty.Value = (decimal)commonSettings.WarnWhen;
 
-            H1.Text = RemoteDBs.Settings.billSetting.Get.H1;
-            H2.Text = RemoteDBs.Settings.billSetting.Get.H2;
-            H3.Text = RemoteDBs.Settings.billSetting.Get.H3;
+            H1.Text = billSetting.H1;
+            H2.Text = billSetting.H2;
+            H3.Text = billSetting.H3;
 
-            E1.Text = RemoteDBs.Settings.billSetting.Get.E1;
-            E2.Text = RemoteDBs.Settings.billSetting.Get.E2;
-            E3.Text = RemoteDBs.Settings.billSetting.Get.E3;
+            E1.Text = billSetting.E1;
+            E2.Text = billSetting.E2;
+            E3.Text = billSetting.E3;
 
             for (int i = 0; i < DList.Count; i++)
             {
                 //if (DList[i] == RegSettings.Read("POSbar")?.ToString()) Posbar.SelectedIndex = i;
             }
+
+            RemoteDBs.Settings.commonSettings.Set(commonSettings);
+            RemoteDBs.Settings.billSetting.Set(billSetting);
         }
 
         #region Get Changes
@@ -321,35 +333,31 @@ namespace LankaStocks.UIForms
         }
         #endregion
     }
+
+
     public enum MenuInterfaceType
     {
         Classic = 0,
         Modern
     }
-    public static class LocalSettings
+
+    [Serializable]
+    public class LocalSettings : DB
     {
-        private static string DBdir = @"DB\\";
-        private static string DBpath = @"DB\\DBSettings.json";
+        public LocalData Data;
 
-        public static void Read(LocalData data)
+        public override void CreateNewDatabase()
         {
-            X:
-            if (!Directory.Exists(DBdir)) Directory.CreateDirectory(DBdir);
-            if (!File.Exists(DBpath)) File.Create(DBpath);
-
-
-            // StreamReader reader = new StreamReader(DBpath);
+            Data = new LocalData();
         }
 
-        public static void Save(LocalData data)
+        public override (dynamic, MemberType) Resolve(string expr)
         {
-            X:
-            if (!Directory.Exists(DBdir)) Directory.CreateDirectory(DBdir);
-            if (!File.Exists(DBpath)) File.Create(DBpath);
-
-            // StreamReader reader = new StreamReader(DBpath);
+            return (null, MemberType.notFound);
         }
     }
+
+    [Serializable]
     public class LocalData
     {
         public string POSBarcode;

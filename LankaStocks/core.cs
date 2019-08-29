@@ -28,6 +28,8 @@ namespace LankaStocks
         public static Random random = new Random();
 
         public static System.Threading.Thread CLIThread;
+
+        public static LocalSettings localSettings;
         //public static DBSession Session => Live.Session;
         //public static Dictionary<uint, BasicSale> Sales => Live.Session.Sales;
         //public static Dictionary<uint, StockIntake> StockIntakes => Live.Session.StockIntakes;
@@ -39,6 +41,17 @@ namespace LankaStocks
         {
             IsInitialized = true;
             Log("Lanka Stocks - Mahinda Rapaksha College");
+
+
+            localSettings = (LocalSettings)new LocalSettings() { DBName = "LocalSettings", FileName = DB.DBPath + "LocalSettings.db" }.LoadBinary(true);
+
+            if (localSettings == null)
+            {
+                Log("Local Settings Malfunctioned. Creating new LocalSettings file");
+                localSettings = new LocalSettings() { DBName = "LocalSettings", FileName = DB.DBPath + "LocalSettings.db" };
+                localSettings.ForceSave();
+            }
+
             client = (BaseClient)new IntergratedClient();
             client.Initialize();
 
@@ -193,6 +206,8 @@ namespace LankaStocks
         public static void Shutdown()
         {
             //Save everything
+            localSettings.ForceSave();
+
             new System.Threading.Thread(new System.Threading.ThreadStart(ThrShutDown)) { Name = "Thread of Death", Priority = System.Threading.ThreadPriority.Highest }.Start();
 
         }
@@ -255,5 +270,6 @@ namespace LankaStocks
         public static FrmRefund frmRefund;
         public static FrmCharts frmCharts;
         public static FrmEditQty frmEditQty;
+        public static FrmWaiting frmWaiting;
     }
 }
