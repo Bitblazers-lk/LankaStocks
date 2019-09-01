@@ -189,6 +189,13 @@ namespace LankaStocks.UserControls
             labelInNO.Font = new Font(labelInNO.Font.Name.ToString(), labelInNO.Font.Size + 2);
             RefStore();
             RepeatedFunctions.CheckBarcodeReader();
+            //xuiClock1.HexagonColor = this.BackColor;
+        }
+
+        private void BtnIssue_Click(object sender, EventArgs e)
+        {
+            RepeatedFunctions.IssueItem(Cart);
+            RepeatedFunctions.RefCart(Cart, DGVcart);
         }
     }
 

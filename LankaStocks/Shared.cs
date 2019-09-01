@@ -170,7 +170,7 @@ namespace LankaStocks.Shared
             List<DGV_Data> Data = new List<DGV_Data>();
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
-                if (s.Value.Barcode.ToLower().Contains(Barcode.ToLower()))
+                if (s.Value.Barcode != null && s.Value.Barcode.ToLower().Contains(Barcode.ToLower()))
                     Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
             }
             return Data;
@@ -245,7 +245,7 @@ namespace LankaStocks.Shared
         }
 
         public static void SaveAsExcel(DataGridView DGV, string FName, string[] Headers)
-        {          
+        {
             if (DGV.DataSource != null)
             {
                 SaveFileDialog savefile = new SaveFileDialog
@@ -273,6 +273,38 @@ namespace LankaStocks.Shared
                         }
                     }
                 }
+            }
+        }
+
+        public static void IssueItem(Dictionary<uint, float> _Cart, bool Ispecial = false)
+        {
+            List<BusinessItem> items = new List<BusinessItem>();
+            decimal tot = 0;
+            if (_Cart.Count != 0 && _Cart.Count > 0)
+            {
+                foreach (var s in _Cart)
+                {
+                    tot += client.ps.Live.Items[s.Key].outPrice;
+                    items.Add(new BusinessItem { itemID = s.Key, Quantity = (decimal)s.Value, Value = tot, Seller = user.ID });
+                }
+                client.Sale(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.UserID, special = false });
+                _Cart.Clear();
+            }
+        }
+
+        public static void RefundItem(uint SaleID,Dictionary<uint, float> _LstItems, bool Ispecial = false)
+        {
+            List<BusinessItem> items = new List<BusinessItem>();
+            decimal tot = 0;
+            if (_LstItems.Count != 0 && _LstItems.Count > 0)
+            {
+                foreach (var s in _LstItems)
+                {
+                    tot += client.ps.Live.Items[s.Key].outPrice;
+                    items.Add(new BusinessItem { itemID = s.Key, Quantity = (decimal)s.Value, Value = tot, Seller = user.ID });
+                }
+                client.RefundItem(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = SaleID, UserID = user.UserID, special = false });
+                _LstItems.Clear();
             }
         }
     }

@@ -75,14 +75,14 @@ namespace LankaStocks.UserControls
         }
 
         public void Setdata(uint code)
-        {
-            _Code = code;
-            var data = RemoteDBs.Live.Items.GetItem(code);
+        {           
+            var data = RemoteDBs.Live.Items.Get[code];
             //this.Name = code.ToString();
             l1.Text = data.name;
             l2.Text = data.itemID.ToString();
             lp.Text = $"Rs.{ data.outPrice.ToString("00.00")}";
             if (data.Quantity <= RemoteDBs.Settings.commonSettings.Get.WarnWhen) this.BackColor = Color.FromArgb(200, 0, 0, 100);
+            _Code = code;
         }
 
         private void Btnaddtoc_Click(object sender, EventArgs e)
@@ -105,12 +105,11 @@ namespace LankaStocks.UserControls
             }
         }
 
-        // public delegate void MouseEventHandler(object sender, MouseEventArgs e);
-
-        //private void btnaddtoc_Click(object sender, EventArgs e)
-        //{
-        //    MessageBox.Show(this.Size.ToString());
-        //}
+        private void UItem_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var handler = CartItemSelected;
+            handler?.Invoke(new CartItemSelectedEventArgs(_Code));
+        }
 
     }
 }

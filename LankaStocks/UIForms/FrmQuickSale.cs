@@ -131,7 +131,8 @@ namespace LankaStocks.UIForms
 
         private void BtnIssue_Click(object sender, EventArgs e)
         {
-
+            RepeatedFunctions.IssueItem(Cart);
+            RepeatedFunctions.RefCart(Cart, DGV);
         }
 
         private void FrmQuickSale_Load(object sender, EventArgs e)
