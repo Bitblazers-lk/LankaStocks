@@ -121,6 +121,7 @@
             this.PB.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PB.TabIndex = 2;
             this.PB.TabStop = false;
+            this.PB.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.UItem_MouseDoubleClick);
             // 
             // cms
             // 
@@ -149,6 +150,7 @@
             this.Name = "UItem";
             this.Size = new System.Drawing.Size(196, 296);
             this.Load += new System.EventHandler(this.UI_Load);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.UItem_MouseDoubleClick);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PB)).EndInit();

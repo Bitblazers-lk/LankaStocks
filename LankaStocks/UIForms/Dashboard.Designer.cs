@@ -45,6 +45,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.xuiWifiPercentageAPI1 = new XanderUI.XUIWifiPercentageAPI();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             this.SuspendLayout();
@@ -267,6 +268,11 @@
             this.notifyIcon1.Text = "LankaStocks";
             this.notifyIcon1.Visible = true;
             // 
+            // xuiWifiPercentageAPI1
+            // 
+            this.xuiWifiPercentageAPI1.Enabled = true;
+            this.xuiWifiPercentageAPI1.Interval = 3000;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -307,5 +313,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnSettings;
         public System.Windows.Forms.NotifyIcon notifyIcon1;
+        private XanderUI.XUIWifiPercentageAPI xuiWifiPercentageAPI1;
     }
 }

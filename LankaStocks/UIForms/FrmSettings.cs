@@ -50,6 +50,8 @@ namespace LankaStocks.UIForms
                     LockControls(x);
                 }
             }
+            localSettings.Data.POSBarcodeID = "Null";
+            localSettings.Data.POSBarcodeName = "Null";
         }
 
         private void GetKeyboards()
@@ -64,7 +66,8 @@ namespace LankaStocks.UIForms
             {
                 a = (string)mo["DeviceID"];
                 a = a.Substring(a.IndexOf(@"\") + 1, a.Substring(a.IndexOf(@"\") + 1).IndexOf(@"\")).ToLower();
-                DList.Add((string)mo["Description"], a);
+                if (!DList.ContainsKey((string)mo["Description"]))
+                    DList.Add($"{(string)mo["Description"]}\t\t({a})", a);
                 Debug.WriteLine($"{a}");
             }
             Posbar.DataSource = DList.Keys.ToList();

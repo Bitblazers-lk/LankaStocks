@@ -27,6 +27,7 @@ namespace LankaStocks.UserControls
                 if (itemC < 100)
                 {
                     UItem item = new UItem { _Code = s.Key /*Name = s.Key.ToString()*/ };
+                    item.CartItemSelected += CartItem_Selected;
                     //item.DoubleClick += BtnAddToCart_Click;
                     //item.PB.DoubleClick += BtnAddToCart_Click;
                     //item.btnaddtoc.Click += BtnAddToCart_Click;
@@ -37,13 +38,13 @@ namespace LankaStocks.UserControls
             }
             CBItemCount.SelectedIndex = 0;
 
-            DGV.DataSource = RemoteDBs.Live.Items.Get.Values;
+            //DGV.DataSource = RemoteDBs.Live.Items.Get.Values;
 
             uiBasicSale1.TxtCode.KeyDown += TxtCode_KeyDown;
             uiBasicSale1.TxtQty.KeyDown += TxtQty_KeyDown;
             uiBasicSale1.btnIssue.Click += BtnIssue_Click;
             Forms.frmWaiting = new UIForms.FrmWaiting(UIForms.ServerStatus.Waiting);
-            Forms.frmWaiting.Show();
+            // Forms.frmWaiting.Show();
 
             #region KeyInput Handle
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -54,6 +55,13 @@ namespace LankaStocks.UserControls
 
             //foreach (var s in _KeyInput._keyboardDriver.GetNames()) Debug.WriteLine($">>{s}");
         }
+
+        private void CartItem_Selected(UItem.CartItemSelectedEventArgs args)
+        {
+            RepeatedFunctions.AddToCart(args.Item, 1, Cart);
+            RepeatedFunctions.RefCart(Cart, DGV);
+        }
+
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
             Device = e.KeyPressEvent.DeviceName;
@@ -69,7 +77,7 @@ namespace LankaStocks.UserControls
         string Device;
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
-        List<uint> DrawCodes = new List<uint> { 1, 2 }; // Uint Item Codes To Draw In  FlowLayoutPanel
+        List<uint> DrawCodes = new List<uint> { 10, 11 }; // Uint Item Codes To Draw In  FlowLayoutPanel
 
         public List<string> ItemBarcodes = new List<string>();
 
@@ -108,7 +116,8 @@ namespace LankaStocks.UserControls
 
         private void BtnIssue_Click(object sender, EventArgs e)
         {
-
+            RepeatedFunctions.IssueItem(Cart);
+            RepeatedFunctions.RefCart(Cart, DGV);
         }
 
         #region Draw Item's Usercontrols In FlowLayoutPanel
@@ -211,20 +220,6 @@ namespace LankaStocks.UserControls
             }
         }
 
-        private void BtnEdit_Click(object sender, EventArgs e)
-        {
-            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
-            {
-                Forms.frmEditQty = new UIForms.FrmEditQty { Code = a };
-                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}\t Code : {a.ToString()}";
-                Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
-                Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
-                Forms.frmEditQty.ShowDialog();
-            }
-            btnEdit.Enabled = false;
-            btnRemove.Enabled = false;
-        }
-
         private void EditQtyOK_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -242,7 +237,22 @@ namespace LankaStocks.UserControls
             Forms.frmEditQty.Close();
         }
 
-        private void BtnRemove_Click(object sender, EventArgs e)
+
+        private void BtnEdit_Click_1(object sender, EventArgs e)
+        {
+            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
+            {
+                Forms.frmEditQty = new UIForms.FrmEditQty { Code = a };
+                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}\t Code : {a.ToString()}";
+                Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
+                Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
+                Forms.frmEditQty.ShowDialog();
+            }
+            btnEdit.Enabled = false;
+            btnRemove.Enabled = false;
+        }
+
+        private void BtnRemove_Click_1(object sender, EventArgs e)
         {
             if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
             {
@@ -253,6 +263,7 @@ namespace LankaStocks.UserControls
             btnRemove.Enabled = false;
         }
         #endregion
+
     }
 
     public struct DGVcart_Data
