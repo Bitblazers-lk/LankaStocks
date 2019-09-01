@@ -171,7 +171,7 @@ namespace LankaStocks.Shared
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 if (s.Value.Barcode != null && s.Value.Barcode.ToLower().Contains(Barcode.ToLower()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -292,7 +292,7 @@ namespace LankaStocks.Shared
             }
         }
 
-        public static void RefundItem(uint SaleID,Dictionary<uint, float> _LstItems, bool Ispecial = false)
+        public static void RefundItem(uint SaleID, Dictionary<uint, float> _LstItems, bool Ispecial = false)
         {
             List<BusinessItem> items = new List<BusinessItem>();
             decimal tot = 0;

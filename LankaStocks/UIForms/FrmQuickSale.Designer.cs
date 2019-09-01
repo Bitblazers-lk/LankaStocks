@@ -82,12 +82,13 @@
             // 
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Location = new System.Drawing.Point(0, 172);
+            this.button7.Location = new System.Drawing.Point(0, 181);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(143, 35);
+            this.button7.Size = new System.Drawing.Size(143, 40);
             this.button7.TabIndex = 13;
             this.button7.Text = "button7";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // btnfund
             // 
@@ -95,9 +96,9 @@
             this.btnfund.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnfund.Image = global::LankaStocks.Properties.Resources.refund_2_24px;
             this.btnfund.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnfund.Location = new System.Drawing.Point(0, 130);
+            this.btnfund.Location = new System.Drawing.Point(0, 135);
             this.btnfund.Name = "btnfund";
-            this.btnfund.Size = new System.Drawing.Size(143, 35);
+            this.btnfund.Size = new System.Drawing.Size(143, 40);
             this.btnfund.TabIndex = 12;
             this.btnfund.Text = "Refund";
             this.btnfund.UseVisualStyleBackColor = true;
@@ -111,7 +112,7 @@
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button5.Location = new System.Drawing.Point(0, 89);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(143, 35);
+            this.button5.Size = new System.Drawing.Size(143, 40);
             this.button5.TabIndex = 11;
             this.button5.Text = "Quick Sell";
             this.button5.UseVisualStyleBackColor = true;

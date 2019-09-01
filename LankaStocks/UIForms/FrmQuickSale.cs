@@ -144,5 +144,10 @@ namespace LankaStocks.UIForms
             this.panel3.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             RepeatedFunctions.CheckBarcodeReader();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
