@@ -45,7 +45,7 @@ namespace LankaStocks.UserControls
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            throw new Exception(e.ExceptionObject.ToString());
+             throw new Exception(e.ExceptionObject.ToString());
         }
 
         #region Search In Store
@@ -198,6 +198,6 @@ namespace LankaStocks.UserControls
         public string Barcode { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public decimal Qty { get; set; }
+        public float Qty { get; set; }
     }
 }

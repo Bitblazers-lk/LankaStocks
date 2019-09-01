@@ -151,7 +151,7 @@ namespace LankaStocks.Shared
             List<DGV_Data> Data = new List<DGV_Data>();
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
-                Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -161,7 +161,7 @@ namespace LankaStocks.Shared
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 if (s.Key.ToString().Contains(Code.ToString()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -171,7 +171,7 @@ namespace LankaStocks.Shared
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 if (s.Value.Barcode.ToLower().Contains(Barcode.ToLower()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -181,7 +181,7 @@ namespace LankaStocks.Shared
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 if (s.Value.name.ToLower().Contains(Name.ToLower()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -245,7 +245,7 @@ namespace LankaStocks.Shared
         }
 
         public static void SaveAsExcel(DataGridView DGV, string FName, string[] Headers)
-        {          
+        {
             if (DGV.DataSource != null)
             {
                 SaveFileDialog savefile = new SaveFileDialog
