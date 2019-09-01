@@ -263,7 +263,6 @@ namespace LankaStocks.UserControls
             btnRemove.Enabled = false;
         }
         #endregion
-
     }
 
     public struct DGVcart_Data

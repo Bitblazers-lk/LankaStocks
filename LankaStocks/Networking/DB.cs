@@ -503,8 +503,8 @@ namespace LankaStocks.DataBases
             Cashiers = new Dictionary<uint, decimal>();
             Items = new Dictionary<uint, Item>
             {
-                { 10, new Item { itemID = 10, inPrice = 100, outPrice = 125, name = "Box", Quantity = 100, vendors=new List<uint>(){0} } },
-                { 11, new Item { itemID = 11, inPrice = 90, outPrice = 100, name = "Box1", Quantity = 100,  vendors=new List<uint>(){0} } }
+                { 10, new Item { itemID = 10,Barcode="10", inPrice = 100, outPrice = 125, name = "Box", Quantity = 100, vendors=new List<uint>(){0} } },
+                { 11, new Item { itemID = 11,Barcode="11", inPrice = 90, outPrice = 100, name = "Box1", Quantity = 100,  vendors=new List<uint>(){0} } }
             };
 
             Session = new DBSession();

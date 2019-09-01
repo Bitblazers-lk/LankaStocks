@@ -146,6 +146,7 @@
             // btnRemove
             // 
             this.btnRemove.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRemove.Enabled = false;
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Image = global::LankaStocks.Properties.Resources.delete_sign_24px;
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -160,6 +161,7 @@
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.Enabled = false;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Image = global::LankaStocks.Properties.Resources.edit_24px;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,6 +184,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             // 
             // DGV
             // 
@@ -193,6 +196,7 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(404, 610);
             this.DGV.TabIndex = 2;
+            this.DGV.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_CellMouseClick);
             // 
             // tableLayoutPanel1
             // 

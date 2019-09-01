@@ -169,7 +169,7 @@ namespace LankaStocks.UIForms
             }
             if (Restart)
             {
-                DialogResult result = MessageBox.Show("Restart LankaStocks To Apply Changes...\n\nClick :\n\n\tOK - To Restart Now!\n\tCancel - To Restart Later!\n*Note : (Some Changes Will Apply)", "LankaStocks > Restart?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Restart LankaStocks To Apply Changes...\n\nClick :\n\n\tOK - To Restart Now!\n\tCancel - To Restart Later!\n*Note : (Some Changes Will Apply Without Restarting!)", "LankaStocks > Restart?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
                     Core.Shutdown();
@@ -189,7 +189,7 @@ namespace LankaStocks.UIForms
 
             commonSettings.WarnWhen = TxtWarnQty.Value;
 
-            commonSettings.Font = new Font("Comic Sans MS", (float)TxtFontSize.Value);
+            commonSettings.Font = appfont;
             var billSetting = RemoteDBs.Settings.billSetting.Get;
             billSetting.H1 = H1.Text;
             billSetting.H2 = H2.Text;
@@ -259,6 +259,10 @@ namespace LankaStocks.UIForms
             var commonSettings = RemoteDBs.Settings.commonSettings.Get;
             var billSetting = RemoteDBs.Settings.billSetting.Get;
 
+            appfont = commonSettings.Font;
+            TxtFont.Text = appfont.Name.ToString();
+            TxtFontSize.Value = (decimal)appfont.Size;
+
             if (commonSettings.OpenAtStat) CBOAS.SelectedIndex = 1;
             else CBOAS.SelectedIndex = 0;
 
@@ -278,8 +282,6 @@ namespace LankaStocks.UIForms
             uiColourBack.ColourBox.BackColor = commonSettings.BackColor;
             uiColourFont.ColourBox.BackColor = commonSettings.FontColor;
             uiColourItem.ColourBox.BackColor = commonSettings.ItemColor;
-            TxtFont.Text = commonSettings.Font.Name;
-            TxtFontSize.Value = (decimal)commonSettings.Font.Size;
             TxtWarnQty.Value = (decimal)commonSettings.WarnWhen;
 
             H1.Text = billSetting.H1;
@@ -313,6 +315,7 @@ namespace LankaStocks.UIForms
         {
             if (load)
             {
+                appfont = new Font(appfont.Name, (float)TxtFontSize.Value);
                 Restart = true;
                 HasChanges = true;
             }
@@ -323,10 +326,21 @@ namespace LankaStocks.UIForms
             if (load)
                 HasChanges = true;
         }
-
+        Font appfont;
         private void BtnFontBrowse_Click(object sender, EventArgs e)
         {
-            fontDialog1.ShowDialog();
+            DialogResult result = fontDialog1.ShowDialog();
+            // See if OK was pressed.
+            if (result == DialogResult.OK)
+            {
+                // Get Font.
+                appfont = fontDialog1.Font;
+                // Set TextBox properties.
+                this.TxtFont.Text = appfont.Name;
+                this.TxtFontSize.Value = (decimal)appfont.Size;
+                HasChanges = true;
+                Restart = true;
+            }
         }
 
         private void H1_TextChanged(object sender, EventArgs e)
