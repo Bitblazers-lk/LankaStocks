@@ -97,11 +97,11 @@ namespace LankaStocks
             //Get it back (You can use commonSettings.Set too)
             Log(RemoteDBs.Settings.commonSettings.GetSet.BackColor.ToString());
 
-            Bills.SetHeaderBeginFont(new Font("Arial", 15));
-            Bills.SetFont(new Font("Arial", 11));
+            //Bills.SetHeaderBeginFont(new Font("Arial", 15));
+            //Bills.SetFont(new Font("Arial", 11));
 
-            Bills.SetHeaderBegin(RemoteDBs.Settings.billSetting.Get.H1, RemoteDBs.Settings.billSetting.Get.H2, RemoteDBs.Settings.billSetting.Get.H3);
-            Bills.SetHeaderEnd(RemoteDBs.Settings.billSetting.Get.E1, RemoteDBs.Settings.billSetting.Get.E2, RemoteDBs.Settings.billSetting.Get.E3);
+            //Bills.SetHeaderBegin(RemoteDBs.Settings.billSetting.Get.H1, RemoteDBs.Settings.billSetting.Get.H2, RemoteDBs.Settings.billSetting.Get.H3);
+            //Bills.SetHeaderEnd(RemoteDBs.Settings.billSetting.Get.E1, RemoteDBs.Settings.billSetting.Get.E2, RemoteDBs.Settings.billSetting.Get.E3);
 
             Log("Initialized");
 

@@ -90,7 +90,6 @@
     <Reference Include="XanderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bills.cs" />
     <Compile Include="Charts\CHSalesRealTime.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -521,6 +520,10 @@
     <Content Include="Ways.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LankaStocks.GDI\LankaStocks.GDI.csproj">
+      <Project>{f175d285-a28d-45bc-b16d-4255aacc2e8d}</Project>
+      <Name>LankaStocks.GDI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RawInput\LankaStocks.RawInput.csproj">
       <Project>{4143d085-38cf-4640-bb05-2fdffaf94d76}</Project>
       <Name>LankaStocks.RawInput</Name>
