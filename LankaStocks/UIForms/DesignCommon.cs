@@ -24,7 +24,7 @@ namespace LankaStocks.UIForms
             {
                 new IM1_Data{Date=DateTime.Now.ToShortDateString(),Name="BOX",Value=100}
             };
-            var im = Drawing.Draw(D1);
+            var im = Drawings.DrawTable("box", D)[0];
             pictureBox1.Image = im;
             im.Save("1.png");
         }

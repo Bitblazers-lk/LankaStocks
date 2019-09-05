@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,7 +20,6 @@ namespace LankaStocks
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Core.Initialize();
-
             Forms.login = new Login();
             Application.Run(new DesignCommon());
         }
