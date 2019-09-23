@@ -39,7 +39,6 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnRef = new System.Windows.Forms.Button();
             this.DGV = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -49,6 +48,9 @@
             this.TxtCode = new System.Windows.Forms.TextBox();
             this.TxtBarcode = new System.Windows.Forms.TextBox();
             this.TxtName = new System.Windows.Forms.TextBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnRef = new System.Windows.Forms.Button();
+            this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -62,6 +64,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -204,31 +207,19 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.BtnRef, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.DGV, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.groupBox3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 18);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 452);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // BtnRef
-            // 
-            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
-            this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRef.Location = new System.Drawing.Point(3, 413);
-            this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(448, 36);
-            this.BtnRef.TabIndex = 4;
-            this.BtnRef.Text = "Refresh";
-            this.BtnRef.UseVisualStyleBackColor = true;
             // 
             // DGV
             // 
@@ -238,7 +229,7 @@
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.Location = new System.Drawing.Point(3, 57);
             this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(1257, 350);
+            this.DGV.Size = new System.Drawing.Size(1257, 336);
             this.DGV.TabIndex = 3;
             // 
             // groupBox3
@@ -337,6 +328,47 @@
             this.TxtName.Size = new System.Drawing.Size(316, 22);
             this.TxtName.TabIndex = 5;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.65553F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.34447F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.BtnRef, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.uiExcel1, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 399);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1257, 50);
+            this.tableLayoutPanel2.TabIndex = 4;
+            // 
+            // BtnRef
+            // 
+            this.BtnRef.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
+            this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRef.Location = new System.Drawing.Point(3, 3);
+            this.BtnRef.Name = "BtnRef";
+            this.BtnRef.Size = new System.Drawing.Size(857, 44);
+            this.BtnRef.TabIndex = 5;
+            this.BtnRef.Text = "Refresh";
+            this.BtnRef.UseVisualStyleBackColor = true;
+            // 
+            // uiExcel1
+            // 
+            this.uiExcel1.BackColor = System.Drawing.Color.Transparent;
+            this.uiExcel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiExcel1.ForeColor = System.Drawing.Color.Orange;
+            this.uiExcel1.Location = new System.Drawing.Point(867, 4);
+            this.uiExcel1.Margin = new System.Windows.Forms.Padding(4);
+            this.uiExcel1.Name = "uiExcel1";
+            this.uiExcel1.Size = new System.Drawing.Size(386, 42);
+            this.uiExcel1.TabIndex = 6;
+            // 
             // FrmanageItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -367,6 +399,7 @@
             this.groupBox3.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -382,7 +415,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button BtnRef;
         private System.Windows.Forms.DataGridView DGV;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
@@ -393,5 +425,8 @@
         private System.Windows.Forms.TextBox TxtBarcode;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button BtnRef;
+        private UserControls.UIExcel uiExcel1;
     }
 }

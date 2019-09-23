@@ -64,6 +64,18 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Spire.License, Version=1.3.7.46, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDFViewer.4.5.1\lib\net46\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=5.5.2.2046, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDFViewer.4.5.1\lib\net46\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Asp, Version=4.5.1.3046, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDFViewer.4.5.1\lib\net46\Spire.PdfViewer.Asp.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Forms, Version=4.5.1.3046, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDFViewer.4.5.1\lib\net46\Spire.PdfViewer.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -275,6 +287,12 @@
     <Compile Include="UserControls\UIMenuA.Designer.cs">
       <DependentUpon>UIMenuA.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UIPdfView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UIPdfView.Designer.cs">
+      <DependentUpon>UIPdfView.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UIPerson.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -423,6 +441,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIMenuA.resx">
       <DependentUpon>UIMenuA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UIPdfView.resx">
+      <DependentUpon>UIPdfView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIPerson.resx">
       <DependentUpon>UIPerson.cs</DependentUpon>

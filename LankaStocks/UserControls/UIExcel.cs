@@ -14,11 +14,11 @@ namespace LankaStocks.UserControls
 {
     public partial class UIExcel : UserControl
     {
-        public UIExcel(DataGridView _DGV, string[] ColNames)
+        public UIExcel()
         {
             InitializeComponent();
-            MYdgv = _DGV;
-            _ColNames = ColNames;
+            //MYdgv = _DGV;
+            //_ColNames = ColNames;
         }
         DataGridView MYdgv;
         string[] _ColNames;

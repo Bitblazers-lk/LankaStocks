@@ -51,5 +51,22 @@ namespace LankaStocks.UIForms
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }
+        void RefDGV()
+        {
+            var data = new List<DGVMI_Data>();
+           // foreach(var s in )
+        }
+    }
+
+    public struct DGVMI_Data
+    {
+        public uint Code { get; set; }
+        public string Barcode { get; set; }
+        public string Name { get; set; }
+        public decimal In_Price { get; set; }
+        public decimal Out_Price { get; set; }
+        public float Qty { get; set; }
+        public string Vendor { get; set; }
+        public uint Alternative { get; set; }
     }
 }
