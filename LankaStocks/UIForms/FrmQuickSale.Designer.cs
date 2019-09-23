@@ -44,8 +44,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.CBspecialSale = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelTotal = new System.Windows.Forms.Label();
             this.labelInNO = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.DGV = new System.Windows.Forms.DataGridView();
@@ -88,7 +88,6 @@
             this.button7.TabIndex = 13;
             this.button7.Text = "button7";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // btnfund
             // 
@@ -288,8 +287,8 @@
             // 
             this.tableLayoutPanel4.ColumnCount = 1;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Controls.Add(this.labelInNO, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label4, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.labelTotal, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labelInNO, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(107, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -299,31 +298,31 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(472, 53);
             this.tableLayoutPanel4.TabIndex = 6;
             // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.ForeColor = System.Drawing.Color.Orange;
+            this.labelTotal.Location = new System.Drawing.Point(3, 0);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(466, 29);
+            this.labelTotal.TabIndex = 0;
+            this.labelTotal.Text = "Total : ";
+            this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // labelInNO
             // 
             this.labelInNO.AutoSize = true;
             this.labelInNO.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelInNO.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInNO.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInNO.ForeColor = System.Drawing.Color.Orange;
-            this.labelInNO.Location = new System.Drawing.Point(3, 0);
+            this.labelInNO.Location = new System.Drawing.Point(3, 29);
             this.labelInNO.Name = "labelInNO";
-            this.labelInNO.Size = new System.Drawing.Size(466, 29);
-            this.labelInNO.TabIndex = 0;
-            this.labelInNO.Text = "Total : ";
+            this.labelInNO.Size = new System.Drawing.Size(466, 24);
+            this.labelInNO.TabIndex = 1;
+            this.labelInNO.Text = "Invoice NO. :";
             this.labelInNO.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Orange;
-            this.label4.Location = new System.Drawing.Point(3, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(466, 24);
-            this.label4.TabIndex = 1;
-            this.label4.Text = "Invoice NO. :";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox1
             // 
@@ -428,7 +427,7 @@
         private System.Windows.Forms.Button btnfund;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Label labelInNO;
-        private System.Windows.Forms.Label label4;
     }
 }

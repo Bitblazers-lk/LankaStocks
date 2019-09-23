@@ -331,10 +331,8 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.65553F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.34447F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 340F));
             this.tableLayoutPanel2.Controls.Add(this.BtnRef, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.uiExcel1, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -353,7 +351,7 @@
             this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRef.Location = new System.Drawing.Point(3, 3);
             this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(857, 44);
+            this.BtnRef.Size = new System.Drawing.Size(911, 44);
             this.BtnRef.TabIndex = 5;
             this.BtnRef.Text = "Refresh";
             this.BtnRef.UseVisualStyleBackColor = true;
@@ -363,10 +361,10 @@
             this.uiExcel1.BackColor = System.Drawing.Color.Transparent;
             this.uiExcel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiExcel1.ForeColor = System.Drawing.Color.Orange;
-            this.uiExcel1.Location = new System.Drawing.Point(867, 4);
+            this.uiExcel1.Location = new System.Drawing.Point(921, 4);
             this.uiExcel1.Margin = new System.Windows.Forms.Padding(4);
             this.uiExcel1.Name = "uiExcel1";
-            this.uiExcel1.Size = new System.Drawing.Size(386, 42);
+            this.uiExcel1.Size = new System.Drawing.Size(332, 42);
             this.uiExcel1.TabIndex = 6;
             // 
             // FrmanageItems

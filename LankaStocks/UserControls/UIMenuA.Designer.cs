@@ -642,6 +642,6 @@
         public System.Windows.Forms.NumericUpDown TxtQty;
         public System.Windows.Forms.Button btnIssue;
         public System.Windows.Forms.Button btnRefund;
-        private XanderUI.XUIClock xuiClock1;
+        public XanderUI.XUIClock xuiClock1;
     }
 }

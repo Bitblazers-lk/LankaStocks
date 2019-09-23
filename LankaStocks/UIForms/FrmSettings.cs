@@ -395,9 +395,11 @@ namespace LankaStocks.UIForms
         public string DeviceName;
         public override void CreateNewDatabase()
         {
-            Data = new LocalData();
-            Data.POSBarcodeID = "";
-            Data.POSBarcodeName = "";
+            Data = new LocalData
+            {
+                POSBarcodeID = "",
+                POSBarcodeName = ""
+            };
         }
 
         public override (dynamic, MemberType) Resolve(string expr)

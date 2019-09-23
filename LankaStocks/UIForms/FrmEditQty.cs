@@ -13,9 +13,10 @@ namespace LankaStocks.UIForms
 {
     public partial class FrmEditQty : Form
     {
-        public FrmEditQty()
+        public FrmEditQty(uint c)
         {
             InitializeComponent();
+            TxtQty.Value = (decimal)c;
         }
         public uint Code;
         private void FrmEditQty_Load(object sender, EventArgs e)

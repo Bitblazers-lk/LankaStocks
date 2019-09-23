@@ -31,7 +31,7 @@ namespace LankaStocks.UserControls
                     //item.DoubleClick += BtnAddToCart_Click;
                     //item.PB.DoubleClick += BtnAddToCart_Click;
                     //item.btnaddtoc.Click += BtnAddToCart_Click;
-                    flowLayoutPanel1.Controls.Add(item);
+                    flPanel.Controls.Add(item);
                 }
                 itemC++;
                 ItemBarcodes.Add(s.Value.Barcode);
@@ -89,12 +89,6 @@ namespace LankaStocks.UserControls
         private void UIMenu_Load(object sender, EventArgs e)
         {
             DrawItems(int.Parse(CBItemCount.Text), (int)TxtPageON.Value);
-            foreach (Control s in flowLayoutPanel1.Controls)
-            {
-                s.Size = new Size(196, 296);
-            }
-            uiBasicSale1.labelTotal.Font = new Font(uiBasicSale1.labelTotal.Font.Name.ToString(), uiBasicSale1.labelTotal.Font.Size + 5);
-            uiBasicSale1.labelInNO.Font = new Font(uiBasicSale1.labelInNO.Font.Name.ToString(), uiBasicSale1.labelInNO.Font.Size + 2);
             RepeatedFunctions.CheckBarcodeReader();
         }
 
@@ -123,11 +117,15 @@ namespace LankaStocks.UserControls
         #region Draw Item's Usercontrols In FlowLayoutPanel
         void DrawItems(int ItemMax, int PageNO)
         {
+            //int count = 0;
+            //if (DrawCodes.Count > ItemMax) count = ItemMax;
+            //else count = DrawCodes.Count;
+
             for (int i = 0; i <= DrawCodes.Count; i++)
             {
                 try
                 {
-                    if (flowLayoutPanel1.Controls[i] is UItem S)
+                    if (flPanel.Controls[i] is UItem S)
                     {
                         if (i >= ItemMax * (PageNO - 1) && i < ItemMax * PageNO)
                         {
@@ -140,16 +138,17 @@ namespace LankaStocks.UserControls
                 }
                 catch { }
             }
-            if (DrawCodes.Count < flowLayoutPanel1.Controls.Count)
+            if (DrawCodes.Count < flPanel.Controls.Count)
             {
-                for (int i = DrawCodes.Count; i < flowLayoutPanel1.Controls.Count; i++)
+                for (int i = DrawCodes.Count; i < flPanel.Controls.Count; i++)
                 {
-                    if (flowLayoutPanel1.Controls[i] is UItem S)
+                    if (flPanel.Controls[i] is UItem S)
                     {
                         S.Visible = false;
                     }
                 }
             }
+            TxtPageON.Maximum = (flPanel.Controls.Count / ItemMax) + 1;
         }
 
         private void CBItemCount_SelectedIndexChanged(object sender, EventArgs e)
@@ -237,13 +236,12 @@ namespace LankaStocks.UserControls
             Forms.frmEditQty.Close();
         }
 
-
         private void BtnEdit_Click_1(object sender, EventArgs e)
         {
-            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
+            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint uc) && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[3].Value?.ToString(), out uint co))
             {
-                Forms.frmEditQty = new UIForms.FrmEditQty { Code = a };
-                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}\t Code : {a.ToString()}";
+                Forms.frmEditQty = new UIForms.FrmEditQty(co) { Code = uc };
+                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[uc].name}\t Code : {uc.ToString()}";
                 Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
                 Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
                 Forms.frmEditQty.ShowDialog();

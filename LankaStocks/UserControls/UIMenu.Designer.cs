@@ -49,7 +49,7 @@
             this.TxtBarcode = new System.Windows.Forms.TextBox();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.TxtPageON = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
@@ -336,7 +336,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox3.Controls.Add(this.flPanel);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.ForeColor = System.Drawing.Color.Orange;
             this.groupBox3.Location = new System.Drawing.Point(3, 53);
@@ -346,14 +346,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Store";
             // 
-            // flowLayoutPanel1
+            // flPanel
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(812, 589);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flPanel.AutoScroll = true;
+            this.flPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flPanel.Location = new System.Drawing.Point(3, 16);
+            this.flPanel.Name = "flPanel";
+            this.flPanel.Size = new System.Drawing.Size(812, 589);
+            this.flPanel.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
@@ -482,13 +482,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.NumericUpDown TxtPageON;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CBItemCount;
-        private UserControls.UIBasicSale uiBasicSale1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -501,5 +499,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView DGV;
+        public System.Windows.Forms.FlowLayoutPanel flPanel;
+        public UIBasicSale uiBasicSale1;
     }
 }
