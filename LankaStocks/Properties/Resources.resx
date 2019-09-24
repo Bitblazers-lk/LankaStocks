@@ -124,23 +124,14 @@
   <data name="plus_math_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\plus_math_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo Test" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Logo Test.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="minus_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\minus_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AssetManagement_63182410" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\AssetManagement_63182410.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ok_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\ok_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="password_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\password_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Capture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Capture.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="squared_menu_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\squared_menu_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -171,9 +162,6 @@
   </data>
   <data name="edit_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\edit_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AssetManagement_63182410___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\AssetManagement_63182410 - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="key_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\key_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -264,5 +252,14 @@
   </data>
   <data name="csv_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\csv_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AssetManagement_63182410___Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\AssetManagement_63182410 - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lanka_stocks_remove_squares___1__Oib_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lanka_stocks_remove_squares___1__Oib_icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo Test" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Logo Test.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

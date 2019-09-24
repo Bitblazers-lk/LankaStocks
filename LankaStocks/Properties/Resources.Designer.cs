@@ -103,16 +103,6 @@ namespace LankaStocks.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap AssetManagement_63182410 {
-            get {
-                object obj = ResourceManager.GetObject("AssetManagement_63182410", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         public static System.Drawing.Bitmap AssetManagement_63182410___Copy {
             get {
                 object obj = ResourceManager.GetObject("AssetManagement_63182410___Copy", resourceCulture);
@@ -146,16 +136,6 @@ namespace LankaStocks.Properties {
         public static System.Drawing.Bitmap cancel_2_24px {
             get {
                 object obj = ResourceManager.GetObject("cancel_2_24px", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        public static System.Drawing.Bitmap Capture {
-            get {
-                object obj = ResourceManager.GetObject("Capture", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -258,6 +238,16 @@ namespace LankaStocks.Properties {
                 object obj = ResourceManager.GetObject("kisspng_inventory_management_software_stock_management_sal_warehouse_5ac5d409391c" +
                         "68_7620306315229143132339", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon lanka_stocks_remove_squares___1__Oib_icon {
+            get {
+                object obj = ResourceManager.GetObject("lanka_stocks_remove_squares___1__Oib_icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

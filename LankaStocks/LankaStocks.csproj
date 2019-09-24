@@ -46,6 +46,9 @@
   <PropertyGroup>
     <StartupObject>LankaStocks.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\lanka_stocks_remove_squares___1__Oib_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CircularProgressBar, Version=2.7.0.7, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>..\packages\CircularProgressBar.2.7.0.7\lib\net40\CircularProgressBar.dll</HintPath>
@@ -538,6 +541,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\flag-1024x430.jpg" />
+    <None Include="Resources\lanka_stocks_remove_squares___1__Oib_icon.ico" />
     <Content Include="Ways.txt" />
   </ItemGroup>
   <ItemGroup>

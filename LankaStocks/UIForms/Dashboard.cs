@@ -132,9 +132,10 @@ namespace LankaStocks.UIForms
 
             if (RemoteDBs.Settings.commonSettings.Get.Interface == MenuInterfaceType.Classic)
             {
-                menuClassic.labelTotal.Font = new Font(menuClassic.labelTotal.Font.Name.ToString(), menuClassic.labelTotal.Font.Size + 5);
+                menuClassic.labelTotal.Font = new Font(menuClassic.labelTotal.Font.Name.ToString(), menuClassic.labelTotal.Font.Size + 8);
                 menuClassic.labelInNO.Font = new Font(menuClassic.labelInNO.Font.Name.ToString(), menuClassic.labelInNO.Font.Size + 2);
                 menuClassic.xuiClock1.Font = new Font(menuClassic.xuiClock1.Font.Name.ToString(), menuClassic.xuiClock1.Font.Size + 10);
+                menuClassic.btnIssue.Font= new Font(menuClassic.btnIssue.Font.Name.ToString(), menuClassic.btnIssue.Font.Size + 8);
             }
             else
             {
@@ -144,6 +145,7 @@ namespace LankaStocks.UIForms
                 }
                 menuModern.uiBasicSale1.labelTotal.Font = new Font(menuModern.uiBasicSale1.labelTotal.Font.Name.ToString(), menuModern.uiBasicSale1.labelTotal.Font.Size + 5);
                 menuModern.uiBasicSale1.labelInNO.Font = new Font(menuModern.uiBasicSale1.labelInNO.Font.Name.ToString(), menuModern.uiBasicSale1.labelInNO.Font.Size + 2);
+                menuModern.uiBasicSale1.btnIssue.Font = new Font(menuModern.uiBasicSale1.btnIssue.Font.Name.ToString(), menuModern.uiBasicSale1.btnIssue.Font.Size + 5);
             }
         }
     }
