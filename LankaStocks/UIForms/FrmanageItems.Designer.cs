@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnStockIntake = new System.Windows.Forms.Button();
@@ -51,6 +52,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnRef = new System.Windows.Forms.Button();
             this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -104,6 +106,7 @@
             this.btnStockIntake.Size = new System.Drawing.Size(196, 40);
             this.btnStockIntake.TabIndex = 18;
             this.btnStockIntake.Text = "Stock Intake";
+            this.toolTip1.SetToolTip(this.btnStockIntake, "New Stock Intake");
             this.btnStockIntake.UseVisualStyleBackColor = true;
             this.btnStockIntake.Click += new System.EventHandler(this.btnStockIntake_Click);
             // 
@@ -120,6 +123,7 @@
             this.btnAdd.Size = new System.Drawing.Size(196, 40);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add New";
+            this.toolTip1.SetToolTip(this.btnAdd, "Add New Items");
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -136,6 +140,7 @@
             this.button1.Size = new System.Drawing.Size(196, 40);
             this.button1.TabIndex = 11;
             this.button1.Text = "Manage";
+            this.toolTip1.SetToolTip(this.button1, "Analyze, Manage Items");
             this.button1.UseVisualStyleBackColor = true;
             // 
             // btnhide
@@ -426,5 +431,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Button BtnRef;
         private UserControls.UIExcel uiExcel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

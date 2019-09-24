@@ -33,6 +33,7 @@ namespace LankaStocks.UserControls
             {
                 CopyImage(open.FileName);
             }
+            open.Dispose();
         }
         void CopyImage(string Path)
         {
@@ -43,26 +44,26 @@ namespace LankaStocks.UserControls
                 PB.Image.Dispose();
             }
             catch { }
-            if (File.Exists(@"Src\Images\" + _Code + ".png"))
-            {
-                File.Delete(@"Src\Images\" + _Code + ".png");
-            }
-            else if (!Directory.Exists(@"Src\Images\"))
+            if (!Directory.Exists(@"Src\Images\"))
             {
                 Directory.CreateDirectory(@"Src\Images\");
             }
+            if (File.Exists(@"Src\Images\" + _Code + ".png"))
+            {
+                PB.Image.Dispose();
+                File.Delete(@"Src\Images\" + _Code + ".png");
+            }
             bitmap.Save(@"Src\Images\" + _Code + ".png");
-            //Pages.Menu.DB.data.Item[_Code].ImPath = @"Src\Images\" + _Code + ".png";
             im.Dispose();
             bitmap.Dispose();
             PB.Image = Image.FromFile(@"Src\Images\" + _Code + ".png");
-            //Pages.Menu.DB.Save();
+            GC.Collect();
         }
-        void LoadImage(string Name)
+        void LoadImage(uint code)
         {
             try
             {
-                PB.Image = Image.FromFile(Name);
+                PB.Image = Image.FromFile(@"Src\Images\" + code + ".png");
             }
             catch { }
         }
@@ -77,12 +78,13 @@ namespace LankaStocks.UserControls
         public void Setdata(uint code)
         {           
             var data = RemoteDBs.Live.Items.Get[code];
-            //this.Name = code.ToString();
             l1.Text = data.name;
             l2.Text = data.itemID.ToString();
             lp.Text = $"Rs.{ data.outPrice.ToString("00.00")}";
             if (data.Quantity <= RemoteDBs.Settings.commonSettings.Get.WarnWhen) this.BackColor = Color.FromArgb(200, 0, 0, 100);
             _Code = code;
+            LoadImage(_Code);
+            GC.Collect();
         }
 
         private void Btnaddtoc_Click(object sender, EventArgs e)
