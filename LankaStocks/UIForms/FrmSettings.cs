@@ -190,7 +190,9 @@ namespace LankaStocks.UIForms
             commonSettings.WarnWhen = TxtWarnQty.Value;
 
             commonSettings.Font = appfont;
+
             var billSetting = RemoteDBs.Settings.billSetting.Get;
+
             billSetting.H1 = H1.Text;
             billSetting.H2 = H2.Text;
             billSetting.H3 = H3.Text;
@@ -213,6 +215,8 @@ namespace LankaStocks.UIForms
             if (CbInterface.SelectedIndex == 0) commonSettings.Interface = MenuInterfaceType.Classic;
             else if (CbInterface.SelectedIndex == 1) commonSettings.Interface = MenuInterfaceType.Modern;
 
+            if (commonSettings.OpenAtStat) AddStartup(System.Reflection.Assembly.GetExecutingAssembly().GetName().Name.ToString() + ".exe", Application.ExecutablePath.ToString());
+            else RemoveStartup(System.Reflection.Assembly.GetExecutingAssembly().GetName().Name.ToString() + ".exe");
 
             RemoteDBs.Settings.commonSettings.Set(commonSettings);
             RemoteDBs.Settings.billSetting.Set(billSetting);
@@ -367,16 +371,30 @@ namespace LankaStocks.UIForms
                 HasChanges = true;
         }
 
-        private void Poskey_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (load)
-                HasChanges = true;
-        }
-
         private void Posbar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (load)
                 HasChanges = true;
+        }
+        #endregion
+
+        #region StartUp
+        void AddStartup(string appName, string path)
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                if (!key.GetValueNames().ToList().Contains(appName))
+                    key.SetValue(appName, "\"" + path + "\"");
+            }
+        }
+
+        void RemoveStartup(string appName)
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                if (key.GetValueNames().ToList().Contains(appName))
+                    key.DeleteValue(appName, false);
+            }
         }
         #endregion
     }

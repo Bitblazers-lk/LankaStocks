@@ -30,6 +30,8 @@ namespace LankaStocks.UserControls
         uint ItemCode = 0;
         string BeginChar = "i";
 
+        ContextMenu cmTime = new ContextMenu();
+
         List<string> ItemBarcodes = new List<string>();
         public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
 
@@ -185,8 +187,27 @@ namespace LankaStocks.UserControls
 
         private void UIMenuA_Load(object sender, EventArgs e)
         {
+            cmTime.MenuItems.Add("Hide Clock", new EventHandler(Time_visi_Click));
+            xuiClock1.ContextMenu = cmTime;
+            panel1.ContextMenu = cmTime;
             RefStore();
             RepeatedFunctions.CheckBarcodeReader();
+        }
+
+        private void Time_visi_Click(object sender, EventArgs e)
+        {
+            if (xuiClock1.Visible)
+            {
+                xuiClock1.Visible = false;
+                cmTime.MenuItems.Clear();
+                cmTime.MenuItems.Add("Show Clock", new EventHandler(Time_visi_Click));
+            }
+            else if (!xuiClock1.Visible)
+            {
+                xuiClock1.Visible = true;
+                cmTime.MenuItems.Clear();
+                cmTime.MenuItems.Add("Hide Clock", new EventHandler(Time_visi_Click));
+            }
         }
 
         private void BtnIssue_Click(object sender, EventArgs e)

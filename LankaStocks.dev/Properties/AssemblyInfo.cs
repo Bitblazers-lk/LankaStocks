@@ -9,7 +9,7 @@ using LankaStocks.dev;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("_")]
+[assembly: AssemblyTitle("අලෙවිසැල - Mahinda Rajapaksha College - Homahama")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]

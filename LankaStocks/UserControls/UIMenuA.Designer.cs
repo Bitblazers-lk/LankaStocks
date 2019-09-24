@@ -60,6 +60,7 @@
             this.CodeItem = new System.Windows.Forms.TextBox();
             this.TxtQty = new System.Windows.Forms.NumericUpDown();
             this.btnIssue = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.xuiClock1 = new XanderUI.XUIClock();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -82,6 +83,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtQty)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -174,6 +176,7 @@
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(261, 39);
             this.btnRemove.TabIndex = 0;
+            this.btnRemove.TabStop = false;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
@@ -189,6 +192,7 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(259, 39);
             this.btnEdit.TabIndex = 1;
+            this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
@@ -202,6 +206,7 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(259, 39);
             this.button3.TabIndex = 2;
+            this.button3.TabStop = false;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Visible = false;
@@ -216,6 +221,7 @@
             this.DGVcart.Name = "DGVcart";
             this.DGVcart.Size = new System.Drawing.Size(797, 250);
             this.DGVcart.TabIndex = 2;
+            this.DGVcart.TabStop = false;
             this.DGVcart.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVcart_CellMouseClick);
             // 
             // groupBox2
@@ -258,6 +264,7 @@
             this.BtnRef.Name = "BtnRef";
             this.BtnRef.Size = new System.Drawing.Size(797, 36);
             this.BtnRef.TabIndex = 4;
+            this.BtnRef.TabStop = false;
             this.BtnRef.Text = "Refresh";
             this.BtnRef.UseVisualStyleBackColor = true;
             this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
@@ -272,6 +279,7 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(797, 218);
             this.DGV.TabIndex = 3;
+            this.DGV.TabStop = false;
             this.DGV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_CellMouseDoubleClick);
             // 
             // groupBox3
@@ -351,6 +359,7 @@
             this.TxtCode.Name = "TxtCode";
             this.TxtCode.Size = new System.Drawing.Size(196, 20);
             this.TxtCode.TabIndex = 3;
+            this.TxtCode.TabStop = false;
             this.TxtCode.TextChanged += new System.EventHandler(this.TxtCode_TextChanged);
             // 
             // TxtBarcode
@@ -361,6 +370,7 @@
             this.TxtBarcode.Name = "TxtBarcode";
             this.TxtBarcode.Size = new System.Drawing.Size(196, 20);
             this.TxtBarcode.TabIndex = 4;
+            this.TxtBarcode.TabStop = false;
             this.TxtBarcode.TextChanged += new System.EventHandler(this.TxtBarcode_TextChanged);
             // 
             // TxtName
@@ -371,6 +381,7 @@
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(198, 20);
             this.TxtName.TabIndex = 5;
+            this.TxtName.TabStop = false;
             this.TxtName.TextChanged += new System.EventHandler(this.TxtName_TextChanged);
             // 
             // tableLayoutPanel3
@@ -381,7 +392,7 @@
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel7, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.btnIssue, 0, 2);
-            this.tableLayoutPanel3.Controls.Add(this.xuiClock1, 0, 3);
+            this.tableLayoutPanel3.Controls.Add(this.panel1, 0, 3);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -405,6 +416,7 @@
             this.btnRefund.Name = "btnRefund";
             this.btnRefund.Size = new System.Drawing.Size(355, 35);
             this.btnRefund.TabIndex = 4;
+            this.btnRefund.TabStop = false;
             this.btnRefund.Text = "Refund";
             this.btnRefund.UseVisualStyleBackColor = true;
             this.btnRefund.Click += new System.EventHandler(this.BtnRefund_Click);
@@ -503,7 +515,7 @@
             this.CodeItem.Location = new System.Drawing.Point(87, 3);
             this.CodeItem.Name = "CodeItem";
             this.CodeItem.Size = new System.Drawing.Size(265, 22);
-            this.CodeItem.TabIndex = 2;
+            this.CodeItem.TabIndex = 0;
             this.CodeItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CodeItem_KeyDown);
             // 
             // TxtQty
@@ -525,7 +537,7 @@
             0});
             this.TxtQty.Name = "TxtQty";
             this.TxtQty.Size = new System.Drawing.Size(265, 22);
-            this.TxtQty.TabIndex = 3;
+            this.TxtQty.TabIndex = 1;
             this.TxtQty.Value = new decimal(new int[] {
             1,
             0,
@@ -544,9 +556,19 @@
             this.btnIssue.Name = "btnIssue";
             this.btnIssue.Size = new System.Drawing.Size(355, 64);
             this.btnIssue.TabIndex = 3;
+            this.btnIssue.TabStop = false;
             this.btnIssue.Text = "Issue";
             this.btnIssue.UseVisualStyleBackColor = true;
             this.btnIssue.Click += new System.EventHandler(this.BtnIssue_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.xuiClock1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 257);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(355, 368);
+            this.panel1.TabIndex = 5;
             // 
             // xuiClock1
             // 
@@ -558,14 +580,15 @@
             this.xuiClock1.FilledSecondColor = System.Drawing.Color.DarkOrchid;
             this.xuiClock1.Font = new System.Drawing.Font("Impact", 15F);
             this.xuiClock1.HexagonColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
-            this.xuiClock1.Location = new System.Drawing.Point(3, 257);
+            this.xuiClock1.Location = new System.Drawing.Point(0, 0);
             this.xuiClock1.Name = "xuiClock1";
             this.xuiClock1.ShowAmPm = true;
             this.xuiClock1.ShowHexagon = true;
             this.xuiClock1.ShowMinutesCircle = true;
             this.xuiClock1.ShowSecondsCircle = true;
             this.xuiClock1.Size = new System.Drawing.Size(355, 368);
-            this.xuiClock1.TabIndex = 5;
+            this.xuiClock1.TabIndex = 6;
+            this.xuiClock1.TabStop = false;
             this.xuiClock1.Text = "xuiClock1";
             this.xuiClock1.UnfilledHourColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(70)))), ((int)(((byte)(85)))));
             this.xuiClock1.UnfilledMinuteColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(70)))));
@@ -604,6 +627,7 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TxtQty)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -642,6 +666,7 @@
         public System.Windows.Forms.NumericUpDown TxtQty;
         public System.Windows.Forms.Button btnIssue;
         public System.Windows.Forms.Button btnRefund;
+        private System.Windows.Forms.Panel panel1;
         public XanderUI.XUIClock xuiClock1;
     }
 }
