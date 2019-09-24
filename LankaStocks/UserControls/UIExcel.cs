@@ -17,23 +17,23 @@ namespace LankaStocks.UserControls
         public UIExcel()
         {
             InitializeComponent();
-            //MYdgv = _DGV;
-            //_ColNames = ColNames;
+            MYdgv = new DataGridView();
+            _ColNames = new string[4];
         }
         DataGridView MYdgv;
         string[] _ColNames;
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             RepeatedFunctions.SaveAsExcel(MYdgv, "", _ColNames);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
         }
