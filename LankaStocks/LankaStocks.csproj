@@ -357,7 +357,6 @@
     <EmbeddedResource Include="Charts\UICHNow.resx">
       <DependentUpon>UICHNow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
