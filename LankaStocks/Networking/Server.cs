@@ -160,6 +160,8 @@ namespace LankaStocks.Networking
         public Dictionary<string, PeerStatus> Peers = new Dictionary<string, PeerStatus>();
         public ScrollableArray<Request> Requests = new ScrollableArray<Request>(32);
 
+        public uint LastPeerIndex = 0;
+
         public uint CurrentPeerPoint = 0U;
         public uint MinPeerPoint = 0U;
 
@@ -172,9 +174,13 @@ namespace LankaStocks.Networking
             {
                 case "add me":
                     ExtendPeerID:
+
+                    LastPeerIndex++;
+
+                    PeerID = $"{PeerID}{LastPeerIndex}";
+
                     if (Peers.ContainsKey(PeerID))
                     {
-                        PeerID += "X";
                         goto ExtendPeerID;
                     }
 
@@ -371,11 +377,10 @@ namespace LankaStocks.Networking
             DateTime time = DateTime.Now;
             status = new PeerStatus()
             {
-                ID = $"{Core.user?.ID}-{time.Hour.ToString("00")}{time.Minute.ToString("00")}{time.Second.ToString("00")}",
+                ID = Core.user?.ID.ToString("00"),
                 LastActivity = time
             };
 
-            Log($"Using peer ID {status.ID}");
 
             Response resp = client.Peer(status.ID, 0U, "add me");
 
@@ -386,7 +391,9 @@ namespace LankaStocks.Networking
 
                 status.ID = tup.peer.ID; status.LastActivity = tup.peer.LastActivity; status.LastPoint = tup.peer.LastPoint;
 
+                Log($"Using peer ID {status.ID}");
                 Log("Downloaded Peer Database");
+
             }
             else if (resp.result == (byte)Response.Result.ok)
             {
@@ -432,6 +439,7 @@ namespace LankaStocks.Networking
         public void Peer()
         {
             Response resp = client.Peer(status.ID, status.LastPoint);
+
             if (resp.result == (byte)Response.Result.ok)
             {
                 var pack = (PeerPackage)resp.obj;
@@ -448,7 +456,7 @@ namespace LankaStocks.Networking
                 foreach (var req in pack.requests)
                 {
                     Respond(req);
-                    if (IsDebug) Log($"Peer : Processed {((Request.Command)req.command).ToString()} {req.db}.{req.expr}  - {string.Join(" ", req.para)}");
+                    if (IsDebug) Log($"Peer {status.ID} : Processed {((Request.Command)req.command).ToString()} {req.db}.{req.expr}  - {string.Join(" ", req.para)}");
                 }
 
                 status.LastPoint = pack.Point;
