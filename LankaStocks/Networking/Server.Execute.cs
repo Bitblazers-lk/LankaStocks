@@ -43,8 +43,8 @@ namespace LankaStocks
 
         public Response AddNewVendor(Vendor v)
         {
-            if (v.ID == 0) { History.IdMachine.PersonID++; v.ID = History.IdMachine.PersonID; }
-            if (v.VendorID == 0) { History.IdMachine.VendorID++; v.VendorID = History.IdMachine.VendorID; }
+            if (v.ID == 0) { Live.IdMachine.PersonID++; v.ID = Live.IdMachine.PersonID; }
+            if (v.VendorID == 0) { Live.IdMachine.VendorID++; v.VendorID = Live.IdMachine.VendorID; }
 
             if (People.Vendors.ContainsKey(v.ID))
             {
@@ -66,8 +66,8 @@ namespace LankaStocks
 
         public Response AddNewUser(User v)
         {
-            if (v.ID == 0) { History.IdMachine.PersonID++; v.ID = History.IdMachine.PersonID; }
-            if (v.UserID == 0) { History.IdMachine.UserID++; v.UserID = History.IdMachine.UserID; }
+            if (v.ID == 0) { Live.IdMachine.PersonID++; v.ID = Live.IdMachine.PersonID; }
+            if (v.UserID == 0) { Live.IdMachine.UserID++; v.UserID = Live.IdMachine.UserID; }
 
             if (People.Users.ContainsKey(v.ID))
             {
@@ -89,7 +89,7 @@ namespace LankaStocks
         {
 
 
-            if (v.ID == 0) { History.IdMachine.PersonID++; v.ID = History.IdMachine.PersonID; }
+            if (v.ID == 0) { Live.IdMachine.PersonID++; v.ID = Live.IdMachine.PersonID; }
 
             if (People.OtherPeople.ContainsKey(v.ID))
             {
@@ -167,15 +167,15 @@ namespace LankaStocks
 
             if (sale.SaleID == 0)
             {
-                History.IdMachine.SaleID++; sale.SaleID = History.IdMachine.SaleID;
+                Live.IdMachine.SaleID++; sale.SaleID = Live.IdMachine.SaleID;
                 sale.date = DateTime.Now;
             }
 
 
 
-            foreach ((BusinessItem itm, Item root) tup in Items)
+            foreach ((BusinessItem itm, Item root) in Items)
             {
-                tup.root.Quantity -= tup.itm.Quantity;
+                root.Quantity -= itm.Quantity;
             }
 
 
@@ -207,7 +207,7 @@ namespace LankaStocks
 
         public Response AddItem(Item v)
         {
-            if (v.itemID == 0) { History.IdMachine.ItemID++; v.itemID = History.IdMachine.ItemID; }
+            if (v.itemID == 0) { Live.IdMachine.ItemID++; v.itemID = Live.IdMachine.ItemID; }
 
             if (Live.Items.ContainsKey(v.itemID))
             {
@@ -246,7 +246,7 @@ namespace LankaStocks
 
         public Response StockIntake(StockIntake si)
         {
-            if (si.IntakeID == 0) { History.IdMachine.IntakeID++; si.IntakeID = History.IdMachine.IntakeID; }
+            if (si.IntakeID == 0) { Live.IdMachine.IntakeID++; si.IntakeID = Live.IdMachine.IntakeID; }
             if (Live.Session.StockIntakes.ContainsKey(si.IntakeID))
             {
                 return Response.CreateError(Response.Result.wrongInputs, "StockIntakeID already exists");

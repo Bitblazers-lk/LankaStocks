@@ -113,6 +113,8 @@
     <Compile Include="Networking\RemoteDB.cs" />
     <Compile Include="Networking\Server.cs" />
     <Compile Include="Networking\Server.Execute.cs" />
+    <Compile Include="ScrollableArray.cs" />
+    <Compile Include="ScrollableArrayOld.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Shared.cs" />
     <Compile Include="UIForms\AddItems.cs">

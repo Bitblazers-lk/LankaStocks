@@ -134,7 +134,7 @@ namespace LankaStocks
             new System.Threading.Thread(new System.Threading.ParameterizedThreadStart(LogWriteFile)) { Name = "WriteFile", IsBackground = true, Priority = System.Threading.ThreadPriority.Lowest }.Start(L);
         }
 
-        private static StringBuilder SLog = new StringBuilder();
+        private static readonly StringBuilder SLog = new StringBuilder();
         private static bool SLogAvailable = false;
         private static bool isLogFileBusy = false;
         private static void LogWriteFile(object o)
@@ -189,6 +189,7 @@ namespace LankaStocks
         {
             Begin:
 
+        
 
             string s = Prompt("\n \n Enter Command \t ").ToLower();
 
@@ -214,6 +215,20 @@ namespace LankaStocks
 
 
         #endregion
+
+
+
+        public static void Sleep(int milies)
+        {
+            System.Threading.Thread.Sleep(milies);
+        }
+        public static void WaitFor(ref bool boolean, int checkIntervel = 50)
+        {
+            while (boolean)
+            {
+                System.Threading.Thread.Sleep(checkIntervel);
+            }
+        }
 
 
         public static void Shutdown()

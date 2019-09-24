@@ -496,6 +496,8 @@ namespace LankaStocks.DataBases
 
         public DBSession Session;
 
+        public IDMachine IdMachine;
+
 
         public override void CreateNewDatabase()
         {
@@ -506,6 +508,10 @@ namespace LankaStocks.DataBases
                 { 10, new Item { itemID = 10, inPrice = 100, outPrice = 125, name = "Box", Quantity = 100, vendors=new List<uint>(){0} } },
                 { 11, new Item { itemID = 11, inPrice = 90, outPrice = 100, name = "Box1", Quantity = 100,  vendors=new List<uint>(){0} } }
             };
+
+
+            IdMachine = new IDMachine();
+
 
             Session = new DBSession();
             Session.CreateNewDatabase();
@@ -522,6 +528,8 @@ namespace LankaStocks.DataBases
                     return (Cashiers, MemberType.dic);
                 case "Session":
                     return (Session, MemberType.obj);
+                case "IdMachine":
+                    return (IdMachine, MemberType.obj);
                 default:
                     return (null, MemberType.notFound);
             }
@@ -545,12 +553,10 @@ namespace LankaStocks.DataBases
     public class DBHistory : DB
     {
         public List<string> Sessions;
-        public IDMachine IdMachine;
 
         public override void CreateNewDatabase()
         {
             Sessions = new List<string>();
-            IdMachine = new IDMachine();
         }
         public override (dynamic, MemberType) Resolve(string expr)
         {
@@ -559,8 +565,6 @@ namespace LankaStocks.DataBases
                 //TODO: Read history db from disk and send that. not path
                 case "Sessions":
                     return (Sessions, MemberType.list);
-                case "IdMachine":
-                    return (IdMachine, MemberType.obj);
                 default:
                     return (null, MemberType.notFound);
             }
