@@ -116,7 +116,7 @@
             this.buttonabout.Location = new System.Drawing.Point(0, 340);
             this.buttonabout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonabout.Name = "buttonabout";
-            this.buttonabout.Size = new System.Drawing.Size(165, 38);
+            this.buttonabout.Size = new System.Drawing.Size(165, 40);
             this.buttonabout.TabIndex = 2;
             this.buttonabout.Text = "About";
             this.buttonabout.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             this.buttonlogin.Location = new System.Drawing.Point(0, 151);
             this.buttonlogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonlogin.Name = "buttonlogin";
-            this.buttonlogin.Size = new System.Drawing.Size(165, 38);
+            this.buttonlogin.Size = new System.Drawing.Size(165, 40);
             this.buttonlogin.TabIndex = 1;
             this.buttonlogin.Text = "Login";
             this.buttonlogin.UseVisualStyleBackColor = true;
@@ -217,7 +217,7 @@
             this.label6.ForeColor = System.Drawing.Color.Orange;
             this.label6.Image = global::LankaStocks.Properties.Resources.password_24px;
             this.label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label6.Location = new System.Drawing.Point(247, 277);
+            this.label6.Location = new System.Drawing.Point(226, 277);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(114, 16);
             this.label6.TabIndex = 10;
@@ -230,7 +230,7 @@
             this.label5.ForeColor = System.Drawing.Color.Orange;
             this.label5.Image = global::LankaStocks.Properties.Resources.user_24px;
             this.label5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label5.Location = new System.Drawing.Point(247, 248);
+            this.label5.Location = new System.Drawing.Point(226, 248);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 16);
             this.label5.TabIndex = 9;

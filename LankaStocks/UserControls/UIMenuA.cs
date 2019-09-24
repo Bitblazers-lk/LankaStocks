@@ -30,6 +30,8 @@ namespace LankaStocks.UserControls
         uint ItemCode = 0;
         string BeginChar = "i";
 
+        ContextMenu cmTime = new ContextMenu();
+
         List<string> ItemBarcodes = new List<string>();
         public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
 
@@ -45,7 +47,7 @@ namespace LankaStocks.UserControls
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-            throw new Exception(e.ExceptionObject.ToString());
+             throw new Exception(e.ExceptionObject.ToString());
         }
 
         #region Search In Store
@@ -103,10 +105,10 @@ namespace LankaStocks.UserControls
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            if (DGVcart.CurrentCell != null && uint.TryParse(DGVcart.Rows?[DGVcart.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
+            if (DGVcart.CurrentCell != null && uint.TryParse(DGVcart.Rows?[DGVcart.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a) && uint.TryParse(DGVcart.Rows?[DGVcart.CurrentCell.RowIndex]?.Cells?[3].Value?.ToString(), out uint co))
             {
-                Forms.frmEditQty = new UIForms.FrmEditQty { Code = a };
-                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}\t Code : {a.ToString()}";
+                Forms.frmEditQty = new UIForms.FrmEditQty(co) { Code = a };
+                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}      Code : {a.ToString()}";
                 Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
                 Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
                 Forms.frmEditQty.ShowDialog();
@@ -185,11 +187,27 @@ namespace LankaStocks.UserControls
 
         private void UIMenuA_Load(object sender, EventArgs e)
         {
-            labelTotal.Font = new Font(labelTotal.Font.Name.ToString(), labelTotal.Font.Size + 5);
-            labelInNO.Font = new Font(labelInNO.Font.Name.ToString(), labelInNO.Font.Size + 2);
+            cmTime.MenuItems.Add("Hide Clock", new EventHandler(Time_visi_Click));
+            xuiClock1.ContextMenu = cmTime;
+            panel1.ContextMenu = cmTime;
             RefStore();
             RepeatedFunctions.CheckBarcodeReader();
-            //xuiClock1.HexagonColor = this.BackColor;
+        }
+
+        private void Time_visi_Click(object sender, EventArgs e)
+        {
+            if (xuiClock1.Visible)
+            {
+                xuiClock1.Visible = false;
+                cmTime.MenuItems.Clear();
+                cmTime.MenuItems.Add("Show Clock", new EventHandler(Time_visi_Click));
+            }
+            else if (!xuiClock1.Visible)
+            {
+                xuiClock1.Visible = true;
+                cmTime.MenuItems.Clear();
+                cmTime.MenuItems.Add("Hide Clock", new EventHandler(Time_visi_Click));
+            }
         }
 
         private void BtnIssue_Click(object sender, EventArgs e)
@@ -205,6 +223,6 @@ namespace LankaStocks.UserControls
         public string Barcode { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public decimal Qty { get; set; }
+        public float Qty { get; set; }
     }
 }

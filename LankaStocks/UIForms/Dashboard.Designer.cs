@@ -45,7 +45,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.xuiWifiPercentageAPI1 = new XanderUI.XUIWifiPercentageAPI();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pblogo)).BeginInit();
             this.SuspendLayout();
@@ -54,10 +53,10 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(11)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 751);
+            this.panel1.Location = new System.Drawing.Point(0, 747);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1442, 5);
+            this.panel1.Size = new System.Drawing.Size(1463, 5);
             this.panel1.TabIndex = 12;
             // 
             // panel2
@@ -78,7 +77,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(220, 751);
+            this.panel2.Size = new System.Drawing.Size(220, 747);
             this.panel2.TabIndex = 13;
             // 
             // btnSettings
@@ -90,10 +89,10 @@
             this.btnSettings.ForeColor = System.Drawing.Color.Orange;
             this.btnSettings.Image = global::LankaStocks.Properties.Resources.settings3_24px;
             this.btnSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSettings.Location = new System.Drawing.Point(0, 635);
+            this.btnSettings.Location = new System.Drawing.Point(0, 667);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(4);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(220, 58);
+            this.btnSettings.Size = new System.Drawing.Size(220, 40);
             this.btnSettings.TabIndex = 18;
             this.btnSettings.Text = "Settings";
             this.toolTip1.SetToolTip(this.btnSettings, "Settings");
@@ -107,10 +106,10 @@
             this.button5.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.Orange;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 628);
+            this.button5.Location = new System.Drawing.Point(0, 535);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(220, 58);
+            this.button5.Size = new System.Drawing.Size(220, 40);
             this.button5.TabIndex = 17;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
@@ -123,10 +122,10 @@
             this.btnTransaction.ForeColor = System.Drawing.Color.Orange;
             this.btnTransaction.Image = global::LankaStocks.Properties.Resources.bank_24px;
             this.btnTransaction.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTransaction.Location = new System.Drawing.Point(0, 560);
+            this.btnTransaction.Location = new System.Drawing.Point(0, 487);
             this.btnTransaction.Margin = new System.Windows.Forms.Padding(4);
             this.btnTransaction.Name = "btnTransaction";
-            this.btnTransaction.Size = new System.Drawing.Size(220, 58);
+            this.btnTransaction.Size = new System.Drawing.Size(220, 40);
             this.btnTransaction.TabIndex = 16;
             this.btnTransaction.Text = "Transactions";
             this.toolTip1.SetToolTip(this.btnTransaction, "Transaction Detail\'s");
@@ -141,10 +140,10 @@
             this.btnSales.ForeColor = System.Drawing.Color.Orange;
             this.btnSales.Image = global::LankaStocks.Properties.Resources.total_sales_1_24px;
             this.btnSales.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSales.Location = new System.Drawing.Point(0, 494);
+            this.btnSales.Location = new System.Drawing.Point(0, 439);
             this.btnSales.Margin = new System.Windows.Forms.Padding(4);
             this.btnSales.Name = "btnSales";
-            this.btnSales.Size = new System.Drawing.Size(220, 58);
+            this.btnSales.Size = new System.Drawing.Size(220, 40);
             this.btnSales.TabIndex = 15;
             this.btnSales.Text = "Sales";
             this.toolTip1.SetToolTip(this.btnSales, "View Sales History & Summary");
@@ -160,10 +159,10 @@
             this.btnabout.ForeColor = System.Drawing.Color.Orange;
             this.btnabout.Image = global::LankaStocks.Properties.Resources.about_us_24px;
             this.btnabout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnabout.Location = new System.Drawing.Point(0, 693);
+            this.btnabout.Location = new System.Drawing.Point(0, 707);
             this.btnabout.Margin = new System.Windows.Forms.Padding(4);
             this.btnabout.Name = "btnabout";
-            this.btnabout.Size = new System.Drawing.Size(220, 58);
+            this.btnabout.Size = new System.Drawing.Size(220, 40);
             this.btnabout.TabIndex = 14;
             this.btnabout.Text = "About";
             this.toolTip1.SetToolTip(this.btnabout, "About");
@@ -177,10 +176,10 @@
             this.btnManageData.ForeColor = System.Drawing.Color.Orange;
             this.btnManageData.Image = global::LankaStocks.Properties.Resources.data_configuration_24px;
             this.btnManageData.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageData.Location = new System.Drawing.Point(0, 428);
+            this.btnManageData.Location = new System.Drawing.Point(0, 391);
             this.btnManageData.Margin = new System.Windows.Forms.Padding(4);
             this.btnManageData.Name = "btnManageData";
-            this.btnManageData.Size = new System.Drawing.Size(220, 58);
+            this.btnManageData.Size = new System.Drawing.Size(220, 40);
             this.btnManageData.TabIndex = 13;
             this.btnManageData.Text = "Manage Data";
             this.toolTip1.SetToolTip(this.btnManageData, "Manage User\'s, Person\'s & Vendor\'s...");
@@ -195,10 +194,10 @@
             this.btnManageItem.ForeColor = System.Drawing.Color.Orange;
             this.btnManageItem.Image = global::LankaStocks.Properties.Resources.management_24px;
             this.btnManageItem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnManageItem.Location = new System.Drawing.Point(0, 361);
+            this.btnManageItem.Location = new System.Drawing.Point(0, 343);
             this.btnManageItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnManageItem.Name = "btnManageItem";
-            this.btnManageItem.Size = new System.Drawing.Size(220, 58);
+            this.btnManageItem.Size = new System.Drawing.Size(220, 40);
             this.btnManageItem.TabIndex = 12;
             this.btnManageItem.Text = "Manage Item\'s";
             this.toolTip1.SetToolTip(this.btnManageItem, "Add, Remove, Manage Item\'s");
@@ -216,12 +215,11 @@
             this.btnIssueItem.Location = new System.Drawing.Point(0, 295);
             this.btnIssueItem.Margin = new System.Windows.Forms.Padding(4);
             this.btnIssueItem.Name = "btnIssueItem";
-            this.btnIssueItem.Size = new System.Drawing.Size(220, 58);
+            this.btnIssueItem.Size = new System.Drawing.Size(220, 40);
             this.btnIssueItem.TabIndex = 11;
             this.btnIssueItem.Text = "Issue Item\'s";
             this.toolTip1.SetToolTip(this.btnIssueItem, "Issue Item\'s To Customer\'s...");
             this.btnIssueItem.UseVisualStyleBackColor = true;
-            this.btnIssueItem.Click += new System.EventHandler(this.BtnIssueItem_Click);
             // 
             // pblogo
             // 
@@ -259,7 +257,7 @@
             this.panel4.Location = new System.Drawing.Point(220, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1222, 751);
+            this.panel4.Size = new System.Drawing.Size(1243, 747);
             this.panel4.TabIndex = 14;
             // 
             // notifyIcon1
@@ -268,17 +266,12 @@
             this.notifyIcon1.Text = "LankaStocks";
             this.notifyIcon1.Visible = true;
             // 
-            // xuiWifiPercentageAPI1
-            // 
-            this.xuiWifiPercentageAPI1.Enabled = true;
-            this.xuiWifiPercentageAPI1.Interval = 3000;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(1442, 756);
+            this.ClientSize = new System.Drawing.Size(1463, 752);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -313,6 +306,5 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Button btnSettings;
         public System.Windows.Forms.NotifyIcon notifyIcon1;
-        private XanderUI.XUIWifiPercentageAPI xuiWifiPercentageAPI1;
     }
 }

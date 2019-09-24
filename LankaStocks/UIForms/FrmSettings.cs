@@ -169,7 +169,7 @@ namespace LankaStocks.UIForms
             }
             if (Restart)
             {
-                DialogResult result = MessageBox.Show("Restart LankaStocks To Apply Changes...\n\nClick :\n\n\tOK - To Restart Now!\n\tCancel - To Restart Later!\n*Note : (Some Changes Will Apply)", "LankaStocks > Restart?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("Restart LankaStocks To Apply Changes...\n\nClick :\n\n\tOK - To Restart Now!\n\tCancel - To Restart Later!\n*Note : (Some Changes Will Apply Without Restarting!)", "LankaStocks > Restart?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
                     Core.Shutdown();
@@ -189,8 +189,10 @@ namespace LankaStocks.UIForms
 
             commonSettings.WarnWhen = TxtWarnQty.Value;
 
-            commonSettings.Font = new Font("Comic Sans MS", (float)TxtFontSize.Value);
+            commonSettings.Font = appfont;
+
             var billSetting = RemoteDBs.Settings.billSetting.Get;
+
             billSetting.H1 = H1.Text;
             billSetting.H2 = H2.Text;
             billSetting.H3 = H3.Text;
@@ -213,6 +215,8 @@ namespace LankaStocks.UIForms
             if (CbInterface.SelectedIndex == 0) commonSettings.Interface = MenuInterfaceType.Classic;
             else if (CbInterface.SelectedIndex == 1) commonSettings.Interface = MenuInterfaceType.Modern;
 
+            if (commonSettings.OpenAtStat) AddStartup(System.Reflection.Assembly.GetExecutingAssembly().GetName().Name.ToString() + ".exe", Application.ExecutablePath.ToString());
+            else RemoveStartup(System.Reflection.Assembly.GetExecutingAssembly().GetName().Name.ToString() + ".exe");
 
             RemoteDBs.Settings.commonSettings.Set(commonSettings);
             RemoteDBs.Settings.billSetting.Set(billSetting);
@@ -259,6 +263,10 @@ namespace LankaStocks.UIForms
             var commonSettings = RemoteDBs.Settings.commonSettings.Get;
             var billSetting = RemoteDBs.Settings.billSetting.Get;
 
+            appfont = commonSettings.Font;
+            TxtFont.Text = appfont.Name.ToString();
+            TxtFontSize.Value = (decimal)appfont.Size;
+
             if (commonSettings.OpenAtStat) CBOAS.SelectedIndex = 1;
             else CBOAS.SelectedIndex = 0;
 
@@ -278,8 +286,6 @@ namespace LankaStocks.UIForms
             uiColourBack.ColourBox.BackColor = commonSettings.BackColor;
             uiColourFont.ColourBox.BackColor = commonSettings.FontColor;
             uiColourItem.ColourBox.BackColor = commonSettings.ItemColor;
-            TxtFont.Text = commonSettings.Font.Name;
-            TxtFontSize.Value = (decimal)commonSettings.Font.Size;
             TxtWarnQty.Value = (decimal)commonSettings.WarnWhen;
 
             H1.Text = billSetting.H1;
@@ -313,6 +319,7 @@ namespace LankaStocks.UIForms
         {
             if (load)
             {
+                appfont = new Font(appfont.Name, (float)TxtFontSize.Value);
                 Restart = true;
                 HasChanges = true;
             }
@@ -323,10 +330,21 @@ namespace LankaStocks.UIForms
             if (load)
                 HasChanges = true;
         }
-
+        Font appfont;
         private void BtnFontBrowse_Click(object sender, EventArgs e)
         {
-            fontDialog1.ShowDialog();
+            DialogResult result = fontDialog1.ShowDialog();
+            // See if OK was pressed.
+            if (result == DialogResult.OK)
+            {
+                // Get Font.
+                appfont = fontDialog1.Font;
+                // Set TextBox properties.
+                this.TxtFont.Text = appfont.Name;
+                this.TxtFontSize.Value = (decimal)appfont.Size;
+                HasChanges = true;
+                Restart = true;
+            }
         }
 
         private void H1_TextChanged(object sender, EventArgs e)
@@ -353,16 +371,30 @@ namespace LankaStocks.UIForms
                 HasChanges = true;
         }
 
-        private void Poskey_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (load)
-                HasChanges = true;
-        }
-
         private void Posbar_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (load)
                 HasChanges = true;
+        }
+        #endregion
+
+        #region StartUp
+        void AddStartup(string appName, string path)
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                if (!key.GetValueNames().ToList().Contains(appName))
+                    key.SetValue(appName, "\"" + path + "\"");
+            }
+        }
+
+        void RemoveStartup(string appName)
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true))
+            {
+                if (key.GetValueNames().ToList().Contains(appName))
+                    key.DeleteValue(appName, false);
+            }
         }
         #endregion
     }
@@ -381,8 +413,11 @@ namespace LankaStocks.UIForms
         public string DeviceName;
         public override void CreateNewDatabase()
         {
-            Data = new LocalData();
-
+            Data = new LocalData
+            {
+                POSBarcodeID = "",
+                POSBarcodeName = ""
+            };
         }
 
         public override (dynamic, MemberType) Resolve(string expr)

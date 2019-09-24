@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LankaStocks.dev
 {
-    class Program
+    public class Program
     {
         [STAThread]
         static void Main(string[] args)

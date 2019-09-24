@@ -82,11 +82,14 @@ namespace LankaStocks.Shared
         #region Cart
         public static void AddToCart(uint code, float qty, Dictionary<uint, float> _Cart)
         {
-            if (_Cart.ContainsKey(code))
+            if (client.ps.Live.Items.ContainsKey(code))
             {
-                _Cart[code] += qty;
+                if (_Cart.ContainsKey(code))
+                {
+                    _Cart[code] += qty;
+                }
+                else _Cart.Add(code, qty);
             }
-            else _Cart.Add(code, qty);
             //RefCart(Cart);
         }
         public static void EditCart(uint code, float Newqty, Dictionary<uint, float> _Cart)
@@ -129,7 +132,7 @@ namespace LankaStocks.Shared
         #region DGV
         public static void MarkWarning(int QtyCindex, DataGridView _DGV)
         {
-            decimal min = RemoteDBs.Settings.commonSettings.Get.WarnWhen;
+            decimal min = client.ps.Settings.commonSettings.WarnWhen;
 
             for (int a = 0; a < _DGV.RowCount; a++)
             {
@@ -151,7 +154,7 @@ namespace LankaStocks.Shared
             List<DGV_Data> Data = new List<DGV_Data>();
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
-                Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -161,7 +164,7 @@ namespace LankaStocks.Shared
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 if (s.Key.ToString().Contains(Code.ToString()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -171,7 +174,7 @@ namespace LankaStocks.Shared
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 if (s.Value.Barcode != null && s.Value.Barcode.ToLower().Contains(Barcode.ToLower()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -181,7 +184,7 @@ namespace LankaStocks.Shared
             foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 if (s.Value.name.ToLower().Contains(Name.ToLower()))
-                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = s.Value.Quantity, });
+                    Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
             return Data;
         }
@@ -208,26 +211,29 @@ namespace LankaStocks.Shared
             }
             else
             {
-                if (_TxtCode.Text.Substring(0, 1) == _BeginChar)
+                if (!string.IsNullOrWhiteSpace(_TxtCode.Text))
                 {
-                    if (uint.TryParse(_TxtCode.Text.Substring(1), out _ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(_ItemCode)) _TxtQty.Focus();
-                    else
+                    if (_TxtCode.Text.Substring(0, 1) == _BeginChar)
                     {
-                        MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        _TxtCode.Clear();
-                    }
-                }
-                else
-                {
-                    if (_ItemBarcodes.Contains(_TxtCode.Text))
-                    {
-                        _ItemCode = GetUCode(_TxtCode.Text);
-                        _TxtQty.Focus();
+                        if (uint.TryParse(_TxtCode.Text.Substring(1), out _ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(_ItemCode)) _TxtQty.Focus();
+                        else
+                        {
+                            MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            _TxtCode.Clear();
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        _TxtCode.Clear();
+                        if (_ItemBarcodes.Contains(_TxtCode.Text))
+                        {
+                            _ItemCode = GetUCode(_TxtCode.Text);
+                            _TxtQty.Focus();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Item Barcode Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            _TxtCode.Clear();
+                        }
                     }
                 }
             }
@@ -280,7 +286,7 @@ namespace LankaStocks.Shared
         {
             List<BusinessItem> items = new List<BusinessItem>();
             decimal tot = 0;
-            if (_Cart.Count != 0 && _Cart.Count > 0)
+            if (_Cart.Count > 0)
             {
                 foreach (var s in _Cart)
                 {
@@ -290,13 +296,17 @@ namespace LankaStocks.Shared
                 client.Sale(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.UserID, special = false });
                 _Cart.Clear();
             }
+            else
+            {
+                MessageBox.Show("Cart Is Empty!\nPlease Add Items To Issue!", "LanakaStocks > Empty Cart!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public static void RefundItem(uint SaleID,Dictionary<uint, float> _LstItems, bool Ispecial = false)
+        public static void RefundItem(uint SaleID, Dictionary<uint, float> _LstItems, bool Ispecial = false)
         {
             List<BusinessItem> items = new List<BusinessItem>();
             decimal tot = 0;
-            if (_LstItems.Count != 0 && _LstItems.Count > 0)
+            if (_LstItems.Count > 0)
             {
                 foreach (var s in _LstItems)
                 {
@@ -305,6 +315,10 @@ namespace LankaStocks.Shared
                 }
                 client.RefundItem(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = SaleID, UserID = user.UserID, special = false });
                 _LstItems.Clear();
+            }
+            else
+            {
+                MessageBox.Show("List Is Empty!\nPlease Add Items To Refund!", "LanakaStocks > Empty List!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

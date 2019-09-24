@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace LankaStocks
+namespace LankaStocks.GDI
 {
     class Bills
     {
@@ -61,7 +61,7 @@ namespace LankaStocks
             b = new Bitmap(pb.Image);
             g = Graphics.FromImage(b);
 
-            g.DrawImage(Properties.Resources.ba, 0, 0, 500, (int)h);
+            g.DrawImage(GDI.Properties.Resources.ba, 0, 0, 500, (int)h);
 
             Y = 50;
 
@@ -127,7 +127,7 @@ namespace LankaStocks
                 g.DrawString(amount.ToString("0.00"), Font, BlackBrush, 500 - ((500 - g.MeasureString(RowL, Font).Width) / 2) - g.MeasureString(amount.ToString("0.00"), Font).Width - 5, Y);
                 Y += g.MeasureString(RowL, Font).Height;
             }
-            Console.WriteLine(Y);
+           // Console.WriteLine(Y);
             g.DrawString(RowL, Font, BlackBrush, (500 - g.MeasureString(RowL, Font).Width) / 2, Y);
             Y += g.MeasureString(RowL, Font).Height + 5;
 
@@ -166,7 +166,7 @@ namespace LankaStocks
             Y += 7;
             g.DrawString("Software By Harindu Wijesinghe & Hasindu Lanka.", fonts, BlackBrush, (500 - g.MeasureString("Software By Harindu Wijesinghe & Hasindu Lanka.", fonts).Width) / 2, Y);
 
-            Console.WriteLine(Y);
+            //Console.WriteLine(Y);
             pb.Image = b;
             return b;
         }

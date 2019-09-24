@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using LankaStocks.UserControls;
 using LankaStocks.Setting;
 using static LankaStocks.Core;
+using System.Drawing;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
@@ -88,11 +89,6 @@ namespace LankaStocks.UIForms
             Core.Shutdown();
         }
 
-        private void BtnIssueItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void BtnManageItem_Click(object sender, EventArgs e)
         {
             Forms.frmanageItems = new UIForms.FrmanageItems();
@@ -133,18 +129,24 @@ namespace LankaStocks.UIForms
         private void Dashboard_Load(object sender, EventArgs e)
         {
             ToolBarWidth = panel2.Width;
-            //Settings.FocusFrm(this);
-            //Settings.Virtual_Mouse_Move(100, 0);
-            //for (int i = 0; i < 100; i++)
-            //{
-            //    Settings.Virtual_Mouse_Move(i*5, 100);
-            //    Thread.Sleep(10);
-            //}
-        }
 
-        void IssueItems(Dictionary<uint, float> Cart)
-        {
-
+            if (RemoteDBs.Settings.commonSettings.Get.Interface == MenuInterfaceType.Classic)
+            {
+                menuClassic.labelTotal.Font = new Font(menuClassic.labelTotal.Font.Name.ToString(), menuClassic.labelTotal.Font.Size + 8);
+                menuClassic.labelInNO.Font = new Font(menuClassic.labelInNO.Font.Name.ToString(), menuClassic.labelInNO.Font.Size + 2);
+                menuClassic.xuiClock1.Font = new Font(menuClassic.xuiClock1.Font.Name.ToString(), menuClassic.xuiClock1.Font.Size + 10);
+                menuClassic.btnIssue.Font= new Font(menuClassic.btnIssue.Font.Name.ToString(), menuClassic.btnIssue.Font.Size + 8);
+            }
+            else
+            {
+                foreach (Control s in menuModern.flPanel.Controls)
+                {
+                    s.Size = new Size(196, 296);
+                }
+                menuModern.uiBasicSale1.labelTotal.Font = new Font(menuModern.uiBasicSale1.labelTotal.Font.Name.ToString(), menuModern.uiBasicSale1.labelTotal.Font.Size + 5);
+                menuModern.uiBasicSale1.labelInNO.Font = new Font(menuModern.uiBasicSale1.labelInNO.Font.Name.ToString(), menuModern.uiBasicSale1.labelInNO.Font.Size + 2);
+                menuModern.uiBasicSale1.btnIssue.Font = new Font(menuModern.uiBasicSale1.btnIssue.Font.Name.ToString(), menuModern.uiBasicSale1.btnIssue.Font.Size + 5);
+            }
         }
     }
 }

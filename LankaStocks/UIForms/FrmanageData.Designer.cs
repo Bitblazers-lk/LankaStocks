@@ -73,12 +73,13 @@
             this.button3.ForeColor = System.Drawing.Color.Orange;
             this.button3.Image = global::LankaStocks.Properties.Resources.user_male_circle_24px;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(0, 214);
+            this.button3.Location = new System.Drawing.Point(0, 182);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(196, 57);
+            this.button3.Size = new System.Drawing.Size(196, 40);
             this.button3.TabIndex = 16;
             this.button3.Text = "User\'s";
+            this.toolTip1.SetToolTip(this.button3, "Analyze, Manage Users");
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -88,12 +89,13 @@
             this.button1.ForeColor = System.Drawing.Color.Orange;
             this.button1.Image = global::LankaStocks.Properties.Resources.anonymous_mask_24px;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 150);
+            this.button1.Location = new System.Drawing.Point(0, 134);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 57);
+            this.button1.Size = new System.Drawing.Size(196, 40);
             this.button1.TabIndex = 15;
             this.button1.Text = "Vendor\'s";
+            this.toolTip1.SetToolTip(this.button1, "Analyze, Manage Vendors");
             this.button1.UseVisualStyleBackColor = true;
             // 
             // button4
@@ -106,9 +108,10 @@
             this.button4.Location = new System.Drawing.Point(0, 86);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(196, 57);
+            this.button4.Size = new System.Drawing.Size(196, 40);
             this.button4.TabIndex = 14;
             this.button4.Text = "Person\'s";
+            this.toolTip1.SetToolTip(this.button4, "Analyze, Manage Persons");
             this.button4.UseVisualStyleBackColor = true;
             // 
             // btnAdd
@@ -118,12 +121,13 @@
             this.btnAdd.ForeColor = System.Drawing.Color.Orange;
             this.btnAdd.Image = global::LankaStocks.Properties.Resources.plus_math_24px;
             this.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAdd.Location = new System.Drawing.Point(0, 279);
+            this.btnAdd.Location = new System.Drawing.Point(0, 230);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(196, 57);
+            this.btnAdd.Size = new System.Drawing.Size(196, 40);
             this.btnAdd.TabIndex = 12;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Add New";
+            this.toolTip1.SetToolTip(this.btnAdd, "Add New Person or Vendor Or User");
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 

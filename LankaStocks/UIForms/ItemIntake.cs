@@ -25,7 +25,8 @@ namespace LankaStocks.UIForms
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            Hide();
+            var res = MessageBox.Show("Do You Realy Want To Cancel?", "LankaStocks > Calcel?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if (res == DialogResult.OK) this.Dispose();
         }
 
         private void Refresh_Click(object sender, EventArgs e)

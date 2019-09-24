@@ -59,10 +59,10 @@ namespace LankaStocks.UIForms
 
         private void Edit_Click(object sender, EventArgs e)
         {
-            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
+            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint Uc)&& uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[3].Value?.ToString(), out uint co))
             {
-                Forms.frmEditQty = new UIForms.FrmEditQty { Code = a };
-                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}\t Code : {a.ToString()}";
+                Forms.frmEditQty = new UIForms.FrmEditQty(co) { Code = Uc };
+                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[Uc].name}\t Code : {Uc.ToString()}";
                 Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
                 Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
                 Forms.frmEditQty.ShowDialog();
@@ -142,7 +142,11 @@ namespace LankaStocks.UIForms
 
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel3.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+
+            labelTotal.Font = new Font(labelTotal.Font.Name.ToString(), labelTotal.Font.Size + 5);
+            labelInNO.Font = new Font(labelInNO.Font.Name.ToString(), labelInNO.Font.Size + 2);
             RepeatedFunctions.CheckBarcodeReader();
         }
+
     }
 }

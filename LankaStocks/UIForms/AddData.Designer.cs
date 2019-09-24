@@ -70,10 +70,10 @@
             this.btnUser.ForeColor = System.Drawing.Color.Orange;
             this.btnUser.Image = global::LankaStocks.Properties.Resources.user_male_circle_24px;
             this.btnUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUser.Location = new System.Drawing.Point(0, 212);
+            this.btnUser.Location = new System.Drawing.Point(0, 180);
             this.btnUser.Margin = new System.Windows.Forms.Padding(4);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(196, 57);
+            this.btnUser.Size = new System.Drawing.Size(196, 40);
             this.btnUser.TabIndex = 13;
             this.btnUser.Text = "User";
             this.btnUser.UseVisualStyleBackColor = true;
@@ -86,10 +86,10 @@
             this.btnVendor.ForeColor = System.Drawing.Color.Orange;
             this.btnVendor.Image = global::LankaStocks.Properties.Resources.anonymous_mask_24px;
             this.btnVendor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVendor.Location = new System.Drawing.Point(0, 148);
+            this.btnVendor.Location = new System.Drawing.Point(0, 132);
             this.btnVendor.Margin = new System.Windows.Forms.Padding(4);
             this.btnVendor.Name = "btnVendor";
-            this.btnVendor.Size = new System.Drawing.Size(196, 57);
+            this.btnVendor.Size = new System.Drawing.Size(196, 40);
             this.btnVendor.TabIndex = 12;
             this.btnVendor.Text = "Vendor";
             this.btnVendor.UseVisualStyleBackColor = true;
@@ -105,7 +105,7 @@
             this.btnPerson.Location = new System.Drawing.Point(0, 84);
             this.btnPerson.Margin = new System.Windows.Forms.Padding(4);
             this.btnPerson.Name = "btnPerson";
-            this.btnPerson.Size = new System.Drawing.Size(196, 57);
+            this.btnPerson.Size = new System.Drawing.Size(196, 40);
             this.btnPerson.TabIndex = 11;
             this.btnPerson.Text = "Person";
             this.btnPerson.UseVisualStyleBackColor = true;

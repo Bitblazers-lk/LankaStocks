@@ -1,19 +1,15 @@
-﻿using System.Configuration;
-using System.Diagnostics;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using LankaStocks.dev;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-
-[assembly: AssemblyTitle("අලෙවිසැල - Mahinda Rajapaksha College - Homahama")]
+[assembly: AssemblyTitle("LankaStocks.GDI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("LankaStocks.dev")]
+[assembly: AssemblyProduct("LankaStocks.GDI")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -24,7 +20,7 @@ using LankaStocks.dev;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ce7e9d72-d7d8-45d2-aa0c-c5a0691bbd4f")]
+[assembly: Guid("f175d285-a28d-45bc-b16d-4255aacc2e8d")]
 
 // Version information for an assembly consists of the following four values:
 //

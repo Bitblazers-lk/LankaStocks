@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.uiBasicSale1 = new LankaStocks.UserControls.UIBasicSale();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -48,13 +49,12 @@
             this.TxtBarcode = new System.Windows.Forms.TextBox();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.TxtPageON = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CBItemCount = new System.Windows.Forms.ComboBox();
-            this.uiBasicSale1 = new LankaStocks.UserControls.UIBasicSale();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -81,6 +81,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1250, 130);
             this.panel1.TabIndex = 0;
+            // 
+            // uiBasicSale1
+            // 
+            this.uiBasicSale1.BackColor = System.Drawing.Color.Transparent;
+            this.uiBasicSale1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiBasicSale1.Location = new System.Drawing.Point(0, 0);
+            this.uiBasicSale1.Name = "uiBasicSale1";
+            this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
+            this.uiBasicSale1.TabIndex = 0;
             // 
             // splitContainer1
             // 
@@ -146,6 +155,7 @@
             // btnRemove
             // 
             this.btnRemove.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnRemove.Enabled = false;
             this.btnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRemove.Image = global::LankaStocks.Properties.Resources.delete_sign_24px;
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -160,6 +170,7 @@
             // btnEdit
             // 
             this.btnEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnEdit.Enabled = false;
             this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEdit.Image = global::LankaStocks.Properties.Resources.edit_24px;
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -182,6 +193,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
             // 
             // DGV
             // 
@@ -193,6 +205,7 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(404, 610);
             this.DGV.TabIndex = 2;
+            this.DGV.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_CellMouseClick);
             // 
             // tableLayoutPanel1
             // 
@@ -323,7 +336,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.flowLayoutPanel1);
+            this.groupBox3.Controls.Add(this.flPanel);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.ForeColor = System.Drawing.Color.Orange;
             this.groupBox3.Location = new System.Drawing.Point(3, 53);
@@ -333,14 +346,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Store";
             // 
-            // flowLayoutPanel1
+            // flPanel
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 16);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(812, 589);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.flPanel.AutoScroll = true;
+            this.flPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flPanel.Location = new System.Drawing.Point(3, 16);
+            this.flPanel.Name = "flPanel";
+            this.flPanel.Size = new System.Drawing.Size(812, 589);
+            this.flPanel.TabIndex = 0;
             // 
             // tableLayoutPanel4
             // 
@@ -426,15 +439,6 @@
             this.CBItemCount.TabIndex = 3;
             this.CBItemCount.SelectedIndexChanged += new System.EventHandler(this.CBItemCount_SelectedIndexChanged);
             // 
-            // uiBasicSale1
-            // 
-            this.uiBasicSale1.BackColor = System.Drawing.Color.Transparent;
-            this.uiBasicSale1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiBasicSale1.Location = new System.Drawing.Point(0, 0);
-            this.uiBasicSale1.Name = "uiBasicSale1";
-            this.uiBasicSale1.Size = new System.Drawing.Size(1250, 130);
-            this.uiBasicSale1.TabIndex = 0;
-            // 
             // UIMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,13 +482,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.NumericUpDown TxtPageON;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CBItemCount;
-        private UserControls.UIBasicSale uiBasicSale1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -497,5 +499,7 @@
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView DGV;
+        public System.Windows.Forms.FlowLayoutPanel flPanel;
+        public UIBasicSale uiBasicSale1;
     }
 }

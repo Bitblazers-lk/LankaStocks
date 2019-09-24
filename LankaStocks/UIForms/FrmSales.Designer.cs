@@ -73,10 +73,10 @@
             this.btnChart.ForeColor = System.Drawing.Color.Orange;
             this.btnChart.Image = global::LankaStocks.Properties.Resources.combo_chart_24px;
             this.btnChart.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnChart.Location = new System.Drawing.Point(4, 277);
+            this.btnChart.Location = new System.Drawing.Point(4, 228);
             this.btnChart.Margin = new System.Windows.Forms.Padding(4);
             this.btnChart.Name = "btnChart";
-            this.btnChart.Size = new System.Drawing.Size(196, 57);
+            this.btnChart.Size = new System.Drawing.Size(196, 40);
             this.btnChart.TabIndex = 14;
             this.btnChart.Text = "Charts";
             this.btnChart.UseVisualStyleBackColor = true;
@@ -88,10 +88,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.ForeColor = System.Drawing.Color.Orange;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(4, 212);
+            this.button3.Location = new System.Drawing.Point(4, 180);
             this.button3.Margin = new System.Windows.Forms.Padding(4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(196, 57);
+            this.button3.Size = new System.Drawing.Size(196, 40);
             this.button3.TabIndex = 13;
             this.button3.Text = "User";
             this.button3.UseVisualStyleBackColor = true;
@@ -102,10 +102,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.Color.Orange;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(4, 148);
+            this.button2.Location = new System.Drawing.Point(4, 132);
             this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(196, 57);
+            this.button2.Size = new System.Drawing.Size(196, 40);
             this.button2.TabIndex = 12;
             this.button2.Text = "Vendor";
             this.button2.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             this.button1.Location = new System.Drawing.Point(4, 84);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 57);
+            this.button1.Size = new System.Drawing.Size(196, 40);
             this.button1.TabIndex = 11;
             this.button1.Text = "Person";
             this.button1.UseVisualStyleBackColor = true;

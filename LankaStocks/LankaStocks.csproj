@@ -46,6 +46,9 @@
   <PropertyGroup>
     <StartupObject>LankaStocks.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\lanka_stocks_remove_squares___1__Oib_icon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CircularProgressBar, Version=2.7.0.7, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>..\packages\CircularProgressBar.2.7.0.7\lib\net40\CircularProgressBar.dll</HintPath>
@@ -64,6 +67,18 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="Spire.License, Version=1.3.7.46, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDFViewer.4.5.1\lib\net46\Spire.License.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.Pdf, Version=5.5.2.2046, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDFViewer.4.5.1\lib\net46\Spire.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Asp, Version=4.5.1.3046, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDFViewer.4.5.1\lib\net46\Spire.PdfViewer.Asp.dll</HintPath>
+    </Reference>
+    <Reference Include="Spire.PdfViewer.Forms, Version=4.5.1.3046, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spire.PDFViewer.4.5.1\lib\net46\Spire.PdfViewer.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
@@ -79,6 +94,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.UI, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="TelerikCommon, Version=2019.2.618.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
     <Reference Include="WindowsBase" />
     <Reference Include="WindowsFormsIntegration" />
     <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
@@ -87,7 +105,6 @@
     <Reference Include="XanderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bills.cs" />
     <Compile Include="Charts\CHSalesRealTime.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +125,7 @@
     </Compile>
     <Compile Include="core.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Langauge\Langauges.cs" />
     <Compile Include="Networking\Client.cs" />
     <Compile Include="Networking\DB.cs" />
     <Compile Include="Networking\RemoteDB.cs" />
@@ -251,6 +269,12 @@
     <Compile Include="UserControls\UIColour.Designer.cs">
       <DependentUpon>UIColour.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UIExcel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UIExcel.Designer.cs">
+      <DependentUpon>UIExcel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UIManageData.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -268,6 +292,12 @@
     </Compile>
     <Compile Include="UserControls\UIMenuA.Designer.cs">
       <DependentUpon>UIMenuA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UIPdfView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UIPdfView.Designer.cs">
+      <DependentUpon>UIPdfView.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UIPerson.cs">
       <SubType>UserControl</SubType>
@@ -405,6 +435,9 @@
     <EmbeddedResource Include="UserControls\UIColour.resx">
       <DependentUpon>UIColour.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UIExcel.resx">
+      <DependentUpon>UIExcel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIManageData.resx">
       <DependentUpon>UIManageData.cs</DependentUpon>
     </EmbeddedResource>
@@ -413,6 +446,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIMenuA.resx">
       <DependentUpon>UIMenuA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UIPdfView.resx">
+      <DependentUpon>UIPdfView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIPerson.resx">
       <DependentUpon>UIPerson.cs</DependentUpon>
@@ -470,6 +506,7 @@
     <Content Include="Images\cancel_2_24px.png" />
     <None Include="Images\Capture.PNG" />
     <Content Include="Images\combo_chart_24px.png" />
+    <None Include="Images\csv_24px.png" />
     <Content Include="Images\data_configuration_24px.png" />
     <Content Include="Images\delete_sign_24px.png" />
     <Content Include="Images\edit_24px.png" />
@@ -506,9 +543,14 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\flag-1024x430.jpg" />
+    <None Include="Resources\lanka_stocks_remove_squares___1__Oib_icon.ico" />
     <Content Include="Ways.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LankaStocks.GDI\LankaStocks.GDI.csproj">
+      <Project>{f175d285-a28d-45bc-b16d-4255aacc2e8d}</Project>
+      <Name>LankaStocks.GDI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RawInput\LankaStocks.RawInput.csproj">
       <Project>{4143d085-38cf-4640-bb05-2fdffaf94d76}</Project>
       <Name>LankaStocks.RawInput</Name>
