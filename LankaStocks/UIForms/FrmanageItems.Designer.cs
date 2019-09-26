@@ -51,8 +51,8 @@
             this.TxtName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnRef = new System.Windows.Forms.Button();
-            this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();

@@ -20,11 +20,6 @@ namespace LankaStocks.UIForms
             {
                 ItemBarcodes.Add(s.Value.Barcode);
             }
-            #region ContextMenu
-            cm.Items.Add("Edit", new Bitmap(10, 10), new EventHandler(Edit_Click));
-            cm.Items.Add("Remove", new Bitmap(10, 10), new EventHandler(Remove_Click));
-            DGV.ContextMenuStrip = cm;
-            #endregion
 
             #region KeyInput Handle
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
@@ -142,6 +137,13 @@ namespace LankaStocks.UIForms
 
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel3.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+
+            #region ContextMenu
+            cm.Items.Add("Edit", Properties.Resources.edit_24px, new EventHandler(Edit_Click));
+            cm.Items.Add("Remove", Properties.Resources.delete_sign_24px, new EventHandler(Remove_Click));
+            cm.BackColor = Color.LightGray;
+            DGV.ContextMenuStrip = cm;
+            #endregion
 
             labelTotal.Font = new Font(labelTotal.Font.Name.ToString(), labelTotal.Font.Size + 5);
             labelInNO.Font = new Font(labelInNO.Font.Name.ToString(), labelInNO.Font.Size + 2);

@@ -17,11 +17,6 @@ namespace LankaStocks.UIForms
         public FrmanageItems()
         {
             InitializeComponent();
-            cmDgv.MenuItems.Add("Refresh", new EventHandler(BtnRef_Click));
-            cmDgv.MenuItems.Add("Edit Item Details", new EventHandler(Edit_Details_Click));
-            cmDgv.MenuItems.Add("Remove Item", new EventHandler(Remove_Details_Click));
-            cmDgv.MenuItems.Add("See Item History", new EventHandler(Item_His_Click));
-            DGV.ContextMenu = cmDgv;
         }
 
         private void Edit_Details_Click(object sender, EventArgs e)
@@ -40,7 +35,7 @@ namespace LankaStocks.UIForms
         }
 
         int ToolBarWidth;
-        ContextMenu cmDgv = new ContextMenu();
+        ContextMenuStrip cmDgv = new ContextMenuStrip();
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -77,6 +72,14 @@ namespace LankaStocks.UIForms
             RefDGV("");
             uiExcel1.Set(DGV, new string[] { "Code", "Barcode", "Name", "Buying Price", "Selling Price", "Qty", "Vendor", "Alternative ID" });
             uiExcel1.SetFileName($"Item List {DateTime.Now.Date.ToString("yy-MM-dd")}");
+
+            cmDgv.Items.Add("Refresh", Properties.Resources.recurring_appointment_24px, new EventHandler(BtnRef_Click));
+            cmDgv.Items.Add("Edit Item Details", Properties.Resources.edit_24px, new EventHandler(Edit_Details_Click));
+            cmDgv.Items.Add("Remove Item", Properties.Resources.delete_sign_24px, new EventHandler(Remove_Details_Click));
+            cmDgv.Items.Add("See Item History", Properties.Resources.menu_24px, new EventHandler(Item_His_Click));
+            cmDgv.BackColor = Color.LightGray;
+            //cmDgv.ForeColor = Color.Red;
+            DGV.ContextMenuStrip = cmDgv;
         }
 
         void RefDGV(uint code)
