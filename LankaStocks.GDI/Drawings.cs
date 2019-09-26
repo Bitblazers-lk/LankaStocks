@@ -205,7 +205,7 @@ namespace LankaStocks.GDI
 
         private static PictureBox pb = new PictureBox();
 
-        private static float Y = 100;
+        private static readonly float Y = 100;
         public static int Margin = 50;
         public static float Loc = 50;
 

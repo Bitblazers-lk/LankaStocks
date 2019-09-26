@@ -51,6 +51,8 @@ namespace LankaStocks.UIForms
         private void FrmRefund_Load(object sender, EventArgs e)
         {
             Settings.LoadCtrlSettings(this);
+            labelTotal.Font = new Font(labelTotal.Font.Name.ToString(), labelTotal.Font.Size + 5);
+            labelInNO.Font = new Font(labelInNO.Font.Name.ToString(), labelInNO.Font.Size + 3);
         }
     }
 }

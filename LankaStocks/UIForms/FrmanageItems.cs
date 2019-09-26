@@ -17,14 +17,37 @@ namespace LankaStocks.UIForms
         public FrmanageItems()
         {
             InitializeComponent();
+            cmDgv.MenuItems.Add("Refresh", new EventHandler(BtnRef_Click));
+            cmDgv.MenuItems.Add("Edit Item Details", new EventHandler(Edit_Details_Click));
+            cmDgv.MenuItems.Add("Remove Item", new EventHandler(Remove_Details_Click));
+            cmDgv.MenuItems.Add("See Item History", new EventHandler(Item_His_Click));
+            DGV.ContextMenu = cmDgv;
         }
+
+        private void Edit_Details_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Remove_Details_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Item_His_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        int ToolBarWidth;
+        ContextMenu cmDgv = new ContextMenu();
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Forms.addItems = new UIForms.AddItems();
             Forms.addItems.ShowDialog();
         }
-        int ToolBarWidth;
+
         private void btnhide_Click(object sender, EventArgs e)
         {
             if (panel2.Width == ToolBarWidth)

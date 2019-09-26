@@ -60,19 +60,19 @@ namespace LankaStocks
             //Testing....
 
             //Set DateTime object
-            RemoteDBs.Session.sessionBegin.Set(new DateTime(2000, 6, 8));
+            RemoteDBs.Session.sessionBegin.Set(DateTime.Now);
 
             //Get it back
             Log(RemoteDBs.Session.sessionBegin.Get.ToString());
 
             //Set whole variable. (OK for any data type)
-            RemoteDBs.Session.Sales.Set(new Dictionary<uint, BasicSale>() { { 1U, new BasicSale() { SaleID = 1U } }, { 2U, new BasicSale() { SaleID = 2U } }, { 3U, new BasicSale() { SaleID = 3U } } });
+            //RemoteDBs.Session.Sales.Set(new Dictionary<uint, BasicSale>() { { 1U, new BasicSale() { SaleID = 1U } }, { 2U, new BasicSale() { SaleID = 2U } }, { 3U, new BasicSale() { SaleID = 3U } } });
 
             Log("\n Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
-            Log("\n Add to Dic \n");
-            RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, special = true });
+            //Log("\n Add to Dic \n");
+            //RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, special = true });
 
             Log("\n Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
@@ -83,8 +83,8 @@ namespace LankaStocks
             Log("\n Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
-            Log("\n Set Dic item \n");
-            RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, special = false, date = DateTime.Now });
+            //Log("\n Set Dic item \n");
+            //RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, special = false, date = DateTime.Now });
 
             Log("\n Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));

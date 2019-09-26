@@ -93,7 +93,7 @@
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(386, 37);
             this.labelTotal.TabIndex = 0;
-            this.labelTotal.Text = "Total : ";
+            this.labelTotal.Text = "Total : Rs.0.00";
             this.labelTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelInNO

@@ -58,8 +58,8 @@ namespace LankaStocks.UserControls
 
         private void CartItem_Selected(UItem.CartItemSelectedEventArgs args)
         {
-            RepeatedFunctions.AddToCart(args.Item, 1, Cart);
-            RepeatedFunctions.RefCart(Cart, DGV);
+            RepeatedFunctions.AddToCart(ref args.Item, 1, Cart);
+            uiBasicSale1.labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
         }
 
         private void OnKeyPressed(object sender, RawInputEventArg e)
@@ -74,7 +74,7 @@ namespace LankaStocks.UserControls
 
         private readonly RawInput _KeyInput;
 
-        string Device;
+        string Device = "";
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
         List<uint> DrawCodes = new List<uint> { 10, 11 }; // Uint Item Codes To Draw In  FlowLayoutPanel
@@ -96,7 +96,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtCode_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV);
+                RepeatedFunctions.TxtCode_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV, uiBasicSale1.labelTotal);
             }
         }
 
@@ -104,14 +104,14 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtQty_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ref ItemCode, Device, DGV);
+                RepeatedFunctions.TxtQty_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ref ItemCode, Device, DGV, uiBasicSale1.labelTotal);
             }
         }
 
         private void BtnIssue_Click(object sender, EventArgs e)
         {
             RepeatedFunctions.IssueItem(Cart);
-            RepeatedFunctions.RefCart(Cart, DGV);
+            uiBasicSale1.labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
         }
 
         #region Draw Item's Usercontrols In FlowLayoutPanel
@@ -224,7 +224,7 @@ namespace LankaStocks.UserControls
             if (e.KeyCode == Keys.Enter)
             {
                 RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
-                RepeatedFunctions.RefCart(Cart, DGV);
+                uiBasicSale1.labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
                 Forms.frmEditQty.Close();
             }
         }
@@ -232,7 +232,7 @@ namespace LankaStocks.UserControls
         private void EditQtyOK_Click(object sender, EventArgs e)
         {
             RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
-            RepeatedFunctions.RefCart(Cart, DGV);
+            uiBasicSale1.labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
             Forms.frmEditQty.Close();
         }
 
@@ -255,7 +255,7 @@ namespace LankaStocks.UserControls
             if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
             {
                 RepeatedFunctions.RemoveCart(a, Cart);
-                RepeatedFunctions.RefCart(Cart, DGV);
+                uiBasicSale1.labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
             }
             btnEdit.Enabled = false;
             btnRemove.Enabled = false;

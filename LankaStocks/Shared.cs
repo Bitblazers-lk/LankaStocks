@@ -80,7 +80,7 @@ namespace LankaStocks.Shared
         }
 
         #region Cart
-        public static void AddToCart(uint code, float qty, Dictionary<uint, float> _Cart)
+        public static void AddToCart(ref uint code, float qty, Dictionary<uint, float> _Cart)
         {
             if (client.ps.Live.Items.ContainsKey(code))
             {
@@ -90,6 +90,7 @@ namespace LankaStocks.Shared
                 }
                 else _Cart.Add(code, qty);
             }
+            code = 0;
             //RefCart(Cart);
         }
         public static void EditCart(uint code, float Newqty, Dictionary<uint, float> _Cart)
@@ -108,15 +109,19 @@ namespace LankaStocks.Shared
             }
             // RefCart(Cart);
         }
-        public static void RefCart(Dictionary<uint, float> _Cart, DataGridView _DGVcart)
+        public static decimal RefCart(Dictionary<uint, float> _Cart, DataGridView _DGVcart)
         {
             List<DGVcart_Data> Data = new List<DGVcart_Data>();
+            var d = RemoteDBs.Live.Items.Get;
+            decimal tot = 0;
             foreach (var s in _Cart)
             {
-                var i = RemoteDBs.Live.Items.Get[s.Key];
+                var i = d[s.Key];
+                tot += i.outPrice * (decimal)s.Value;
                 Data.Add(new DGVcart_Data { Code = s.Key, Name = i.name, Price = i.outPrice, Qty = s.Value, Total = i.outPrice * (decimal)s.Value });
             }
             _DGVcart.DataSource = Data;
+            return tot;
         }
         public static uint GetUCode(string Barcode)
         {
@@ -190,15 +195,15 @@ namespace LankaStocks.Shared
         }
         #endregion
 
-        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode, string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart)
+        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode, string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart, Label _LabTotal)
         {
             if (_Device.ToLower().Contains(_Pos_Barcode.ToLower()))
             {
                 if (_ItemBarcodes.Contains(_TxtCode.Text))
                 {
                     _ItemCode = GetUCode(_TxtCode.Text);
-                    AddToCart(_ItemCode, 1, _Cart);
-                    RefCart(_Cart, _DGVcart);
+                    AddToCart(ref _ItemCode, 1, _Cart);
+                    _LabTotal.Text = $"Total : Rs.{ RefCart(_Cart, _DGVcart).ToString("0.00")}";
                     _TxtCode.Clear();
                     _TxtQty.Value = 1;
                     _TxtCode.Focus();
@@ -237,17 +242,18 @@ namespace LankaStocks.Shared
                     }
                 }
             }
-            _Device = null;
+            _Device = "";
         }
 
-        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, ref uint _ItemCode, string _Device, DataGridView _DGVcart)
+        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, ref uint _ItemCode, string _Device, DataGridView _DGVcart, Label _LabTotal)
         {
-            AddToCart(_ItemCode, (float)_TxtQty.Value, _Cart);
-            RefCart(_Cart, _DGVcart);
+            AddToCart(ref _ItemCode, (float)_TxtQty.Value, _Cart);
+            _LabTotal.Text = $"Total : Rs.{ RefCart(_Cart, _DGVcart).ToString("0.00")}";
+            _ItemCode = 0;
             _TxtCode.Clear();
             _TxtQty.Value = 1;
             _TxtCode.Focus();
-            _Device = null;
+            _Device = "";
         }
 
         public static void SaveAsExcel(DataGridView DGV, string FName, string[] Headers)

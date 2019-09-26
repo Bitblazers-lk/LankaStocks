@@ -47,7 +47,7 @@ namespace LankaStocks.UserControls
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
-             throw new Exception(e.ExceptionObject.ToString());
+            throw new Exception(e.ExceptionObject.ToString());
         }
 
         #region Search In Store
@@ -122,7 +122,7 @@ namespace LankaStocks.UserControls
             if (e.KeyCode == Keys.Enter)
             {
                 RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
-                RepeatedFunctions.RefCart(Cart, DGVcart);
+                labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGVcart).ToString("0.00")}";
                 Forms.frmEditQty.Close();
             }
         }
@@ -130,7 +130,7 @@ namespace LankaStocks.UserControls
         private void EditQtyOK_Click(object sender, EventArgs e)
         {
             RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
-            RepeatedFunctions.RefCart(Cart, DGVcart);
+            labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGVcart).ToString("0.00")}";
             Forms.frmEditQty.Close();
         }
 
@@ -139,7 +139,7 @@ namespace LankaStocks.UserControls
             if (DGVcart.CurrentCell != null && uint.TryParse(DGVcart.Rows?[DGVcart.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
             {
                 RepeatedFunctions.RemoveCart(a, Cart);
-                RepeatedFunctions.RefCart(Cart, DGVcart);
+                labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGVcart).ToString("0.00")}";
             }
             btnEdit.Enabled = false;
             btnRemove.Enabled = false;
@@ -151,8 +151,8 @@ namespace LankaStocks.UserControls
             {
                 if (uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out ItemCode))
                 {
-                    RepeatedFunctions.AddToCart(ItemCode, (float)TxtQty.Value, Cart);
-                    RepeatedFunctions.RefCart(Cart, DGVcart);
+                    RepeatedFunctions.AddToCart(ref ItemCode, (float)TxtQty.Value, Cart);
+                    labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGVcart).ToString("0.00")}";
                 }
             }
         }
@@ -163,14 +163,14 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtCode_Handle(CodeItem, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGVcart);
+                RepeatedFunctions.TxtCode_Handle(CodeItem, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGVcart, labelTotal);
             }
         }
         private void TxtQty_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtQty_Handle(CodeItem, TxtQty, Cart, ref ItemCode, Device, DGVcart);
+                RepeatedFunctions.TxtQty_Handle(CodeItem, TxtQty, Cart, ref ItemCode, Device, DGVcart, labelTotal);
             }
         }
 
@@ -213,7 +213,7 @@ namespace LankaStocks.UserControls
         private void BtnIssue_Click(object sender, EventArgs e)
         {
             RepeatedFunctions.IssueItem(Cart);
-            RepeatedFunctions.RefCart(Cart, DGVcart);
+            labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGVcart).ToString("0.00")}";
         }
     }
 

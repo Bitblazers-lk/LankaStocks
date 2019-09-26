@@ -74,7 +74,7 @@ namespace LankaStocks.UIForms
             if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a))
             {
                 RepeatedFunctions.RemoveCart(a, Cart);
-                RepeatedFunctions.RefCart(Cart, DGV);
+                labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
             }
         }
 
@@ -83,7 +83,7 @@ namespace LankaStocks.UIForms
             if (e.KeyCode == Keys.Enter)
             {
                 RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
-                RepeatedFunctions.RefCart(Cart, DGV);
+                labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
                 Forms.frmEditQty.Close();
             }
         }
@@ -91,7 +91,7 @@ namespace LankaStocks.UIForms
         private void EditQtyOK_Click(object sender, EventArgs e)
         {
             RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
-            RepeatedFunctions.RefCart(Cart, DGV);
+            labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
             Forms.frmEditQty.Close();
         }
 
@@ -117,7 +117,7 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtCode_Handle(TxtCode, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV);
+                RepeatedFunctions.TxtCode_Handle(TxtCode, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV,labelTotal);
             }
         }
 
@@ -125,14 +125,14 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtQty_Handle(TxtCode, TxtQty, Cart, ref ItemCode, Device, DGV);
+                RepeatedFunctions.TxtQty_Handle(TxtCode, TxtQty, Cart, ref ItemCode, Device, DGV,labelTotal);
             }
         }
 
         private void BtnIssue_Click(object sender, EventArgs e)
         {
             RepeatedFunctions.IssueItem(Cart);
-            RepeatedFunctions.RefCart(Cart, DGV);
+            labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
         }
 
         private void FrmQuickSale_Load(object sender, EventArgs e)

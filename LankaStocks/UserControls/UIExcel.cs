@@ -31,21 +31,15 @@ namespace LankaStocks.UserControls
             _ColNames = ColNames;
             init = true;
         }
-
-        private void button2_Click(object sender, EventArgs e)
+        public void SetFileName(string name)
         {
-            Nm = Name;
+            Nm = name;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void button3_Click_1(object sender, EventArgs e)
         {
             if (init)
-                RepeatedFunctions.SaveAsExcel(MYdgv,Nm, _ColNames);
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
+                RepeatedFunctions.SaveAsExcel(MYdgv, Nm, _ColNames);
         }
     }
 }
