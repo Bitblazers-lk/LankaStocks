@@ -17,6 +17,8 @@ namespace LankaStocks.UserControls
         public UIExcel()
         {
             InitializeComponent();
+            //MYdgv = _DGV;
+            //_ColNames = ColNames;
         }
         DataGridView MYdgv;
         string[] _ColNames;
@@ -30,7 +32,7 @@ namespace LankaStocks.UserControls
             init = true;
         }
 
-        public void SetFileName(string Name)
+        private void button2_Click(object sender, EventArgs e)
         {
             Nm = Name;
         }
@@ -41,7 +43,7 @@ namespace LankaStocks.UserControls
                 RepeatedFunctions.SaveAsExcel(MYdgv,Nm, _ColNames);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
 
         }

@@ -38,19 +38,16 @@ namespace LankaStocks.Networking
 
 
         public Response CLIRun(string s) => Excecute("CLIRun", s);
-        public Response Peer(string peerID, string expr = null) => Request((byte)Networking.Request.Command.peer, peerID, expr, null);
-
-        public Dictionary<uint, Vendor> vendors = new Dictionary<uint, Vendor>();
-        public Dictionary<uint, Item> Items = new Dictionary<uint, Item>();
-
-
-
-
-
+        public Response Peer(string peerID, uint PeerPoint, string expr = null) => Request((byte)Networking.Request.Command.peer, peerID, expr, PeerPoint);
 
 
 
     }
+
+
+
+
+
     public class IntergratedClient : BaseClient
     {
         public IntergratedServer svr;

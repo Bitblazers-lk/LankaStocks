@@ -72,34 +72,33 @@ namespace LankaStocks.UserControls
         {
             if (!Core.IsInitialized) return;
 
-            VendorID.Items.Clear();
-            Core.client.vendors = Core.RemoteDBs.People.Vendors.Get;
+            RefreshLists();
 
+        }
+
+        public void RefreshLists()
+        {
+            VendorID.Items.Clear();
             Alternative.Items.Clear();
-            Core.client.Items = Core.RemoteDBs.Live.Items.Get;
 
             vendors.Clear();
             Items.Clear();
 
 
-            foreach (var vend in Core.client.vendors.Values)
+            foreach (var vend in Core.client.ps.People.Vendors.Values)
             {
-                VendorID.Items.Add($"{vend.VendorID}. {vend.name}  - supplies {((vend.supplyingItems == null) ? "nothing" : (string.Join(",", vend.supplyingItems))) }");
+                VendorID.Items.Add($"{vend.VendorID}. {vend.name}  - supplies {((vend.supplyingItems.Count == 0) ? "nothing" : (string.Join(",", vend.supplyingItems))) }");
                 vendors.Add(vend.ID);
             }
 
 
 
-            foreach (var itm in Core.client.Items.Values)
+            foreach (var itm in Core.client.ps.Live.Items.Values)
             {
                 Alternative.Items.Add($"{itm.itemID}. {itm.name}   available {itm.Quantity} from {itm.vendors}");
                 Items.Add(itm.itemID);
             }
-
-
         }
-
-
 
         public Item GenerateItem()
         {

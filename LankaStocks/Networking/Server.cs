@@ -39,7 +39,7 @@ namespace LankaStocks.Networking
 
                     break;
                 case Request.Command.peer:
-                    resp = RespondPeerReq(req.db, req.expr);
+                    resp = RespondPeerReq(req.db, req.para[0], req.expr);
                     break;
                 case Request.Command.exec:
                     if (IsHost) BroadcastToPeers(req);
@@ -156,33 +156,53 @@ namespace LankaStocks.Networking
 
         // ________ Peer stuff _________________ //
 
-        public Queue<Request> requests = new Queue<Request>();
-        public Dictionary<string, PeerStatus> peers = new Dictionary<string, PeerStatus>();
-        public uint CurrentUpdate = 0U;
-        private uint CurrentQueueRootUpdate = 0U;
 
-        public virtual Response RespondPeerReq(string PeerID, string expr)
+        public Dictionary<string, PeerStatus> Peers = new Dictionary<string, PeerStatus>();
+        public ScrollableArray<Request> Requests = new ScrollableArray<Request>(32);
+
+        public uint LastPeerIndex = 0;
+
+        public uint CurrentPeerPoint = 0U;
+        public uint MinPeerPoint = 0U;
+
+        public virtual Response RespondPeerReq(string PeerID, uint ReqPeerPoint, string expr)
         {
+
+            PeerStatus peer;
+
             switch (expr)
             {
                 case "add me":
                     ExtendPeerID:
-                    if (peers.ContainsKey(PeerID))
+
+                    LastPeerIndex++;
+
+                    PeerID = $"{PeerID}{LastPeerIndex}";
+
+                    if (Peers.ContainsKey(PeerID))
                     {
-                        PeerID += "X";
                         goto ExtendPeerID;
+                    }
+
+                    break;
+
+                case "reload":
+                    if (Peers.TryGetValue(PeerID, out peer))
+                    {
+                        peer.LastPoint = CurrentPeerPoint;
+                        return new Response(Response.Result.ok, null, "reload", (Live, People, Settings));
                     }
                     break;
             }
 
 
 
-            if (!peers.TryGetValue(PeerID, out PeerStatus peer))
+            if (!Peers.TryGetValue(PeerID, out peer))
             {
                 //New peer
 
-                peer = new PeerStatus() { ID = PeerID, LastActivity = DateTime.Now, LastUpdate = CurrentUpdate };
-                peers.Add(PeerID, peer);
+                peer = new PeerStatus() { ID = PeerID, LastActivity = DateTime.Now, LastPoint = CurrentPeerPoint };
+                Peers.Add(PeerID, peer);
                 Log($"Added new peer {PeerID}");
                 return new Response(Response.Result.notfound, null, "new peer", (Live, People, History, Settings, peer));
             }
@@ -191,47 +211,81 @@ namespace LankaStocks.Networking
 
 
             peer.LastActivity = DateTime.Now;
+            peer.LastPoint = ReqPeerPoint;
 
-            int count = (int)(CurrentUpdate - peer.LastUpdate);
+            int count = (int)(CurrentPeerPoint - peer.LastPoint);
 
-            if (count == 0) return new Response(Response.Result.ok, null, null, new PeerPackage() { Update = CurrentUpdate });
+            if (count == 0) return new Response(Response.Result.ok, null, null, new PeerPackage() { Point = CurrentPeerPoint });
 
-            PeerPackage pack = new PeerPackage() { Update = CurrentUpdate, requests = new Request[count] };
 
-            requests.CopyTo(pack.requests, (int)(peer.LastUpdate - CurrentQueueRootUpdate));
+            PeerPackage pack = new PeerPackage() { Point = CurrentPeerPoint, requests = new Request[count] };
 
-            peer.LastUpdate = CurrentUpdate;
+            Requests.CopyTo(pack.requests, (int)(peer.LastPoint - MinPeerPoint), count);
 
-            Log($"Sent {count} requests to peer {PeerID}");
+            peer.LastPoint = CurrentPeerPoint;
+
+            Log($"Sent {count} requests to peer {PeerID} \n Peers : {Core.VisualizeObj(Peers)}");
             return new Response(Response.Result.ok, null, null, pack);
         }
 
         public void BroadcastToPeers(Request req)
         {
-            if (peers.Count == 0)
+            if (Peers.Count == 0)
                 return;
 
-            Log("Broadcast added");
-            requests.Enqueue(req);
-            CurrentUpdate++;
+            if (IsDebug) Log($"Broadcast added {((Request.Command)req.command).ToString()} {req.db}.{req.expr}  - {string.Join(" ", req.para)}");
+            Requests.AddToFront(req);
+            CurrentPeerPoint++;
         }
 
 
         public void CleanupPeers()
         {
-            var timeThreash_hold = DateTime.Now.AddMinutes(-10);
-            List<string> timoutPeers = new List<string>();
-
-            foreach (PeerStatus peer in from PeerStatus peer in peers.Values
-                                        where peer.LastActivity < timeThreash_hold
-                                        select peer)
+            lock (Peers)
             {
-                timoutPeers.Add(peer.ID);
-            }
 
-            foreach (var id in timoutPeers)
-            {
-                peers.Remove(id);
+                var timeThreash_hold = DateTime.Now.AddMinutes(-10);
+                List<string> timoutPeers = new List<string>();
+
+                foreach (PeerStatus peer in from PeerStatus peer in Peers.Values
+                                            where peer.LastActivity < timeThreash_hold
+                                            select peer)
+                {
+                    timoutPeers.Add(peer.ID);
+                }
+
+                foreach (var id in timoutPeers)
+                {
+                    Peers.Remove(id);
+                }
+
+                if (IsDebug) Log($"Cleaned {timoutPeers.Count} out of time peers");
+
+
+
+
+
+
+                uint LowestPoint = CurrentPeerPoint;
+
+                foreach (PeerStatus peer in Peers.Values)
+                {
+                    if (peer.LastPoint < LowestPoint)
+                        LowestPoint = peer.LastPoint;
+                }
+
+                if (LowestPoint == CurrentPeerPoint)
+                {
+                    return;
+                }
+
+                if (IsDebug) Log($"Cleaned {LowestPoint - MinPeerPoint} fully broadcasted requests. Currently at '{CurrentPeerPoint}' peer point. {CurrentPeerPoint - LowestPoint} points yet to send. {MinPeerPoint} MinPeerPoint");
+
+                Requests.RemoveFromEnd((int)(LowestPoint - MinPeerPoint));
+
+
+
+
             }
 
         }
@@ -323,19 +377,23 @@ namespace LankaStocks.Networking
             DateTime time = DateTime.Now;
             status = new PeerStatus()
             {
-                ID = $"{Core.user?.ID}-{time.Hour}:{time.Minute}.{time.Second}.{time.Millisecond}",
+                ID = Core.user?.ID.ToString("00"),
                 LastActivity = time
             };
 
-            Log($"Using peer ID {status.ID}");
 
-            Response resp = client.Peer(status.ID, "add me");
+            Response resp = client.Peer(status.ID, 0U, "add me");
 
             if (resp.result == (byte)Response.Result.notfound)
             {
                 (DBLive Live, DBPeople People, DBHistory History, DBSettings Settings, PeerStatus peer) tup = resp.obj;
-                Live = tup.Live; People = tup.People; History = tup.History; Settings = tup.Settings; status = tup.peer;
+                Live = tup.Live; People = tup.People; History = tup.History; Settings = tup.Settings;
+
+                status.ID = tup.peer.ID; status.LastActivity = tup.peer.LastActivity; status.LastPoint = tup.peer.LastPoint;
+
+                Log($"Using peer ID {status.ID}");
                 Log("Downloaded Peer Database");
+
             }
             else if (resp.result == (byte)Response.Result.ok)
             {
@@ -361,8 +419,18 @@ namespace LankaStocks.Networking
         private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             if (PeererBusy) return;
+
             PeererBusy = true;
-            Peer();
+
+            try
+            {
+                Peer();
+            }
+            catch (Exception ex)
+            {
+                LogErr(ex, "Peering Error on Peer database");
+            }
+
             PeererBusy = false;
         }
 
@@ -370,15 +438,29 @@ namespace LankaStocks.Networking
 
         public void Peer()
         {
-            Response resp = client.Peer(status.ID);
+            Response resp = client.Peer(status.ID, status.LastPoint);
+
             if (resp.result == (byte)Response.Result.ok)
             {
-                var reqs = (Request[])resp.obj;
-                foreach (var req in reqs)
+                var pack = (PeerPackage)resp.obj;
+
+                if (status.LastPoint == pack.Point) return;
+                if (pack.requests == null)
+                {
+                    Log("!!! Peer server recieved null request array");
+                    return;
+                }
+
+                if (IsDebug) Log($"Peered {pack.requests.Length} requests");
+
+                foreach (var req in pack.requests)
                 {
                     Respond(req);
+                    if (IsDebug) Log($"Peer {status.ID} : Processed {((Request.Command)req.command).ToString()} {req.db}.{req.expr}  - {string.Join(" ", req.para)}");
                 }
-                Log($"Peered and Processed {reqs.Length} requests");
+
+                status.LastPoint = pack.Point;
+
             }
             else if (resp.result == (byte)Response.Result.notfound)
             {
@@ -403,13 +485,13 @@ namespace LankaStocks.Networking
     public class PeerStatus
     {
         public string ID;
-        public uint LastUpdate = 0;
+        public uint LastPoint;
         public DateTime LastActivity;
     }
 
     public class PeerPackage
     {
-        public uint Update;
+        public uint Point;
         public Request[] requests;
     }
 
