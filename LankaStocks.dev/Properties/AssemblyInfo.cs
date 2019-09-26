@@ -12,7 +12,7 @@ using LankaStocks.dev;
 [assembly: AssemblyTitle("අලෙවිසැල - Mahinda Rajapaksha College - Homahama")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("CrazyCat")]
 [assembly: AssemblyProduct("LankaStocks.dev")]
 [assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]

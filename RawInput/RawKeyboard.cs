@@ -100,7 +100,7 @@ namespace LankaStocks.KeyInput
 					Marshal.FreeHGlobal(pRawInputDeviceList);
 
 					NumberOfKeyboards = numberOfDevices;
-					Debug.WriteLine("EnumerateDevices() found {0} Keyboard(s)", NumberOfKeyboards);
+					Debug.WriteLine("Found {0} Keyboard(s)", NumberOfKeyboards);
 					return;
 				}
 			}

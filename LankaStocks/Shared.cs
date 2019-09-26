@@ -258,9 +258,10 @@ namespace LankaStocks.Shared
                 {
                     InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
                     Filter = "CSV file (*.csv)|*.csv| All Files (*.*)|*.*",
-                    FileName = FName + "csv"
+                    FileName = FName
                 };
-                if (savefile.ShowDialog() == DialogResult.OK)
+                var res = savefile.ShowDialog();
+                if (res == DialogResult.OK)
                 {
                     using (StreamWriter writer = new StreamWriter(savefile.FileName, false))
                     {

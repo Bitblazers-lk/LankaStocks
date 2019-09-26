@@ -314,6 +314,7 @@
             this.TxtCode.Name = "TxtCode";
             this.TxtCode.Size = new System.Drawing.Size(313, 22);
             this.TxtCode.TabIndex = 3;
+            this.TxtCode.TextChanged += new System.EventHandler(this.TxtCode_TextChanged);
             // 
             // TxtBarcode
             // 
@@ -323,6 +324,7 @@
             this.TxtBarcode.Name = "TxtBarcode";
             this.TxtBarcode.Size = new System.Drawing.Size(313, 22);
             this.TxtBarcode.TabIndex = 4;
+            this.TxtBarcode.TextChanged += new System.EventHandler(this.TxtBarcode_TextChanged);
             // 
             // TxtName
             // 
@@ -332,6 +334,7 @@
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(316, 22);
             this.TxtName.TabIndex = 5;
+            this.TxtName.TextChanged += new System.EventHandler(this.TxtName_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -360,6 +363,7 @@
             this.BtnRef.TabIndex = 5;
             this.BtnRef.Text = "Refresh";
             this.BtnRef.UseVisualStyleBackColor = true;
+            this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
             // 
             // uiExcel1
             // 
