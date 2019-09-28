@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using static LankaStocks.Core;
@@ -27,7 +28,43 @@ namespace LankaStocks.Networking
 
         public abstract void Shutdown();
 
+        public BinaryFormatter BF = new BinaryFormatter();
 
+
+        public Stream Respond(Stream reqStrm)
+        {
+            var req = (Request)BF.Deserialize(reqStrm);
+
+            var resp = Respond(req);
+
+            MemoryStream respMS = new MemoryStream();
+            BF.Serialize(respMS, resp);
+            respMS.Seek(0, SeekOrigin.Begin);
+            return respMS;
+        }
+        public void RespondTo(Stream reqStrm, Stream respStrm)
+        {
+            var req = (Request)BF.Deserialize(reqStrm);
+
+            var resp = Respond(req);
+
+            BF.Serialize(respStrm, resp);
+        }
+
+
+        public byte[] Respond(byte[] reqBytes)
+        {
+
+            MemoryStream reqMS = new MemoryStream(reqBytes);
+            var req = (Request)BF.Deserialize(reqMS);
+
+            var resp = Respond(req);
+
+            MemoryStream respMS = new MemoryStream();
+            BF.Serialize(respMS, resp);
+            return respMS.ToArray();
+
+        }
 
         public Response Respond(Request req)
         {
@@ -42,7 +79,7 @@ namespace LankaStocks.Networking
                     resp = RespondPeerReq(req.db, req.para[0], req.expr);
                     break;
                 case Request.Command.exec:
-                    if (IsHost) BroadcastToPeers(req);
+
                     Execute(req, ref resp);
                     break;
                 case Request.Command.get:
@@ -64,11 +101,12 @@ namespace LankaStocks.Networking
 
         public void Execute(Request req, ref Response resp)
         {
+            bool peer = true;
             resp.result = (byte)Response.Result.ok;
             switch (req.expr)
             {
                 case "login":
-                    resp.obj = exe.LoginCheck(req.para[0], req.para[1]);
+                    resp.obj = exe.LoginCheck(req.para[0], req.para[1]); peer = false;
                     break;
                 case "AddNewVendor":
                     resp = exe.AddNewVendor(req.para[0]);
@@ -107,7 +145,7 @@ namespace LankaStocks.Networking
 
 
                 case "ListItems":
-                    resp.obj = exe.ListItems();
+                    resp.obj = exe.ListItems(); peer = false;
                     break;
 
 
@@ -118,6 +156,11 @@ namespace LankaStocks.Networking
                 default:
                     break;
             }
+
+            peer = peer || (resp != null && (resp.result < (byte)Response.Result.retry));
+
+            if (IsHost && peer) BroadcastToPeers(req);
+
         }
 
         public void RespondGetSetAddRem(Request req, ref Response resp)
@@ -222,9 +265,12 @@ namespace LankaStocks.Networking
 
             Requests.CopyTo(pack.requests, (int)(peer.LastPoint - MinPeerPoint), count);
 
+
+            Log($"Sent {count} requests to peer {PeerID} {{ {peer.LastPoint} to {CurrentPeerPoint} }}");
+
             peer.LastPoint = CurrentPeerPoint;
 
-            Log($"Sent {count} requests to peer {PeerID} \n Peers : {Core.VisualizeObj(Peers)}");
+
             return new Response(Response.Result.ok, null, null, pack);
         }
 
@@ -246,12 +292,14 @@ namespace LankaStocks.Networking
 
                 var timeThreash_hold = DateTime.Now.AddMinutes(-10);
                 List<string> timoutPeers = new List<string>();
+                bool hasTimoutPeers = false;
 
                 foreach (PeerStatus peer in from PeerStatus peer in Peers.Values
                                             where peer.LastActivity < timeThreash_hold
                                             select peer)
                 {
                     timoutPeers.Add(peer.ID);
+                    hasTimoutPeers = true;
                 }
 
                 foreach (var id in timoutPeers)
@@ -259,7 +307,7 @@ namespace LankaStocks.Networking
                     Peers.Remove(id);
                 }
 
-                if (IsDebug) Log($"Cleaned {timoutPeers.Count} out of time peers");
+                if (IsDebug && hasTimoutPeers) Log($"Cleaned {timoutPeers.Count} out of time peers");
 
 
 
@@ -274,14 +322,17 @@ namespace LankaStocks.Networking
                         LowestPoint = peer.LastPoint;
                 }
 
-                if (LowestPoint == CurrentPeerPoint)
+                if (LowestPoint == MinPeerPoint)
                 {
                     return;
                 }
 
-                if (IsDebug) Log($"Cleaned {LowestPoint - MinPeerPoint} fully broadcasted requests. Currently at '{CurrentPeerPoint}' peer point. {CurrentPeerPoint - LowestPoint} points yet to send. {MinPeerPoint} MinPeerPoint");
-
+                var cleaned = LowestPoint - MinPeerPoint;
                 Requests.RemoveFromEnd((int)(LowestPoint - MinPeerPoint));
+                MinPeerPoint = LowestPoint;
+
+                if (IsDebug) Log($"Cleaned {cleaned} fully broadcasted requests. Currently at '{CurrentPeerPoint}' peer point. {CurrentPeerPoint - LowestPoint} points yet to send. {MinPeerPoint} MinPeerPoint");
+
 
 
 
@@ -380,6 +431,9 @@ namespace LankaStocks.Networking
                 ID = Core.user?.ID.ToString("00"),
                 LastActivity = time
             };
+
+
+            exe = new ServerExecute { svr = this };
 
 
             Response resp = client.Peer(status.ID, 0U, "add me");
@@ -482,6 +536,7 @@ namespace LankaStocks.Networking
         }
     }
 
+    [Serializable]
     public class PeerStatus
     {
         public string ID;
@@ -489,6 +544,7 @@ namespace LankaStocks.Networking
         public DateTime LastActivity;
     }
 
+    [Serializable]
     public class PeerPackage
     {
         public uint Point;
@@ -502,6 +558,7 @@ namespace LankaStocks.Networking
 
 
     [Serializable]
+
     public class Transmit
     {
 
@@ -510,6 +567,7 @@ namespace LankaStocks.Networking
     [Serializable]
     public class Request : Transmit
     {
+
         public byte command;
         public string db;
         public string expr;
@@ -521,14 +579,16 @@ namespace LankaStocks.Networking
 
 
     [Serializable]
+
     public class Response : Transmit
     {
+
         public byte result;
         public string msg;
         public string expr;
         public dynamic obj;
 
-        public enum Result : byte { unknown, ok, failed, notfound, warning, retry, wrongInputs }
+        public enum Result : byte { unknown, ok, warning, retry, failed, notfound, wrongInputs }
 
         public Response() { }
 
