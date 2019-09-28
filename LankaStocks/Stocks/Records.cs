@@ -11,6 +11,7 @@ namespace LankaStocks
 
     }
 
+    
     [Serializable]
     public class StockIntake : IRecord
     {
@@ -22,6 +23,7 @@ namespace LankaStocks
     }
 
 
+    
     [Serializable]
     public class BasicSale : IRecord
     {
@@ -48,6 +50,7 @@ namespace LankaStocks
     }
 
     [Serializable]
+    
     public class SpecialSale : BasicSale
     {
         public string buyerNote;

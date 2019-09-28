@@ -189,9 +189,16 @@ namespace LankaStocks
         {
             Begin:
 
-        
+
 
             string s = Prompt("\n \n Enter Command \t ").ToLower();
+
+
+            if (s.StartsWith("/"))
+            {
+                CLIClientRun(s.Substring(1));
+                goto Begin;
+            }
 
 
 
@@ -211,6 +218,38 @@ namespace LankaStocks
             }
 
             goto Begin;
+        }
+
+
+        public static void CLIClientRun(string s)
+        {
+
+            string[] A = s.Split(' ');
+
+            if (A.Length == 0 || A.Length == 1)
+            {
+                Log($"LankaStocks ClCLI help \n" +
+                    $" Execetive Designer and Developer : Harindu Wijesinghe (also know as 'Balla' among 7th graders, 'Bawwa' among girls and 'otuwa' among teachers \n" +
+                    $" Backend  Developer : Hasindu Lanka (also known as CrazyCat among gamers) \n" +
+                    $"\n" +
+                    $"Client CLI commands : \n" +
+                    $"sale <itemID> <quantity> ");
+            }
+
+            switch (A[0])
+            {
+                case "sale":
+                    if (A.Length >= 3)
+                    {
+                        var sale = new BasicSale() { date = DateTime.Now, items = new List<BusinessItem>() { new BusinessItem() { itemID = uint.Parse(A[1]), Quantity = int.Parse(A[2]) } }, SaleID = 0, special = (A.Length >= 4) ? (A[3] == "s") : false };
+                        client.Sale(sale);
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
         }
 
 

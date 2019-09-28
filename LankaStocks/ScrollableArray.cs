@@ -341,7 +341,7 @@ namespace LankaStocks
         {
             lock (A)
             {
-                int cursor = root + start;
+                int cursor = Wrap(root + start);
 
                 for (int i = 0; i < count; i++)
                 {

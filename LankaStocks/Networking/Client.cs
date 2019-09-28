@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using static LankaStocks.Core;
+
 
 namespace LankaStocks.Networking
 {
 
     public abstract class BaseClient
     {
+
+
         public PeerServer ps;
 
         public abstract void Initialize();
@@ -52,6 +57,8 @@ namespace LankaStocks.Networking
     {
         public IntergratedServer svr;
 
+        public BinaryFormatter BF = new BinaryFormatter();
+
         public override void Initialize()
         {
             Log("Initializing Client");
@@ -63,7 +70,29 @@ namespace LankaStocks.Networking
             ps.Initialize();
         }
 
-        public override Response Request(Request req) => svr.Respond(req);
+        public override Response Request(Request req)
+        {
+            MemoryStream reqMS = new MemoryStream();
+            BF.Serialize(reqMS, req);
+            reqMS.Seek(0, SeekOrigin.Begin);
+
+            var respStrm = svr.Respond(reqMS);
+
+            return (Response)BF.Deserialize(respStrm);
+
+        }
+
+        public Response RequestWithBytes(Request req)
+        {
+            MemoryStream reqMS = new MemoryStream();
+            BF.Serialize(reqMS, req);
+
+            var buff = svr.Respond(reqMS.ToArray());
+
+            MemoryStream respMS = new MemoryStream(buff);
+            return (Response)BF.Deserialize(respMS);
+
+        }
 
         public override void Shutdown()
         {

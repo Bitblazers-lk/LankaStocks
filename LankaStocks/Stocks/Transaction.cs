@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 namespace LankaStocks
 {
     [Serializable]
+    
     public class Transaction
     {
         public uint ID;
