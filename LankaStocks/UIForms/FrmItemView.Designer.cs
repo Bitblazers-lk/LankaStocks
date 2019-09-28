@@ -90,6 +90,8 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(953, 292);
             this.DGV.TabIndex = 3;
+            this.DGV.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseEnter);
+            this.DGV.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseLeave);
             // 
             // groupBox3
             // 
@@ -168,6 +170,7 @@
             this.TxtS1.Name = "TxtS1";
             this.TxtS1.Size = new System.Drawing.Size(236, 20);
             this.TxtS1.TabIndex = 3;
+            this.TxtS1.TextChanged += new System.EventHandler(this.TxtS1_TextChanged);
             // 
             // TxtS2
             // 
@@ -177,6 +180,7 @@
             this.TxtS2.Name = "TxtS2";
             this.TxtS2.Size = new System.Drawing.Size(236, 20);
             this.TxtS2.TabIndex = 4;
+            this.TxtS2.TextChanged += new System.EventHandler(this.TxtS2_TextChanged);
             // 
             // TxtS3
             // 
@@ -186,6 +190,7 @@
             this.TxtS3.Name = "TxtS3";
             this.TxtS3.Size = new System.Drawing.Size(238, 20);
             this.TxtS3.TabIndex = 5;
+            this.TxtS3.TextChanged += new System.EventHandler(this.TxtS3_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -214,6 +219,7 @@
             this.BtnRef.TabIndex = 5;
             this.BtnRef.Text = "Refresh";
             this.BtnRef.UseVisualStyleBackColor = true;
+            this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
             // 
             // uiExcel1
             // 
@@ -235,6 +241,7 @@
             this.Controls.Add(this.Gbhead);
             this.Name = "FrmItemView";
             this.Text = "FrmItemView";
+            this.Load += new System.EventHandler(this.FrmItemView_Load);
             this.Gbhead.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();

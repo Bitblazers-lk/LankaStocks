@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.Setting;
 using static LankaStocks.Core;
+using LankaStocks.Shared;
 
 namespace LankaStocks.UIForms
 {
@@ -18,24 +19,7 @@ namespace LankaStocks.UIForms
         {
             InitializeComponent();
         }
-
-        private void Edit_Details_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Remove_Details_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Item_His_Click(object sender, EventArgs e)
-        {
-
-        }
-
         int ToolBarWidth;
-        ContextMenuStrip cmDgv = new ContextMenuStrip();
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -63,101 +47,13 @@ namespace LankaStocks.UIForms
 
         private void FrmanageItems_Load(object sender, EventArgs e)
         {
+            FrmItemView view = new FrmItemView(client.ps.Live.Items);
+            RepeatedFunctions.OpenForm(splitContainer1.Panel1, view, FormBorderStyle.None, DockStyle.Fill);
             Settings.LoadCtrlSettings(this);
 
             ToolBarWidth = panel2.Width;
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
-            this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
-
-            RefDGV("");
-            uiExcel1.Set(DGV, new string[] { "Code", "Barcode", "Name", "Buying Price", "Selling Price", "Qty", "Vendor", "Alternative ID" });
-            uiExcel1.SetFileName($"Item List {DateTime.Now.Date.ToString("yy-MM-dd")}");
-
-            cmDgv.Items.Add("Refresh", Properties.Resources.recurring_appointment_24px, new EventHandler(BtnRef_Click));
-            cmDgv.Items.Add("Edit Item Details", Properties.Resources.edit_24px, new EventHandler(Edit_Details_Click));
-            cmDgv.Items.Add("Remove Item", Properties.Resources.delete_sign_24px, new EventHandler(Remove_Details_Click));
-            cmDgv.Items.Add("See Item History", Properties.Resources.menu_24px, new EventHandler(Item_His_Click));
-            cmDgv.BackColor = Color.LightGray;
-            //cmDgv.ForeColor = Color.Red;
-           
-        }
-
-        void RefDGV(uint code)
-        {
-            var data = new List<DGVMI_Data>();
-            foreach (var s in client.ps.Live.Items)
-            {
-                if (s.Key.ToString().ToLower().Contains(code.ToString().ToLower()))
-                {
-                    string ven = "";
-                    if (s.Value.vendors.Count > 1) ven = $"Count : {s.Value.vendors.Count}";
-                    //else ven = client.ps.People.Vendors[s.Value.vendors[0]].name;
-                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = ven });
-                }
-            }
-            DGV.DataSource = data;
-        }
-
-        void RefDGV(string barcode)
-        {
-            var data = new List<DGVMI_Data>();
-            foreach (var s in client.ps.Live.Items)
-            {
-                if (s.Value.Barcode.ToLower().Contains(barcode.ToLower()))
-                {
-                    string ven = "";
-                    if (s.Value.vendors.Count > 1) ven = $"Count : {s.Value.vendors.Count}";
-                    //else ven = client.ps.People.Vendors[s.Value.vendors[0]].name;
-                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = ven });
-                }
-            }
-            DGV.DataSource = data;
-        }
-
-        void RefDGV_N(string name)
-        {
-            var data = new List<DGVMI_Data>();
-            foreach (var s in client.ps.Live.Items)
-            {
-                if (s.Value.name.ToLower().Contains(name.ToLower()))
-                {
-                    string ven = "";
-                    if (s.Value.vendors.Count > 1) ven = $"Count : {s.Value.vendors.Count}";
-                    //else ven = client.ps.People.Vendors[s.Value.vendors[0]].name;
-                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = ven });
-                }
-            }
-            DGV.DataSource = data;
-        }
-
-        private void TxtCode_TextChanged(object sender, EventArgs e)
-        {
-            if (uint.TryParse(TxtCode.Text, out uint a)) RefDGV(a);
-        }
-
-        private void TxtBarcode_TextChanged(object sender, EventArgs e)
-        {
-            RefDGV(TxtBarcode.Text);
-        }
-
-        private void TxtName_TextChanged(object sender, EventArgs e)
-        {
-            RefDGV_N(TxtName.Text);
-        }
-
-        private void BtnRef_Click(object sender, EventArgs e)
-        {
-            RefDGV("");
-        }
-
-        private void DGV_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            if (DGV.ContextMenuStrip != cmDgv) DGV.ContextMenuStrip = cmDgv;
-        }
-
-        private void DGV_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            if (DGV.ContextMenuStrip != null) DGV.ContextMenuStrip = null;
+            this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;          
         }
     }
 
