@@ -80,17 +80,18 @@ namespace LankaStocks.UIForms
                 if (result == DialogResult.OK)
                 {
                     Forms.addData = new AddData();
+                    FormHandle form = new FormHandle();
                     Forms.addData.FormClosing += Frm_Closing;
                     switch (Current)
                     {
                         case PersonType.Vendor:
-                            RepeatedFunctions.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
                             break;
                         case PersonType.User:
-                            RepeatedFunctions.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
                             break;
                         default:
-                            RepeatedFunctions.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
                             break;
                     }
                 }

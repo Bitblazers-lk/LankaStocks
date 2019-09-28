@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LankaStocks.Core;
+using LankaStocks.Shared;
 
 namespace LankaStocks.UIForms
 {
@@ -18,12 +19,15 @@ namespace LankaStocks.UIForms
             InitializeComponent();
         }
 
-        public FrmItemView(Dictionary<uint, Item> Data)
+        public FrmItemView(Dictionary<uint, Item> Data, Control Para)
         {
             InitializeComponent();
             Items = Data;
+            ParentCtrl = Para;
         }
 
+        FormBorderStyle style;
+        Control ParentCtrl;
         ContextMenuStrip cmDgv = new ContextMenuStrip();
 
         void RefDGV(uint code, Dictionary<uint, Item> sample)
@@ -133,11 +137,17 @@ namespace LankaStocks.UIForms
             cmDgv.Items.Add("Remove Item", Properties.Resources.delete_sign_24px, new EventHandler(Remove_Details_Click));
             cmDgv.Items.Add("See Item History", Properties.Resources.menu_24px, new EventHandler(Item_His_Click));
             cmDgv.BackColor = Color.LightGray;
+            style = this.FormBorderStyle;
         }
 
         private void Edit_Details_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (!ParentCtrl.Controls.Contains(Forms.addItems))
+            {
+                Forms.addItems = new AddItems();
+                FormHandle form1 = new FormHandle();
+                form1.OpenForm(ParentCtrl, Forms.addItems, FormBorderStyle = FormBorderStyle.Fixed3D, DockStyle.Top);
+            }
         }
 
         private void Remove_Details_Click(object sender, EventArgs e)
@@ -148,6 +158,11 @@ namespace LankaStocks.UIForms
         private void Item_His_Click(object sender, EventArgs e)
         {
             throw new NotImplementedException();
+        }
+
+        private void FrmItemView_StyleChanged(object sender, EventArgs e)
+        {
+            if (this.FormBorderStyle != style) this.FormBorderStyle = style;
         }
     }
     public abstract class ItemFilter<T>

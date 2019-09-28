@@ -328,8 +328,11 @@ namespace LankaStocks.Shared
                 MessageBox.Show("List Is Empty!\nPlease Add Items To Refund!", "LanakaStocks > Empty List!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    }
 
-        public static void OpenForm(Control ParentC, Form childForm, FormBorderStyle fStyle, DockStyle dockStyle)
+    public partial class FormHandle
+    {
+        public void OpenForm(Control ParentC, Form childForm, FormBorderStyle fStyle, DockStyle dockStyle)
         {
             childForm.TopLevel = false;
             childForm.Location = new Point(0, 0);

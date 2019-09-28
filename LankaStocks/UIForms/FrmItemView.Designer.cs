@@ -75,7 +75,7 @@
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(959, 408);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -88,7 +88,7 @@
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.Location = new System.Drawing.Point(3, 57);
             this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(953, 292);
+            this.DGV.Size = new System.Drawing.Size(953, 303);
             this.DGV.TabIndex = 3;
             this.DGV.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseEnter);
             this.DGV.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseLeave);
@@ -200,11 +200,11 @@
             this.tableLayoutPanel2.Controls.Add(this.BtnRef, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.uiExcel1, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 355);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 366);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(953, 50);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(953, 39);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // BtnRef
@@ -215,7 +215,7 @@
             this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRef.Location = new System.Drawing.Point(3, 3);
             this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(607, 44);
+            this.BtnRef.Size = new System.Drawing.Size(607, 33);
             this.BtnRef.TabIndex = 5;
             this.BtnRef.Text = "Refresh";
             this.BtnRef.UseVisualStyleBackColor = true;
@@ -229,7 +229,7 @@
             this.uiExcel1.Location = new System.Drawing.Point(617, 4);
             this.uiExcel1.Margin = new System.Windows.Forms.Padding(4);
             this.uiExcel1.Name = "uiExcel1";
-            this.uiExcel1.Size = new System.Drawing.Size(332, 42);
+            this.uiExcel1.Size = new System.Drawing.Size(332, 31);
             this.uiExcel1.TabIndex = 6;
             // 
             // FrmItemView
@@ -242,6 +242,7 @@
             this.Name = "FrmItemView";
             this.Text = "FrmItemView";
             this.Load += new System.EventHandler(this.FrmItemView_Load);
+            this.StyleChanged += new System.EventHandler(this.FrmItemView_StyleChanged);
             this.Gbhead.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGV)).EndInit();
