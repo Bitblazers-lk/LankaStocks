@@ -21,17 +21,17 @@ namespace LankaStocks.UIForms
 
         private void Edit_Details_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
 
         private void Remove_Details_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
 
         private void Item_His_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
 
         int ToolBarWidth;
@@ -79,7 +79,7 @@ namespace LankaStocks.UIForms
             cmDgv.Items.Add("See Item History", Properties.Resources.menu_24px, new EventHandler(Item_His_Click));
             cmDgv.BackColor = Color.LightGray;
             //cmDgv.ForeColor = Color.Red;
-            DGV.ContextMenuStrip = cmDgv;
+           
         }
 
         void RefDGV(uint code)
@@ -148,6 +148,16 @@ namespace LankaStocks.UIForms
         private void BtnRef_Click(object sender, EventArgs e)
         {
             RefDGV("");
+        }
+
+        private void DGV_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DGV.ContextMenuStrip != cmDgv) DGV.ContextMenuStrip = cmDgv;
+        }
+
+        private void DGV_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DGV.ContextMenuStrip != null) DGV.ContextMenuStrip = null;
         }
     }
 

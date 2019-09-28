@@ -360,6 +360,8 @@
             this.DGV.Name = "DGV";
             this.DGV.Size = new System.Drawing.Size(674, 288);
             this.DGV.TabIndex = 0;
+            this.DGV.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseEnter);
+            this.DGV.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseLeave);
             // 
             // panel3
             // 

@@ -21,24 +21,74 @@ namespace LankaStocks.UIForms
             uiSaveData.Save.Click += Save_Click;
             uiSaveData.RefreshAll.Click += Refresh_Click;
             uiSaveData.Cancel.Click += Cancel_Click;
+            TabChanged += Tab_Changed;
+        }
+        public AddData(PersonType personType)
+        {
+            InitializeComponent();
+            uiSaveData.Save.Click += Save_Click;
+            uiSaveData.RefreshAll.Click += Refresh_Click;
+            uiSaveData.Cancel.Click += Cancel_Click;
+            TabChanged += Tab_Changed;
 
-            uIPerson.Visible = true;
-            uIVendor.Visible = false;
-            uIUser.Visible = false;
-            uIVendor.Dock = DockStyle.None;
-            uIUser.Dock = DockStyle.None;
-            uIPerson.Dock = DockStyle.Top;
-            panel3.Controls.Add(uIPerson);
+            Current = personType;
         }
 
-
-        public char selUI = 'n';
+        private void Tab_Changed(PersonType args)
+        {
+            SetUI(args);
+        }
 
         UIPerson uIPerson = new UIPerson();
         UIVendor uIVendor = new UIVendor();
         UIUser uIUser = new UIUser();
 
         int ToolBarWidth;
+        public PersonType Current = PersonType.Person;
+        void SetUI(PersonType type)
+        {
+            switch (type)
+            {
+                case PersonType.Vendor:
+                    groupBox1.Text = "Vendor's";
+                    if (!groupBox1.Controls.Contains(uIVendor))
+                    {
+                        uIVendor.Dock = DockStyle.Top;
+                        groupBox1.Controls.Add(uIVendor);
+                    }
+                    uIVendor.BringToFront();
+                    uIUser.Visible = false;
+                    uIPerson.Visible = false;
+                    uIVendor.Visible = true;
+                    break;
+                case PersonType.User:
+                    groupBox1.Text = "User's";
+                    if (!groupBox1.Controls.Contains(uIUser))
+                    {
+                        uIUser.Dock = DockStyle.Top;
+                        groupBox1.Controls.Add(uIUser);
+
+                    }
+                    uIUser.BringToFront();
+                    uIVendor.Visible = false;
+                    uIPerson.Visible = false;
+                    uIUser.Visible = true;
+                    break;
+                default:
+                    groupBox1.Text = "Person's";
+                    if (!groupBox1.Controls.Contains(uIPerson))
+                    {
+                        uIPerson.Dock = DockStyle.Top;
+                        groupBox1.Controls.Add(uIPerson);
+
+                    }
+                    uIPerson.BringToFront();
+                    uIUser.Visible = false;
+                    uIVendor.Visible = false;
+                    uIPerson.Visible = true;
+                    break;
+            }
+        }
 
         private void btnhide_Click(object sender, EventArgs e)
         {
@@ -65,19 +115,19 @@ namespace LankaStocks.UIForms
 
         private void Save_Click(object sender, EventArgs e)
         {
-            switch (selUI)
+            switch (Current)
             {
-                case 'v':
+                case PersonType.Vendor:
                     var v = uIVendor.GenerateVendor();
                     client.AddNewVendor(v);
                     break;
 
-                case 'u':
+                case PersonType.User:
                     var u = uIUser.GenerateUser();
                     client.AddNewUser(u);
                     break;
 
-                case 'p':
+                case PersonType.Person:
                     var p = uIPerson.GeneratePerson();
                     client.AddNewPerson(p);
                     break;
@@ -95,74 +145,31 @@ namespace LankaStocks.UIForms
             ToolBarWidth = panel2.Width;
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
+            var handler = TabChanged;
+            handler?.Invoke(Current);
         }
 
         private void btnPerson_Click(object sender, EventArgs e)
         {
-            if (panel3.Controls.Contains(uIPerson))
-            {
-                uIPerson.Visible = true;
-
-                uIVendor.Visible = false;
-                uIUser.Visible = false;
-
-                uIVendor.Dock = DockStyle.None;
-                uIUser.Dock = DockStyle.None;
-                uIPerson.Dock = DockStyle.Top;
-            }
-            else
-            {
-                uIPerson.Dock = DockStyle.Top;
-                panel3.Controls.Add(uIPerson);
-            }
-            selUI = 'p';
+            Current = PersonType.Person;
+            var handler = TabChanged;
+            handler?.Invoke(Current);
         }
 
         private void btnVendor_Click(object sender, EventArgs e)
         {
-            if (panel3.Controls.Contains(uIVendor))
-            {
-                uIVendor.Visible = true;
-
-                uIPerson.Visible = false;
-                uIUser.Visible = false;
-
-                uIPerson.Dock = DockStyle.None;
-                uIUser.Dock = DockStyle.None;
-                uIVendor.Dock = DockStyle.Top;
-            }
-            else
-            {
-                uIVendor.Dock = DockStyle.Top;
-                panel3.Controls.Add(uIVendor);
-            }
-            selUI = 'v';
+            Current = PersonType.Vendor;
+            var handler = TabChanged;
+            handler?.Invoke(Current);
         }
 
         private void btnUser_Click(object sender, EventArgs e)
         {
-            if (panel3.Controls.Contains(uIUser))
-            {
-                uIUser.Visible = true;
-
-                uIVendor.Visible = false;
-                uIPerson.Visible = false;
-
-                uIPerson.Dock = DockStyle.None;
-                uIVendor.Dock = DockStyle.None;
-                uIUser.Dock = DockStyle.Top;
-            }
-            else
-            {
-                uIUser.Dock = DockStyle.Top;
-                panel3.Controls.Add(uIUser);
-            }
-            selUI = 'u';
+            Current = PersonType.User;
+            var handler = TabChanged;
+            handler?.Invoke(Current);
         }
-
-        private void UiSaveData_Load(object sender, EventArgs e)
-        {
-
-        }
+        public event SelectedTabChanged TabChanged;
+        public delegate void SelectedTabChanged(PersonType args);
     }
 }

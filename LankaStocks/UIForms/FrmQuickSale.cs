@@ -142,7 +142,6 @@ namespace LankaStocks.UIForms
             cm.Items.Add("Edit", Properties.Resources.edit_24px, new EventHandler(Edit_Click));
             cm.Items.Add("Remove", Properties.Resources.delete_sign_24px, new EventHandler(Remove_Click));
             cm.BackColor = Color.LightGray;
-            DGV.ContextMenuStrip = cm;
             #endregion
 
             labelTotal.Font = new Font(labelTotal.Font.Name.ToString(), labelTotal.Font.Size + 5);
@@ -150,5 +149,14 @@ namespace LankaStocks.UIForms
             RepeatedFunctions.CheckBarcodeReader();
         }
 
+        private void DGV_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DGV.ContextMenuStrip != cm) DGV.ContextMenuStrip = cm;
+        }
+
+        private void DGV_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DGV.ContextMenuStrip != null) DGV.ContextMenuStrip = null;
+        }
     }
 }

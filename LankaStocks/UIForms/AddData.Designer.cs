@@ -36,7 +36,9 @@
             this.btnhide = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.uiSaveData = new LankaStocks.UserControls.UISaveData();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -129,6 +131,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
@@ -145,7 +148,16 @@
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(543, 62);
             this.uiSaveData.TabIndex = 16;
-            this.uiSaveData.Load += new System.EventHandler(this.UiSaveData_Load);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(543, 414);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // AddData
             // 
@@ -166,6 +178,7 @@
             this.Text = "LanakaStocks > Add Data";
             this.Load += new System.EventHandler(this.AddData_Load);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -179,5 +192,6 @@
         private System.Windows.Forms.Button btnPerson;
         private UserControls.UISaveData uiSaveData;
         private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

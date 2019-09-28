@@ -51,8 +51,8 @@
             this.TxtName = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnRef = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -179,7 +179,7 @@
             // 
             this.splitContainer2.Panel1.Controls.Add(this.splitContainer1);
             this.splitContainer2.Size = new System.Drawing.Size(1300, 825);
-            this.splitContainer2.SplitterDistance = 1269;
+            this.splitContainer2.SplitterDistance = 1222;
             this.splitContainer2.TabIndex = 1;
             // 
             // splitContainer1
@@ -192,7 +192,7 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(1269, 825);
+            this.splitContainer1.Size = new System.Drawing.Size(1222, 825);
             this.splitContainer1.SplitterDistance = 473;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -203,7 +203,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.Orange;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1269, 473);
+            this.groupBox2.Size = new System.Drawing.Size(1222, 473);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Store";
@@ -223,7 +223,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1263, 452);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1216, 452);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // DGV
@@ -234,8 +234,10 @@
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.Location = new System.Drawing.Point(3, 57);
             this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(1257, 336);
+            this.DGV.Size = new System.Drawing.Size(1210, 336);
             this.DGV.TabIndex = 3;
+            this.DGV.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseEnter);
+            this.DGV.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseLeave);
             // 
             // groupBox3
             // 
@@ -244,7 +246,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.Orange;
             this.groupBox3.Location = new System.Drawing.Point(3, 3);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1257, 48);
+            this.groupBox3.Size = new System.Drawing.Size(1210, 48);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Search";
@@ -269,7 +271,7 @@
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1251, 27);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1204, 27);
             this.tableLayoutPanel5.TabIndex = 0;
             // 
             // label3
@@ -278,7 +280,7 @@
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(91, 27);
+            this.label3.Size = new System.Drawing.Size(87, 27);
             this.label3.TabIndex = 0;
             this.label3.Text = "Code :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -287,9 +289,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(419, 0);
+            this.label4.Location = new System.Drawing.Point(403, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 27);
+            this.label4.Size = new System.Drawing.Size(87, 27);
             this.label4.TabIndex = 1;
             this.label4.Text = "Barcode :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -298,9 +300,9 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(835, 0);
+            this.label5.Location = new System.Drawing.Point(803, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(91, 27);
+            this.label5.Size = new System.Drawing.Size(87, 27);
             this.label5.TabIndex = 2;
             this.label5.Text = "Name :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -310,9 +312,9 @@
             this.TxtCode.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.TxtCode.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TxtCode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtCode.Location = new System.Drawing.Point(100, 3);
+            this.TxtCode.Location = new System.Drawing.Point(96, 3);
             this.TxtCode.Name = "TxtCode";
-            this.TxtCode.Size = new System.Drawing.Size(313, 22);
+            this.TxtCode.Size = new System.Drawing.Size(301, 22);
             this.TxtCode.TabIndex = 3;
             this.TxtCode.TextChanged += new System.EventHandler(this.TxtCode_TextChanged);
             // 
@@ -320,9 +322,9 @@
             // 
             this.TxtBarcode.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.TxtBarcode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtBarcode.Location = new System.Drawing.Point(516, 3);
+            this.TxtBarcode.Location = new System.Drawing.Point(496, 3);
             this.TxtBarcode.Name = "TxtBarcode";
-            this.TxtBarcode.Size = new System.Drawing.Size(313, 22);
+            this.TxtBarcode.Size = new System.Drawing.Size(301, 22);
             this.TxtBarcode.TabIndex = 4;
             this.TxtBarcode.TextChanged += new System.EventHandler(this.TxtBarcode_TextChanged);
             // 
@@ -330,9 +332,9 @@
             // 
             this.TxtName.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.TxtName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtName.Location = new System.Drawing.Point(932, 3);
+            this.TxtName.Location = new System.Drawing.Point(896, 3);
             this.TxtName.Name = "TxtName";
-            this.TxtName.Size = new System.Drawing.Size(316, 22);
+            this.TxtName.Size = new System.Drawing.Size(305, 22);
             this.TxtName.TabIndex = 5;
             this.TxtName.TextChanged += new System.EventHandler(this.TxtName_TextChanged);
             // 
@@ -348,7 +350,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1257, 50);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1210, 50);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
             // BtnRef
@@ -359,7 +361,7 @@
             this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnRef.Location = new System.Drawing.Point(3, 3);
             this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(911, 44);
+            this.BtnRef.Size = new System.Drawing.Size(864, 44);
             this.BtnRef.TabIndex = 5;
             this.BtnRef.Text = "Refresh";
             this.BtnRef.UseVisualStyleBackColor = true;
@@ -370,7 +372,7 @@
             this.uiExcel1.BackColor = System.Drawing.Color.Transparent;
             this.uiExcel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiExcel1.ForeColor = System.Drawing.Color.Orange;
-            this.uiExcel1.Location = new System.Drawing.Point(921, 4);
+            this.uiExcel1.Location = new System.Drawing.Point(874, 4);
             this.uiExcel1.Margin = new System.Windows.Forms.Padding(4);
             this.uiExcel1.Name = "uiExcel1";
             this.uiExcel1.Size = new System.Drawing.Size(332, 42);
