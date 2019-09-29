@@ -231,7 +231,7 @@ namespace LankaStocks
             {
                 Log($"LankaStocks ClCLI help \n" +
                     $" Execetive Designer and Developer : Harindu Wijesinghe\n" +
-                    $" Backend  Developer : Hasindu Lanka (also known as Chuti | Chethani among friends & neighbours) \n" +
+                    $" Backend  Developer : Hasindu Lanka (also known as Chuti | Chethani among friends | neighbours | relatives) \n" +
                     $"\n" +
                     $"Client CLI commands : \n" +
                     $"sale <itemID> <quantity> ");
