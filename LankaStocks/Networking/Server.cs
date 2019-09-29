@@ -23,13 +23,9 @@ namespace LankaStocks.Networking
         public bool IsHost = true;
         public abstract void Initialize();
 
-
-
-
         public abstract void Shutdown();
 
         public BinaryFormatter BF = new BinaryFormatter();
-
 
         public Stream Respond(Stream reqStrm)
         {
@@ -50,7 +46,6 @@ namespace LankaStocks.Networking
 
             BF.Serialize(respStrm, resp);
         }
-
 
         public byte[] Respond(byte[] reqBytes)
         {
@@ -141,18 +136,12 @@ namespace LankaStocks.Networking
                 case "RefundItem":
                     resp = exe.RefundItem(req.para[0]);
                     break;
-
-
-
                 case "ListItems":
                     resp.obj = exe.ListItems(); peer = false;
                     break;
-
-
                 case "CLIRun":
                     exe.CLIRun(req.para[0], ref resp);
                     break;
-
                 default:
                     break;
             }
@@ -189,13 +178,7 @@ namespace LankaStocks.Networking
 
         }
 
-
-
-
-
-
         #region PeerStuff
-
 
         // ________ Peer stuff _________________ //
 
@@ -210,9 +193,7 @@ namespace LankaStocks.Networking
 
         public virtual Response RespondPeerReq(string PeerID, uint ReqPeerPoint, string expr)
         {
-
             PeerStatus peer;
-
             switch (expr)
             {
                 case "add me":
@@ -238,8 +219,6 @@ namespace LankaStocks.Networking
                     break;
             }
 
-
-
             if (!Peers.TryGetValue(PeerID, out peer))
             {
                 //New peer
@@ -249,9 +228,6 @@ namespace LankaStocks.Networking
                 Log($"Added new peer {PeerID}");
                 return new Response(Response.Result.notfound, null, "new peer", (Live, People, History, Settings, peer));
             }
-
-
-
 
             peer.LastActivity = DateTime.Now;
             peer.LastPoint = ReqPeerPoint;
@@ -284,7 +260,6 @@ namespace LankaStocks.Networking
             CurrentPeerPoint++;
         }
 
-
         public void CleanupPeers()
         {
             lock (Peers)
@@ -309,11 +284,6 @@ namespace LankaStocks.Networking
 
                 if (IsDebug && hasTimoutPeers) Log($"Cleaned {timoutPeers.Count} out of time peers");
 
-
-
-
-
-
                 uint LowestPoint = CurrentPeerPoint;
 
                 foreach (PeerStatus peer in Peers.Values)
@@ -332,25 +302,10 @@ namespace LankaStocks.Networking
                 MinPeerPoint = LowestPoint;
 
                 if (IsDebug) Log($"Cleaned {cleaned} fully broadcasted requests. Currently at '{CurrentPeerPoint}' peer point. {CurrentPeerPoint - LowestPoint} points yet to send. {MinPeerPoint} MinPeerPoint");
-
-
-
-
-
             }
-
         }
-
-
         #endregion
-
-
-
     }
-
-
-
-
 
     public class HostServer : BaseServer
     {
@@ -358,12 +313,13 @@ namespace LankaStocks.Networking
         {
             {
                 Log("Initializing Server");
-                bool isFirstRun = !File.Exists(DB.StampPath);
+                bool isFirstRun = !File.Exists(BasePath + DB.StampPath);
                 if (isFirstRun)
                 {
+                    if (!Directory.Exists(BasePath + DB.DBPath)) Directory.CreateDirectory(BasePath + DB.DBPath);
                     byte[] stamp = new byte[256];
                     random.NextBytes(stamp);
-                    File.WriteAllBytes(DB.StampPath, stamp);
+                    File.WriteAllBytes(BasePath + DB.StampPath, stamp);
 
                     Log($"Created new Data Base on {DateTime.Now.Year}/{DateTime.Now.Month}/{DateTime.Now.Day} \n");
                 }
@@ -381,8 +337,6 @@ namespace LankaStocks.Networking
 
         }
 
-
-
         public System.Timers.Timer PeerTimer;
 
         private void PeerTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
@@ -392,15 +346,11 @@ namespace LankaStocks.Networking
 
         private void LoadDatabasesFromDisk(bool isFirstRun)
         {
-            Live = (DBLive)new DBLive() { DBName = "DBLive", FileName = DB.DBPath + "DBLive.db" }.LoadBinary(isFirstRun);
-            People = (DBPeople)new DBPeople() { DBName = "DBPeople", FileName = DB.DBPath + "DBPeople.db" }.LoadBinary(isFirstRun);
-            History = (DBHistory)new DBHistory() { DBName = "DBHistory", FileName = DB.DBPath + "DBHistory.db" }.LoadBinary(isFirstRun);
-            Settings = (DBSettings)new DBSettings() { DBName = "DBSettings", FileName = DB.DBPath + "DBSettings.db" }.LoadBinary(isFirstRun);
+            Live = (DBLive)new DBLive() { DBName = "DBLive", FileName = BasePath + DB.DBPath + "DBLive.db" }.LoadBinary(isFirstRun);
+            People = (DBPeople)new DBPeople() { DBName = "DBPeople", FileName = BasePath + DB.DBPath + "DBPeople.db" }.LoadBinary(isFirstRun);
+            History = (DBHistory)new DBHistory() { DBName = "DBHistory", FileName = BasePath + DB.DBPath + "DBHistory.db" }.LoadBinary(isFirstRun);
+            Settings = (DBSettings)new DBSettings() { DBName = "DBSettings", FileName = BasePath + DB.DBPath + "DBSettings.db" }.LoadBinary(isFirstRun);
         }
-
-
-
-
 
         public override void Shutdown()
         {
@@ -412,8 +362,6 @@ namespace LankaStocks.Networking
         }
     }
 
-
-
     public class PeerServer : BaseServer
     {
         public BaseClient client;
@@ -422,8 +370,6 @@ namespace LankaStocks.Networking
         public override void Initialize()
         {
             IsHost = false;
-
-
             AquirePeerID:
             DateTime time = DateTime.Now;
             status = new PeerStatus()
@@ -432,9 +378,7 @@ namespace LankaStocks.Networking
                 LastActivity = time
             };
 
-
             exe = new ServerExecute { svr = this };
-
 
             Response resp = client.Peer(status.ID, 0U, "add me");
 
@@ -488,8 +432,6 @@ namespace LankaStocks.Networking
             PeererBusy = false;
         }
 
-
-
         public void Peer()
         {
             Response resp = client.Peer(status.ID, status.LastPoint);
@@ -528,8 +470,6 @@ namespace LankaStocks.Networking
             }
         }
 
-
-
         public override void Shutdown()
         {
             Log("Peer Sever shutingdown");
@@ -556,9 +496,7 @@ namespace LankaStocks.Networking
 
     }
 
-
     [Serializable]
-
     public class Transmit
     {
 
@@ -576,10 +514,7 @@ namespace LankaStocks.Networking
         public enum Command : byte { none, exec, get, set, add, rem, peer }
     }
 
-
-
     [Serializable]
-
     public class Response : Transmit
     {
 

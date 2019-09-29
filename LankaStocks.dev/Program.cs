@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,7 +14,6 @@ namespace LankaStocks.dev
         [STAThread]
         static void Main(string[] args)
         {
-            Draw();
             Core.IsDebug = true;
             LankaStocks.Program.Main();
         }
@@ -248,6 +250,25 @@ namespace LankaStocks.dev
 "                            `8,,--\\I8'\r\n" +
 "                             `Ib,,I8'\r\n" +
 "                              `I8I'\r\n");
+        }
+
+        static void Draw1()
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(@"$#$                                #$#                $#$$#$             $#$    $#$       $#$                 #$#                      #$#$#$#$    $#$$#$$#$$#$$#$$#$$#$         $#$$#$                                                   ");
+            Console.WriteLine(@"$#$                               $#$#$               $#$ $#$            $#$    $#$      $#$                 $#$#$                   $#$#$#        $#$$#$$#$$#$$#$$#$$#$        $#$  $#$                                             ");
+            Console.WriteLine(@"$#$                              $#$ $#$              $#$  $#$           $#$    $#$     $#$                 $#$ $#$                 $#$#$                   $#$                $#$    $#$                          ");
+            Console.WriteLine(@"$#$                             $#$   $#$             $#$   $#$          $#$    $#$    $#$                 $#$   $#$               $#$#$                    $#$               $#$      $#$                                    ");
+            Console.WriteLine(@"$#$                            $#$     $#$            $#$    $#$         $#$    $#$   $#$                 $#$     $#$              $#$#$                    $#$              $#$        $#$                                 ");
+            Console.WriteLine(@"$#$                           $#$       $#$           $#$     $#$        $#$    $#$  $#$                 $#$       $#$              $#$#$                   $#$             $#$          $#$                                  ");
+            Console.WriteLine(@"$#$                          $#$         $#$          $#$      $#$       $#$    $#$ $#$                 $#$         $#$               $#$#$                 $#$            $#$            $#$                                    ");
+            Console.WriteLine(@"$#$                         $#$           $#$         $#$       $#$      $#$    $#$  $#$               $#$           $#$                $#$#$               $#$            $#$            $#$                              ");
+            Console.WriteLine(@"$#$                        $#$#$#$#$#$#$#$#$#$        $#$        $#$     $#$    $#$   $#$             $#$#$#$#$#$#$#$#$#$                $#$#$              $#$             $#$          $#$                                    ");
+            Console.WriteLine(@"$#$                       $#$#$#$#$#$#$#$#$#$#$       $#$         $#$    $#$    $#$    $#$           $#$#$#$#$#$#$#$#$#$#$                $#$#$             $#$              $#$        $#$                                          ");
+            Console.WriteLine(@"$#$                      $#$                 $#$      $#$          $#$   $#$    $#$     $#$         $#$                 $#$               $#$#$             $#$               $#$      $#$                                         ");
+            Console.WriteLine(@"$#$                     $#$                   $#$     $#$           $#$  $#$    $#$      $#$       $#$                   $#$             $#$#$              $#$                $#$    $#$                             ");
+            Console.WriteLine(@"$#$$#$$#$$#$$#$$#$$    $#$                     $#$    $#$            $#$ $#$    $#$       $#$     $#$                     $#$         $#$#$#                $#$                 $#$  $#$                                                       ");
+            Console.WriteLine(@"$#$$#$$#$$#$$#$$#$$   $#$                       $#$   $#$             $#$$#$    $#$        $#$   $#$                       $#$    $#$#$#$#                  $#$                  $#$$#$                         ");
         }
     }
 }

@@ -515,6 +515,7 @@
     <None Include="Images\Capture.PNG" />
     <Content Include="Images\combo_chart_24px.png" />
     <None Include="Images\csv_24px.png" />
+    <None Include="Images\console_24px.png" />
     <Content Include="Images\data_configuration_24px.png" />
     <Content Include="Images\delete_sign_24px.png" />
     <Content Include="Images\edit_24px.png" />

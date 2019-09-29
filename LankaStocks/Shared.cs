@@ -332,7 +332,7 @@ namespace LankaStocks.Shared
         }
     }
 
-    public partial class FormHandle
+    public class FormHandle
     {
         public void OpenForm(Control ParentC, Form childForm, FormBorderStyle fStyle, DockStyle dockStyle)
         {

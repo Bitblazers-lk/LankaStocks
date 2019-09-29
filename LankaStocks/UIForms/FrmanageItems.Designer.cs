@@ -39,6 +39,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnConsole = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -61,6 +62,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
+            this.panel2.Controls.Add(this.btnConsole);
             this.panel2.Controls.Add(this.btnStockIntake);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.button1);
@@ -171,6 +173,23 @@
             this.splitContainer1.SplitterDistance = 428;
             this.splitContainer1.TabIndex = 0;
             // 
+            // btnConsole
+            // 
+            this.btnConsole.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnConsole.FlatAppearance.BorderSize = 0;
+            this.btnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsole.ForeColor = System.Drawing.Color.Orange;
+            this.btnConsole.Image = global::LankaStocks.Properties.Resources.console_24px;
+            this.btnConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsole.Location = new System.Drawing.Point(0, 707);
+            this.btnConsole.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConsole.Name = "btnConsole";
+            this.btnConsole.Size = new System.Drawing.Size(167, 40);
+            this.btnConsole.TabIndex = 19;
+            this.btnConsole.Text = "Open Console";
+            this.toolTip1.SetToolTip(this.btnConsole, "Manage With CLI Interface... Dev Only!");
+            this.btnConsole.UseVisualStyleBackColor = true;
+            // 
             // FrmanageItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -209,5 +228,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnConsole;
     }
 }

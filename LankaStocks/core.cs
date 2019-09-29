@@ -15,6 +15,8 @@ namespace LankaStocks
 {
     public static class Core
     {
+        public static readonly string BasePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\LankaStocks\\";
+
         #region Vars
 
         public static bool IsInitialized = false;
@@ -36,19 +38,19 @@ namespace LankaStocks
         public static User user;
         #endregion
 
-
         public static void Initialize()
         {
             IsInitialized = true;
+            Console.Title = "LankaStocks > Developer Console";
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Log("Lanka Stocks - Mahinda Rapaksha College");
 
-
-            localSettings = (LocalSettings)new LocalSettings() { DBName = "LocalSettings", FileName = DB.DBPath + "LocalSettings.db" }.LoadBinary(true);
+            localSettings = (LocalSettings)new LocalSettings() { DBName = "LocalSettings", FileName = BasePath + DB.DBPath + "LocalSettings.db" }.LoadBinary(true);
 
             if (localSettings == null)
             {
                 Log("Local Settings Malfunctioned. Creating new LocalSettings file");
-                localSettings = new LocalSettings() { DBName = "LocalSettings", FileName = DB.DBPath + "LocalSettings.db" };
+                localSettings = new LocalSettings() { DBName = "LocalSettings", FileName = BasePath + DB.DBPath + "LocalSettings.db" };
                 localSettings.ForceSave();
             }
 
@@ -68,25 +70,25 @@ namespace LankaStocks
             //Set whole variable. (OK for any data type)
             //RemoteDBs.Session.Sales.Set(new Dictionary<uint, BasicSale>() { { 1U, new BasicSale() { SaleID = 1U } }, { 2U, new BasicSale() { SaleID = 2U } }, { 3U, new BasicSale() { SaleID = 3U } } });
 
-            Log("\n Visualize \n");
+            Log("Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
             //Log("\n Add to Dic \n");
             //RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, special = true });
 
-            Log("\n Visualize \n");
+            Log("Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
-            Log("\n Remove from Dic \n");
+            Log("Remove from Dic \n");
             RemoteDBs.Session.Sales.Remove(3);
 
-            Log("\n Visualize \n");
+            Log("Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
             //Log("\n Set Dic item \n");
             //RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, special = false, date = DateTime.Now });
 
-            Log("\n Visualize \n");
+            Log("Visualize \n");
             Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
 
@@ -114,18 +116,24 @@ namespace LankaStocks
         }
 
         #region Loging
-        public static void Log(string s)
+        public static void Log(string s, ConsoleColor color = ConsoleColor.Green)
         {
             string L = TimeStamp + s;// + "\n";
-            Console.WriteLine(L);
-
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(TimeStamp + "  ->  ");
+            Console.ForegroundColor = color;
+            Console.WriteLine(s);
+            Console.ForegroundColor = ConsoleColor.Magenta;
             ThreadLogToFile(L + Environment.NewLine);
-
         }
 
-        public static string Prompt(string s)
+        public static string Prompt(string s, ConsoleColor color = ConsoleColor.Green)
         {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write(TimeStamp + "  ->  ");
+            Console.ForegroundColor = color;
             Console.WriteLine(s);
+            Console.ForegroundColor = ConsoleColor.Magenta;
             return Console.ReadLine();
         }
 
@@ -149,27 +157,26 @@ namespace LankaStocks
 
                 isLogFileBusy = true;
 
-                File.AppendAllText(DB.LogPath, s);
+                File.AppendAllText(BasePath + DB.LogPath, s);
 
                 if (SLogAvailable)
                 {
                     s = SLog.ToString();
                     SLog.Clear();
-                    File.AppendAllText(DB.LogPath, s);
+                    File.AppendAllText(BasePath + DB.LogPath, s);
                 }
 
                 isLogFileBusy = false;
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Cannot write log file - Error {ex.ToString()} \t {ex.Message} \t source : {ex.Source};\t Inner : {ex.InnerException?.ToString()} {ex.InnerException?.Message}; \n @{ex.StackTrace} \n Inner @{ex.InnerException?.StackTrace}");
+                LogErr(ex, "Cannot write log file.");
             }
         }
 
         public static void LogErr(Exception ex, string note = "")
         {
-            Log(ErrorStamp(ex, note));
-
+            Log(ErrorStamp(ex, note) + "\n", ConsoleColor.Red);
         }
 
         public static string ErrorStamp(Exception ex, string note)
@@ -178,7 +185,7 @@ namespace LankaStocks
             return $"!!! Error {ex.ToString()} \n {note} \n {ex.Message} \t source : {ex.Source};\t Inner : {ex.InnerException?.ToString()} {ex.InnerException?.Message}; \n @{ex.StackTrace} \n Inner @{ex.InnerException?.StackTrace}";
         }
 
-        public static string TimeStamp => $"{DateTime.Now.Hour}:{DateTime.Now.Minute}:{DateTime.Now.Second}\t";
+        public static string TimeStamp => $"{DateTime.Now.Hour.ToString("00")}:{DateTime.Now.Minute.ToString("00")}:{DateTime.Now.Second.ToString("00")}";
 
         public static string VisualizeObj(dynamic obj)
         {
@@ -189,10 +196,7 @@ namespace LankaStocks
         public static void CLIProgram()
         {
             Begin:
-
-
-
-            string s = Prompt("\n \n Enter Command \t ").ToLower();
+            string s = Prompt("Enter Command\t ").ToLower();
 
 
             if (s.StartsWith("/"))
@@ -200,8 +204,6 @@ namespace LankaStocks
                 CLIClientRun(s.Substring(1));
                 goto Begin;
             }
-
-
 
             var resp = Core.client.CLIRun(s);
 
@@ -225,7 +227,6 @@ namespace LankaStocks
             goto Begin;
         }
 
-
         public static void CLIClientRun(string s)
         {
 
@@ -234,8 +235,8 @@ namespace LankaStocks
             if (A.Length == 0 || A.Length == 1)
             {
                 Log($"LankaStocks ClCLI help \n" +
-                    $" Execetive Designer and Developer : Harindu Wijesinghe (also know as 'Balla' among 7th graders, 'Bawwa' among girls and 'otuwa' among teachers \n" +
-                    $" Backend  Developer : Hasindu Lanka (also known as CrazyCat among gamers) \n" +
+                    $" Execetive Designer and Developer : Harindu Wijesinghe\n" +
+                    $" Backend  Developer : Hasindu Lanka (also known as Chuti(Sister fucker)| Chethani among friends | neighbours | relatives) \n" +
                     $"\n" +
                     $"Client CLI commands : \n" +
                     $"sale <itemID> <quantity> ");
@@ -257,10 +258,7 @@ namespace LankaStocks
 
         }
 
-
         #endregion
-
-
 
         public static void Sleep(int milies)
         {
@@ -273,8 +271,6 @@ namespace LankaStocks
                 System.Threading.Thread.Sleep(checkIntervel);
             }
         }
-
-
         public static void Shutdown()
         {
             //Save everything

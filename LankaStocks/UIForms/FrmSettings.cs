@@ -410,7 +410,6 @@ namespace LankaStocks.UIForms
     public class LocalSettings : DB
     {
         public LocalData Data;
-        public string DeviceName;
         public override void CreateNewDatabase()
         {
             Data = new LocalData

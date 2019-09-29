@@ -56,7 +56,6 @@
             this.CBOAS = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.label25 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
@@ -90,6 +89,7 @@
             this.CD = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.uiSaveData = new LankaStocks.UserControls.UISaveData();
+            this.btnConsole = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -478,7 +478,6 @@
             this.tableLayoutPanel6.ColumnCount = 2;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75F));
-            this.tableLayoutPanel6.Controls.Add(this.label25, 0, 7);
             this.tableLayoutPanel6.Controls.Add(this.label18, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.label21, 0, 3);
             this.tableLayoutPanel6.Controls.Add(this.label22, 0, 4);
@@ -487,6 +486,7 @@
             this.tableLayoutPanel6.Controls.Add(this.CbInterface, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.Posbar, 1, 1);
             this.tableLayoutPanel6.Controls.Add(this.label20, 0, 1);
+            this.tableLayoutPanel6.Controls.Add(this.btnConsole, 1, 7);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 35);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -502,18 +502,6 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(452, 274);
             this.tableLayoutPanel6.TabIndex = 2;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label25.Location = new System.Drawing.Point(4, 238);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(105, 36);
-            this.label25.TabIndex = 15;
-            this.label25.Text = "Label";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // label18
             // 
@@ -948,6 +936,21 @@
             this.uiSaveData.Size = new System.Drawing.Size(932, 76);
             this.uiSaveData.TabIndex = 1;
             // 
+            // btnConsole
+            // 
+            this.btnConsole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsole.ForeColor = System.Drawing.Color.Orange;
+            this.btnConsole.Image = global::LankaStocks.Properties.Resources.console_24px;
+            this.btnConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsole.Location = new System.Drawing.Point(117, 242);
+            this.btnConsole.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConsole.Name = "btnConsole";
+            this.btnConsole.Size = new System.Drawing.Size(331, 28);
+            this.btnConsole.TabIndex = 31;
+            this.btnConsole.Text = "Open Console";
+            this.btnConsole.UseVisualStyleBackColor = true;
+            // 
             // FrmSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1038,7 +1041,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
@@ -1052,5 +1054,6 @@
         private System.Windows.Forms.ComboBox CbInterface;
         private System.Windows.Forms.FontDialog fontDialog1;
         private System.Windows.Forms.ComboBox Posbar;
+        private System.Windows.Forms.Button btnConsole;
     }
 }
