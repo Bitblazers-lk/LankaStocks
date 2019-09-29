@@ -15,6 +15,8 @@ namespace LankaStocks
 {
     public static class Core
     {
+        public static readonly string BasePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + "\\LankaStocks\\";
+
         #region Vars
 
         public static bool IsInitialized = false;
@@ -36,19 +38,18 @@ namespace LankaStocks
         public static User user;
         #endregion
 
-
         public static void Initialize()
         {
             IsInitialized = true;
             Log("Lanka Stocks - Mahinda Rapaksha College");
 
 
-            localSettings = (LocalSettings)new LocalSettings() { DBName = "LocalSettings", FileName = DB.DBPath + "LocalSettings.db" }.LoadBinary(true);
+            localSettings = (LocalSettings)new LocalSettings() { DBName = "LocalSettings", FileName = BasePath + DB.DBPath + "LocalSettings.db" }.LoadBinary(true);
 
             if (localSettings == null)
             {
                 Log("Local Settings Malfunctioned. Creating new LocalSettings file");
-                localSettings = new LocalSettings() { DBName = "LocalSettings", FileName = DB.DBPath + "LocalSettings.db" };
+                localSettings = new LocalSettings() { DBName = "LocalSettings", FileName = BasePath + DB.DBPath + "LocalSettings.db" };
                 localSettings.ForceSave();
             }
 
@@ -149,13 +150,13 @@ namespace LankaStocks
 
                 isLogFileBusy = true;
 
-                File.AppendAllText(DB.LogPath, s);
+                File.AppendAllText(BasePath + DB.LogPath, s);
 
                 if (SLogAvailable)
                 {
                     s = SLog.ToString();
                     SLog.Clear();
-                    File.AppendAllText(DB.LogPath, s);
+                    File.AppendAllText(BasePath + DB.LogPath, s);
                 }
 
                 isLogFileBusy = false;
@@ -255,8 +256,6 @@ namespace LankaStocks
 
         #endregion
 
-
-
         public static void Sleep(int milies)
         {
             System.Threading.Thread.Sleep(milies);
@@ -268,8 +267,6 @@ namespace LankaStocks
                 System.Threading.Thread.Sleep(checkIntervel);
             }
         }
-
-
         public static void Shutdown()
         {
             //Save everything
