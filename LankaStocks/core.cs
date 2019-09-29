@@ -174,6 +174,7 @@ namespace LankaStocks
 
         public static string ErrorStamp(Exception ex, string note)
         {
+            if (ex == null) return $"\n ---------------------------------- \n \n !!! Fatel Error occured, and it's very bad. That's all I  know \n \n ----------------------------------- \n ";
             return $"!!! Error {ex.ToString()} \n {note} \n {ex.Message} \t source : {ex.Source};\t Inner : {ex.InnerException?.ToString()} {ex.InnerException?.Message}; \n @{ex.StackTrace} \n Inner @{ex.InnerException?.StackTrace}";
         }
 
@@ -211,6 +212,10 @@ namespace LankaStocks
             else if (resp.result == (byte)Response.Result.failed)
             {
                 LogErr((Exception)resp.obj, "CLI Program Error on server \t " + resp.msg);
+            }
+            else if (resp.result == (byte)Response.Result.wrongInputs)
+            {
+                Log("Command not valid : \t " + resp.msg);
             }
             else
             {

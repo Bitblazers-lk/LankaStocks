@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Windows.Forms;
-using LankaStocks.KeyInput;
+﻿using LankaStocks.KeyInput;
 using LankaStocks.Setting;
 using LankaStocks.Shared;
-using LankaStocks.UserControls;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 using static LankaStocks.Core;
 
 namespace LankaStocks.UIForms
@@ -38,9 +36,8 @@ namespace LankaStocks.UIForms
         uint ItemCode = 0;
         string BeginChar = "i";
         List<string> ItemBarcodes = new List<string>();
-        public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
-
-        ContextMenuStrip cm = new ContextMenuStrip();
+        public static Dictionary<uint, decimal> Cart = new Dictionary<uint, decimal>();
+        private ContextMenuStrip cm = new ContextMenuStrip();
 
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
@@ -54,7 +51,7 @@ namespace LankaStocks.UIForms
 
         private void Edit_Click(object sender, EventArgs e)
         {
-            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint Uc)&& uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[3].Value?.ToString(), out uint co))
+            if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint Uc) && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[3].Value?.ToString(), out uint co))
             {
                 Forms.frmEditQty = new UIForms.FrmEditQty(co) { Code = Uc };
                 Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[Uc].name}\t Code : {Uc.ToString()}";
@@ -77,7 +74,7 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
+                RepeatedFunctions.EditCart(Forms.frmEditQty.Code, Forms.frmEditQty.TxtQty.Value, Cart);
                 labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
                 Forms.frmEditQty.Close();
             }
@@ -85,7 +82,7 @@ namespace LankaStocks.UIForms
 
         private void EditQtyOK_Click(object sender, EventArgs e)
         {
-            RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
+            RepeatedFunctions.EditCart(Forms.frmEditQty.Code, Forms.frmEditQty.TxtQty.Value, Cart);
             labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
             Forms.frmEditQty.Close();
         }
@@ -112,7 +109,7 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtCode_Handle(TxtCode, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV,labelTotal);
+                RepeatedFunctions.TxtCode_Handle(TxtCode, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV, labelTotal);
             }
         }
 
@@ -120,7 +117,7 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtQty_Handle(TxtCode, TxtQty, Cart, ref ItemCode, Device, DGV,labelTotal);
+                RepeatedFunctions.TxtQty_Handle(TxtCode, TxtQty, Cart, ref ItemCode, Device, DGV, labelTotal);
             }
         }
 
@@ -151,12 +148,20 @@ namespace LankaStocks.UIForms
 
         private void DGV_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (DGV.ContextMenuStrip != cm) DGV.ContextMenuStrip = cm;
+            if (DGV.ContextMenuStrip != cm)
+            {
+                DGV.ContextMenuStrip = cm;
+            }
         }
 
         private void DGV_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (DGV.ContextMenuStrip != null) DGV.ContextMenuStrip = null;
+            if (DGV.ContextMenuStrip != null)
+            {
+                DGV.ContextMenuStrip = null;
+            }
         }
+
+
     }
 }

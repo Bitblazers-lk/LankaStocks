@@ -306,7 +306,9 @@ namespace LankaStocks
                                     sb.AppendLine(VisualizeObj(Live.Items));
                                     break;
                                 default:
-                                    break;
+                                    resp.msg = $"{A[1]} is not valid";
+                                    resp.result = (byte)Response.Result.wrongInputs;
+                                    return;
                             }
                             break;
 
@@ -353,7 +355,9 @@ namespace LankaStocks
                                     break;
 
                                 default:
-                                    break;
+                                    resp.msg = $"{A[1]} is not valid";
+                                    resp.result = (byte)Response.Result.wrongInputs;
+                                    return;
                             }
 
                             break;
@@ -395,7 +399,9 @@ namespace LankaStocks
                                         break;
 
                                     default:
-                                        break;
+                                        resp.msg = $"{A[1]} is not valid";
+                                        resp.result = (byte)Response.Result.wrongInputs;
+                                        return;
                                 }
                             }
                             break;
@@ -434,7 +440,9 @@ namespace LankaStocks
                                         break;
 
                                     default:
-                                        break;
+                                        resp.msg = $"{A[1]} is not valid";
+                                        resp.result = (byte)Response.Result.wrongInputs;
+                                        return;
                                 }
                             }
                             break;
@@ -442,7 +450,9 @@ namespace LankaStocks
 
 
                         default:
-                            break;
+                            resp.msg = $"{A[0]} is not a valid command";
+                            resp.result = (byte)Response.Result.wrongInputs;
+                            return;
                     }
 
                 }

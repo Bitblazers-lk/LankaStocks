@@ -157,7 +157,7 @@ namespace LankaStocks.Networking
                     break;
             }
 
-            peer = peer || (resp != null && (resp.result < (byte)Response.Result.retry));
+            peer = peer && (resp != null && (resp.result < (byte)Response.Result.retry));
 
             if (IsHost && peer) BroadcastToPeers(req);
 
