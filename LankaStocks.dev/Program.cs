@@ -15,6 +15,10 @@ namespace LankaStocks.dev
         static void Main(string[] args)
         {
             Core.IsDebug = true;
+
+            Draw1();
+            Draw();
+
             LankaStocks.Program.Main();
         }
         static void Draw()
