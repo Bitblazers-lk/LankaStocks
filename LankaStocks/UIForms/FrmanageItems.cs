@@ -31,10 +31,12 @@ namespace LankaStocks.UIForms
         {
             if (panel2.Width == ToolBarWidth)
             {
+                btnConsole.Text = "";
                 panel2.Width = 35;
             }
             else if (panel2.Width == 35)
             {
+                btnConsole.Text = "Open Console";
                 panel2.Width = ToolBarWidth;
             }
         }

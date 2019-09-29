@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnConsole = new System.Windows.Forms.Button();
             this.btnuser = new System.Windows.Forms.Button();
             this.btnvendor = new System.Windows.Forms.Button();
             this.btnperson = new System.Windows.Forms.Button();
@@ -85,6 +86,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
+            this.panel2.Controls.Add(this.btnConsole);
             this.panel2.Controls.Add(this.btnuser);
             this.panel2.Controls.Add(this.btnvendor);
             this.panel2.Controls.Add(this.btnperson);
@@ -96,6 +98,23 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(171, 743);
             this.panel2.TabIndex = 15;
+            // 
+            // btnConsole
+            // 
+            this.btnConsole.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnConsole.FlatAppearance.BorderSize = 0;
+            this.btnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsole.ForeColor = System.Drawing.Color.Orange;
+            this.btnConsole.Image = global::LankaStocks.Properties.Resources.console_24px;
+            this.btnConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsole.Location = new System.Drawing.Point(0, 703);
+            this.btnConsole.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConsole.Name = "btnConsole";
+            this.btnConsole.Size = new System.Drawing.Size(171, 40);
+            this.btnConsole.TabIndex = 17;
+            this.btnConsole.Text = "Open Console";
+            this.toolTip1.SetToolTip(this.btnConsole, "Manage With CLI Interface... Dev Only!");
+            this.btnConsole.UseVisualStyleBackColor = true;
             // 
             // btnuser
             // 
@@ -476,5 +495,6 @@
         private System.Windows.Forms.Button BtnRef;
         private UserControls.UIExcel uiExcel1;
         private System.Windows.Forms.FlowLayoutPanel Fpanel;
+        private System.Windows.Forms.Button btnConsole;
     }
 }
