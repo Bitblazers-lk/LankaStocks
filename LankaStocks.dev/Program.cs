@@ -14,7 +14,6 @@ namespace LankaStocks.dev
         [STAThread]
         static void Main(string[] args)
         {
-            Draw1();
             Core.IsDebug = true;
             LankaStocks.Program.Main();
         }
