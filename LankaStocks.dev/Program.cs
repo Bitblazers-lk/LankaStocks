@@ -16,29 +16,30 @@ namespace LankaStocks.dev
         {
             Core.IsDebug = true;
 
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
             Bitmap maplab = new Bitmap(Properties.Resources.Capture, new Size(237, 30));
             DrawPic(maplab, true);
-
-            Bitmap mapli = new Bitmap(Properties.Resources._4, new Size(230, 100));
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Bitmap mapli = new Bitmap(Properties.Resources._4, new Size(237, 100));
             DrawPic(mapli);
-
-            Bitmap mapd = new Bitmap(Properties.Resources._5, new Size(230, 100));
+            Console.ForegroundColor = ConsoleColor.White;
+            Bitmap mapd = new Bitmap(Properties.Resources._5, new Size(237, 100));
             DrawPic(mapd);
-
-            Bitmap mapq = new Bitmap(Properties.Resources._9, new Size(230, 100));
+            Console.ForegroundColor = ConsoleColor.Red;
+            Bitmap mapq = new Bitmap(Properties.Resources._9, new Size(237, 100));
             DrawPic(mapq);
-
+            Console.ForegroundColor = ConsoleColor.Green;
             Bitmap map = new Bitmap(Properties.Resources.Capture2, new Size(237, 20));
             DrawPic(map);
-
+            Console.ForegroundColor = ConsoleColor.Red;
             Bitmap map2 = new Bitmap(Properties.Resources._8, new Size(237, 100));
             DrawPic(map2);
-
+            Console.ForegroundColor = ConsoleColor.Green;
             Bitmap map1 = new Bitmap(Properties.Resources.Capture1, new Size(237, 20));
             DrawPic(map1);
 
             Console.WriteLine("\n\n\nPress Enter To Continue : Hasi");
-           Console.ReadLine();
+            Console.ReadLine();
             LankaStocks.Program.Main();
         }
 

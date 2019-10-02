@@ -42,7 +42,6 @@ namespace LankaStocks
         {
             IsInitialized = true;
             Console.Title = "LankaStocks > Developer Console";
-            Console.ForegroundColor = ConsoleColor.Magenta;
             Log("Lanka Stocks - Mahinda Rapaksha College");
 
             localSettings = (LocalSettings)new LocalSettings() { DBName = "LocalSettings", FileName = BasePath + DB.DBPath + "LocalSettings.db" }.LoadBinary(true);
@@ -120,9 +119,10 @@ namespace LankaStocks
         {
             string L = TimeStamp + s;// + "\n";
             Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("\n");
             Console.Write(TimeStamp + "  ->  ");
             Console.ForegroundColor = color;
-            Console.WriteLine(s);
+            Console.Write(s);
             Console.ForegroundColor = ConsoleColor.Magenta;
             ThreadLogToFile(L + Environment.NewLine);
         }
@@ -130,9 +130,12 @@ namespace LankaStocks
         public static string Prompt(string s, ConsoleColor color = ConsoleColor.Green)
         {
             Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("\n");
             Console.Write(TimeStamp + "  ->  ");
             Console.ForegroundColor = color;
-            Console.WriteLine(s);
+            Console.Write(s);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("  ->  ");
             Console.ForegroundColor = ConsoleColor.Magenta;
             return Console.ReadLine();
         }
