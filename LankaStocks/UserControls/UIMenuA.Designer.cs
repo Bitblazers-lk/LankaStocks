@@ -144,7 +144,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 51F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(803, 307);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -158,11 +158,11 @@
             this.tableLayoutPanel6.Controls.Add(this.btnEdit, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.button3, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 259);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 270);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(797, 45);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(797, 34);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // btnRemove
@@ -174,7 +174,7 @@
             this.btnRemove.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnRemove.Location = new System.Drawing.Point(533, 3);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(261, 39);
+            this.btnRemove.Size = new System.Drawing.Size(261, 28);
             this.btnRemove.TabIndex = 0;
             this.btnRemove.TabStop = false;
             this.btnRemove.Text = "Remove";
@@ -190,7 +190,7 @@
             this.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEdit.Location = new System.Drawing.Point(268, 3);
             this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(259, 39);
+            this.btnEdit.Size = new System.Drawing.Size(259, 28);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.TabStop = false;
             this.btnEdit.Text = "Edit";
@@ -204,7 +204,7 @@
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.Location = new System.Drawing.Point(3, 3);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(259, 39);
+            this.button3.Size = new System.Drawing.Size(259, 28);
             this.button3.TabIndex = 2;
             this.button3.TabStop = false;
             this.button3.Text = "button3";
@@ -219,7 +219,7 @@
             this.DGVcart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGVcart.Location = new System.Drawing.Point(3, 3);
             this.DGVcart.Name = "DGVcart";
-            this.DGVcart.Size = new System.Drawing.Size(797, 250);
+            this.DGVcart.Size = new System.Drawing.Size(797, 261);
             this.DGVcart.TabIndex = 2;
             this.DGVcart.TabStop = false;
             this.DGVcart.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVcart_CellMouseClick);
@@ -249,7 +249,7 @@
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(803, 320);
             this.tableLayoutPanel1.TabIndex = 0;
@@ -260,9 +260,9 @@
             this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
             this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRef.Location = new System.Drawing.Point(3, 281);
+            this.BtnRef.Location = new System.Drawing.Point(3, 288);
             this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(797, 36);
+            this.BtnRef.Size = new System.Drawing.Size(797, 29);
             this.BtnRef.TabIndex = 4;
             this.BtnRef.TabStop = false;
             this.BtnRef.Text = "Refresh";
@@ -277,7 +277,7 @@
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.Location = new System.Drawing.Point(3, 57);
             this.DGV.Name = "DGV";
-            this.DGV.Size = new System.Drawing.Size(797, 218);
+            this.DGV.Size = new System.Drawing.Size(797, 225);
             this.DGV.TabIndex = 3;
             this.DGV.TabStop = false;
             this.DGV.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGV_CellMouseDoubleClick);
@@ -401,7 +401,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 104F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(361, 669);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
@@ -412,9 +412,9 @@
             this.btnRefund.ForeColor = System.Drawing.Color.Orange;
             this.btnRefund.Image = global::LankaStocks.Properties.Resources.refund_2_24px;
             this.btnRefund.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefund.Location = new System.Drawing.Point(3, 631);
+            this.btnRefund.Location = new System.Drawing.Point(3, 636);
             this.btnRefund.Name = "btnRefund";
-            this.btnRefund.Size = new System.Drawing.Size(355, 35);
+            this.btnRefund.Size = new System.Drawing.Size(355, 30);
             this.btnRefund.TabIndex = 4;
             this.btnRefund.TabStop = false;
             this.btnRefund.Text = "Refund";
@@ -567,7 +567,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 257);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(355, 368);
+            this.panel1.Size = new System.Drawing.Size(355, 373);
             this.panel1.TabIndex = 5;
             // 
             // xuiClock1
@@ -586,7 +586,7 @@
             this.xuiClock1.ShowHexagon = true;
             this.xuiClock1.ShowMinutesCircle = true;
             this.xuiClock1.ShowSecondsCircle = true;
-            this.xuiClock1.Size = new System.Drawing.Size(355, 368);
+            this.xuiClock1.Size = new System.Drawing.Size(355, 373);
             this.xuiClock1.TabIndex = 6;
             this.xuiClock1.TabStop = false;
             this.xuiClock1.Text = "xuiClock1";

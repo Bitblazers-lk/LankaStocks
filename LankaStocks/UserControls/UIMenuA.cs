@@ -33,7 +33,7 @@ namespace LankaStocks.UserControls
         ContextMenu cmTime = new ContextMenu();
 
         List<string> ItemBarcodes = new List<string>();
-        public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
+        public static Dictionary<uint, decimal> Cart = new Dictionary<uint, decimal>();
 
         private readonly RawInput _KeyInput;
 
@@ -121,7 +121,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
+                RepeatedFunctions.EditCart(Forms.frmEditQty.Code, Forms.frmEditQty.TxtQty.Value, Cart);
                 labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGVcart).ToString("0.00")}";
                 Forms.frmEditQty.Close();
             }
@@ -129,7 +129,7 @@ namespace LankaStocks.UserControls
 
         private void EditQtyOK_Click(object sender, EventArgs e)
         {
-            RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
+            RepeatedFunctions.EditCart(Forms.frmEditQty.Code, Forms.frmEditQty.TxtQty.Value, Cart);
             labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGVcart).ToString("0.00")}";
             Forms.frmEditQty.Close();
         }
@@ -151,7 +151,7 @@ namespace LankaStocks.UserControls
             {
                 if (uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out ItemCode))
                 {
-                    RepeatedFunctions.AddToCart(ref ItemCode, (float)TxtQty.Value, Cart);
+                    RepeatedFunctions.AddToCart(ref ItemCode, TxtQty.Value, Cart);
                     labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGVcart).ToString("0.00")}";
                 }
             }

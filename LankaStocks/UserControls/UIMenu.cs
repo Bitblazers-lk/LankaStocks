@@ -81,7 +81,7 @@ namespace LankaStocks.UserControls
 
         public List<string> ItemBarcodes = new List<string>();
 
-        public static Dictionary<uint, float> Cart = new Dictionary<uint, float>();
+        public static Dictionary<uint, decimal> Cart = new Dictionary<uint, decimal>();
 
         uint ItemCode = 0;
         string BeginChar = "i";
@@ -223,7 +223,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
+                RepeatedFunctions.EditCart(Forms.frmEditQty.Code, Forms.frmEditQty.TxtQty.Value, Cart);
                 uiBasicSale1.labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
                 Forms.frmEditQty.Close();
             }
@@ -231,7 +231,7 @@ namespace LankaStocks.UserControls
 
         private void EditQtyOK_Click(object sender, EventArgs e)
         {
-            RepeatedFunctions.EditCart(Forms.frmEditQty.Code, (float)Forms.frmEditQty.TxtQty.Value, Cart);
+            RepeatedFunctions.EditCart(Forms.frmEditQty.Code, Forms.frmEditQty.TxtQty.Value, Cart);
             uiBasicSale1.labelTotal.Text = $"Total : Rs.{RepeatedFunctions.RefCart(Cart, DGV).ToString("0.00")}";
             Forms.frmEditQty.Close();
         }
@@ -268,7 +268,7 @@ namespace LankaStocks.UserControls
         public uint Code { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public float Qty { get; set; }
+        public decimal Qty { get; set; }
         public decimal Total { get; set; }
     }
 }

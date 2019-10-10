@@ -31,10 +31,12 @@ namespace LankaStocks.UIForms
         {
             if (panel2.Width == ToolBarWidth)
             {
+                btnConsole.Text = "";
                 panel2.Width = 35;
             }
             else if (panel2.Width == 35)
             {
+                btnConsole.Text = "Open Console";
                 panel2.Width = ToolBarWidth;
             }
         }
@@ -47,13 +49,14 @@ namespace LankaStocks.UIForms
 
         private void FrmanageItems_Load(object sender, EventArgs e)
         {
-            FrmItemView view = new FrmItemView(client.ps.Live.Items);
-            RepeatedFunctions.OpenForm(splitContainer1.Panel1, view, FormBorderStyle.None, DockStyle.Fill);
+            FrmItemView view = new FrmItemView(client.ps.Live.Items, splitContainer2.Panel2);
+            FormHandle form = new FormHandle();
+            form.OpenForm(splitContainer1.Panel1, view, FormBorderStyle.None, DockStyle.Fill);
             Settings.LoadCtrlSettings(this);
 
             ToolBarWidth = panel2.Width;
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
-            this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;          
+            this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }
     }
 

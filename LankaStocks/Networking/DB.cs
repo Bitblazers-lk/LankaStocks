@@ -17,18 +17,14 @@ namespace LankaStocks.DataBases
     [Serializable]
     public abstract class DB
     {
-
         public const string DBPath = "DB\\";
         public const string LogPath = "DB\\log.txt";
         public const string StampPath = "DB\\MRC.stamp";
         public const string HistoryPath = "DB\\History\\";
 
-
         public string DBName;
         public ulong LastUpdate = 10U;
         public ulong LastSave = 10U;
-
-
 
         [NonSerialized]
         public static bool IsBusy = false;
@@ -36,7 +32,6 @@ namespace LankaStocks.DataBases
         public string FileName;
 
         public abstract void CreateNewDatabase();
-
 
         public void SaveBinary()
         {
@@ -48,11 +43,8 @@ namespace LankaStocks.DataBases
 
             IsBusy = true;
 
-
-
             ulong changes = LastUpdate - LastSave;
             LastSave = LastUpdate;
-
 
             System.IO.FileStream fs = null;
             try
@@ -96,8 +88,8 @@ namespace LankaStocks.DataBases
             {
                 if (!File.Exists(FileName))
                 {
+                    if (!Directory.Exists(BasePath + DB.DBPath)) Directory.CreateDirectory(BasePath + DB.DBPath);
                     Log($"Database {DBName} in {FileName} not found.");
-
                     if (CreateNewIfNotFound)
                     {
                         LastUpdate++;
@@ -151,14 +143,7 @@ namespace LankaStocks.DataBases
             LastUpdate++;
             SaveBinary();
         }
-
-        /// <summary>
-        /// returns DB from list  _ _ _ 
-        /// Usage : DBName = DBName.DiscardChanges();
-        /// </summary>
         public DB DiscardChanges() { LastUpdate = LastSave; return LoadBinary(); }
-
-
 
         public abstract (dynamic, MemberType) Resolve(string expr);
         // public abstract void SetDataMember(string expr, dynamic data);
@@ -174,7 +159,6 @@ namespace LankaStocks.DataBases
         }
 
         public enum MemberType : byte { notFound, data, obj, array, list, dic }
-
 
         public virtual void Respond(Request req, ref Response resp)
         {
@@ -447,7 +431,6 @@ namespace LankaStocks.DataBases
             }
 
         }
-
     }
 
     [Serializable]

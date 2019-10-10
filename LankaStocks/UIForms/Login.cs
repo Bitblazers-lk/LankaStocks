@@ -91,6 +91,14 @@ namespace LankaStocks.UIForms
                 Core.user = logInResults.Item3;
 
                 Forms.dashboard = new Dashboard();
+                if (!Core.user.isAdmin)
+                {
+                    Forms.dashboard.btnManageData.Enabled = false;
+                    Forms.dashboard.btnManageItem.Enabled = false;
+                    Forms.dashboard.btnSales.Enabled = false;
+                    Forms.dashboard.btnSettings.Enabled = false;
+                    Forms.dashboard.btnTransaction.Enabled = false;
+                }
                 Forms.dashboard.Show();
                 Hide();
             }

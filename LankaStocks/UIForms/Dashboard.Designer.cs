@@ -296,15 +296,15 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button btnhide;
         private System.Windows.Forms.Button btnabout;
-        private System.Windows.Forms.Button btnManageData;
-        private System.Windows.Forms.Button btnManageItem;
-        private System.Windows.Forms.Button btnIssueItem;
         private System.Windows.Forms.PictureBox pblogo;
-        private System.Windows.Forms.Button btnTransaction;
-        private System.Windows.Forms.Button btnSales;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button btnSettings;
         public System.Windows.Forms.NotifyIcon notifyIcon1;
+        public System.Windows.Forms.Button btnManageData;
+        public System.Windows.Forms.Button btnManageItem;
+        public System.Windows.Forms.Button btnIssueItem;
+        public System.Windows.Forms.Button btnTransaction;
+        public System.Windows.Forms.Button btnSales;
+        public System.Windows.Forms.Button button5;
+        public System.Windows.Forms.Button btnSettings;
     }
 }

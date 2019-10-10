@@ -17,7 +17,7 @@ namespace LankaStocks.Shared
     {
         public static string[] Errors = { "Feild Cannot Be Empty!", "Feild Must Be A Number!" };
 
-        private static bool ShowError(string txt, Control ctrl)
+        private static bool ShowError(Control ctrl)
         {
             ctrl.BackColor = Color.FromKnownColor(KnownColor.Red);
             //Core.Log(txt);
@@ -38,10 +38,10 @@ namespace LankaStocks.Shared
                 {
                     //Ctrl.Text = Ctrl.Text.Substring(0, Ctrl.Text.Length - 1);
                     //Ctrl.Select();
-                    return ShowError(Errors[1], Ctrl);
+                    return ShowError(Ctrl);
                 }
             }
-            else return ShowError(Errors[0], Ctrl);
+            else return ShowError(Ctrl);
         }
 
         public static bool Txt(Control Ctrl)
@@ -51,7 +51,7 @@ namespace LankaStocks.Shared
                 Ctrl.BackColor = Color.FromKnownColor(KnownColor.WindowFrame);
                 return true;
             }
-            else return ShowError(Errors[0], Ctrl);
+            else return ShowError(Ctrl);
         }
     }
 
@@ -70,6 +70,7 @@ namespace LankaStocks.Shared
                 a = a.Substring(a.IndexOf(@"\") + 1, a.Substring(a.IndexOf(@"\") + 1).IndexOf(@"\")).ToLower();
                 DList.Add(a);
             }
+            objOSDetails.Dispose();
             if (localSettings.Data.POSBarcodeID == null || !DList.Contains(localSettings.Data.POSBarcodeID.ToLower()) && localSettings.Data.POSBarcodeID.ToLower() != "null")
             {
                 if (mess)
@@ -80,7 +81,7 @@ namespace LankaStocks.Shared
         }
 
         #region Cart
-        public static void AddToCart(ref uint code, float qty, Dictionary<uint, float> _Cart)
+        public static void AddToCart(ref uint code, decimal qty, Dictionary<uint, decimal> _Cart)
         {
             if (client.ps.Live.Items.ContainsKey(code))
             {
@@ -93,7 +94,7 @@ namespace LankaStocks.Shared
             code = 0;
             //RefCart(Cart);
         }
-        public static void EditCart(uint code, float Newqty, Dictionary<uint, float> _Cart)
+        public static void EditCart(uint code, decimal Newqty, Dictionary<uint, decimal> _Cart)
         {
             if (_Cart.ContainsKey(code))
             {
@@ -101,7 +102,7 @@ namespace LankaStocks.Shared
             }
             //RefCart(Cart);
         }
-        public static void RemoveCart(uint code, Dictionary<uint, float> _Cart)
+        public static void RemoveCart(uint code, Dictionary<uint, decimal> _Cart)
         {
             if (_Cart.ContainsKey(code))
             {
@@ -109,7 +110,7 @@ namespace LankaStocks.Shared
             }
             // RefCart(Cart);
         }
-        public static decimal RefCart(Dictionary<uint, float> _Cart, DataGridView _DGVcart)
+        public static decimal RefCart(Dictionary<uint, decimal> _Cart, DataGridView _DGVcart)
         {
             List<DGVcart_Data> Data = new List<DGVcart_Data>();
             var d = RemoteDBs.Live.Items.Get;
@@ -195,7 +196,7 @@ namespace LankaStocks.Shared
         }
         #endregion
 
-        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode, string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart, Label _LabTotal)
+        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode, string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart, Label _LabTotal)
         {
             if (_Device.ToLower().Contains(_Pos_Barcode.ToLower()))
             {
@@ -245,9 +246,9 @@ namespace LankaStocks.Shared
             _Device = "";
         }
 
-        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, float> _Cart, ref uint _ItemCode, string _Device, DataGridView _DGVcart, Label _LabTotal)
+        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, ref uint _ItemCode, string _Device, DataGridView _DGVcart, Label _LabTotal)
         {
-            AddToCart(ref _ItemCode, (float)_TxtQty.Value, _Cart);
+            AddToCart(ref _ItemCode, _TxtQty.Value, _Cart);
             _LabTotal.Text = $"Total : Rs.{ RefCart(_Cart, _DGVcart).ToString("0.00")}";
             _ItemCode = 0;
             _TxtCode.Clear();
@@ -286,10 +287,11 @@ namespace LankaStocks.Shared
                         }
                     }
                 }
+                savefile.Dispose();
             }
         }
 
-        public static void IssueItem(Dictionary<uint, float> _Cart, bool Ispecial = false)
+        public static void IssueItem(Dictionary<uint, decimal> _Cart, bool Ispecial = false)
         {
             List<BusinessItem> items = new List<BusinessItem>();
             decimal tot = 0;
@@ -298,9 +300,9 @@ namespace LankaStocks.Shared
                 foreach (var s in _Cart)
                 {
                     tot += client.ps.Live.Items[s.Key].outPrice;
-                    items.Add(new BusinessItem { itemID = s.Key, Quantity = (decimal)s.Value, Value = tot, Seller = user.ID });
+                    items.Add(new BusinessItem { itemID = s.Key, Quantity = s.Value, Value = tot, Seller = user.ID });
                 }
-                client.Sale(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.UserID, special = false });
+                client.Sale(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.UserID, special = Ispecial });
                 _Cart.Clear();
             }
             else
@@ -328,8 +330,11 @@ namespace LankaStocks.Shared
                 MessageBox.Show("List Is Empty!\nPlease Add Items To Refund!", "LanakaStocks > Empty List!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+    }
 
-        public static void OpenForm(Control ParentC, Form childForm, FormBorderStyle fStyle, DockStyle dockStyle)
+    public class FormHandle
+    {
+        public void OpenForm(Control ParentC, Form childForm, FormBorderStyle fStyle, DockStyle dockStyle)
         {
             childForm.TopLevel = false;
             childForm.Location = new Point(0, 0);

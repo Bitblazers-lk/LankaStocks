@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.Setting;
-using static System.Windows.Forms.TabControl;
 using static LankaStocks.Core;
 using LankaStocks.Shared;
 
@@ -21,12 +20,11 @@ namespace LankaStocks.UIForms
             InitializeComponent();
             TabChanged += Tab_Changed;
         }
-        public FrmanageData(PersonType personType,bool IsAdmin = false)
+        public FrmanageData(PersonType personType)
         {
             InitializeComponent();
             TabChanged += Tab_Changed;
             Current = personType;
-            admin = IsAdmin;
         }
 
         ContextMenuStrip Cm = new ContextMenuStrip();
@@ -54,11 +52,10 @@ namespace LankaStocks.UIForms
                     break;
             }
         }
-        public bool admin = true;
 
         private void Remove_Click(object sender, EventArgs e)
         {
-            if (admin)
+            if (Core.user.isAdmin)
             {
                 DialogResult result = MessageBox.Show("", $"LankaStocks > Remove {Current.ToString()}?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
@@ -74,23 +71,24 @@ namespace LankaStocks.UIForms
 
         private void Edit_details_Click(object sender, EventArgs e)
         {
-            if (admin)
+            if (Core.user.isAdmin)
             {
                 DialogResult result = MessageBox.Show("", $"LankaStocks > Edit {Current.ToString()}?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
                     Forms.addData = new AddData();
+                    FormHandle form = new FormHandle();
                     Forms.addData.FormClosing += Frm_Closing;
                     switch (Current)
                     {
                         case PersonType.Vendor:
-                            RepeatedFunctions.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
                             break;
                         case PersonType.User:
-                            RepeatedFunctions.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
                             break;
                         default:
-                            RepeatedFunctions.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
                             break;
                     }
                 }
@@ -148,10 +146,12 @@ namespace LankaStocks.UIForms
         {
             if (panel2.Width == ToolBarWidth)
             {
+                btnConsole.Text = "";
                 panel2.Width = 35;
             }
             else if (panel2.Width == 35)
             {
+                btnConsole.Text = "Open Console";
                 panel2.Width = ToolBarWidth;
             }
         }

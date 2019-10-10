@@ -39,6 +39,7 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.btnConsole = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -52,7 +53,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 825);
+            this.panel1.Location = new System.Drawing.Point(0, 747);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1500, 5);
@@ -61,6 +62,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(21)))), ((int)(((byte)(21)))), ((int)(((byte)(31)))));
+            this.panel2.Controls.Add(this.btnConsole);
             this.panel2.Controls.Add(this.btnStockIntake);
             this.panel2.Controls.Add(this.btnAdd);
             this.panel2.Controls.Add(this.button1);
@@ -69,7 +71,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 825);
+            this.panel2.Size = new System.Drawing.Size(167, 747);
             this.panel2.TabIndex = 15;
             // 
             // btnStockIntake
@@ -82,7 +84,7 @@
             this.btnStockIntake.Location = new System.Drawing.Point(0, 144);
             this.btnStockIntake.Margin = new System.Windows.Forms.Padding(4);
             this.btnStockIntake.Name = "btnStockIntake";
-            this.btnStockIntake.Size = new System.Drawing.Size(196, 40);
+            this.btnStockIntake.Size = new System.Drawing.Size(168, 40);
             this.btnStockIntake.TabIndex = 18;
             this.btnStockIntake.Text = "Stock Intake";
             this.toolTip1.SetToolTip(this.btnStockIntake, "New Stock Intake");
@@ -99,7 +101,7 @@
             this.btnAdd.Location = new System.Drawing.Point(0, 192);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(196, 40);
+            this.btnAdd.Size = new System.Drawing.Size(168, 40);
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add New";
             this.toolTip1.SetToolTip(this.btnAdd, "Add New Items");
@@ -116,7 +118,7 @@
             this.button1.Location = new System.Drawing.Point(0, 96);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 40);
+            this.button1.Size = new System.Drawing.Size(168, 40);
             this.button1.TabIndex = 11;
             this.button1.Text = "Manage";
             this.toolTip1.SetToolTip(this.button1, "Analyze, Manage Items");
@@ -133,7 +135,7 @@
             this.btnhide.Location = new System.Drawing.Point(0, 0);
             this.btnhide.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnhide.Name = "btnhide";
-            this.btnhide.Size = new System.Drawing.Size(200, 34);
+            this.btnhide.Size = new System.Drawing.Size(167, 34);
             this.btnhide.TabIndex = 10;
             this.btnhide.UseVisualStyleBackColor = true;
             this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
@@ -142,10 +144,10 @@
             // 
             this.panel3.Controls.Add(this.splitContainer2);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(200, 0);
+            this.panel3.Location = new System.Drawing.Point(167, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1300, 825);
+            this.panel3.Size = new System.Drawing.Size(1333, 747);
             this.panel3.TabIndex = 17;
             // 
             // splitContainer2
@@ -157,8 +159,8 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.splitContainer1);
-            this.splitContainer2.Size = new System.Drawing.Size(1300, 825);
-            this.splitContainer2.SplitterDistance = 1222;
+            this.splitContainer2.Size = new System.Drawing.Size(1333, 747);
+            this.splitContainer2.SplitterDistance = 766;
             this.splitContainer2.TabIndex = 1;
             // 
             // splitContainer1
@@ -167,16 +169,33 @@
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            this.splitContainer1.Size = new System.Drawing.Size(1222, 825);
-            this.splitContainer1.SplitterDistance = 473;
+            this.splitContainer1.Size = new System.Drawing.Size(766, 747);
+            this.splitContainer1.SplitterDistance = 428;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // btnConsole
+            // 
+            this.btnConsole.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnConsole.FlatAppearance.BorderSize = 0;
+            this.btnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsole.ForeColor = System.Drawing.Color.Orange;
+            this.btnConsole.Image = global::LankaStocks.Properties.Resources.console_24px;
+            this.btnConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsole.Location = new System.Drawing.Point(0, 707);
+            this.btnConsole.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConsole.Name = "btnConsole";
+            this.btnConsole.Size = new System.Drawing.Size(167, 40);
+            this.btnConsole.TabIndex = 19;
+            this.btnConsole.Text = "Open Console";
+            this.toolTip1.SetToolTip(this.btnConsole, "Manage With CLI Interface... Dev Only!");
+            this.btnConsole.UseVisualStyleBackColor = true;
             // 
             // FrmanageItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.ClientSize = new System.Drawing.Size(1500, 830);
+            this.ClientSize = new System.Drawing.Size(1500, 752);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -209,5 +228,6 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button btnConsole;
     }
 }
