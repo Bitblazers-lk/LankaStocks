@@ -22,7 +22,7 @@ namespace LankaStocks.UserControls
             InitializeComponent();
             int itemC = 0;
 
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (itemC < 100)
                 {
@@ -38,7 +38,7 @@ namespace LankaStocks.UserControls
             }
             CBItemCount.SelectedIndex = 0;
 
-            //DGV.DataSource = RemoteDBs.Live.Items.Get.Values;
+
 
             uiBasicSale1.TxtCode.KeyDown += TxtCode_KeyDown;
             uiBasicSale1.TxtQty.KeyDown += TxtQty_KeyDown;
@@ -182,7 +182,7 @@ namespace LankaStocks.UserControls
         void Search_Item(uint Code)
         {
             DrawCodes.Clear();
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (s.Key.ToString().Contains(Code.ToString())) DrawCodes.Add(s.Key);
             }
@@ -191,7 +191,7 @@ namespace LankaStocks.UserControls
         void Search_Item(string BarCode)
         {
             DrawCodes.Clear();
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (s.Value.Barcode.ToLower().Contains(BarCode.ToLower())) DrawCodes.Add(s.Key);
             }
@@ -200,7 +200,7 @@ namespace LankaStocks.UserControls
         void Search_Item_Name(string Name)
         {
             DrawCodes.Clear();
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (s.Value.name.ToLower().Contains(Name.ToLower())) DrawCodes.Add(s.Key);
             }
@@ -241,7 +241,7 @@ namespace LankaStocks.UserControls
             if (DGV.CurrentCell != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint uc) && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[3].Value?.ToString(), out uint co))
             {
                 Forms.frmEditQty = new UIForms.FrmEditQty(co) { Code = uc };
-                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[uc].name}\t Code : {uc.ToString()}";
+                Forms.frmEditQty.labelName.Text = $"Name : {client.ps.Live.Items[uc].name}\t Code : {uc.ToString()}";
                 Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
                 Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
                 Forms.frmEditQty.ShowDialog();

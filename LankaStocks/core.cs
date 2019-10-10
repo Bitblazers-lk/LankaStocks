@@ -69,25 +69,6 @@ namespace LankaStocks
             //RemoteDBs.Session.Sales.Set(new Dictionary<uint, BasicSale>() { { 1U, new BasicSale() { SaleID = 1U } }, { 2U, new BasicSale() { SaleID = 2U } }, { 3U, new BasicSale() { SaleID = 3U } } });
 
             Log("\n Visualize \n");
-            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
-
-            //Log("\n Add to Dic \n");
-            //RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, special = true });
-
-            Log("\n Visualize \n");
-            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
-
-            Log("\n Remove from Dic \n");
-            RemoteDBs.Session.Sales.Remove(3);
-
-            Log("\n Visualize \n");
-            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
-
-            //Log("\n Set Dic item \n");
-            //RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, special = false, date = DateTime.Now });
-
-            Log("\n Visualize \n");
-            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
 
             //Settings

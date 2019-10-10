@@ -131,7 +131,7 @@ namespace LankaStocks.UserControls
             switch (sel)
             {
                 case 'v':
-                    var Vends = Core.RemoteDBs.People.Vendors.Get.Values;
+                    var Vends = Core.client.ps.People.Vendors.Values;
                     People = new List<Person>(Vends.Count);
 
                     foreach (var p in Vends)
@@ -143,7 +143,7 @@ namespace LankaStocks.UserControls
                     break;
 
                 case 'u':
-                    var users = Core.RemoteDBs.People.Users.Get.Values;
+                    var users = Core.client.ps.People.Users.Values;
                     People = new List<Person>(users.Count);
 
                     foreach (var u in users)
@@ -155,7 +155,7 @@ namespace LankaStocks.UserControls
                     break;
 
                 case 'o':
-                    var others = Core.RemoteDBs.People.OtherPeople.Get.Values;
+                    var others = Core.client.ps.People.OtherPeople.Values;
                     People = new List<Person>(others.Count);
 
                     foreach (var o in others)
