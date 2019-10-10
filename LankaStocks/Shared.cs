@@ -322,7 +322,7 @@ namespace LankaStocks.Shared
                     tot += client.ps.Live.Items[s.Key].outPrice;
                     items.Add(new BusinessItem { itemID = s.Key, Quantity = (decimal)s.Value, Value = tot, Seller = user.ID });
                 }
-                client.RefundItem(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = SaleID, UserID = user.UserID, special = false });
+                client.RefundItem(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.UserID, special = false });
                 _LstItems.Clear();
             }
             else

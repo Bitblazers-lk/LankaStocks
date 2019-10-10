@@ -68,6 +68,8 @@ namespace LankaStocks.Networking
 
             ps = new PeerServer() { client = this };
             ps.Initialize();
+
+            
         }
 
         public override Response Request(Request req)

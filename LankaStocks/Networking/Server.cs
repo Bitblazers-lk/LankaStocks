@@ -98,57 +98,65 @@ namespace LankaStocks.Networking
         {
             bool peer = true;
             resp.result = (byte)Response.Result.ok;
-            switch (req.expr)
+            try
             {
-                case "login":
-                    resp.obj = exe.LoginCheck(req.para[0], req.para[1]); peer = false;
-                    break;
-                case "AddNewVendor":
-                    resp = exe.AddNewVendor(req.para[0]);
-                    break;
-                case "AddNewUser":
-                    resp = exe.AddNewUser(req.para[0]);
-                    break;
-                case "AddNewPerson":
-                    resp = exe.AddNewPerson(req.para[0]);
-                    break;
-                case "SetVendor":
-                    resp = exe.SetVendor(req.para[0]);
-                    break;
-                case "SetUser":
-                    resp = exe.SetUser(req.para[0]);
-                    break;
-                case "SetPerson":
-                    resp = exe.SetPerson(req.para[0]);
-                    break;
-                case "AddItem":
-                    resp = exe.AddItem(req.para[0]);
-                    break;
-                case "SetItem":
-                    resp = exe.SetItem(req.para[0]);
-                    break;
-                case "StockIntake":
-                    resp = exe.StockIntake(req.para[0]);
-                    break;
-                case "Sale":
-                    resp = exe.Sale(req.para[0]);
-                    break;
-                case "RefundItem":
-                    resp = exe.RefundItem(req.para[0]);
-                    break;
-                case "ListItems":
-                    resp.obj = exe.ListItems(); peer = false;
-                    break;
-                case "CLIRun":
-                    exe.CLIRun(req.para[0], ref resp);
-                    break;
-                default:
-                    break;
+
+                switch (req.expr)
+                {
+                    case "login":
+                        resp.obj = exe.LoginCheck(req.para[0], req.para[1]); peer = false;
+                        break;
+                    case "AddNewVendor":
+                        resp = exe.AddNewVendor(req.para[0]);
+                        break;
+                    case "AddNewUser":
+                        resp = exe.AddNewUser(req.para[0]);
+                        break;
+                    case "AddNewPerson":
+                        resp = exe.AddNewPerson(req.para[0]);
+                        break;
+                    case "SetVendor":
+                        resp = exe.SetVendor(req.para[0]);
+                        break;
+                    case "SetUser":
+                        resp = exe.SetUser(req.para[0]);
+                        break;
+                    case "SetPerson":
+                        resp = exe.SetPerson(req.para[0]);
+                        break;
+                    case "AddItem":
+                        resp = exe.AddItem(req.para[0]);
+                        break;
+                    case "SetItem":
+                        resp = exe.SetItem(req.para[0]);
+                        break;
+                    case "StockIntake":
+                        resp = exe.StockIntake(req.para[0]);
+                        break;
+                    case "Sale":
+                        resp = exe.Sale(req.para[0]);
+                        break;
+                    case "RefundItem":
+                        resp = exe.RefundItem(req.para[0]);
+                        break;
+                    case "ListItems":
+                        resp.obj = exe.ListItems(); peer = false;
+                        break;
+                    case "CLIRun":
+                        exe.CLIRun(req.para[0], ref resp);
+                        break;
+                    default:
+                        break;
+                }
+                peer = peer && (resp != null && (resp.result < (byte)Response.Result.retry));
+
+                if (IsHost && peer) BroadcastToPeers(req);
+            }
+            catch (Exception ex)
+            {
+                resp = new Response(Response.Result.failed, $"Failed to Execute the request : {Core.ErrorStamp(ex, "Cannot process the execute request")}.");
             }
 
-            peer = peer && (resp != null && (resp.result < (byte)Response.Result.retry));
-
-            if (IsHost && peer) BroadcastToPeers(req);
 
         }
 

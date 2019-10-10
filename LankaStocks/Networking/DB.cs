@@ -446,7 +446,7 @@ namespace LankaStocks.DataBases
             Users = new Dictionary<uint, User>();
             OtherPeople = new Dictionary<uint, Person>();
 
-            Users.Add(1024, new User() { userName = "preLogin", ID = 100, isAdmin = false, name = "Prelogin Auto User", pass = "I'm the sexy pre login user" });
+            Users.Add(1024, new User() { userName = "preLogin", ID = 1024, isAdmin = false, name = "Prelogin Auto User", pass = "I'm the sexy pre login user" });
             Users.Add(100, new User() { userName = "amanda", ID = 100, isAdmin = true, name = "Amanda Nanda", pass = "200" });
             Users.Add(200, new User() { userName = "nimal", ID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "123" });
         }

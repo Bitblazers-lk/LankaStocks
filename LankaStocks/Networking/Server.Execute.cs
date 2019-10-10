@@ -138,12 +138,15 @@ namespace LankaStocks
                     return new Response(Response.Result.wrongInputs, $"We only have {root.Quantity} units of {root.name}. You Can't issue {i.Quantity}", null, root);
                 }
 
-
+                i.Value = root.outPrice;
                 Items.Add((i, root));
 
             }
 
-
+            if (sale.total == 0)
+            {
+                sale.CalculateTotal();
+            }
             //Apply changes to DBs
 
             if (People.Users.TryGetValue(sale.UserID, out User user))
@@ -165,12 +168,16 @@ namespace LankaStocks
 
 
 
-            if (sale.SaleID == 0)
+            if (svr.IsHost && sale.SaleID == 0)
             {
-                Live.IdMachine.SaleID++; sale.SaleID = Live.IdMachine.SaleID;
+                Live.IdMachine.SaleID++;
+                sale.SaleID = Live.IdMachine.SaleID;
                 sale.date = DateTime.Now;
             }
-
+            else
+            {
+                Live.IdMachine.SaleID = Math.Max(Live.IdMachine.SaleID, sale.SaleID);
+            }
 
 
             foreach ((BusinessItem itm, Item root) in Items)

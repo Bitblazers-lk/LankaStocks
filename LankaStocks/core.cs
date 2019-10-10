@@ -56,6 +56,8 @@ namespace LankaStocks
             client = (BaseClient)new IntergratedClient();
             client.Initialize();
 
+            user = new User() { userName = "preLogin", ID = 1024, isAdmin = false, name = "Prelogin Auto User", pass = "I'm the sexy pre login user" };
+
             RemoteDBs = new _Remote.DBs();
 
             //Testing....
@@ -238,8 +240,8 @@ namespace LankaStocks
             if (A.Length == 0 || A.Length == 1)
             {
                 Log($"LankaStocks ClCLI help \n" +
-                    $" Execetive Designer and Developer : Harindu Wijesinghe\n" +
-                    $" Backend  Developer : Hasindu Lanka (also known as Chuti(Sister fucker)| Chethani among friends | neighbours | relatives) \n" +
+                    $" Execetive Designer and Developer : Harindu Wijesinghe (Also known as Balla among 7th graders, Bawwa among girls, Otuwa among teachers, Greece Yaka among police and Panti Hora among neighbours) \n" +
+                    $" Backend  Developer : Hasindu Lanka (Not known by anyone) \n" +
                     $"\n" +
                     $"Client CLI commands : \n" +
                     $"sale <itemID> <quantity> ");
@@ -250,7 +252,8 @@ namespace LankaStocks
                 case "sale":
                     if (A.Length >= 3)
                     {
-                        var sale = new BasicSale() { date = DateTime.Now, items = new List<BusinessItem>() { new BusinessItem() { itemID = uint.Parse(A[1]), Quantity = int.Parse(A[2]) } }, SaleID = 0, special = (A.Length >= 4) ? (A[3] == "s") : false };
+                        var sale = new BasicSale() { date = DateTime.Now, items = new List<BusinessItem>() { new BusinessItem() { itemID = uint.Parse(A[1]), Quantity = int.Parse(A[2]) } }, SaleID = 0, special = (A.Length >= 4) ? (A[3] == "s") : false, UserID = user.ID };
+                        sale.CalculateTotal();
                         client.Sale(sale);
                     }
                     break;

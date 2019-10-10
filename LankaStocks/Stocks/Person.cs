@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace LankaStocks
 {
     [Serializable]
-    
+
     public class Person
     {
         public uint ID;
@@ -15,21 +15,23 @@ namespace LankaStocks
         public string details;
         public string contactInfo;
 
-        public Transaction summary;
+        public Transaction summary = new Transaction() { ID = 1, type = Transaction.Types.Summary };
     }
 
     [Serializable]
-    
+
     public class User : Person
     {
         public uint UserID;
         public string userName;
         public string pass;
         public bool isAdmin;
+
+
     }
 
     [Serializable]
-    
+
     public class Vendor : Person
     {
         public uint VendorID;

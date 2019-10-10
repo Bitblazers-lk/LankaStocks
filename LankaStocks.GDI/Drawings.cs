@@ -18,7 +18,7 @@ namespace LankaStocks.GDI
         private static readonly int Width = 210 * 5;
         private static readonly int Height = 297 * 5;
 
-        private static PictureBox pb = new PictureBox();
+        private static readonly PictureBox pb = new PictureBox();
 
         private static readonly float Y = 125;
         public static int Margin = 50;
@@ -203,7 +203,7 @@ namespace LankaStocks.GDI
         private static readonly int Width = 210 * 5;
         private static readonly int Height = 297 * 5;
 
-        private static PictureBox pb = new PictureBox();
+        private static readonly PictureBox pb = new PictureBox();
 
         private static readonly float Y = 100;
         public static int Margin = 50;
