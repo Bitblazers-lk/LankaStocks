@@ -41,7 +41,11 @@ namespace LankaStocks
         public static void Initialize()
         {
             IsInitialized = true;
-            Console.Title = "LankaStocks > Developer Console";
+            try
+            {
+                Console.Title = "LankaStocks > Developer Console";
+            }
+            catch { }
             Log("Lanka Stocks - Mahinda Rapaksha College");
 
             localSettings = (LocalSettings)new LocalSettings() { DBName = "LocalSettings", FileName = BasePath + DB.DBPath + "LocalSettings.db" }.LoadBinary(true);
