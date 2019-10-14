@@ -56,7 +56,7 @@ namespace LankaStocks
             client = (BaseClient)new IntergratedClient();
             client.Initialize();
 
-            user = new User() { userName = "preLogin", ID = 1024, isAdmin = false, name = "Prelogin Auto User", pass = "I'm the sexy pre login user" };
+            user = new User() { userName = "preLogin", ID = 1024, isAdmin = false, name = "Prelogin Auto User", pass = "pre login user" };
 
             RemoteDBs = new _Remote.DBs();
 
@@ -71,26 +71,26 @@ namespace LankaStocks
             //Set whole variable. (OK for any data type)
             //RemoteDBs.Session.Sales.Set(new Dictionary<uint, BasicSale>() { { 1U, new BasicSale() { SaleID = 1U } }, { 2U, new BasicSale() { SaleID = 2U } }, { 3U, new BasicSale() { SaleID = 3U } } });
 
-            Log("Visualize \n");
-            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
+            //Log("Visualize \n");
+            //Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
-            //Log("\n Add to Dic \n");
-            //RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, special = true });
+            ////Log("\n Add to Dic \n");
+            ////RemoteDBs.Session.Sales.Add(4, new BasicSale() { SaleID = 4U, special = true });
 
-            Log("Visualize \n");
-            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
+            //Log("Visualize \n");
+            //Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
-            Log("Remove from Dic \n");
-            RemoteDBs.Session.Sales.Remove(3);
+            //Log("Remove from Dic \n");
+            //RemoteDBs.Session.Sales.Remove(3);
 
-            Log("Visualize \n");
-            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
+            //Log("Visualize \n");
+            //Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
-            //Log("\n Set Dic item \n");
-            //RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, special = false, date = DateTime.Now });
+            ////Log("\n Set Dic item \n");
+            ////RemoteDBs.Session.Sales.Set(4, new BasicSale() { SaleID = 4U, special = false, date = DateTime.Now });
 
-            Log("Visualize \n");
-            Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
+            //Log("Visualize \n");
+            //Log(VisualizeObj(RemoteDBs.Session.Sales.Get));
 
 
             //Settings
@@ -98,7 +98,7 @@ namespace LankaStocks
             //Set color (You can use commonSettings.Get too)
             //RemoteDBs.Settings.commonSettings.GetSet.BackColor = System.Drawing.Color.Aqua;
             //Get it back (You can use commonSettings.Set too)
-            Log(RemoteDBs.Settings.commonSettings.GetSet.BackColor.ToString());
+            //Log(RemoteDBs.Settings.commonSettings.GetSet.BackColor.ToString());
 
             //Bills.SetHeaderBeginFont(new Font("Arial", 15));
             //Bills.SetFont(new Font("Arial", 11));
