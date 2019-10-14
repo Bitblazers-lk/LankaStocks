@@ -239,9 +239,9 @@ namespace LankaStocks
 
             if (A.Length == 0 || A.Length == 1)
             {
-                Log($"LankaStocks CLI help \n" +
-                    $" Execetive Designer and Developer : Harindu Wijesinghe \n" +
-                    $" Backend  Developer : Hasindu Lanka \n" +
+                Log($"LankaStocks ClCLI help \n" +
+                    $" Execetive Designer and Developer : Harindu Wijesinghe (Also known as Balla among 7th graders, Bawwa among girls, Otuwa among teachers and Greece Yaka among police) \n" +
+                    $" Backend  Developer : Hasindu Lanka\n" +
                     $"\n" +
                     $"Client CLI commands : \n" +
                     $"sale <itemID> <quantity> ");

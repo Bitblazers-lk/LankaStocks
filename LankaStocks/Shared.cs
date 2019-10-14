@@ -294,16 +294,28 @@ namespace LankaStocks.Shared
         public static void IssueItem(Dictionary<uint, decimal> _Cart, bool Ispecial = false)
         {
             List<BusinessItem> items = new List<BusinessItem>();
-            decimal tot = 0;
             if (_Cart.Count > 0)
             {
+                decimal tot = 0;
                 foreach (var s in _Cart)
                 {
-                    tot += client.ps.Live.Items[s.Key].outPrice;
-                    items.Add(new BusinessItem { itemID = s.Key, Quantity = s.Value, Value = tot, Seller = user.ID });
+                    decimal outPrice = client.ps.Live.Items[s.Key].outPrice;
+                    items.Add(new BusinessItem { itemID = s.Key, Quantity = s.Value, Value = s.Value * outPrice, Seller = user.ID });
+                    tot += s.Value * outPrice;
                 }
-                client.Sale(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.UserID, special = Ispecial });
-                _Cart.Clear();
+                var resp = client.Sale(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.ID, special = Ispecial });
+
+                if (resp.result == (byte)Networking.Response.Result.ok)
+                {
+                    Log($"Items issued {String.Join(",", _Cart)} worth {tot} Rs by {user.userName}");
+                    _Cart.Clear();
+                }
+                else
+                {
+                    string s = $"Item issue failed. {((Networking.Response.Result)resp.result).ToString()} - {resp.msg}";
+                    Log(s);
+                    MessageBox.Show(s, "Item issue failed.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -322,7 +334,7 @@ namespace LankaStocks.Shared
                     tot += client.ps.Live.Items[s.Key].outPrice;
                     items.Add(new BusinessItem { itemID = s.Key, Quantity = (decimal)s.Value, Value = tot, Seller = user.ID });
                 }
-                client.RefundItem(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.UserID, special = false });
+                client.RefundItem(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.ID, special = false });
                 _LstItems.Clear();
             }
             else

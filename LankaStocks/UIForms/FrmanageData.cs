@@ -132,7 +132,7 @@ namespace LankaStocks.UIForms
                     var dataU = new List<DGV_User>();
                     foreach (var s in client.ps.People.Users)
                     {
-                        dataU.Add(new DGV_User { ID = s.Value.ID, User_ID = s.Value.UserID, Name = s.Value.name, Contact_Info = s.Value.contactInfo, User_Name = s.Value.userName, Pass = s.Value.pass, Details = s.Value.details, Is_Admin = s.Value.isAdmin ? "Yes" : "No" });
+                        dataU.Add(new DGV_User { ID = s.Value.ID, User_ID = s.Value.ID, Name = s.Value.name, Contact_Info = s.Value.contactInfo, User_Name = s.Value.userName, Pass = s.Value.pass, Details = s.Value.details, Is_Admin = s.Value.isAdmin ? "Yes" : "No" });
                     }
                     return dataU;
                 default:

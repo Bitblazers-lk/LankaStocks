@@ -148,7 +148,7 @@ namespace LankaStocks.UserControls
 
                     foreach (var u in users)
                     {
-                        Cmb.Items.Add($"{u.UserID}. {u.userName}  - {u.name}  {(u.isAdmin ? "(Admin)" : "")}");
+                        Cmb.Items.Add($"{u.ID}. {u.userName}  - {u.name}  {(u.isAdmin ? "(Admin)" : "")}");
                         People.Add(u);
                     }
                     if (check) RBSelUser.Checked = true;
@@ -221,7 +221,7 @@ namespace LankaStocks.UserControls
                     {
                         try
                         {
-                            return (((User)People[Cmb.SelectedIndex]).UserID, Selected);
+                            return (((User)People[Cmb.SelectedIndex]).ID, Selected);
                         }
                         catch (Exception)
                         {

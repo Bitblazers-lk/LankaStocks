@@ -55,7 +55,7 @@ namespace LankaStocks.UserControls
 
             User u = new User
             {
-                UserID = userID,
+                ID = userID,
                 userName = UserName.Text,
                 pass = UserPass.Text,
                 isAdmin = IsAdmin.SelectedIndex == 1,
