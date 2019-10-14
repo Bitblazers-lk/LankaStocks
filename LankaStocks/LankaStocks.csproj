@@ -26,7 +26,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -55,11 +55,10 @@
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>LankaStocks.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>LankaStocks.Program</StartupObject>
@@ -82,6 +81,9 @@
   <ItemGroup>
     <Reference Include="CircularProgressBar, Version=2.7.0.7, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>..\packages\CircularProgressBar.2.7.0.7\lib\net40\CircularProgressBar.dll</HintPath>
+    </Reference>
+    <Reference Include="HariUI2">
+      <HintPath>..\HariUI2.dll</HintPath>
     </Reference>
     <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
@@ -128,9 +130,6 @@
     <Reference Include="WindowsFormsIntegration" />
     <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
       <HintPath>..\packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
-    </Reference>
-    <Reference Include="XanderUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\XanderUI.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -527,6 +526,7 @@
     <EmbeddedResource Include="UserControls\UIVendor.resx">
       <DependentUpon>UIVendor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="LankaStocks.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -554,7 +554,9 @@
     <Content Include="Images\ba.bmp" />
     <Content Include="Images\bank_24px.png" />
     <Content Include="Images\cancel_2_24px.png" />
-    <None Include="XanderUI.dll" />
+    <None Include="XanderUI.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Images\Capture.PNG" />
     <Content Include="Images\combo_chart_24px.png" />
     <None Include="Images\csv_24px.png" />
