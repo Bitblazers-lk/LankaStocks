@@ -552,9 +552,7 @@
     <Content Include="Images\ba.bmp" />
     <Content Include="Images\bank_24px.png" />
     <Content Include="Images\cancel_2_24px.png" />
-    <Content Include="XanderUI.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="XanderUI.dll" />
     <None Include="Images\Capture.PNG" />
     <Content Include="Images\combo_chart_24px.png" />
     <None Include="Images\csv_24px.png" />
