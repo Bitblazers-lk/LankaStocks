@@ -53,6 +53,7 @@ namespace LankaStocks.UIForms
         private void Exit_Click(object sender, EventArgs e)
         {
             Core.Shutdown();
+            Application.Exit();
         }
 
         private void Sign_Out_Click(object sender, EventArgs e)
@@ -85,6 +86,7 @@ namespace LankaStocks.UIForms
         private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
         {
             Core.Shutdown();
+            Application.Exit();
         }
 
         private void BtnManageItem_Click(object sender, EventArgs e)

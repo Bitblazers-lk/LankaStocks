@@ -170,7 +170,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(634, 24);
             this.label2.TabIndex = 3;
-            this.label2.Text = ". . . . . . Design And Maked By Hasindu Lanka And Harindu Wijesinghe . . . . . .";
+            this.label2.Text = ". . . . . . Design And Maked By 2K21 A/L Batch . . . . . .";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label3
@@ -183,7 +183,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(634, 25);
             this.label3.TabIndex = 4;
-            this.label3.Text = ". . . ©2019 CrazyCatCC.  All rights reserved . . .";
+            this.label3.Text = ". . . ©2K19  CrazyCatCC.   All rights reserved . . .";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // panel2
