@@ -121,9 +121,6 @@
   <data name="plus_math_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\plus_math_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo Test" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\Logo Test.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="minus_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\minus_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,9 +142,6 @@
   <data name="sell_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\sell_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="kisspng_inventory_management_software_stock_management_sal_warehouse_5ac5d409391c68_7620306315229143132339" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\kisspng-inventory-management-software-stock-management-sal-warehouse-5ac5d409391c68.7620306315229143132339.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="home_button_filled_50px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\home_button_filled_50px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,9 +153,6 @@
   </data>
   <data name="money_bag_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\money_bag_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="flag-1024x430" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\flag-1024x430.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\edit_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -229,9 +220,6 @@
   <data name="open_view_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\open_view_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="purchase-guy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Images\purchase-guy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -264,5 +252,14 @@
   </data>
   <data name="console_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Images\console_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="flag-1024x430" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\flag-1024x430.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo Test" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\Logo Test.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="purchase-guy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Images\purchase-guy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
