@@ -122,6 +122,12 @@
     <Compile Include="Charts\UICHNow.Designer.cs">
       <DependentUpon>UICHNow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIHandle\ContextM\MainContext.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UIHandle\ContextM\MainContext.Designer.cs">
+      <DependentUpon>MainContext.cs</DependentUpon>
+    </Compile>
     <Compile Include="core.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Langauge\Langauges.cs" />
@@ -244,6 +250,8 @@
     <Compile Include="UIForms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="UIHandle\FormContextMenu.cs" />
+    <Compile Include="UIHandle\MouseHook.cs" />
     <Compile Include="UIHandle\PanelMenu.cs" />
     <Compile Include="UserControls\UIAbout.cs">
       <SubType>UserControl</SubType>
@@ -367,6 +375,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Charts\UICHNow.resx">
       <DependentUpon>UICHNow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UIHandle\ContextM\MainContext.resx">
+      <DependentUpon>MainContext.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

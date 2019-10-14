@@ -64,6 +64,7 @@
             this.CbInterface = new System.Windows.Forms.ComboBox();
             this.Posbar = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.btnConsole = new System.Windows.Forms.Button();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.TxtWarnQty = new System.Windows.Forms.NumericUpDown();
             this.label16 = new System.Windows.Forms.Label();
@@ -89,7 +90,6 @@
             this.CD = new System.Windows.Forms.ColorDialog();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
             this.uiSaveData = new LankaStocks.UserControls.UISaveData();
-            this.btnConsole = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -605,6 +605,21 @@
             this.label20.Text = "POS Barcode :";
             this.label20.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
+            // btnConsole
+            // 
+            this.btnConsole.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsole.ForeColor = System.Drawing.Color.Orange;
+            this.btnConsole.Image = global::LankaStocks.Properties.Resources.console_24px;
+            this.btnConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsole.Location = new System.Drawing.Point(117, 242);
+            this.btnConsole.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConsole.Name = "btnConsole";
+            this.btnConsole.Size = new System.Drawing.Size(331, 28);
+            this.btnConsole.TabIndex = 31;
+            this.btnConsole.Text = "Open Console";
+            this.btnConsole.UseVisualStyleBackColor = true;
+            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 2;
@@ -935,21 +950,6 @@
             this.uiSaveData.Name = "uiSaveData";
             this.uiSaveData.Size = new System.Drawing.Size(932, 76);
             this.uiSaveData.TabIndex = 1;
-            // 
-            // btnConsole
-            // 
-            this.btnConsole.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsole.ForeColor = System.Drawing.Color.Orange;
-            this.btnConsole.Image = global::LankaStocks.Properties.Resources.console_24px;
-            this.btnConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsole.Location = new System.Drawing.Point(117, 242);
-            this.btnConsole.Margin = new System.Windows.Forms.Padding(4);
-            this.btnConsole.Name = "btnConsole";
-            this.btnConsole.Size = new System.Drawing.Size(331, 28);
-            this.btnConsole.TabIndex = 31;
-            this.btnConsole.Text = "Open Console";
-            this.btnConsole.UseVisualStyleBackColor = true;
             // 
             // FrmSettings
             // 

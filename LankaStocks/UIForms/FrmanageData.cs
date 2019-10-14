@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LankaStocks.Setting;
 using static LankaStocks.Core;
 using LankaStocks.Shared;
+using LankaStocks.UIHandle;
 
 namespace LankaStocks.UIForms
 {
@@ -25,6 +26,18 @@ namespace LankaStocks.UIForms
             InitializeComponent();
             TabChanged += Tab_Changed;
             Current = personType;
+        }
+
+        private void panel2_SizeChanged(object sender, EventArgs e)
+        {
+            if (panel2.Width < 35)
+            {
+                btnConsole.Text = "";
+            }
+            else
+            {
+                btnConsole.Text = "Open Console";
+            }
         }
 
         ContextMenuStrip Cm = new ContextMenuStrip();
@@ -132,8 +145,6 @@ namespace LankaStocks.UIForms
             }
         }
 
-        int ToolBarWidth;
-
         public PersonType Current = PersonType.Person;
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -142,24 +153,10 @@ namespace LankaStocks.UIForms
             Forms.addData.ShowDialog();
         }
 
-        private void btnhide_Click(object sender, EventArgs e)
-        {
-            if (panel2.Width == ToolBarWidth)
-            {
-                btnConsole.Text = "";
-                panel2.Width = 35;
-            }
-            else if (panel2.Width == 35)
-            {
-                btnConsole.Text = "Open Console";
-                panel2.Width = ToolBarWidth;
-            }
-        }
-
         private void FrmanageData_Load(object sender, EventArgs e)
         {
             Settings.LoadCtrlSettings(this);
-            ToolBarWidth = panel2.Width;
+            PanelMenu panelMenu = new PanelMenu(panel2, btnhide, 34, panel2.Width);
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             var handler = TabChanged;

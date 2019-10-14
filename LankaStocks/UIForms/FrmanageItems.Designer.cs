@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnConsole = new System.Windows.Forms.Button();
             this.btnStockIntake = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,7 +40,6 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnConsole = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -73,6 +73,24 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(167, 747);
             this.panel2.TabIndex = 15;
+            this.panel2.SizeChanged += new System.EventHandler(this.panel2_SizeChanged);
+            // 
+            // btnConsole
+            // 
+            this.btnConsole.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnConsole.FlatAppearance.BorderSize = 0;
+            this.btnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsole.ForeColor = System.Drawing.Color.Orange;
+            this.btnConsole.Image = global::LankaStocks.Properties.Resources.console_24px;
+            this.btnConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConsole.Location = new System.Drawing.Point(0, 707);
+            this.btnConsole.Margin = new System.Windows.Forms.Padding(4);
+            this.btnConsole.Name = "btnConsole";
+            this.btnConsole.Size = new System.Drawing.Size(167, 40);
+            this.btnConsole.TabIndex = 19;
+            this.btnConsole.Text = "Open Console";
+            this.toolTip1.SetToolTip(this.btnConsole, "Manage With CLI Interface... Dev Only!");
+            this.btnConsole.UseVisualStyleBackColor = true;
             // 
             // btnStockIntake
             // 
@@ -138,7 +156,6 @@
             this.btnhide.Size = new System.Drawing.Size(167, 34);
             this.btnhide.TabIndex = 10;
             this.btnhide.UseVisualStyleBackColor = true;
-            this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
             // 
             // panel3
             // 
@@ -172,23 +189,6 @@
             this.splitContainer1.Size = new System.Drawing.Size(766, 747);
             this.splitContainer1.SplitterDistance = 428;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // btnConsole
-            // 
-            this.btnConsole.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnConsole.FlatAppearance.BorderSize = 0;
-            this.btnConsole.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsole.ForeColor = System.Drawing.Color.Orange;
-            this.btnConsole.Image = global::LankaStocks.Properties.Resources.console_24px;
-            this.btnConsole.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsole.Location = new System.Drawing.Point(0, 707);
-            this.btnConsole.Margin = new System.Windows.Forms.Padding(4);
-            this.btnConsole.Name = "btnConsole";
-            this.btnConsole.Size = new System.Drawing.Size(167, 40);
-            this.btnConsole.TabIndex = 19;
-            this.btnConsole.Text = "Open Console";
-            this.toolTip1.SetToolTip(this.btnConsole, "Manage With CLI Interface... Dev Only!");
-            this.btnConsole.UseVisualStyleBackColor = true;
             // 
             // FrmanageItems
             // 

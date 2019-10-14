@@ -1,6 +1,7 @@
 ﻿using LankaStocks.KeyInput;
 using LankaStocks.Setting;
 using LankaStocks.Shared;
+using LankaStocks.UIHandle;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -32,7 +33,6 @@ namespace LankaStocks.UIForms
         string Device;
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
-        int ToolBarWidth;
         uint ItemCode = 0;
         string BeginChar = "i";
         List<string> ItemBarcodes = new List<string>();
@@ -87,18 +87,6 @@ namespace LankaStocks.UIForms
             Forms.frmEditQty.Close();
         }
 
-        private void Btnhide_Click(object sender, EventArgs e)
-        {
-            if (panel1.Width == ToolBarWidth)
-            {
-                panel1.Width = 35;
-            }
-            else if (panel1.Width == 35)
-            {
-                panel1.Width = ToolBarWidth;
-            }
-        }
-
         private void Btnfund_Click(object sender, EventArgs e)
         {
             Forms.frmRefund = new FrmRefund();
@@ -130,7 +118,7 @@ namespace LankaStocks.UIForms
         private void FrmQuickSale_Load(object sender, EventArgs e)
         {
             Settings.LoadCtrlSettings(this);
-            ToolBarWidth = panel1.Width;
+            PanelMenu panelMenu = new PanelMenu(panel1, btnhide, 34, panel1.Width);
 
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel3.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;

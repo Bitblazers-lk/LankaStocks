@@ -6,6 +6,7 @@ using LankaStocks.Setting;
 using static LankaStocks.Core;
 using System.Drawing;
 using LankaStocks.UIHandle;
+using LankaStocks.UIHandle.ContextM;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
@@ -13,7 +14,8 @@ namespace LankaStocks.UIForms
     {
         UIMenu menuModern = new UIMenu { Dock = DockStyle.Fill };
         UIMenuA menuClassic = new UIMenuA { Dock = DockStyle.Fill };
-
+        MainContext CF = new MainContext();
+        FormContextMenu formContext;
         public Dashboard()
         {
             InitializeComponent();
@@ -29,12 +31,10 @@ namespace LankaStocks.UIForms
             #region ContextMenu
             cmOQC.MenuItems.Add("Open Quick Sell Window", new EventHandler(Open_QC_Window_Click));
             btnIssueItem.ContextMenu = cmOQC;
-
-            cmLout.MenuItems.Add("Sign Out", new EventHandler(Sign_Out_Click));
-            cmLout.MenuItems.Add("Restart", new EventHandler(Restart_Click));
-            cmLout.MenuItems.Add("Exit", new EventHandler(Exit_Click));
-            cmLout.MenuItems.Add("Help", new EventHandler(Help_Click));
-            btnhide.ContextMenu = cmLout;
+            CF.button2.Click += Sign_Out_Click;
+            CF.button3.Click += Restart_Click;
+            CF.button4.Click += Help_Click;
+            CF.button5.Click += Exit_Click;
             #endregion
 
         }
@@ -63,7 +63,6 @@ namespace LankaStocks.UIForms
 
         public List<string> i = new List<string>();
         ContextMenu cmOQC = new ContextMenu();
-        ContextMenu cmLout = new ContextMenu();
 
         #region This Form
 
@@ -128,7 +127,7 @@ namespace LankaStocks.UIForms
         private void Dashboard_Load(object sender, EventArgs e)
         {
             PanelMenu panelMenu = new PanelMenu(panel2, btnhide, 34, panel2.Width);
-
+            formContext = new FormContextMenu(btnhide, CF);
             if (RemoteDBs.Settings.commonSettings.Get.Interface == MenuInterfaceType.Classic)
             {
                 menuClassic.labelTotal.Font = new Font(menuClassic.labelTotal.Font.Name.ToString(), menuClassic.labelTotal.Font.Size + 8);

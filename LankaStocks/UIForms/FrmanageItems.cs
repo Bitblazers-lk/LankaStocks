@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LankaStocks.Setting;
 using static LankaStocks.Core;
 using LankaStocks.Shared;
+using LankaStocks.UIHandle;
 
 namespace LankaStocks.UIForms
 {
@@ -19,26 +20,23 @@ namespace LankaStocks.UIForms
         {
             InitializeComponent();
         }
-        int ToolBarWidth;
+
+        private void panel2_SizeChanged(object sender, EventArgs e)
+        {
+            if (panel2.Width < 35)
+            {
+                btnConsole.Text = "";
+            }
+            else
+            {
+                btnConsole.Text = "Open Console";
+            }
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             Forms.addItems = new UIForms.AddItems();
             Forms.addItems.ShowDialog();
-        }
-
-        private void btnhide_Click(object sender, EventArgs e)
-        {
-            if (panel2.Width == ToolBarWidth)
-            {
-                btnConsole.Text = "";
-                panel2.Width = 35;
-            }
-            else if (panel2.Width == 35)
-            {
-                btnConsole.Text = "Open Console";
-                panel2.Width = ToolBarWidth;
-            }
         }
 
         private void btnStockIntake_Click(object sender, EventArgs e)
@@ -49,12 +47,12 @@ namespace LankaStocks.UIForms
 
         private void FrmanageItems_Load(object sender, EventArgs e)
         {
+            PanelMenu panelMenu = new PanelMenu(panel2, btnhide, 34, panel2.Width);
             FrmItemView view = new FrmItemView(client.ps.Live.Items, splitContainer2.Panel2);
             FormHandle form = new FormHandle();
             form.OpenForm(splitContainer1.Panel1, view, FormBorderStyle.None, DockStyle.Fill);
             Settings.LoadCtrlSettings(this);
 
-            ToolBarWidth = panel2.Width;
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }
