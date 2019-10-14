@@ -22,7 +22,7 @@ namespace LankaStocks
 
     public class User : Person
     {
-        public uint UserID;
+
         public string userName;
         public string pass;
         public bool isAdmin;

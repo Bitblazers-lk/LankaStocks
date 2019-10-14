@@ -67,7 +67,7 @@ namespace LankaStocks
         public Response AddNewUser(User v)
         {
             if (v.ID == 0) { Live.IdMachine.PersonID++; v.ID = Live.IdMachine.PersonID; }
-            if (v.UserID == 0) { Live.IdMachine.UserID++; v.UserID = Live.IdMachine.UserID; }
+            if (v.ID == 0) { Live.IdMachine.UserID++; v.ID = Live.IdMachine.UserID; }
 
             if (People.Users.ContainsKey(v.ID))
             {
