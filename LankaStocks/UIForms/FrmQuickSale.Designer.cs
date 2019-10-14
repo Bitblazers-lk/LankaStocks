@@ -130,7 +130,6 @@
             this.btnhide.Size = new System.Drawing.Size(143, 34);
             this.btnhide.TabIndex = 10;
             this.btnhide.UseVisualStyleBackColor = true;
-            this.btnhide.Click += new System.EventHandler(this.Btnhide_Click);
             // 
             // splitContainer1
             // 

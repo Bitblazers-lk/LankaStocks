@@ -152,12 +152,12 @@ namespace LankaStocks.UIForms
 
         private void Remove_Details_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         private void Item_His_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         private void FrmItemView_StyleChanged(object sender, EventArgs e)

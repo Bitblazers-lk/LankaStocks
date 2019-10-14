@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using LankaStocks.Setting;
 using LankaStocks.UserControls;
 using static LankaStocks.Core;
+using LankaStocks.UIHandle;
 
 namespace LankaStocks.UIForms
 {
@@ -43,7 +44,6 @@ namespace LankaStocks.UIForms
         UIVendor uIVendor = new UIVendor();
         UIUser uIUser = new UIUser();
 
-        int ToolBarWidth;
         public PersonType Current = PersonType.Person;
         void SetUI(PersonType type)
         {
@@ -90,18 +90,6 @@ namespace LankaStocks.UIForms
             }
         }
 
-        private void btnhide_Click(object sender, EventArgs e)
-        {
-            if (panel2.Width == ToolBarWidth)
-            {
-                panel2.Width = 35;
-            }
-            else if (panel2.Width == 35)
-            {
-                panel2.Width = ToolBarWidth;
-            }
-        }
-
         private void Cancel_Click(object sender, EventArgs e)
         {
             var res = MessageBox.Show("Do You Realy Want To Cancel?", "LankaStocks > Calcel?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -110,7 +98,7 @@ namespace LankaStocks.UIForms
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -136,13 +124,13 @@ namespace LankaStocks.UIForms
                     break;
             }
             Close();
-            //throw new NotImplementedException();
+            //            MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         private void AddData_Load(object sender, EventArgs e)
         {
             Settings.LoadCtrlSettings(this);
-            ToolBarWidth = panel2.Width;
+            PanelMenu panelMenu = new PanelMenu(panel2, btnhide, 34, panel2.Width);
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             var handler = TabChanged;

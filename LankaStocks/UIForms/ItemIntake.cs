@@ -31,7 +31,7 @@ namespace LankaStocks.UIForms
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         private void Save_Click(object sender, EventArgs e)

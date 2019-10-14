@@ -118,7 +118,6 @@
             this.btnhide.Size = new System.Drawing.Size(200, 34);
             this.btnhide.TabIndex = 10;
             this.btnhide.UseVisualStyleBackColor = true;
-            this.btnhide.Click += new System.EventHandler(this.btnhide_Click);
             // 
             // panel3
             // 

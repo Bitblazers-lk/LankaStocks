@@ -79,6 +79,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(220, 747);
             this.panel2.TabIndex = 13;
+            this.panel2.SizeChanged += new System.EventHandler(this.panel2_SizeChanged);
             // 
             // btnSettings
             // 
@@ -247,7 +248,6 @@
             this.btnhide.Size = new System.Drawing.Size(220, 38);
             this.btnhide.TabIndex = 9;
             this.btnhide.UseVisualStyleBackColor = true;
-            this.btnhide.Click += new System.EventHandler(this.Btnhide_Click);
             // 
             // panel4
             // 
