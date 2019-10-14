@@ -5,6 +5,7 @@ using LankaStocks.UserControls;
 using LankaStocks.Setting;
 using static LankaStocks.Core;
 using System.Drawing;
+using LankaStocks.UIHandle;
 //41, 11, 31
 namespace LankaStocks.UIForms
 {
@@ -61,24 +62,22 @@ namespace LankaStocks.UIForms
         }
 
         public List<string> i = new List<string>();
-        int ToolBarWidth;
         ContextMenu cmOQC = new ContextMenu();
         ContextMenu cmLout = new ContextMenu();
 
         #region This Form
-        private void Btnhide_Click(object sender, EventArgs e)
+
+        private void panel2_SizeChanged(object sender, EventArgs e)
         {
-            if (panel2.Width == ToolBarWidth)
+            if (panel2.Width < 35)
             {
-                panel2.Width = 35;
                 pblogo.Visible = false;
                 btnabout.Text = "";
                 btnSettings.Text = "";
             }
-            else if (panel2.Width == 35)
+            else
             {
                 pblogo.Visible = true;
-                panel2.Width = ToolBarWidth;
                 btnabout.Text = "About";
                 btnSettings.Text = "Settings";
             }
@@ -128,14 +127,14 @@ namespace LankaStocks.UIForms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            ToolBarWidth = panel2.Width;
+            PanelMenu panelMenu = new PanelMenu(panel2, btnhide, 34, panel2.Width);
 
             if (RemoteDBs.Settings.commonSettings.Get.Interface == MenuInterfaceType.Classic)
             {
                 menuClassic.labelTotal.Font = new Font(menuClassic.labelTotal.Font.Name.ToString(), menuClassic.labelTotal.Font.Size + 8);
                 menuClassic.labelInNO.Font = new Font(menuClassic.labelInNO.Font.Name.ToString(), menuClassic.labelInNO.Font.Size + 2);
                 menuClassic.xuiClock1.Font = new Font(menuClassic.xuiClock1.Font.Name.ToString(), menuClassic.xuiClock1.Font.Size + 10);
-                menuClassic.btnIssue.Font= new Font(menuClassic.btnIssue.Font.Name.ToString(), menuClassic.btnIssue.Font.Size + 8);
+                menuClassic.btnIssue.Font = new Font(menuClassic.btnIssue.Font.Name.ToString(), menuClassic.btnIssue.Font.Size + 8);
             }
             else
             {
