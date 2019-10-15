@@ -62,18 +62,6 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>LankaStocks.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>D0827020AA9953EB4D19F7E1AEB80355C043D96B</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>LankaStocks.dev_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>false</SignManifests>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -108,7 +96,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="LankaStocks.dev_TemporaryKey.pfx" />
     <None Include="LankaStocks.pfx" />
     <None Include="packages.config" />
     <None Include="Resources\lanka_stocks_remove_squares___1__Oib_icon.ico" />
