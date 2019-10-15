@@ -18,9 +18,6 @@ namespace LankaStocks.UserControls
             InitializeComponent();
         }
 
-
-
-
         private void Qty_KeyDown_1(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -28,34 +25,26 @@ namespace LankaStocks.UserControls
                 Error.Num(Qty);
             }
         }
-
         private void Qty_TextChanged(object sender, EventArgs e)
         {
             Error.Num(Qty);
         }
-
-
-
-
         public StockIntake GenerateStockIntake()
         {
+            uint intakeID = 0;
             if (IntakeID.Text == "") IntakeID.Text = "0";
-            if (!uint.TryParse(IntakeID.Text, out uint intakeID))
+            if (!uint.TryParse(IntakeID.Text, out intakeID))
             {
                 throw new ArgumentException("Value must be a positive integer", "intakeID");
             }
-
 
             StockIntake intake = new StockIntake() { IntakeID = intakeID, item = new Item() };
             ApplyTo(intake);
             return intake;
 
         }
-
         public void ApplyTo(StockIntake si)
         {
-
-
             si.item.itemID = uiSelItem.GetItem();
 
             Item RootItem;
@@ -69,7 +58,7 @@ namespace LankaStocks.UserControls
             //}
 
 
-            if (!int.TryParse(Qty.Text, out int qty)) throw new ArgumentNullException("Qty", "Quantity cannot be null");
+            if (!decimal.TryParse(Qty.Text, out decimal qty)) throw new ArgumentNullException("Qty", "Quantity cannot be null");
 
             si.item.Quantity = qty;
 
@@ -87,9 +76,6 @@ namespace LankaStocks.UserControls
 
             RootItem.Quantity += qty;
         }
-
-
     }
-
 }
 

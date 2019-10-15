@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.Shared;
+using static LankaStocks.Core;
 
 namespace LankaStocks.UserControls
 {
@@ -16,13 +17,25 @@ namespace LankaStocks.UserControls
         public UIAddItem()
         {
             InitializeComponent();
+            ItemName.Select();
         }
+
+        public bool IsEditMode { get; set; }
+        public uint Item_ID { get; set; }
 
         private void ItemName_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Error.Txt(ItemName);
+                if (Error.Txt(ItemName)) Barcode.Select();
+            }
+        }
+
+        private void Barcode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                InPrice.Select();
             }
         }
 
@@ -38,7 +51,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Error.Num(InPrice);
+                if (Error.Num(InPrice)) OutPrice.Select();
             }
         }
 
@@ -46,7 +59,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                Error.Num(OutPrice);
+                if (Error.Num(OutPrice)) Alternative.Select();
             }
         }
 
@@ -71,9 +84,16 @@ namespace LankaStocks.UserControls
         private void UIAddItem_Load(object sender, EventArgs e)
         {
             if (!Core.IsInitialized) return;
-
             RefreshLists();
-
+            if (IsEditMode)
+            {
+                ItemID.Text = Item_ID.ToString();
+                LoadItemDetails(RemoteDBs.Live.Items.Get[Item_ID]);
+            }
+            else
+            {
+                ItemID.Text = Item_ID.ToString();
+            }
         }
 
         public void RefreshLists()
@@ -84,14 +104,11 @@ namespace LankaStocks.UserControls
             vendors.Clear();
             Items.Clear();
 
-
             foreach (var vend in Core.client.ps.People.Vendors.Values)
             {
                 VendorID.Items.Add($"{vend.VendorID}. {vend.name}  - supplies {((vend.supplyingItems.Count == 0) ? "nothing" : (string.Join(",", vend.supplyingItems))) }");
                 vendors.Add(vend.ID);
             }
-
-
 
             foreach (var itm in Core.client.ps.Live.Items.Values)
             {
@@ -102,7 +119,6 @@ namespace LankaStocks.UserControls
 
         public Item GenerateItem()
         {
-
             if (ItemID.Text == "") ItemID.Text = "0";
             if (!uint.TryParse(ItemID.Text, out uint itemID))
             {
@@ -115,6 +131,15 @@ namespace LankaStocks.UserControls
             Item itm = new Item() { itemID = itemID, Barcode = Barcode.Text, inPrice = decimal.Parse(InPrice.Text), name = ItemName.Text, outPrice = decimal.Parse(OutPrice.Text), vendors = new List<uint>() { vend }, Alternative = alt, Quantity = 0 };
 
             return itm;
+        }
+
+        public void LoadItemDetails(Item item)
+        {
+            ItemID.Text = item.itemID.ToString();
+            ItemName.Text = item.name;
+            Barcode.Text = item.Barcode;
+            InPrice.Text = item.inPrice.ToString("0.00");
+            OutPrice.Text= item.outPrice.ToString("0.00");
         }
     }
 }

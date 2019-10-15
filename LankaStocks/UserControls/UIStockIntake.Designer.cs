@@ -94,6 +94,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Enabled = false;
             this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(3, 27);
             this.label2.Name = "label2";
@@ -143,6 +144,7 @@
             // 
             this.uiSelecVendor.BackColor = System.Drawing.Color.Transparent;
             this.uiSelecVendor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiSelecVendor.Enabled = false;
             this.uiSelecVendor.Location = new System.Drawing.Point(87, 30);
             this.uiSelecVendor.Name = "uiSelecVendor";
             this.uiSelecVendor.PreferedPeopleGroup = "vendors";
@@ -174,6 +176,7 @@
             // 
             this.uiTransaction.BackColor = System.Drawing.Color.Transparent;
             this.uiTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiTransaction.Enabled = false;
             this.uiTransaction.Location = new System.Drawing.Point(3, 16);
             this.uiTransaction.Name = "uiTransaction";
             this.uiTransaction.Size = new System.Drawing.Size(418, 357);

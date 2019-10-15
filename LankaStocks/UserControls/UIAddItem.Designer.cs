@@ -90,6 +90,7 @@
             this.ItemID.ReadOnly = true;
             this.ItemID.Size = new System.Drawing.Size(314, 20);
             this.ItemID.TabIndex = 0;
+            this.ItemID.TabStop = false;
             // 
             // Alternative
             // 
@@ -101,7 +102,7 @@
             this.Alternative.Location = new System.Drawing.Point(83, 165);
             this.Alternative.Name = "Alternative";
             this.Alternative.Size = new System.Drawing.Size(314, 21);
-            this.Alternative.TabIndex = 6;
+            this.Alternative.TabIndex = 4;
             // 
             // label1
             // 
@@ -111,7 +112,7 @@
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 27);
-            this.label1.TabIndex = 7;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Item ID :";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -123,7 +124,7 @@
             this.label2.Location = new System.Drawing.Point(3, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 27);
-            this.label2.TabIndex = 8;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Name :";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -135,7 +136,7 @@
             this.label7.Location = new System.Drawing.Point(3, 162);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 28);
-            this.label7.TabIndex = 13;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Alternative :";
             this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -147,7 +148,8 @@
             this.OutPrice.Location = new System.Drawing.Point(83, 138);
             this.OutPrice.Name = "OutPrice";
             this.OutPrice.Size = new System.Drawing.Size(314, 20);
-            this.OutPrice.TabIndex = 4;
+            this.OutPrice.TabIndex = 3;
+            this.OutPrice.Text = "0";
             this.OutPrice.TextChanged += new System.EventHandler(this.OutPrice_TextChanged);
             this.OutPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutPrice_KeyDown);
             // 
@@ -159,7 +161,8 @@
             this.InPrice.Location = new System.Drawing.Point(83, 111);
             this.InPrice.Name = "InPrice";
             this.InPrice.Size = new System.Drawing.Size(314, 20);
-            this.InPrice.TabIndex = 3;
+            this.InPrice.TabIndex = 2;
+            this.InPrice.Text = "0";
             this.InPrice.TextChanged += new System.EventHandler(this.InPrice_TextChanged);
             this.InPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InPrice_KeyDown);
             // 
@@ -167,6 +170,7 @@
             // 
             this.VendorID.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.VendorID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.VendorID.Enabled = false;
             this.VendorID.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.VendorID.ForeColor = System.Drawing.Color.Orange;
             this.VendorID.FormattingEnabled = true;
@@ -174,6 +178,7 @@
             this.VendorID.Name = "VendorID";
             this.VendorID.Size = new System.Drawing.Size(314, 21);
             this.VendorID.TabIndex = 2;
+            this.VendorID.TabStop = false;
             this.VendorID.SelectedIndexChanged += new System.EventHandler(this.VendorID_SelectedIndexChanged);
             this.VendorID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.VendorID_KeyDown);
             // 
@@ -185,7 +190,7 @@
             this.ItemName.Location = new System.Drawing.Point(83, 30);
             this.ItemName.Name = "ItemName";
             this.ItemName.Size = new System.Drawing.Size(314, 20);
-            this.ItemName.TabIndex = 1;
+            this.ItemName.TabIndex = 0;
             this.ItemName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ItemName_KeyDown);
             // 
             // label5
@@ -196,7 +201,7 @@
             this.label5.Location = new System.Drawing.Point(3, 135);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 27);
-            this.label5.TabIndex = 11;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Selling Price :";
             this.label5.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -208,7 +213,7 @@
             this.label4.Location = new System.Drawing.Point(3, 108);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 27);
-            this.label4.TabIndex = 10;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Buying Price :";
             this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -216,11 +221,12 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Enabled = false;
             this.label3.ForeColor = System.Drawing.Color.Orange;
             this.label3.Location = new System.Drawing.Point(3, 81);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 27);
-            this.label3.TabIndex = 9;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Vendor ID :";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
@@ -231,7 +237,8 @@
             this.Barcode.Location = new System.Drawing.Point(83, 57);
             this.Barcode.Name = "Barcode";
             this.Barcode.Size = new System.Drawing.Size(314, 20);
-            this.Barcode.TabIndex = 14;
+            this.Barcode.TabIndex = 1;
+            this.Barcode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Barcode_KeyDown);
             // 
             // label6
             // 
@@ -241,7 +248,7 @@
             this.label6.Location = new System.Drawing.Point(3, 54);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 27);
-            this.label6.TabIndex = 15;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Barcode :";
             this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 

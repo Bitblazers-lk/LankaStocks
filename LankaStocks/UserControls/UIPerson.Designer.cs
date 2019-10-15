@@ -179,7 +179,7 @@
         private System.Windows.Forms.Label label1;
         public System.Windows.Forms.TextBox Details;
         public System.Windows.Forms.TextBox PersonName;
-        private System.Windows.Forms.TextBox PersonID;
         private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.TextBox PersonID;
     }
 }

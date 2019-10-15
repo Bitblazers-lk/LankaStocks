@@ -144,9 +144,12 @@ namespace LankaStocks.UIForms
         {
             if (!ParentCtrl.Controls.Contains(Forms.addItems))
             {
-                Forms.addItems = new AddItems();
-                FormHandle form1 = new FormHandle();
-                form1.OpenForm(ParentCtrl, Forms.addItems, FormBorderStyle = FormBorderStyle.Fixed3D, DockStyle.Top);
+                if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
+                {
+                    Forms.addItems = new AddItems(uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()));
+                    FormHandle form1 = new FormHandle();
+                    form1.OpenForm(ParentCtrl, Forms.addItems, FormBorderStyle = FormBorderStyle.Fixed3D, DockStyle.Top);
+                }
             }
         }
 

@@ -89,20 +89,23 @@ namespace LankaStocks.UIForms
                 DialogResult result = MessageBox.Show("", $"LankaStocks > Edit {Current.ToString()}?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
-                    Forms.addData = new AddData();
-                    FormHandle form = new FormHandle();
-                    Forms.addData.FormClosing += Frm_Closing;
-                    switch (Current)
+                    if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
                     {
-                        case PersonType.Vendor:
-                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
-                            break;
-                        case PersonType.User:
-                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
-                            break;
-                        default:
-                            form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
-                            break;
+                        Forms.addData = new AddData(PersonType.User,uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()));
+                        FormHandle form = new FormHandle();
+                        Forms.addData.FormClosing += Frm_Closing;
+                        switch (Current)
+                        {
+                            case PersonType.Vendor:
+                                form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                                break;
+                            case PersonType.User:
+                                form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                                break;
+                            default:
+                                form.OpenForm(Fpanel, Forms.addData, FormBorderStyle.Fixed3D, DockStyle.Top);
+                                break;
+                        }
                     }
                 }
             }
@@ -145,7 +148,7 @@ namespace LankaStocks.UIForms
             }
         }
 
-        public PersonType Current = PersonType.Person;
+        public PersonType Current = PersonType.User;
 
         private void btnAdd_Click(object sender, EventArgs e)
         {

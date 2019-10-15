@@ -136,6 +136,7 @@
             // 
             // btnvendor
             // 
+            this.btnvendor.Enabled = false;
             this.btnvendor.FlatAppearance.BorderSize = 0;
             this.btnvendor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnvendor.ForeColor = System.Drawing.Color.Orange;
@@ -153,6 +154,7 @@
             // 
             // btnperson
             // 
+            this.btnperson.Enabled = false;
             this.btnperson.FlatAppearance.BorderSize = 0;
             this.btnperson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnperson.ForeColor = System.Drawing.Color.Orange;

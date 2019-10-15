@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.Shared;
+using static LankaStocks.Core;
 
 namespace LankaStocks.UserControls
 {
@@ -17,6 +18,18 @@ namespace LankaStocks.UserControls
         {
             InitializeComponent();
         }
+
+        public UIUser(uint UID)
+        {
+            InitializeComponent();
+            EditMode = true;
+            User_ID = UID;
+
+            LoadUserDetails(RemoteDBs.People.Users.Get[User_ID]);
+        }
+
+        public bool EditMode { get; set; }
+        public uint User_ID { get; set; }
 
         private void UserName_KeyDown(object sender, KeyEventArgs e)
         {
@@ -42,7 +55,6 @@ namespace LankaStocks.UserControls
             }
         }
 
-
         public User GenerateUser()
         {
 
@@ -66,6 +78,18 @@ namespace LankaStocks.UserControls
 
             return u;
 
+        }
+
+        public void LoadUserDetails(User user)
+        {
+            uiPerson1.PersonID.Text = user.ID.ToString();
+            uiPerson1.PersonName.Text = user.name;
+            uiPerson1.Details.Text = user.details;
+            uiPerson1.ContactInfo.Text = user.contactInfo;
+            UserID.Text = user.ID.ToString();
+            UserName.Text = user.userName;
+            UserPass.Text = user.pass;
+            if (user.isAdmin) IsAdmin.SelectedIndex = 1; else IsAdmin.SelectedIndex = 0;
         }
     }
 }

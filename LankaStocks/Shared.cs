@@ -307,14 +307,14 @@ namespace LankaStocks.Shared
 
                 if (resp.result == (byte)Networking.Response.Result.ok)
                 {
-                    Log($"Items issued {String.Join(",", _Cart)} worth {tot} Rs by {user.userName}");
+                    Log($"Items issued {String.Join(",", _Cart)} worth Rs.{tot} By {user.userName}");
                     _Cart.Clear();
                 }
                 else
                 {
                     string s = $"Item issue failed. {((Networking.Response.Result)resp.result).ToString()} - {resp.msg}";
                     Log(s);
-                    MessageBox.Show(s, "Item issue failed.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(s, "LanakaStocks > Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
@@ -334,7 +334,18 @@ namespace LankaStocks.Shared
                     tot += client.ps.Live.Items[s.Key].outPrice;
                     items.Add(new BusinessItem { itemID = s.Key, Quantity = (decimal)s.Value, Value = tot, Seller = user.ID });
                 }
-                client.RefundItem(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.ID, special = false });
+                var resp = client.RefundItem(new BasicSale { items = items, date = DateTime.Now, total = tot, SaleID = 0, UserID = user.ID, special = false });
+
+                if (resp.result == (byte)Networking.Response.Result.ok)
+                {
+                    Log($"Items Refunded {String.Join(",", _LstItems)} worth Rs.{tot} By {user.userName}");
+                }
+                else
+                {
+                    string s = $"Item Refund failed. {((Networking.Response.Result)resp.result).ToString()} - {resp.msg}";
+                    Log(s);
+                    MessageBox.Show(s, "LanakaStocks > Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 _LstItems.Clear();
             }
             else
@@ -357,5 +368,28 @@ namespace LankaStocks.Shared
             childForm.BringToFront();
             childForm.Show();
         }
+    }
+
+    public class Events
+    {
+        /*Hasi okkoma Uint ID's Thyena class wala 'NextID' Kiyala property ekak Hadapan......*/
+
+        public event InvoiceNOChange OnInvoiceNOChange;
+        public delegate void InvoiceNOChange(uint ID);
+
+        public event ItemIssued OnItemIssued;
+        public delegate void ItemIssued();
+
+        public event ItemRefunded OnItemRefunded;
+        public delegate void ItemRefunded(uint ID, Item item);
+
+        public event TotalSaleChange OnTotalSaleChange;
+        public delegate void TotalSaleChange(decimal Total);
+
+        public event TodayTotalSaleChange OnTodayTotalSaleChange;
+        public delegate void TodayTotalSaleChange(decimal Total);
+
+        public event TodayCustomerChange OnTodayCustomerChange;
+        public delegate void TodayCustomerChange(uint Total);
     }
 }

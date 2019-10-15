@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.Setting;
+using static LankaStocks.Core;
 
 namespace LankaStocks.UIForms
 {
@@ -25,19 +26,31 @@ namespace LankaStocks.UIForms
 
         private void Cancel_Click(object sender, EventArgs e)
         {
-            var res = MessageBox.Show("Do You Realy Want To Cancel?", "LankaStocks > Calcel?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            var res = MessageBox.Show("Do You Realy Want To Cancel?", "LankaStocks > Cancel?", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (res == DialogResult.OK) this.Dispose();
         }
 
         private void Refresh_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
         }
 
         private void Save_Click(object sender, EventArgs e)
         {
-            Core.client.StockIntake(uiStockIntake.GenerateStockIntake());
-            Hide();
+            var resp = client.StockIntake(uiStockIntake.GenerateStockIntake());
+
+            if (resp.result == (byte)Networking.Response.Result.ok)
+            {
+                Log($"Done Stock Intake... By {user.userName}");
+                MessageBox.Show("Done Stock Intake!", "LankaStocks > Done!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Hide();
+            }
+            else
+            {
+                string s = $" Stock Intake failed. {((Networking.Response.Result)resp.result).ToString()} - {resp.msg}";
+                Log(s);
+                MessageBox.Show(s, "LanakaStocks > Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void ItemIntake_Load(object sender, EventArgs e)

@@ -23,14 +23,32 @@ namespace LankaStocks.UIForms
             uiSaveData.RefreshAll.Click += Refresh_Click;
             uiSaveData.Cancel.Click += Cancel_Click;
             TabChanged += Tab_Changed;
+
+            uIPerson = new UIPerson();
+            uIVendor = new UIVendor();
+            uIUser = new UIUser();
         }
-        public AddData(PersonType personType)
+        public AddData(PersonType personType, uint ID = 0)
         {
             InitializeComponent();
             uiSaveData.Save.Click += Save_Click;
             uiSaveData.RefreshAll.Click += Refresh_Click;
             uiSaveData.Cancel.Click += Cancel_Click;
             TabChanged += Tab_Changed;
+
+            if (ID != 0)
+            {
+                Edit = true;
+                uIPerson = new UIPerson();
+                uIVendor = new UIVendor();
+                uIUser = new UIUser(ID);
+            }
+            else
+            {
+                uIPerson = new UIPerson();
+                uIVendor = new UIVendor();
+                uIUser = new UIUser();
+            }
 
             Current = personType;
         }
@@ -40,11 +58,13 @@ namespace LankaStocks.UIForms
             SetUI(args);
         }
 
-        UIPerson uIPerson = new UIPerson();
-        UIVendor uIVendor = new UIVendor();
-        UIUser uIUser = new UIUser();
+        UIPerson uIPerson;
+        UIVendor uIVendor;
+        UIUser uIUser;
 
-        public PersonType Current = PersonType.Person;
+        bool Edit = false;
+
+        public PersonType Current = PersonType.User;
         void SetUI(PersonType type)
         {
             switch (type)
@@ -103,25 +123,51 @@ namespace LankaStocks.UIForms
 
         private void Save_Click(object sender, EventArgs e)
         {
-            switch (Current)
+            if (!Edit)
             {
-                case PersonType.Vendor:
-                    var v = uIVendor.GenerateVendor();
-                    client.AddNewVendor(v);
-                    break;
+                switch (Current)
+                {
+                    case PersonType.Vendor:
+                        var v = uIVendor.GenerateVendor();
+                        client.AddNewVendor(v);
+                        break;
 
-                case PersonType.User:
-                    var u = uIUser.GenerateUser();
-                    client.AddNewUser(u);
-                    break;
+                    case PersonType.User:
+                        var u = uIUser.GenerateUser();
+                        client.AddNewUser(u);
+                        break;
 
-                case PersonType.Person:
-                    var p = uIPerson.GeneratePerson();
-                    client.AddNewPerson(p);
-                    break;
+                    case PersonType.Person:
+                        var p = uIPerson.GeneratePerson();
+                        client.AddNewPerson(p);
+                        break;
 
-                default:
-                    break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                switch (Current)
+                {
+                    case PersonType.Vendor:
+                        var v = uIVendor.GenerateVendor();
+                        client.EditVendor(v);
+                        break;
+
+                    case PersonType.User:
+                        var u = uIUser.GenerateUser();
+                        client.EditUser(u);
+                        break;
+
+                    case PersonType.Person:
+                        var p = uIPerson.GeneratePerson();
+                        client.EditPerson(p);
+                        break;
+
+                    default:
+                        break;
+                }
             }
             Close();
             //            MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
