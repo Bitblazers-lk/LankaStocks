@@ -495,6 +495,7 @@ namespace LankaStocks.DataBases
 
 
             IdMachine = new IDMachine();
+            IdMachine.ItemID = 20;
 
 
             Session = new DBSession();

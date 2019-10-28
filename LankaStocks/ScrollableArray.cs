@@ -33,11 +33,11 @@ namespace LankaStocks
 
         public void AddToFront(params T[] items)
         {
-            int l = items.Length;
-            int newSize = l + Count;
-
             lock (A)
             {
+                int l = items.Length;
+                int newSize = l + Count;
+
 
                 CheckAndResize(newSize);
 
@@ -57,11 +57,11 @@ namespace LankaStocks
         }
         public void AddToBack(params T[] items)
         {
-            int l = items.Length;
-            int newSize = l + Count;
-
             lock (A)
             {
+                int l = items.Length;
+                int newSize = l + Count;
+
 
                 CheckAndResize(newSize);
 
@@ -79,10 +79,11 @@ namespace LankaStocks
         }
         public void CheckAndResize(int newSize, int incrementWith = 2)
         {
-            if (Capacity < newSize)
+            lock (A)
             {
-                lock (A)
+                if (Capacity < newSize)
                 {
+
 
                     int newCapacity = newSize + incrementWith;
 
@@ -108,71 +109,81 @@ namespace LankaStocks
         }
         public void RemoveFromBegining(int count)
         {
-            if (Count < count)
-                count = Count;
-
-            Count -= count;
-
-            for (int i = 0; i < count; i++)
+            lock (A)
             {
-                A[root] = default;
-                root = Wrap1(root + 1);
+
+                if (Count < count)
+                    count = Count;
+
+                Count -= count;
+
+                for (int i = 0; i < count; i++)
+                {
+                    A[root] = default;
+                    root = Wrap1(root + 1);
+                }
             }
         }
         public void RemoveFromEnd(int count)
         {
-            if (Count < count)
-                count = Count;
-
-
-            int cursor = Wrap(root + Count);
-
-            for (int i = 0; i < count; i++)
+            lock (A)
             {
-                A[cursor] = default;
-                cursor = Wrap1(cursor - 1);
+                if (Count < count)
+                    count = Count;
+
+
+                int cursor = Wrap(root + Count);
+
+                for (int i = 0; i < count; i++)
+                {
+                    A[cursor] = default;
+                    cursor = Wrap1(cursor - 1);
+                }
+                Count -= count;
             }
-            Count -= count;
         }
         public void RemoveRange(int start, int count)
         {
-            if (Count < start + count)
-                count = Count - start;
-
-
-            int cursor = Wrap(root + start);
-            int replacer = Wrap(root + start + count);
-            int eol = Wrap(root + Count);
-            bool replace = true;
-
-            for (int i = 0; i < Count - start; i++)
+            lock (A)
             {
+                if (Count < start + count)
+                    count = Count - start;
 
-                if (replace)
+
+                int cursor = Wrap(root + start);
+                int replacer = Wrap(root + start + count);
+                int eol = Wrap(root + Count);
+                bool replace = true;
+
+                for (int i = 0; i < Count - start; i++)
                 {
 
-                    if (replacer == eol)
+                    if (replace)
                     {
-                        replace = false;
-                        A[cursor] = default;
+
+                        if (replacer == eol)
+                        {
+                            replace = false;
+                            A[cursor] = default;
+                        }
+                        else
+                        {
+                            A[cursor] = A[replacer];
+                            A[replacer] = default;
+                        }
+                        replacer = Wrap1(replacer + 1);
                     }
                     else
                     {
-                        A[cursor] = A[replacer];
-                        A[replacer] = default;
+                        A[cursor] = default;
                     }
-                    replacer = Wrap1(replacer + 1);
-                }
-                else
-                {
-                    A[cursor] = default;
-                }
 
 
-                cursor = Wrap1(cursor + 1);
+                    cursor = Wrap1(cursor + 1);
+                }
+
+                Count -= count;
             }
-
-            Count -= count;
         }
 
         /// <summary>
@@ -180,9 +191,12 @@ namespace LankaStocks
         /// </summary>
         public T[] PushForward(params T[] items)
         {
-            var ts = PushForward(items.Length);
-            AddToFront(items);
-            return ts;
+            lock (A)
+            {
+                var ts = PushForward(items.Length);
+                AddToFront(items);
+                return ts;
+            }
         }
 
         /// <summary>
@@ -190,19 +204,22 @@ namespace LankaStocks
         /// </summary>
         public T[] PushForward(int count = 1)
         {
-            T[] ts = new T[count];
-
-            int cursor = Wrap(root + (Count - count));
-
-            for (int i = 0; i < count; i++)
+            lock (A)
             {
-                ts[i] = A[cursor];
-                cursor = Wrap1(cursor + 1);
+                T[] ts = new T[count];
+
+                int cursor = Wrap(root + (Count - count));
+
+                for (int i = 0; i < count; i++)
+                {
+                    ts[i] = A[cursor];
+                    cursor = Wrap1(cursor + 1);
+                }
+
+                RemoveFromEnd(count);
+
+                return ts;
             }
-
-            RemoveFromEnd(count);
-
-            return ts;
         }
 
         /// <summary>
@@ -210,9 +227,12 @@ namespace LankaStocks
         /// </summary>
         public T[] PullBackward(params T[] items)
         {
-            var ts = PullBackward(items.Length);
-            AddToBack(items);
-            return ts;
+            lock (A)
+            {
+                var ts = PullBackward(items.Length);
+                AddToBack(items);
+                return ts;
+            }
         }
 
         /// <summary>
@@ -220,19 +240,22 @@ namespace LankaStocks
         /// </summary>
         public T[] PullBackward(int count = 1)
         {
-            T[] ts = new T[count];
-
-            int cursor = root;
-
-            for (int i = 0; i < count; i++)
+            lock (A)
             {
-                ts[i] = A[cursor];
-                cursor = Wrap1(cursor + 1);
+                T[] ts = new T[count];
+
+                int cursor = root;
+
+                for (int i = 0; i < count; i++)
+                {
+                    ts[i] = A[cursor];
+                    cursor = Wrap1(cursor + 1);
+                }
+
+                RemoveFromBegining(count);
+
+                return ts;
             }
-
-            RemoveFromBegining(count);
-
-            return ts;
         }
 
         public T this[int index]
@@ -319,9 +342,12 @@ namespace LankaStocks
         }
         public void Clear()
         {
-            A = new T[Capacity];
-            Count = 0;
-            root = 0;
+            lock (A)
+            {
+                A = new T[Capacity];
+                Count = 0;
+                root = 0;
+            }
         }
         public bool Contains(T item)
         {
@@ -352,9 +378,12 @@ namespace LankaStocks
         }
         public T[] ToArray()
         {
-            T[] array = new T[Count];
-            CopyTo(array, 0);
-            return array;
+            lock (A)
+            {
+                T[] array = new T[Count];
+                CopyTo(array, 0);
+                return array;
+            }
         }
         public List<T> ToList()
         {
@@ -370,35 +399,44 @@ namespace LankaStocks
         }
         public bool Remove(T item)
         {
-            int i = AbsoluteIndexOf(item);
-            if (i == -1) return false;
+            lock (A)
+            {
+                int i = AbsoluteIndexOf(item);
+                if (i == -1) return false;
 
-            RemoveRange(i, 1);
-            return true;
+                RemoveRange(i, 1);
+                return true;
+            }
         }
         public int IndexOf(T item)
         {
-            int i = AbsoluteIndexOf(item);
+            lock (A)
+            {
+                int i = AbsoluteIndexOf(item);
 
-            if (i == -1)
-            {
-                return -1;
-            }
-            else
-            {
-                return Wrap1(root + i);
+                if (i == -1)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return Wrap1(root + i);
+                }
             }
         }
         public int AbsoluteIndexOf(T item)
         {
-            for (int i = 0; i < Count; i++)
+            lock (A)
             {
-                if (A[i].Equals(item))
+                for (int i = 0; i < Count; i++)
                 {
-                    return i;
+                    if (A[i].Equals(item))
+                    {
+                        return i;
+                    }
                 }
+                return -1;
             }
-            return -1;
         }
         public IEnumerator<T> GetEnumerator()
         {

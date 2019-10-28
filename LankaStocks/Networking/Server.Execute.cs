@@ -186,6 +186,7 @@ namespace LankaStocks
             }
 
 
+
             Live.Session.Sales.Add(sale.SaleID, sale);
 
             return new Response(Response.Result.ok, null, null, sale);
@@ -259,6 +260,13 @@ namespace LankaStocks
                 return Response.CreateError(Response.Result.wrongInputs, "StockIntakeID already exists");
             }
 
+
+            if (!Live.Items.TryGetValue(si.item.itemID, out Item root))
+            {
+                return new Response(Response.Result.notfound, $"Item {si.item.itemID} not found");
+            }
+
+            root.Quantity += si.item.Quantity;
 
             Live.Session.StockIntakes.Add(si.IntakeID, si);
 

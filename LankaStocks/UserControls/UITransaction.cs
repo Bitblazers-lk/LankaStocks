@@ -19,10 +19,10 @@ namespace LankaStocks.UserControls
             Type.Items.Clear();
             foreach (var item in Enum.GetNames(typeof(Transaction.Types)))
             {
-         Type.Items.Add(item);
+                Type.Items.Add(item);
             }
 
-           Type.SelectedIndex = 0;
+            Type.SelectedIndex = 0;
         }
 
 
@@ -48,8 +48,8 @@ namespace LankaStocks.UserControls
         {
 
 
-            if (!decimal.TryParse(Total.Text, out decimal total)) { Core.Log($"Cannot parse money amount {Total.Text}"); return; }
-            if (!decimal.TryParse(Paid.Text, out decimal paid)) { Core.Log($"Cannot parse money amount {Paid.Text}"); return; }
+            if (!decimal.TryParse(Total.Text, out decimal total)) { Core.Log($"@UI : Cannot parse money amount {Total.Text} (Total)"); return; }
+            if (!decimal.TryParse(Paid.Text, out decimal paid)) { Core.Log($"@UI : Cannot parse money amount {Paid.Text} (Paid)"); return; }
 
             tr.date = DateTime.Now;
             tr.confirmation = Confirm.Text;

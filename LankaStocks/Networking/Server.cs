@@ -199,6 +199,8 @@ namespace LankaStocks.Networking
         public uint CurrentPeerPoint = 0U;
         public uint MinPeerPoint = 0U;
 
+        private bool PeeringBusy = false;
+
         public virtual Response RespondPeerReq(string PeerID, uint ReqPeerPoint, string expr)
         {
             PeerStatus peer;
@@ -227,35 +229,50 @@ namespace LankaStocks.Networking
                     break;
             }
 
-            if (!Peers.TryGetValue(PeerID, out peer))
-            {
-                //New peer
 
-                peer = new PeerStatus() { ID = PeerID, LastActivity = DateTime.Now, LastPoint = CurrentPeerPoint };
-                Peers.Add(PeerID, peer);
-                Log($"Added new peer {PeerID}");
-                return new Response(Response.Result.notfound, null, "new peer", (Live, People, History, Settings, peer));
+            while (PeeringBusy)
+            {
+                System.Threading.Thread.Sleep(10);
             }
 
-            peer.LastActivity = DateTime.Now;
-            peer.LastPoint = ReqPeerPoint;
+            PeeringBusy = true;
 
-            int count = (int)(CurrentPeerPoint - peer.LastPoint);
+            lock (Peers)
+            {
 
-            if (count == 0) return new Response(Response.Result.ok, null, null, new PeerPackage() { Point = CurrentPeerPoint });
+                if (!Peers.TryGetValue(PeerID, out peer))
+                {
+                    //New peer
+
+                    peer = new PeerStatus() { ID = PeerID, LastActivity = DateTime.Now, LastPoint = CurrentPeerPoint };
+                    Peers.Add(PeerID, peer);
+                    Log($"Added new peer {PeerID}");
+                    PeeringBusy = false;
+                    return new Response(Response.Result.notfound, null, "new peer", (Live, People, History, Settings, peer));
+                }
 
 
-            PeerPackage pack = new PeerPackage() { Point = CurrentPeerPoint, requests = new Request[count] };
+                peer.LastActivity = DateTime.Now;
+                peer.LastPoint = ReqPeerPoint;
 
-            Requests.CopyTo(pack.requests, (int)(peer.LastPoint - MinPeerPoint), count);
+                int count = (int)(CurrentPeerPoint - peer.LastPoint);
+
+                PeeringBusy = false;
+                if (count == 0) return new Response(Response.Result.ok, null, null, new PeerPackage() { Point = CurrentPeerPoint });
 
 
-            Log($"Sent {count} requests to peer {PeerID} {{ {peer.LastPoint} to {CurrentPeerPoint} }}");
+                PeerPackage pack = new PeerPackage() { Point = CurrentPeerPoint, requests = new Request[count] };
 
-            peer.LastPoint = CurrentPeerPoint;
+                Requests.CopyTo(pack.requests, (int)(peer.LastPoint - MinPeerPoint), count);
 
 
-            return new Response(Response.Result.ok, null, null, pack);
+                Log($"Sent {count} requests to peer {PeerID} {{ {peer.LastPoint} to {CurrentPeerPoint} }} {VisualizeObj(pack.requests)}");
+
+                peer.LastPoint = CurrentPeerPoint;
+
+                PeeringBusy = false;
+                return new Response(Response.Result.ok, null, null, pack);
+            }
         }
 
         public void BroadcastToPeers(Request req)
@@ -264,14 +281,23 @@ namespace LankaStocks.Networking
                 return;
 
             if (IsDebug) Log($"Broadcast added {((Request.Command)req.command).ToString()} {req.db}.{req.expr}  - {string.Join(" ", req.para)}");
-            Requests.AddToFront(req);
-            CurrentPeerPoint++;
+            lock (Peers)
+            {
+                Requests.AddToBack(req);
+                CurrentPeerPoint++;
+            }
         }
 
         public void CleanupPeers()
         {
             lock (Peers)
             {
+                while (PeeringBusy)
+                {
+                    System.Threading.Thread.Sleep(10);
+                }
+
+                PeeringBusy = true;
 
                 var timeThreash_hold = DateTime.Now.AddMinutes(-10);
                 List<string> timoutPeers = new List<string>();
@@ -302,12 +328,15 @@ namespace LankaStocks.Networking
 
                 if (LowestPoint == MinPeerPoint)
                 {
+                    PeeringBusy = false;
                     return;
                 }
 
                 var cleaned = LowestPoint - MinPeerPoint;
-                Requests.RemoveFromEnd((int)(LowestPoint - MinPeerPoint));
+                Requests.RemoveFromBegining((int)(LowestPoint - MinPeerPoint));
                 MinPeerPoint = LowestPoint;
+
+                PeeringBusy = false;
 
                 if (IsDebug) Log($"Cleaned {cleaned} fully broadcasted requests. Currently at '{CurrentPeerPoint}' peer point. {CurrentPeerPoint - LowestPoint} points yet to send. {MinPeerPoint} MinPeerPoint");
             }
@@ -440,6 +469,8 @@ namespace LankaStocks.Networking
             PeererBusy = false;
         }
 
+
+
         public void Peer()
         {
             Response resp = client.Peer(status.ID, status.LastPoint);
@@ -460,7 +491,7 @@ namespace LankaStocks.Networking
                 foreach (var req in pack.requests)
                 {
                     Respond(req);
-                    if (IsDebug) Log($"Peer {status.ID} : Processed {((Request.Command)req.command).ToString()} {req.db}.{req.expr}  - {string.Join(" ", req.para)}");
+                    if (IsDebug) Log($"Peer {status.ID} : Processed {((Request.Command)req.command).ToString()} {req.db}.{req.expr}  - {string.Join(" ", req.para)} ~ {VisualizeObj(req.para[0])}");
                 }
 
                 status.LastPoint = pack.Point;
