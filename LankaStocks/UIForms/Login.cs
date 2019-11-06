@@ -68,7 +68,7 @@ namespace LankaStocks.UIForms
                 Thread.Sleep(10);
                 progressBar.Value = i;
             }
-
+            TxtName.Text = localSettings.LstUser.userName;
             //RemoteDBs.Settings.commonSettings.GetSet.Font = new Font("Comic Sans MS", 7f);
         }
 
@@ -100,6 +100,7 @@ namespace LankaStocks.UIForms
                     Forms.dashboard.btnTransaction.Enabled = false;
                 }
                 Forms.dashboard.Show();
+                localSettings.LstUser = logInResults.Item3;
                 Hide();
             }
             else
@@ -162,16 +163,6 @@ namespace LankaStocks.UIForms
             {
                 LoginCheck();
             }
-        }
-
-        private void Panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)

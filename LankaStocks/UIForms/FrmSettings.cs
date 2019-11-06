@@ -410,8 +410,10 @@ namespace LankaStocks.UIForms
     public class LocalSettings : DB
     {
         public LocalData Data;
+        public User LstUser;
         public override void CreateNewDatabase()
         {
+            LstUser = new User();
             Data = new LocalData
             {
                 POSBarcodeID = "",

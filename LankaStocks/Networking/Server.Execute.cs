@@ -85,10 +85,15 @@ namespace LankaStocks
             return new Response(Response.Result.ok);
         }
 
+        public Response DeleteUser(uint v)
+        {
+            People.Users.Remove(v);
+            Log($"Delete {v.ToString()} Done!");
+            return new Response(Response.Result.ok);
+        }
+
         public Response AddNewPerson(Person v)
         {
-
-
             if (v.ID == 0) { Live.IdMachine.PersonID++; v.ID = Live.IdMachine.PersonID; }
 
             if (People.OtherPeople.ContainsKey(v.ID))
@@ -108,13 +113,6 @@ namespace LankaStocks
             return new Response(Response.Result.ok);
         }
 
-
-
-        /// <summary>
-        /// For Both Basic Sales and Special Sales
-        /// </summary>
-        /// <param name="sale"></param>
-        /// <returns></returns>
         public Response Sale(BasicSale sale)
         {
 
@@ -249,6 +247,27 @@ namespace LankaStocks
 
             Live.Items[v.itemID] = v;
             Log($"Set {v.ToString()} \n {Core.VisualizeObj(v)}");
+            return new Response(Response.Result.ok);
+        }
+
+        public Response DeleteItem(Item v)
+        {
+            if (Live.Items.ContainsKey(v.itemID))
+            {
+                try
+                {
+                    foreach (var vend in v.vendors)
+                    {
+
+                        People.Vendors[vend].supplyingItems.Remove(v.itemID);
+
+                    }
+                }
+                catch { }
+            }
+
+            Live.Items.Remove(v.itemID);
+            Log($"Delete {v.ToString()} Done! \n {Core.VisualizeObj(v)}");
             return new Response(Response.Result.ok);
         }
 

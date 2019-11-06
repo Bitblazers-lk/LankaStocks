@@ -37,7 +37,7 @@ namespace LankaStocks.UserControls
 
         private readonly RawInput _KeyInput;
 
-        string Device;
+        string Device="";
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
         private void OnKeyPressed(object sender, RawInputEventArg e)

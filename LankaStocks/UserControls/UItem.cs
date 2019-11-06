@@ -76,12 +76,18 @@ namespace LankaStocks.UserControls
         }
 
         public void Setdata(uint code)
-        {           
-            var data = RemoteDBs.Live.Items.Get[code];
-            l1.Text = data.name;
-            l2.Text = data.itemID.ToString();
-            lp.Text = $"Rs.{ data.outPrice.ToString("00.00")}";
-            if (data.Quantity <= RemoteDBs.Settings.commonSettings.Get.WarnWhen) this.BackColor = Color.FromArgb(200, 0, 0, 100);
+        {
+            try
+            {
+                var data = RemoteDBs.Live.Items.Get[code];
+
+
+                l1.Text = data.name;
+                l2.Text = data.itemID.ToString();
+                lp.Text = $"Rs.{ data.outPrice.ToString("00.00")}";
+                if (data.Quantity <= RemoteDBs.Settings.commonSettings.Get.WarnWhen) this.BackColor = Color.FromArgb(200, 0, 0, 100);
+            }
+            catch { }
             _Code = code;
             LoadImage(_Code);
             GC.Collect();

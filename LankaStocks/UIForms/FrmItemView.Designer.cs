@@ -88,6 +88,7 @@
             this.DGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DGV.Location = new System.Drawing.Point(3, 57);
             this.DGV.Name = "DGV";
+            this.DGV.ReadOnly = true;
             this.DGV.Size = new System.Drawing.Size(953, 303);
             this.DGV.TabIndex = 3;
             this.DGV.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_CellMouseEnter);

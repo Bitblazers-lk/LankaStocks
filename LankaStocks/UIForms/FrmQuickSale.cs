@@ -30,7 +30,7 @@ namespace LankaStocks.UIForms
 
         private readonly RawInput _KeyInput;
 
-        string Device;
+        string Device="";
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
         uint ItemCode = 0;

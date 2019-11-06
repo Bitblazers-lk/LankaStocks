@@ -70,10 +70,30 @@ namespace LankaStocks.UIForms
         {
             if (Core.user.isAdmin)
             {
-                DialogResult result = MessageBox.Show("", $"LankaStocks > Remove {Current.ToString()}?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show($"Do You Really Want To Remove {Current.ToString()}?", $"LankaStocks > Remove {Current.ToString()}?", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (result == DialogResult.OK)
                 {
-
+                    if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null && uint.TryParse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint In))
+                    {
+                        if (In != Core.user.ID)
+                        {
+                            var resp = client.DeleteUser(In);
+                            if (resp.result == (byte)Networking.Response.Result.ok)
+                            {
+                                Log($"Delete {user.name} Done!");
+                            }
+                            else
+                            {
+                                string s = $"Delete {user.name} Failed. {((Networking.Response.Result)resp.result).ToString()} - {resp.msg}";
+                                Log(s);
+                                MessageBox.Show(s, "LanakaStocks > Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("You Can't Delete Your Profile!", "LanakaStocks > Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
             else
@@ -91,7 +111,7 @@ namespace LankaStocks.UIForms
                 {
                     if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
                     {
-                        Forms.addData = new AddData(PersonType.User,uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()));
+                        Forms.addData = new AddData(PersonType.User, uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()));
                         FormHandle form = new FormHandle();
                         Forms.addData.FormClosing += Frm_Closing;
                         switch (Current)

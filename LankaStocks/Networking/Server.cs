@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static LankaStocks.Core;
 
 namespace LankaStocks.Networking
@@ -100,7 +101,6 @@ namespace LankaStocks.Networking
             resp.result = (byte)Response.Result.ok;
             try
             {
-
                 switch (req.expr)
                 {
                     case "login":
@@ -121,6 +121,9 @@ namespace LankaStocks.Networking
                     case "SetUser":
                         resp = exe.SetUser(req.para[0]);
                         break;
+                    case "DeleteUser":
+                        resp = exe.DeleteUser(req.para[0]);
+                        break;
                     case "SetPerson":
                         resp = exe.SetPerson(req.para[0]);
                         break;
@@ -129,6 +132,9 @@ namespace LankaStocks.Networking
                         break;
                     case "SetItem":
                         resp = exe.SetItem(req.para[0]);
+                        break;
+                    case "DeleteItem":
+                        resp = exe.DeleteItem(req.para[0]);
                         break;
                     case "StockIntake":
                         resp = exe.StockIntake(req.para[0]);
@@ -207,7 +213,7 @@ namespace LankaStocks.Networking
             switch (expr)
             {
                 case "add me":
-                    ExtendPeerID:
+                ExtendPeerID:
 
                     LastPeerIndex++;
 
@@ -359,6 +365,7 @@ namespace LankaStocks.Networking
                     File.WriteAllBytes(BasePath + DB.StampPath, stamp);
 
                     Log($"Created new Data Base on {DateTime.Now.Year}/{DateTime.Now.Month}/{DateTime.Now.Day} \n");
+                    MessageBox.Show("Welcome To LankaStocks!\nNote :\n\tUsername - preLogin\n\tPassword - preLogin LankaS", "LanakaStocks > Welcome!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 LoadDatabasesFromDisk(isFirstRun);
@@ -407,7 +414,7 @@ namespace LankaStocks.Networking
         public override void Initialize()
         {
             IsHost = false;
-            AquirePeerID:
+        AquirePeerID:
             DateTime time = DateTime.Now;
             status = new PeerStatus()
             {

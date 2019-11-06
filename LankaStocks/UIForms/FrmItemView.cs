@@ -155,7 +155,21 @@ namespace LankaStocks.UIForms
 
         private void Remove_Details_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("This Feature Is Under Development.", "LankaStocks > Under Development?", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
+            {
+                var resp = client.DeleteItem(new Item {itemID= uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()),name= DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[2].Value?.ToString() });
+                if (resp.result == (byte)Networking.Response.Result.ok)
+                {
+                    Log($"Delete item : {DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()} Done!");
+                }
+                else
+                {
+                    string s = $"Delete item : {DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()} Failed. {((Networking.Response.Result)resp.result).ToString()} - {resp.msg}";
+                    Log(s);
+                    MessageBox.Show(s, "LanakaStocks > Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+            }
         }
 
         private void Item_His_Click(object sender, EventArgs e)

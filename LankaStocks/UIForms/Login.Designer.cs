@@ -258,7 +258,7 @@
             this.TxtPass.Name = "TxtPass";
             this.TxtPass.Size = new System.Drawing.Size(146, 22);
             this.TxtPass.TabIndex = 7;
-            this.TxtPass.Text = "200";
+            this.TxtPass.UseSystemPasswordChar = true;
             this.TxtPass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtPass_KeyDown);
             // 
             // TxtName
@@ -269,7 +269,6 @@
             this.TxtName.Name = "TxtName";
             this.TxtName.Size = new System.Drawing.Size(146, 22);
             this.TxtName.TabIndex = 6;
-            this.TxtName.Text = "amanda";
             this.TxtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtName_KeyDown);
             // 
             // gb

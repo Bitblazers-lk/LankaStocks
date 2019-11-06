@@ -446,9 +446,9 @@ namespace LankaStocks.DataBases
             Users = new Dictionary<uint, User>();
             OtherPeople = new Dictionary<uint, Person>();
 
-            Users.Add(1024, new User() { userName = "preLogin", ID = 1024, isAdmin = false, name = "Prelogin Auto User", pass = "I'm the sexy pre login user" });
-            Users.Add(100, new User() { userName = "amanda", ID = 100, isAdmin = true, name = "Amanda Nanda", pass = "200" });
-            Users.Add(200, new User() { userName = "nimal", ID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "123" });
+            Users.Add(1024, new User() { userName = "preLogin", ID = 1024, isAdmin = true, name = "Prelogin User", pass = "preLogin LankaS" });
+            //Users.Add(100, new User() { userName = "amanda", ID = 100, isAdmin = true, name = "Amanda Nanda", pass = "200" });
+            //Users.Add(200, new User() { userName = "nimal", ID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "123" });
         }
 
         public override (dynamic, MemberType) Resolve(string expr)
@@ -487,11 +487,7 @@ namespace LankaStocks.DataBases
         {
             //TODO: Add cashiers for users
             Cashiers = new Dictionary<uint, decimal>();
-            Items = new Dictionary<uint, Item>
-            {
-                { 10, new Item { itemID = 10,Barcode="10", inPrice = 100, outPrice = 125, name = "Box", Quantity = 100, vendors=new List<uint>(){0} } },
-                { 11, new Item { itemID = 11,Barcode="11", inPrice = 90, outPrice = 100, name = "Box1", Quantity = 100,  vendors=new List<uint>(){0} } }
-            };
+            Items = new Dictionary<uint, Item> { };
 
 
             IdMachine = new IDMachine();
