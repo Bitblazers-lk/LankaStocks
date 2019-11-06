@@ -105,6 +105,7 @@ namespace LankaStocks.UIForms
             }
             else
             {
+                MessageBox.Show("Username Or Password Is Incorrect!", "LankaStocks > Error - Login?", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 lblStatus.ForeColor = Color.PaleVioletRed;
             }
         }

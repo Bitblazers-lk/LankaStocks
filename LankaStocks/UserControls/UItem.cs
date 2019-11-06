@@ -21,7 +21,7 @@ namespace LankaStocks.UserControls
             //this.DoubleClick += btnaddtoc_Click;
         }
 
-        public uint _Code;
+        public uint _Code=0;
 
         private void cms_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -75,20 +75,18 @@ namespace LankaStocks.UserControls
             Setdata(_Code);
         }
 
-        public void Setdata(uint code)
+        public void Setdata(uint Ucode)
         {
-            try
-            {
-                var data = RemoteDBs.Live.Items.Get[code];
-
-
+            //try
+            //{
+                var data = client.ps.Live.Items[Ucode];
                 l1.Text = data.name;
                 l2.Text = data.itemID.ToString();
                 lp.Text = $"Rs.{ data.outPrice.ToString("00.00")}";
                 if (data.Quantity <= RemoteDBs.Settings.commonSettings.Get.WarnWhen) this.BackColor = Color.FromArgb(200, 0, 0, 100);
-            }
-            catch { }
-            _Code = code;
+            //}
+            //catch { }
+            _Code = Ucode;
             LoadImage(_Code);
             GC.Collect();
         }

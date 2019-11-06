@@ -22,11 +22,12 @@ namespace LankaStocks.UserControls
             InitializeComponent();
             int itemC = 0;
 
-            foreach (var s in client.ps.Live.Items)
+            foreach (var s in RemoteDBs.Live.Items.Get)
             {
                 if (itemC < 100)
                 {
                     UItem item = new UItem { _Code = s.Key /*Name = s.Key.ToString()*/ };
+                    DrawCodes.Add(s.Key);
                     item.CartItemSelected += CartItem_Selected;
                     //item.DoubleClick += BtnAddToCart_Click;
                     //item.PB.DoubleClick += BtnAddToCart_Click;
@@ -77,7 +78,7 @@ namespace LankaStocks.UserControls
         string Device = "";
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
-        List<uint> DrawCodes = new List<uint> { 10, 11 }; // Uint Item Codes To Draw In  FlowLayoutPanel
+        List<uint> DrawCodes = new List<uint> (); // Uint Item Codes To Draw In  FlowLayoutPanel
 
         public List<string> ItemBarcodes = new List<string>();
 
