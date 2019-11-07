@@ -114,6 +114,7 @@
             this.button5.TabIndex = 17;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Visible = false;
             // 
             // btnTransaction
             // 
@@ -131,6 +132,7 @@
             this.btnTransaction.Text = "Transactions";
             this.toolTip1.SetToolTip(this.btnTransaction, "Transaction Detail\'s");
             this.btnTransaction.UseVisualStyleBackColor = true;
+            this.btnTransaction.Visible = false;
             this.btnTransaction.Click += new System.EventHandler(this.BtnTransaction_Click);
             // 
             // btnSales

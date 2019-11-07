@@ -119,13 +119,14 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.Orange;
+            this.button1.Image = global::LankaStocks.Properties.Resources.bar_chart_24px;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.Location = new System.Drawing.Point(0, 93);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 40);
             this.button1.TabIndex = 11;
-            this.button1.Text = "Person";
+            this.button1.Text = "Sale History";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // btnhide

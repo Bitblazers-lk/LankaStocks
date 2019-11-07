@@ -196,7 +196,7 @@ namespace LankaStocks.Shared
         }
         #endregion
 
-        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode, string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart, Label _LabTotal)
+        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode,ref string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart, Label _LabTotal)
         {
             if (_Device.ToLower().Contains(_Pos_Barcode.ToLower()))
             {
@@ -246,7 +246,7 @@ namespace LankaStocks.Shared
             _Device = "";
         }
 
-        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, ref uint _ItemCode, string _Device, DataGridView _DGVcart, Label _LabTotal)
+        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, ref uint _ItemCode,ref string _Device, DataGridView _DGVcart, Label _LabTotal)
         {
             AddToCart(ref _ItemCode, _TxtQty.Value, _Cart);
             _LabTotal.Text = $"Total : Rs.{ RefCart(_Cart, _DGVcart).ToString("0.00")}";

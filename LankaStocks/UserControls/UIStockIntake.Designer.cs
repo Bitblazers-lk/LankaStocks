@@ -37,10 +37,7 @@
             this.Qty = new System.Windows.Forms.TextBox();
             this.uiSelecVendor = new LankaStocks.UserControls.UISelectPerson();
             this.uiSelItem = new LankaStocks.UserControls.UISelItem();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.uiTransaction = new LankaStocks.UserControls.UITransaction();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -160,40 +157,16 @@
             this.uiSelItem.Size = new System.Drawing.Size(334, 21);
             this.uiSelItem.TabIndex = 1;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.uiTransaction);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.ForeColor = System.Drawing.Color.Orange;
-            this.groupBox1.Location = new System.Drawing.Point(0, 108);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(424, 376);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Transaction";
-            // 
-            // uiTransaction
-            // 
-            this.uiTransaction.BackColor = System.Drawing.Color.Transparent;
-            this.uiTransaction.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiTransaction.Enabled = false;
-            this.uiTransaction.Location = new System.Drawing.Point(3, 16);
-            this.uiTransaction.Name = "uiTransaction";
-            this.uiTransaction.Size = new System.Drawing.Size(418, 357);
-            this.uiTransaction.TabIndex = 3;
-            // 
             // UIStockIntake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "UIStockIntake";
             this.Size = new System.Drawing.Size(424, 484);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -201,12 +174,10 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        public UITransaction uiTransaction;
         public System.Windows.Forms.TextBox IntakeID;
         public System.Windows.Forms.TextBox Qty;
         private UISelectPerson uiSelecVendor;

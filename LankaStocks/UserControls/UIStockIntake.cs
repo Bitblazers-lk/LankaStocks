@@ -62,7 +62,7 @@ namespace LankaStocks.UserControls
 
             si.item.Quantity = qty;
 
-            si.trans = uiTransaction.GenerateTransaction();
+           // si.trans = uiTransaction.GenerateTransaction();
 
             uint vendID = uiSelecVendor.GetPersonTypeAndID().ID;
             si.item.vendors = new List<uint>() { vendID };

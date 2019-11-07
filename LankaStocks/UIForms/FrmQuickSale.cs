@@ -30,7 +30,7 @@ namespace LankaStocks.UIForms
 
         private readonly RawInput _KeyInput;
 
-        string Device="";
+        string Device = "";
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
         uint ItemCode = 0;
@@ -42,6 +42,8 @@ namespace LankaStocks.UIForms
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
             Device = e.KeyPressEvent.DeviceName;
+            if (!TxtCode.Focused && Device.ToLower().Contains(Pos_Barcode.ToLower()))
+                TxtCode.Focus();
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -97,7 +99,7 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtCode_Handle(TxtCode, TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV, labelTotal);
+                RepeatedFunctions.TxtCode_Handle(TxtCode, TxtQty, Cart, ItemBarcodes, ref ItemCode, ref Device, Pos_Barcode, BeginChar, DGV, labelTotal);
             }
         }
 
@@ -105,7 +107,7 @@ namespace LankaStocks.UIForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtQty_Handle(TxtCode, TxtQty, Cart, ref ItemCode, Device, DGV, labelTotal);
+                RepeatedFunctions.TxtQty_Handle(TxtCode, TxtQty, Cart, ref ItemCode, ref Device, DGV, labelTotal);
             }
         }
 

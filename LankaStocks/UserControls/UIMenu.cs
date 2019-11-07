@@ -66,6 +66,8 @@ namespace LankaStocks.UserControls
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
             Device = e.KeyPressEvent.DeviceName;
+            if (!uiBasicSale1.TxtCode.Focused && Device.ToLower().Contains(Pos_Barcode.ToLower()))
+                uiBasicSale1.TxtCode.Select();
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -78,7 +80,7 @@ namespace LankaStocks.UserControls
         string Device = "";
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
-        List<uint> DrawCodes = new List<uint> (); // Uint Item Codes To Draw In  FlowLayoutPanel
+        List<uint> DrawCodes = new List<uint>(); // Uint Item Codes To Draw In  FlowLayoutPanel
 
         public List<string> ItemBarcodes = new List<string>();
 
@@ -97,7 +99,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtCode_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemBarcodes, ref ItemCode, Device, Pos_Barcode, BeginChar, DGV, uiBasicSale1.labelTotal);
+                RepeatedFunctions.TxtCode_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ItemBarcodes, ref ItemCode, ref Device, Pos_Barcode, BeginChar, DGV, uiBasicSale1.labelTotal);
             }
         }
 
@@ -105,7 +107,7 @@ namespace LankaStocks.UserControls
         {
             if (e.KeyCode == Keys.Enter)
             {
-                RepeatedFunctions.TxtQty_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ref ItemCode, Device, DGV, uiBasicSale1.labelTotal);
+                RepeatedFunctions.TxtQty_Handle(uiBasicSale1.TxtCode, uiBasicSale1.TxtQty, Cart, ref ItemCode, ref Device, DGV, uiBasicSale1.labelTotal);
             }
         }
 

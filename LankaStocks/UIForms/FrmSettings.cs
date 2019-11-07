@@ -50,8 +50,6 @@ namespace LankaStocks.UIForms
                     LockControls(x);
                 }
             }
-            localSettings.Data.POSBarcodeID = "Null";
-            localSettings.Data.POSBarcodeName = "Null";
         }
 
         private void GetKeyboards()
