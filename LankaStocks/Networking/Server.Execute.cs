@@ -28,6 +28,7 @@ namespace LankaStocks
                     {
 
                         Log($"User login : {name}");
+
                         return (true, "Wellcome", usr);
                     }
                     else
@@ -227,21 +228,21 @@ namespace LankaStocks
         public Response SetItem(Item v)
         {
 
-            if (Live.Items.ContainsKey(v.itemID))
+            if (Live.Items.TryGetValue(v.itemID, out Item oldItem))
             {
-                foreach (var vend in v.vendors)
+                foreach (var vend in People.Vendors.Values)
                 {
-                    People.Vendors[vend].supplyingItems.Remove(v.itemID);
+                    vend.supplyingItems.Remove(v.itemID);
                 }
+
+                v.Quantity = oldItem.Quantity;
+
             }
 
 
-            foreach (var vend in v.vendors)
+            if (People.Vendors.TryGetValue(v.vendor, out Vendor vendor))
             {
-                if (People.Vendors.TryGetValue(vend, out Vendor vendor))
-                {
-                    vendor.supplyingItems.Add(v.itemID);
-                }
+                vendor.supplyingItems.Add(v.itemID);
             }
 
 
@@ -256,12 +257,7 @@ namespace LankaStocks
             {
                 try
                 {
-                    foreach (var vend in v.vendors)
-                    {
-
-                        People.Vendors[vend].supplyingItems.Remove(v.itemID);
-
-                    }
+                    People.Vendors[v.vendor].supplyingItems.Remove(v.itemID);
                 }
                 catch { }
             }
@@ -359,21 +355,12 @@ namespace LankaStocks
                                 case "items":
                                     foreach (var item in Live.Items.Values)
                                     {
-                                        if (item.vendors == null) { item.vendors = new List<uint>(); sb.AppendLine($"Set empty list for null vendors of item {item.name}"); }
-                                        foreach (var v in item.vendors)
-                                        {
-                                            if (!People.Vendors.ContainsKey(v))
-                                            {
-                                                item.vendors.Remove(v);
 
-                                                sb.AppendLine($"Fixed incorrect vendor for item. Set {item.name}.vendor to {People.Vendors.First().Value.name}({item.vendors})");
-                                            }
-                                        }
-                                        if (item.vendors.Count == 0)
+                                        if (!People.Vendors.ContainsKey(item.vendor))
                                         {
+                                            item.vendor = 0;
 
-                                            item.vendors.Add(People.Vendors.First().Key);
-                                            sb.AppendLine($"Vendors for this Item is empty. Add {People.Vendors.First().Value.name}({item.vendors[0]}) {item.name}.vendor");
+                                            sb.AppendLine($"Fixed incorrect vendor for item. Set {item.name}.vendor to {item.vendor}");
                                         }
 
                                     }

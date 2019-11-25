@@ -22,7 +22,7 @@ namespace LankaStocks.UserControls
             InitializeComponent();
             int itemC = 0;
 
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (itemC < 100)
                 {
@@ -198,7 +198,7 @@ namespace LankaStocks.UserControls
             {
                 if (s.Value.Barcode.ToLower().Contains(BarCode.ToLower())) DrawCodes.Add(s.Key);
             }
-            DrawItems(int.Parse(CBItemCount.Text), (int)TxtPageON.Value);
+            DrawItems(int.Parse(CBItemCount.Text, System.Globalization.NumberStyles.Any), (int)TxtPageON.Value);
         }
         void Search_Item_Name(string Name)
         {

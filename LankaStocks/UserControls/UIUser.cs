@@ -17,6 +17,8 @@ namespace LankaStocks.UserControls
         public UIUser()
         {
             InitializeComponent();
+            uiPerson1.PersonID.ReadOnly = false;
+
         }
 
         public UIUser(uint UID)
@@ -24,6 +26,7 @@ namespace LankaStocks.UserControls
             InitializeComponent();
             EditMode = true;
             User_ID = UID;
+            uiPerson1.PersonID.ReadOnly = true;
 
             LoadUserDetails(RemoteDBs.People.Users.Get[User_ID]);
         }
@@ -82,6 +85,7 @@ namespace LankaStocks.UserControls
 
         public void LoadUserDetails(User user)
         {
+            uiPerson1.PersonID.ReadOnly = true;
             uiPerson1.PersonID.Text = user.ID.ToString();
             uiPerson1.PersonName.Text = user.name;
             uiPerson1.Details.Text = user.details;

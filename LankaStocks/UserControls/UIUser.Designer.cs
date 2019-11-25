@@ -133,7 +133,6 @@
             this.UserID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UserID.Location = new System.Drawing.Point(81, 3);
             this.UserID.Name = "UserID";
-            this.UserID.ReadOnly = true;
             this.UserID.Size = new System.Drawing.Size(310, 20);
             this.UserID.TabIndex = 6;
             // 

@@ -523,6 +523,7 @@
     <EmbeddedResource Include="UserControls\UIVendor.resx">
       <DependentUpon>UIVendor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include=".editorconfig" />
     <None Include="LankaStocks.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
