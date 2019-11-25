@@ -31,9 +31,8 @@ namespace LankaStocks.UserControls
         }
         public StockIntake GenerateStockIntake()
         {
-            uint intakeID = 0;
             if (IntakeID.Text == "") IntakeID.Text = "0";
-            if (!uint.TryParse(IntakeID.Text, out intakeID))
+            if (!uint.TryParse(IntakeID.Text, out uint intakeID))
             {
                 throw new ArgumentException("Value must be a positive integer", "intakeID");
             }
@@ -45,6 +44,8 @@ namespace LankaStocks.UserControls
         }
         public void ApplyTo(StockIntake si)
         {
+            if (!decimal.TryParse(Qty.Text, out decimal qty)) throw new ArgumentNullException("Qty", "Quantity cannot be null");
+
             si.item.itemID = uiSelItem.GetItem();
 
             Item RootItem;
@@ -58,23 +59,16 @@ namespace LankaStocks.UserControls
             //}
 
 
-            if (!decimal.TryParse(Qty.Text, out decimal qty)) throw new ArgumentNullException("Qty", "Quantity cannot be null");
-
             si.item.Quantity = qty;
 
-           // si.trans = uiTransaction.GenerateTransaction();
+            // si.trans = uiTransaction.GenerateTransaction();
 
             uint vendID = uiSelecVendor.GetPersonTypeAndID().ID;
-            si.item.vendors = new List<uint>() { vendID };
-
-
-            if (!RootItem.vendors.Contains(vendID)) RootItem.vendors.Add(vendID);
+            si.item.vendor = vendID;
 
             si.item.inPrice = RootItem.inPrice;
             si.item.outPrice = RootItem.outPrice;
 
-
-            RootItem.Quantity += qty;
         }
     }
 }

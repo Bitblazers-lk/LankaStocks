@@ -23,13 +23,18 @@ namespace LankaStocks.DataBases
         public const string HistoryPath = "DB\\History\\";
 
         public string DBName;
-        public ulong LastUpdate = 10U;
+        private ulong lastUpdate = 10U;
         public ulong LastSave = 10U;
+
+
+        public event Action OnChange;
 
         [NonSerialized]
         public static bool IsBusy = false;
         [NonSerialized]
         public string FileName;
+
+        public ulong LastUpdate { get => lastUpdate; set { lastUpdate = value; OnChange?.Invoke(); } }
 
         public abstract void CreateNewDatabase();
 

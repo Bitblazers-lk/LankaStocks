@@ -15,7 +15,7 @@ namespace LankaStocks.UserControls
         public UIMenuA()
         {
             InitializeComponent();
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 ItemBarcodes.Add(s.Value.Barcode);
             }
@@ -26,6 +26,10 @@ namespace LankaStocks.UserControls
 
             _KeyInput.KeyPressed += OnKeyPressed;
             #endregion
+
+            client.ps.Live.OnChange += OnLiveDBChange;
+            DelOnLiveDBChange = new Action(RunOnLiveDBChange);
+
         }
         uint ItemCode = 0;
         string BeginChar = "i";
@@ -39,6 +43,18 @@ namespace LankaStocks.UserControls
 
         string Device = "";
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
+
+        private void OnLiveDBChange()
+        {
+            this.Invoke(DelOnLiveDBChange);
+        }
+
+        private Action DelOnLiveDBChange;
+        private void RunOnLiveDBChange()
+        {
+            RefStore();
+        }
+
 
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {
@@ -110,7 +126,7 @@ namespace LankaStocks.UserControls
             if (DGVcart.CurrentCell != null && uint.TryParse(DGVcart.Rows?[DGVcart.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString(), out uint a) && uint.TryParse(DGVcart.Rows?[DGVcart.CurrentCell.RowIndex]?.Cells?[3].Value?.ToString(), out uint co))
             {
                 Forms.frmEditQty = new UIForms.FrmEditQty(co) { Code = a };
-                Forms.frmEditQty.labelName.Text = $"Name : {RemoteDBs.Live.Items.Get[a].name}      Code : {a.ToString()}";
+                Forms.frmEditQty.labelName.Text = $"Name : {client.ps.Live.Items[a].name}      Code : {a.ToString()}";
                 Forms.frmEditQty.btnOK.Click += EditQtyOK_Click;
                 Forms.frmEditQty.TxtQty.KeyDown += EditQtyOK_KeyDown;
                 Forms.frmEditQty.ShowDialog();

@@ -88,7 +88,7 @@ namespace LankaStocks.UserControls
             if (IsEditMode)
             {
                 ItemID.Text = Item_ID.ToString();
-                LoadItemDetails(RemoteDBs.Live.Items.Get[Item_ID]);
+                LoadItemDetails(client.ps.Live.Items[Item_ID]);
             }
             else
             {
@@ -112,7 +112,7 @@ namespace LankaStocks.UserControls
 
             foreach (var itm in Core.client.ps.Live.Items.Values)
             {
-                Alternative.Items.Add($"{itm.itemID}. {itm.name}   available {itm.Quantity} from {itm.vendors}");
+                Alternative.Items.Add($"{itm.itemID}. {itm.name}   available {itm.Quantity} from {itm.vendor}");
                 Items.Add(itm.itemID);
             }
         }
@@ -128,7 +128,7 @@ namespace LankaStocks.UserControls
             uint vend = VendorID.SelectedIndex == -1 ? 0 : vendors[VendorID.SelectedIndex];
             uint alt = Alternative.SelectedIndex == -1 ? 0 : Items[Alternative.SelectedIndex];
 
-            Item itm = new Item() { itemID = itemID, Barcode = Barcode.Text, inPrice = decimal.Parse(InPrice.Text), name = ItemName.Text, outPrice = decimal.Parse(OutPrice.Text), vendors = new List<uint>() { vend }, Alternative = alt, Quantity = 0 };
+            Item itm = new Item() { itemID = itemID, Barcode = Barcode.Text, inPrice = decimal.Parse(InPrice.Text), name = ItemName.Text, outPrice = decimal.Parse(OutPrice.Text), vendor = vend, Alternative = alt, Quantity = 0 };
 
             return itm;
         }
@@ -139,7 +139,9 @@ namespace LankaStocks.UserControls
             ItemName.Text = item.name;
             Barcode.Text = item.Barcode;
             InPrice.Text = item.inPrice.ToString("0.00");
-            OutPrice.Text= item.outPrice.ToString("0.00");
+            OutPrice.Text = item.outPrice.ToString("0.00");
+            if (item.Alternative != 0) Alternative.SelectedIndex = Items.IndexOf(item.Alternative);
+            VendorID.SelectedIndex = vendors.IndexOf(item.vendor);
         }
     }
 }

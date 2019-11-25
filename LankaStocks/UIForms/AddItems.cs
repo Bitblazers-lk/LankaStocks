@@ -124,7 +124,7 @@ namespace LankaStocks.UIForms
             else
             {
                 var itm = uiAddItem.GenerateItem();
-                var resp = client.EditItem(itm);
+                var resp = client.SetItem(itm);
 
                 if (resp.result == (byte)Networking.Response.Result.ok)
                 {
