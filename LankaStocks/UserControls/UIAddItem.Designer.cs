@@ -149,7 +149,7 @@
             this.OutPrice.Name = "OutPrice";
             this.OutPrice.Size = new System.Drawing.Size(314, 20);
             this.OutPrice.TabIndex = 3;
-            this.OutPrice.Text = "0";
+            this.OutPrice.Text = "0.00";
             this.OutPrice.TextChanged += new System.EventHandler(this.OutPrice_TextChanged);
             this.OutPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.OutPrice_KeyDown);
             // 
@@ -162,7 +162,7 @@
             this.InPrice.Name = "InPrice";
             this.InPrice.Size = new System.Drawing.Size(314, 20);
             this.InPrice.TabIndex = 2;
-            this.InPrice.Text = "0";
+            this.InPrice.Text = "0.00";
             this.InPrice.TextChanged += new System.EventHandler(this.InPrice_TextChanged);
             this.InPrice.KeyDown += new System.Windows.Forms.KeyEventHandler(this.InPrice_KeyDown);
             // 

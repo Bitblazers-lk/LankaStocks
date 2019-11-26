@@ -146,7 +146,7 @@ namespace LankaStocks.UIForms
             {
                 if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
                 {
-                    Forms.addItems = new AddItems(uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()));
+                    Forms.addItems = new AddItems(uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString())) { Text = "LankaStocks > Edit Details!" };
                     FormHandle form1 = new FormHandle();
                     form1.OpenForm(ParentCtrl, Forms.addItems, FormBorderStyle = FormBorderStyle.Fixed3D, DockStyle.Top);
                 }
