@@ -113,11 +113,10 @@ namespace LankaStocks.Shared
         public static decimal RefCart(Dictionary<uint, decimal> _Cart, DataGridView _DGVcart)
         {
             List<DGVcart_Data> Data = new List<DGVcart_Data>();
-            var d = RemoteDBs.Live.Items.Get;
             decimal tot = 0;
             foreach (var s in _Cart)
             {
-                var i = d[s.Key];
+                var i = client.ps.Live.Items[s.Key];
                 tot += i.outPrice * (decimal)s.Value;
                 Data.Add(new DGVcart_Data { Code = s.Key, Name = i.name, Price = i.outPrice, Qty = s.Value, Total = i.outPrice * (decimal)s.Value });
             }
@@ -126,7 +125,7 @@ namespace LankaStocks.Shared
         }
         public static uint GetUCode(string Barcode)
         {
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (s.Value.Barcode.ToLower() == Barcode.ToLower())
                     return s.Key;
@@ -158,7 +157,7 @@ namespace LankaStocks.Shared
         public static List<DGV_Data> RefStore()
         {
             List<DGV_Data> Data = new List<DGV_Data>();
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
             }
@@ -167,7 +166,7 @@ namespace LankaStocks.Shared
         public static List<DGV_Data> Search_Item(uint Code)
         {
             List<DGV_Data> Data = new List<DGV_Data>();
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (s.Key.ToString().Contains(Code.ToString()))
                     Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
@@ -177,7 +176,7 @@ namespace LankaStocks.Shared
         public static List<DGV_Data> Search_Item_Barcode(string Barcode)
         {
             List<DGV_Data> Data = new List<DGV_Data>();
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (s.Value.Barcode != null && s.Value.Barcode.ToLower().Contains(Barcode.ToLower()))
                     Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
@@ -187,7 +186,7 @@ namespace LankaStocks.Shared
         public static List<DGV_Data> Search_Item_Name(string Name)
         {
             List<DGV_Data> Data = new List<DGV_Data>();
-            foreach (var s in RemoteDBs.Live.Items.Get)
+            foreach (var s in client.ps.Live.Items)
             {
                 if (s.Value.name.ToLower().Contains(Name.ToLower()))
                     Data.Add(new DGV_Data { Code = s.Key, Barcode = s.Value.Barcode, Name = s.Value.name, Price = s.Value.outPrice, Qty = (float)s.Value.Quantity, });
@@ -196,7 +195,7 @@ namespace LankaStocks.Shared
         }
         #endregion
 
-        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode,ref string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart, Label _LabTotal)
+        public static void TxtCode_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, List<string> _ItemBarcodes, ref uint _ItemCode, ref string _Device, string _Pos_Barcode, string _BeginChar, DataGridView _DGVcart, Label _LabTotal)
         {
             if (_Device.ToLower().Contains(_Pos_Barcode.ToLower()))
             {
@@ -221,7 +220,7 @@ namespace LankaStocks.Shared
                 {
                     if (_TxtCode.Text.Substring(0, 1) == _BeginChar)
                     {
-                        if (uint.TryParse(_TxtCode.Text.Substring(1), out _ItemCode) && RemoteDBs.Live.Items.Get.ContainsKey(_ItemCode)) _TxtQty.Focus();
+                        if (uint.TryParse(_TxtCode.Text.Substring(1), out _ItemCode) && client.ps.Live.Items.ContainsKey(_ItemCode)) _TxtQty.Focus();
                         else
                         {
                             MessageBox.Show("Item Code Not Found!", "LanakaStocks - Error.", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -246,7 +245,7 @@ namespace LankaStocks.Shared
             _Device = "";
         }
 
-        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, ref uint _ItemCode,ref string _Device, DataGridView _DGVcart, Label _LabTotal)
+        public static void TxtQty_Handle(TextBox _TxtCode, NumericUpDown _TxtQty, Dictionary<uint, decimal> _Cart, ref uint _ItemCode, ref string _Device, DataGridView _DGVcart, Label _LabTotal)
         {
             AddToCart(ref _ItemCode, _TxtQty.Value, _Cart);
             _LabTotal.Text = $"Total : Rs.{ RefCart(_Cart, _DGVcart).ToString("0.00")}";
@@ -370,26 +369,17 @@ namespace LankaStocks.Shared
         }
     }
 
-    public class Events
+    public static class Events
     {
-        /*Hasi okkoma Uint ID's Thyena class wala 'NextID' Kiyala property ekak Hadapan......*/
 
-        public event InvoiceNOChange OnInvoiceNOChange;
-        public delegate void InvoiceNOChange(uint ID);
+        public static event ItemsChange OnItemsChange;
+        public delegate void ItemsChange();
 
-        public event ItemIssued OnItemIssued;
-        public delegate void ItemIssued();
+        public static event PeopleChange OnPeopleChange;
+        public delegate void PeopleChange();
 
-        public event ItemRefunded OnItemRefunded;
-        public delegate void ItemRefunded(uint ID, Item item);
+        public static event UserLogin OnUserLogin;
+        public delegate void UserLogin(uint userID);
 
-        public event TotalSaleChange OnTotalSaleChange;
-        public delegate void TotalSaleChange(decimal Total);
-
-        public event TodayTotalSaleChange OnTodayTotalSaleChange;
-        public delegate void TodayTotalSaleChange(decimal Total);
-
-        public event TodayCustomerChange OnTodayCustomerChange;
-        public delegate void TodayCustomerChange(uint Total);
     }
 }

@@ -152,17 +152,17 @@ namespace LankaStocks.UIForms
                 {
                     case PersonType.Vendor:
                         var v = uIVendor.GenerateVendor();
-                        client.EditVendor(v);
+                        client.SetVendor(v);
                         break;
 
                     case PersonType.User:
                         var u = uIUser.GenerateUser();
-                        client.EditUser(u);
+                        client.SetUser(u);
                         break;
 
                     case PersonType.Person:
                         var p = uIPerson.GeneratePerson();
-                        client.EditPerson(p);
+                        client.SetPerson(p);
                         break;
 
                     default:

@@ -37,10 +37,8 @@ namespace LankaStocks.UIForms
             {
                 if (s.Key.ToString().ToLower().Contains(code.ToString().ToLower()))
                 {
-                    string ven = "";
-                    if (s.Value.vendors.Count > 1) ven = $"Count : {s.Value.vendors.Count}";
                     //else ven = client.ps.People.Vendors[s.Value.vendors[0]].name;
-                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = ven });
+                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = s.Value.vendor.ToString() });
                 }
             }
             DGV.DataSource = data;
@@ -53,10 +51,8 @@ namespace LankaStocks.UIForms
             {
                 if (s.Value.Barcode.ToLower().Contains(barcode.ToLower()))
                 {
-                    string ven = "";
-                    if (s.Value.vendors.Count > 1) ven = $"Count : {s.Value.vendors.Count}";
                     //else ven = client.ps.People.Vendors[s.Value.vendors[0]].name;
-                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = ven });
+                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = s.Value.vendor.ToString() });
                 }
             }
             DGV.DataSource = data;
@@ -69,10 +65,8 @@ namespace LankaStocks.UIForms
             {
                 if (s.Value.name.ToLower().Contains(name.ToLower()))
                 {
-                    string ven = "";
-                    if (s.Value.vendors.Count > 1) ven = $"Count : {s.Value.vendors.Count}";
                     //else ven = client.ps.People.Vendors[s.Value.vendors[0]].name;
-                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = ven });
+                    data.Add(new DGVMI_Data { Code = s.Value.itemID, Barcode = s.Value.Barcode, Name = s.Value.name, In_Price = s.Value.inPrice, Out_Price = s.Value.outPrice, Qty = s.Value.Quantity, Alternative = s.Value.Alternative, Vendor = s.Value.vendor.ToString() });
                 }
             }
             DGV.DataSource = data;
@@ -157,7 +151,7 @@ namespace LankaStocks.UIForms
         {
             if (DGV.CurrentCell != null && DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
             {
-                var resp = client.DeleteItem(new Item {itemID= uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()),name= DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[2].Value?.ToString() });
+                var resp = client.DeleteItem(new Item { itemID = uint.Parse(DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()), name = DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[2].Value?.ToString() });
                 if (resp.result == (byte)Networking.Response.Result.ok)
                 {
                     Log($"Delete item : {DGV.Rows?[DGV.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString()} Done!");

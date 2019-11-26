@@ -83,8 +83,7 @@ namespace LankaStocks.UserControls
             l1.Text = data.name;
             l2.Text = data.itemID.ToString();
             lp.Text = $"Rs.{ data.outPrice.ToString("00.00")}";
-            if (data.Quantity <= RemoteDBs.Settings.commonSettings.Get.WarnWhen) this.BackColor = Color.FromArgb(255, 100, 0, 0);
-            else this.BackColor = client.ps.Settings.commonSettings.BackColor;
+            if (data.Quantity <= client.ps.Settings.commonSettings.WarnWhen) this.BackColor = Color.FromArgb(255, 100, 0, 0);
 
             // if (data.Quantity==0) this.BackColor = Color.FromArgb(10, 100, 0, 0);
             //}

@@ -30,15 +30,11 @@ namespace LankaStocks.Networking
         public Response AddNewVendor(Vendor v) => Excecute("AddNewVendor", v);
         public Response AddNewUser(User v) => Excecute("AddNewUser", v);
         public Response AddNewPerson(Person v) => Excecute("AddNewPerson", v);
-        public Response EditVendor(Vendor v) => Excecute("EditVendor", v);
-        public Response EditUser(User v) => Excecute("EditUser", v);
-        public Response EditPerson(Person v) => Excecute("EditPerson", v);
         public Response SetVendor(Vendor v) => Excecute("SetVendor", v);
         public Response SetUser(User v) => Excecute("SetUser", v);
+        public Response SetPerson(Person v) => Excecute("SetPerson", v);
         public Response DeleteUser(uint v) => Excecute("DeleteUser", v);
-        public Response SetPerson(Vendor v) => Excecute("SetPerson", v);
         public Response AddItem(Item v) => Excecute("AddItem", v);
-        public Response EditItem(Item v) => Excecute("EditItem", v);
         public Response SetItem(Item v) => Excecute("SetItem", v);
         public Response DeleteItem(Item v) => Excecute("DeleteItem", v);
         public Response StockIntake(StockIntake v) => Excecute("StockIntake", v);
@@ -75,7 +71,7 @@ namespace LankaStocks.Networking
             ps = new PeerServer() { client = this };
             ps.Initialize();
 
-            
+
         }
 
         public override Response Request(Request req)

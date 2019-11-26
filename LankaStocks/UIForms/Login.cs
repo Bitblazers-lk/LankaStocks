@@ -68,7 +68,7 @@ namespace LankaStocks.UIForms
                 Thread.Sleep(10);
                 progressBar.Value = i;
             }
-            TxtName.Text = localSettings.LstUser.userName;
+            TxtName.Text = localSettings.LstUser?.userName ;
             //RemoteDBs.Settings.commonSettings.GetSet.Font = new Font("Comic Sans MS", 7f);
         }
 

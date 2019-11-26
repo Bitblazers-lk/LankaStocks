@@ -329,6 +329,8 @@ namespace LankaStocks
                 LogErr(ex, "Error on Application.Exit()");
             }
         }
+
+
     }
 
     public static class Forms
@@ -351,3 +353,9 @@ namespace LankaStocks
         public static FrmWaiting frmWaiting;
     }
 }
+
+
+
+// %APPDATA%
+// cd ..
+// \Local\LankaStocks\
