@@ -495,8 +495,10 @@ namespace LankaStocks.DataBases
             Items = new Dictionary<uint, Item> { };
 
 
-            IdMachine = new IDMachine();
-            IdMachine.ItemID = 20;
+            IdMachine = new IDMachine
+            {
+                ItemID = 20
+            };
 
 
             Session = new DBSession();
@@ -540,6 +542,7 @@ namespace LankaStocks.DataBases
     {
         public List<string> Sessions;
 
+
         public override void CreateNewDatabase()
         {
             Sessions = new List<string>();
@@ -555,6 +558,27 @@ namespace LankaStocks.DataBases
                     return (null, MemberType.notFound);
             }
         }
+
+
+        public DBSession ViewSession(DateTime sessDate)
+        {
+            return ViewSession(sessDate.ToString("yyyyMMdd"));
+        }
+
+        public DBSession ViewSession(string sessName)
+        {
+            DBSession s = (DBSession)new DBSession() { FileName = BasePath + DB.HistoryPath + sessName }.LoadBinary();
+            return s;
+        }
+
+        public void SaveSession(DBSession s)
+        {
+            if (s.Name == null) { s.Name = "ER" + DateTime.Today.ToString("yyyyMMdd"); s.DBName = "Unknown session saved on " + DateTime.Today.ToString("yyyyMMdd"); }
+            s.FileName = BasePath + DB.HistoryPath + s.Name;
+            Sessions.Add(s.Name);
+            s.ForceSave();
+        }
+
 
         //public override void SetDataMember(string expr, dynamic data)
         //{
@@ -573,6 +597,7 @@ namespace LankaStocks.DataBases
     [Serializable]
     public class DBSession : DB
     {
+        public string Name;
         public DateTime sessionBegin;
         public DateTime sessionEnd;
 
@@ -582,6 +607,8 @@ namespace LankaStocks.DataBases
         public override void CreateNewDatabase()
         {
             sessionBegin = DateTime.Now;
+            Name = DateTime.Now.Date.ToString("yyyyMMdd");
+            DBName = Name;
             Sales = new Dictionary<uint, BasicSale>();
             StockIntakes = new Dictionary<uint, StockIntake>();
         }

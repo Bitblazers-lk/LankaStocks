@@ -317,6 +317,31 @@ namespace LankaStocks
 
                     switch (A[0])
                     {
+                        case "view":
+                            switch (A[1])
+                            {
+                                case "live":
+                                    sb.Append(Core.VisualizeObj(Live));
+                                    break;
+                                case "session":
+                                    sb.Append(Core.VisualizeObj(Live.Session));
+                                    break;
+                                case "people":
+                                    sb.Append(Core.VisualizeObj(People));
+                                    break;
+                                case "history":
+                                    sb.Append(Core.VisualizeObj(History));
+                                    break;
+                                case "settings":
+                                    sb.Append(Core.VisualizeObj(Settings));
+                                    break;
+                                default:
+                                    sb.Append(A[1] + "not found");
+                                    break;
+                            }
+
+                            break;
+
                         case "list":
                             switch (A[1])
                             {

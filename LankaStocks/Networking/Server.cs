@@ -213,7 +213,7 @@ namespace LankaStocks.Networking
             switch (expr)
             {
                 case "add me":
-                ExtendPeerID:
+                    ExtendPeerID:
 
                     LastPeerIndex++;
 
@@ -360,12 +360,14 @@ namespace LankaStocks.Networking
                 if (isFirstRun)
                 {
                     if (!Directory.Exists(BasePath + DB.DBPath)) Directory.CreateDirectory(BasePath + DB.DBPath);
+                    if (!Directory.Exists(BasePath + DB.HistoryPath)) Directory.CreateDirectory(BasePath + DB.HistoryPath);
+
                     byte[] stamp = new byte[256];
                     random.NextBytes(stamp);
                     File.WriteAllBytes(BasePath + DB.StampPath, stamp);
 
                     Log($"Created new Data Base on {DateTime.Now.Year}/{DateTime.Now.Month}/{DateTime.Now.Day} \n");
-                    MessageBox.Show("Welcome To LankaStocks!\nNote :\n\tUsername - preLogin\n\tPassword - preLogin LankaS", "LanakaStocks > Welcome!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Welcome To LankaStocks!\nNote :\n\tUsername - amanda\n\tPassword - 200", "LanakaStocks > Welcome!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 LoadDatabasesFromDisk(isFirstRun);
@@ -374,9 +376,25 @@ namespace LankaStocks.Networking
 
                 Statics.ReCalculate();
 
+                if (Live.Session.Name != DateTime.Now.ToString("yyyyMMdd"))
+                {
+
+                    Log($"Saving last day session {Live.Session.Name}");
+                    Live.Session.sessionEnd = DateTime.Now;
+                    History.SaveSession(Live.Session);
+
+                    Log("Starting a fresh Session just for you. Have a good day!");
+                    Live.Session.CreateNewDatabase();
+                }
+
                 PeerTimer = new System.Timers.Timer(10000);
                 PeerTimer.Elapsed += PeerTimer_Elapsed;
                 PeerTimer.Start();
+
+
+
+                System.Threading.Thread DBSaveThread = new System.Threading.Thread(new System.Threading.ThreadStart(ThrDBSave));
+                DBSaveThread.Start();
             }
 
         }
@@ -394,6 +412,21 @@ namespace LankaStocks.Networking
             People = (DBPeople)new DBPeople() { DBName = "DBPeople", FileName = BasePath + DB.DBPath + "DBPeople.db" }.LoadBinary(isFirstRun);
             History = (DBHistory)new DBHistory() { DBName = "DBHistory", FileName = BasePath + DB.DBPath + "DBHistory.db" }.LoadBinary(isFirstRun);
             Settings = (DBSettings)new DBSettings() { DBName = "DBSettings", FileName = BasePath + DB.DBPath + "DBSettings.db" }.LoadBinary(isFirstRun);
+        }
+
+
+
+        private void ThrDBSave()
+        {
+            Begin:
+            Live.SaveBinary();
+            People.SaveBinary();
+            History.SaveBinary();
+            Settings.SaveBinary();
+
+            System.Threading.Thread.Sleep(10000);
+
+            goto Begin;
         }
 
         public override void Shutdown()
@@ -414,7 +447,7 @@ namespace LankaStocks.Networking
         public override void Initialize()
         {
             IsHost = false;
-        AquirePeerID:
+            AquirePeerID:
             DateTime time = DateTime.Now;
             status = new PeerStatus()
             {
