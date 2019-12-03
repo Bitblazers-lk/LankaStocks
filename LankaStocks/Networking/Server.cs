@@ -133,9 +133,6 @@ namespace LankaStocks.Networking
                     case "SetItem":
                         resp = exe.SetItem(req.para[0]);
                         break;
-                    case "EditItem":
-                        resp = exe.EditItem(req.para[0]);
-                        break;
                     case "DeleteItem":
                         resp = exe.DeleteItem(req.para[0]);
                         break;
