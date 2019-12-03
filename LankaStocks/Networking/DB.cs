@@ -576,6 +576,7 @@ namespace LankaStocks.DataBases
             if (s.Name == null) { s.Name = "ER" + DateTime.Today.ToString("yyyyMMdd"); s.DBName = "Unknown session saved on " + DateTime.Today.ToString("yyyyMMdd"); }
             s.FileName = BasePath + DB.HistoryPath + s.Name;
             Sessions.Add(s.Name);
+            LastUpdate++;
             s.ForceSave();
         }
 
@@ -601,6 +602,10 @@ namespace LankaStocks.DataBases
         public DateTime sessionBegin;
         public DateTime sessionEnd;
 
+
+        public Dictionary<uint, Item> BeginingItems;
+        public Dictionary<uint, decimal> BeginingCashiers;
+
         public Dictionary<uint, BasicSale> Sales;
         public Dictionary<uint, StockIntake> StockIntakes;
 
@@ -609,8 +614,11 @@ namespace LankaStocks.DataBases
             sessionBegin = DateTime.Now;
             Name = DateTime.Now.Date.ToString("yyyyMMdd");
             DBName = Name;
+
             Sales = new Dictionary<uint, BasicSale>();
             StockIntakes = new Dictionary<uint, StockIntake>();
+            BeginingItems = new Dictionary<uint, Item>();
+            BeginingCashiers = new Dictionary<uint, decimal>();
         }
 
         public override (dynamic, MemberType) Resolve(string expr)
