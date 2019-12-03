@@ -379,12 +379,20 @@ namespace LankaStocks.Networking
                 if (Live.Session.Name != DateTime.Now.ToString("yyyyMMdd"))
                 {
 
-                    Log($"Saving last day session {Live.Session.Name}");
+                    Log($"Saving last day session {Live.Session.Name}", ConsoleColor.Cyan);
                     Live.Session.sessionEnd = DateTime.Now;
                     History.SaveSession(Live.Session);
 
-                    Log("Starting a fresh Session just for you. Have a good day!");
+                    Log("Starting a fresh Session just for you. Have a good day!", ConsoleColor.Cyan);
                     Live.Session.CreateNewDatabase();
+                    foreach (var item in Live.Cashiers)
+                    {
+                        Live.Session.BeginingCashiers.Add(item.Key, item.Value);
+                    }
+                    foreach (var item in Live.Items)
+                    {
+                        Live.Session.BeginingItems.Add(item.Key, item.Value);
+                    }
                 }
 
                 PeerTimer = new System.Timers.Timer(10000);
@@ -419,12 +427,21 @@ namespace LankaStocks.Networking
         private void ThrDBSave()
         {
             Begin:
-            Live.SaveBinary();
-            People.SaveBinary();
-            History.SaveBinary();
-            Settings.SaveBinary();
 
-            System.Threading.Thread.Sleep(10000);
+            for (int n = 0; n < 30; n++)
+            {
+                Live.SaveBinary();
+                People.SaveBinary();
+                History.SaveBinary();
+                Settings.SaveBinary();
+
+                System.Threading.Thread.Sleep(10000);
+            }
+
+            Live.ForceSave();
+            People.ForceSave();
+            History.ForceSave();
+            Settings.ForceSave();
 
             goto Begin;
         }
