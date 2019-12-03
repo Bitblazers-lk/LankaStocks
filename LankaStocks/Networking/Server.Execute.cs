@@ -225,6 +225,33 @@ namespace LankaStocks
             return SetItem(v);
         }
 
+        public Response EditItem(Item v)
+        {
+
+            if (Live.Items.ContainsKey(v.itemID))
+            {
+                foreach (var vend in v.vendors)
+                {
+                    if (People.Vendors.ContainsKey(vend) && People.Vendors[vend].supplyingItems.Contains(v.itemID))
+                        People.Vendors[vend].supplyingItems.Remove(v.itemID);
+                }
+            }
+
+
+            foreach (var vend in v.vendors)
+            {
+                if (People.Vendors.TryGetValue(vend, out Vendor vendor))
+                {
+                    vendor.supplyingItems.Add(v.itemID);
+                }
+            }
+
+
+            Live.Items[v.itemID] = v;
+            Log($"Set {v.ToString()} \n {Core.VisualizeObj(v)}");
+            return new Response(Response.Result.ok);
+        }
+
         public Response SetItem(Item v)
         {
 
