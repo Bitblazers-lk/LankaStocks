@@ -44,7 +44,7 @@ namespace LankaStocks.UserControls
             uiBasicSale1.TxtCode.KeyDown += TxtCode_KeyDown;
             uiBasicSale1.TxtQty.KeyDown += TxtQty_KeyDown;
             uiBasicSale1.btnIssue.Click += BtnIssue_Click;
-            //Forms.frmWaiting = new UIForms.FrmWaiting(UIForms.ServerStatus.Waiting);
+            Forms.frmWaiting = new UIForms.FrmWaiting(UIForms.ServerStatus.Waiting);
             // Forms.frmWaiting.Show();
 
             #region KeyInput Handle
@@ -67,7 +67,7 @@ namespace LankaStocks.UserControls
         {
             Device = e.KeyPressEvent.DeviceName;
             if (!uiBasicSale1.TxtCode.Focused && Device.ToLower().Contains(Pos_Barcode.ToLower()))
-                uiBasicSale1.TxtCode.Focus();
+                uiBasicSale1.TxtCode.Select();
         }
 
         private void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -75,7 +75,7 @@ namespace LankaStocks.UserControls
             throw new Exception(e.ExceptionObject.ToString());
         }
 
-        private RawInput _KeyInput;
+        private readonly RawInput _KeyInput;
 
         string Device = "";
         string Pos_Barcode = localSettings.Data.POSBarcodeID;
