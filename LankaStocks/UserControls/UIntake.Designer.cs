@@ -1,6 +1,6 @@
 ﻿namespace LankaStocks.UserControls
 {
-    partial class UIsaleHistory
+    partial class UIntake
     {
         /// <summary> 
         /// Required designer variable.
@@ -38,18 +38,18 @@
             this.Txtno = new System.Windows.Forms.TextBox();
             this.datepick = new System.Windows.Forms.DateTimePicker();
             this.CbAll = new System.Windows.Forms.CheckBox();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.DGVin = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnRef = new System.Windows.Forms.Button();
             this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.uiExcel2 = new LankaStocks.UserControls.UIExcel();
             this.DGVit = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BtnRef = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,7 +64,6 @@
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVin)).BeginInit();
@@ -72,6 +71,7 @@
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVit)).BeginInit();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -210,35 +210,6 @@
             this.CbAll.UseVisualStyleBackColor = true;
             this.CbAll.CheckedChanged += new System.EventHandler(this.CbAll_CheckedChanged);
             // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.6414F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.3586F));
-            this.tableLayoutPanel5.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(541, 100);
-            this.tableLayoutPanel5.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.Image = global::LankaStocks.Properties.Resources.save_24px;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 35);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Generate File";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
@@ -249,7 +220,7 @@
             this.groupBox1.Size = new System.Drawing.Size(889, 726);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Invoice Details";
+            this.groupBox1.Text = "Stock Intake Details";
             // 
             // tableLayoutPanel1
             // 
@@ -294,21 +265,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(877, 39);
             this.tableLayoutPanel2.TabIndex = 4;
-            // 
-            // BtnRef
-            // 
-            this.BtnRef.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRef.ForeColor = System.Drawing.Color.Orange;
-            this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
-            this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRef.Location = new System.Drawing.Point(3, 3);
-            this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(531, 33);
-            this.BtnRef.TabIndex = 5;
-            this.BtnRef.Text = "Refresh";
-            this.BtnRef.UseVisualStyleBackColor = true;
-            this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
             // 
             // uiExcel1
             // 
@@ -372,14 +328,58 @@
             this.DGVit.Size = new System.Drawing.Size(480, 779);
             this.DGVit.TabIndex = 3;
             // 
-            // UIsaleHistory
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.6414F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.3586F));
+            this.tableLayoutPanel5.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(541, 100);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Orange;
+            this.button1.Image = global::LankaStocks.Properties.Resources.file_24px;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(175, 35);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Generate File";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // BtnRef
+            // 
+            this.BtnRef.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRef.ForeColor = System.Drawing.Color.Orange;
+            this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
+            this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRef.Location = new System.Drawing.Point(3, 3);
+            this.BtnRef.Name = "BtnRef";
+            this.BtnRef.Size = new System.Drawing.Size(531, 33);
+            this.BtnRef.TabIndex = 5;
+            this.BtnRef.Text = "Refresh";
+            this.BtnRef.UseVisualStyleBackColor = true;
+            this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
+            // 
+            // UIntake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.splitContainer1);
             this.ForeColor = System.Drawing.Color.Orange;
-            this.Name = "UIsaleHistory";
+            this.Name = "UIntake";
             this.Size = new System.Drawing.Size(1385, 849);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -396,7 +396,6 @@
             this.splitContainer3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVin)).EndInit();
@@ -404,6 +403,7 @@
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVit)).EndInit();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

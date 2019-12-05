@@ -38,7 +38,9 @@
             this.btnhide = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.uIsaleHistory1 = new LankaStocks.UserControls.UIsaleHistory();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -146,6 +148,7 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.uIsaleHistory1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
@@ -158,6 +161,17 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // uIsaleHistory1
+            // 
+            this.uIsaleHistory1.BackColor = System.Drawing.Color.Transparent;
+            this.uIsaleHistory1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uIsaleHistory1.ForeColor = System.Drawing.Color.Orange;
+            this.uIsaleHistory1.Location = new System.Drawing.Point(0, 0);
+            this.uIsaleHistory1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uIsaleHistory1.Name = "uIsaleHistory1";
+            this.uIsaleHistory1.Size = new System.Drawing.Size(1227, 926);
+            this.uIsaleHistory1.TabIndex = 0;
             // 
             // FrmSales
             // 
@@ -176,6 +190,7 @@
             this.Text = "LanakaStocks > Sales";
             this.Load += new System.EventHandler(this.FrmSales_Load);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -190,5 +205,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnChart;
+        private UserControls.UIsaleHistory uIsaleHistory1;
     }
 }

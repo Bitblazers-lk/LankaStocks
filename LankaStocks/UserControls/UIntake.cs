@@ -12,9 +12,9 @@ using LankaStocks.Shared;
 
 namespace LankaStocks.UserControls
 {
-    public partial class UIsaleHistory : UserControl
+    public partial class UIntake : UserControl
     {
-        public UIsaleHistory()
+        public UIntake()
         {
             InitializeComponent();
             uiExcel1.Save.Click += Save_Click;
@@ -117,21 +117,53 @@ namespace LankaStocks.UserControls
         {
             GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
         }
-    }
-    public struct SaleHis
-    {
-        public uint Sale_ID { get; set; }
-        public DateTime Date { get; set; }
-        public int Total_Items { get; set; }
-        public decimal Total { get; set; }
+
+        void GetRec_Data(DateTime Date)
+        {
+            var Data = new List<Rec_data>();
+            var d = client.ps.History.ViewSession(Date);
+            decimal Out = 0;
+            decimal In = 0;
+            if (d != null)
+            {
+                foreach (var item in client.ps.Live.Items)
+                {
+                    foreach (var sale in d.Sales)
+                    {
+                        foreach (var i in sale.Value.items)
+                        {
+                            if (item.Value.itemID == i.itemID)
+                            {
+                                Out += i.Quantity;
+                            }
+                        }
+                    }
+                    foreach (var sin in d.StockIntakes)
+                    {
+                        if (item.Value.itemID == sin.Value.item.itemID)
+                        {
+                            In += sin.Value.item.Quantity;
+                        }
+                    }
+                    Data.Add(new Rec_data { Name = item.Value.name, IN = In, OUT = Out });
+                }
+
+            }
+            else
+            {
+                MessageBox.Show($"No Records Found On {Date.Date}.", "LankaStocks > Sale History!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
     }
 
-    public struct SaleItm
+    public struct Rec_data
     {
-        public uint Item_ID { get; set; }
         public string Name { get; set; }
-        public decimal Qty { get; set; }
-        public decimal Total { get; set; }
+        public decimal Begin_Balance { get; set; }
+        public decimal IN { get; set; }
+        public decimal OUT { get; set; }
+        public decimal Final_Balance { get; set; }
+        public decimal Total_Value { get; set; }
     }
 }
 
