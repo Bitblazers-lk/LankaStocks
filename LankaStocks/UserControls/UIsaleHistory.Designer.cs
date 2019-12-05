@@ -31,6 +31,13 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Txtno = new System.Windows.Forms.TextBox();
+            this.datepick = new System.Windows.Forms.DateTimePicker();
+            this.CbAll = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.DGVin = new System.Windows.Forms.DataGridView();
@@ -39,15 +46,8 @@
             this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.DGVit = new System.Windows.Forms.DataGridView();
             this.uiExcel2 = new LankaStocks.UserControls.UIExcel();
-            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Txtno = new System.Windows.Forms.TextBox();
-            this.datepick = new System.Windows.Forms.DateTimePicker();
-            this.CbAll = new System.Windows.Forms.CheckBox();
+            this.DGVit = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -57,6 +57,10 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVin)).BeginInit();
@@ -64,10 +68,6 @@
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
-            this.splitContainer3.Panel1.SuspendLayout();
-            this.splitContainer3.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -116,6 +116,88 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Filter";
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 16);
+            this.splitContainer3.Name = "splitContainer3";
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.tableLayoutPanel4);
+            this.splitContainer3.Size = new System.Drawing.Size(883, 100);
+            this.splitContainer3.SplitterDistance = 318;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.13207F));
+            this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel4.Controls.Add(this.Txtno, 1, 2);
+            this.tableLayoutPanel4.Controls.Add(this.datepick, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.CbAll, 1, 1);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 3;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(318, 100);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Date : ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(3, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 34);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "NO : ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // Txtno
+            // 
+            this.Txtno.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Txtno.Location = new System.Drawing.Point(62, 69);
+            this.Txtno.Name = "Txtno";
+            this.Txtno.Size = new System.Drawing.Size(253, 20);
+            this.Txtno.TabIndex = 2;
+            // 
+            // datepick
+            // 
+            this.datepick.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.datepick.Location = new System.Drawing.Point(62, 3);
+            this.datepick.Name = "datepick";
+            this.datepick.Size = new System.Drawing.Size(253, 20);
+            this.datepick.TabIndex = 3;
+            // 
+            // CbAll
+            // 
+            this.CbAll.AutoSize = true;
+            this.CbAll.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CbAll.Location = new System.Drawing.Point(62, 36);
+            this.CbAll.Name = "CbAll";
+            this.CbAll.Size = new System.Drawing.Size(253, 27);
+            this.CbAll.TabIndex = 4;
+            this.CbAll.Text = "All Dates";
+            this.CbAll.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -225,18 +307,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(486, 830);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // DGVit
-            // 
-            this.DGVit.AllowUserToOrderColumns = true;
-            this.DGVit.BackgroundColor = System.Drawing.Color.Black;
-            this.DGVit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DGVit.Location = new System.Drawing.Point(3, 3);
-            this.DGVit.Name = "DGVit";
-            this.DGVit.ReadOnly = true;
-            this.DGVit.Size = new System.Drawing.Size(480, 779);
-            this.DGVit.TabIndex = 3;
-            // 
             // uiExcel2
             // 
             this.uiExcel2.BackColor = System.Drawing.Color.Transparent;
@@ -248,87 +318,17 @@
             this.uiExcel2.Size = new System.Drawing.Size(478, 37);
             this.uiExcel2.TabIndex = 7;
             // 
-            // splitContainer3
+            // DGVit
             // 
-            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer3.Location = new System.Drawing.Point(3, 16);
-            this.splitContainer3.Name = "splitContainer3";
-            // 
-            // splitContainer3.Panel1
-            // 
-            this.splitContainer3.Panel1.Controls.Add(this.tableLayoutPanel4);
-            this.splitContainer3.Size = new System.Drawing.Size(883, 100);
-            this.splitContainer3.SplitterDistance = 318;
-            this.splitContainer3.TabIndex = 0;
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.ColumnCount = 2;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.86792F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 81.13207F));
-            this.tableLayoutPanel4.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel4.Controls.Add(this.label2, 0, 2);
-            this.tableLayoutPanel4.Controls.Add(this.Txtno, 1, 2);
-            this.tableLayoutPanel4.Controls.Add(this.datepick, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.CbAll, 1, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 3;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(318, 100);
-            this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Date : ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(3, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 34);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "NO : ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // Txtno
-            // 
-            this.Txtno.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Txtno.Location = new System.Drawing.Point(62, 69);
-            this.Txtno.Name = "Txtno";
-            this.Txtno.Size = new System.Drawing.Size(253, 20);
-            this.Txtno.TabIndex = 2;
-            // 
-            // datepick
-            // 
-            this.datepick.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datepick.Location = new System.Drawing.Point(62, 3);
-            this.datepick.Name = "datepick";
-            this.datepick.Size = new System.Drawing.Size(253, 20);
-            this.datepick.TabIndex = 3;
-            // 
-            // CbAll
-            // 
-            this.CbAll.AutoSize = true;
-            this.CbAll.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CbAll.Location = new System.Drawing.Point(62, 36);
-            this.CbAll.Name = "CbAll";
-            this.CbAll.Size = new System.Drawing.Size(253, 27);
-            this.CbAll.TabIndex = 4;
-            this.CbAll.Text = "All Dates";
-            this.CbAll.UseVisualStyleBackColor = true;
+            this.DGVit.AllowUserToOrderColumns = true;
+            this.DGVit.BackgroundColor = System.Drawing.Color.Black;
+            this.DGVit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DGVit.Location = new System.Drawing.Point(3, 3);
+            this.DGVit.Name = "DGVit";
+            this.DGVit.ReadOnly = true;
+            this.DGVit.Size = new System.Drawing.Size(480, 779);
+            this.DGVit.TabIndex = 3;
             // 
             // UIsaleHistory
             // 
@@ -348,6 +348,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVin)).EndInit();
@@ -355,11 +360,6 @@
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVit)).EndInit();
-            this.splitContainer3.Panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
-            this.splitContainer3.ResumeLayout(false);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
