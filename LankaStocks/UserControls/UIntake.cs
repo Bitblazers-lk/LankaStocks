@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LankaStocks.Core;
 using LankaStocks.Shared;
+using System.Globalization;
 
 namespace LankaStocks.UserControls
 {
@@ -28,13 +29,13 @@ namespace LankaStocks.UserControls
 
         private void Save_Click(object sender, EventArgs e)
         {
-            if (CbAll.Checked) RepeatedFunctions.SaveAsExcel(DGVin, $"Sales All.csv", new string[] { "Sale ID", "Date", "Total Items", "Total" });
-            else RepeatedFunctions.SaveAsExcel(DGVin, $"Sales {datepick.Value.ToString("yyyyMMdd")}.csv", new string[] { "Sale ID", "Date", "Total Items", "Total" });
+            //    if (CbAll.Checked) RepeatedFunctions.SaveAsExcel(DGVin, $"Sales All.csv", new string[] { "Sale ID", "Date", "Total Items", "Total" });
+            //    else RepeatedFunctions.SaveAsExcel(DGVin, $"Sales {datepick.Value.ToString("yyyyMMdd")}.csv", new string[] { "Sale ID", "Date", "Total Items", "Total" });
         }
 
         private void Datepick_ValueChanged(object sender, EventArgs e)
         {
-            GetRec_Data(datepick.Value);
+            //  GetRec_Data(datepick.Value);
         }
 
         private void CbAll_CheckedChanged(object sender, EventArgs e)
@@ -57,7 +58,7 @@ namespace LankaStocks.UserControls
 
         private void BtnRef_Click(object sender, EventArgs e)
         {
-            GetRec_Data(datepick.Value);
+            // GetRec_Data(datepick.Value);
         }
 
         void GetRec_Data(DateTime Date)
@@ -107,9 +108,123 @@ namespace LankaStocks.UserControls
             }
         }
 
+        void GetRecM_Data(DateTime Date)
+        {
+            var Data = new List<Rec_data>();
+            var DateList = client.ps.History.Sessions.Select(x => GetValidDate(x)).Where(a => a.Year == Date.Year && a.Month == Date.Month).ToList();
+            if (DateTime.Now.Year == Date.Year && DateTime.Now.Month == Date.Month)
+            {
+                DateList.Add(DateTime.Now);
+            }
+            foreach (var item in client.ps.Live.Items)
+            {
+                decimal Out = 0;
+                decimal In = 0;
+                decimal Bbal = 0;
+                foreach (var s in DateList)
+                {
+
+                    DataBases.DBSession d;
+                    //if (Date.Year == DateTime.Now.Year && Date.Month == DateTime.Now.Month) d = client.ps.Live.Session;
+                    //else
+                    if (s.Date == DateTime.Now.Date) d = client.ps.Live.Session;
+                    else d = client.ps.History.ViewSession(s);
+
+                    if (d != null)
+                    {
+                        foreach (var sale in d.Sales)
+                        {
+                            foreach (var i in sale.Value.items)
+                            {
+                                if (item.Value.itemID == i.itemID)
+                                {
+                                    Out += i.Quantity;
+                                }
+                            }
+                        }
+                        foreach (var sin in d.StockIntakes)
+                        {
+                            if (item.Value.itemID == sin.Value.item.itemID)
+                            {
+                                In += sin.Value.item.Quantity;
+                            }
+                        }
+                        if (s == DateList.Min())
+                        {
+                            foreach (var bal in d.BeginingItems)
+                            {
+                                if (item.Value.itemID == bal.Value.itemID) Bbal = bal.Value.Quantity;
+                            }
+                        }
+                    }
+
+                }
+                Data.Add(new Rec_data { Name = item.Value.name, Begin_Balance = Bbal, IN = In, OUT = Out, Final_Balance = Bbal + In - Out, Total_Value = item.Value.outPrice * (Bbal + In - Out) });
+            }
+            DGVin.DataSource = Data;
+        }
+
+        private DateTime GetValidDate(string date)
+        {
+            DateTime result;
+            if (DateTime.TryParseExact(date, "yyyyMM", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
+            {
+            }
+            else if (DateTime.TryParseExact(date, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
+            {
+            }
+            return result;
+        }
+
         private void UIntake_Load(object sender, EventArgs e)
         {
-            GetRec_Data(datepick.Value);
+            if (CBabm.Checked)
+                GetMonths();
+            else
+                GetDates();
+            if (CBabm.Checked) GetRecM_Data(GetValidDate(COMB.SelectedItem.ToString()));
+            else GetRec_Data(GetValidDate(COMB.SelectedItem.ToString()));
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CBabm_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CBabm.Checked)
+                GetMonths();
+            else
+                GetDates();
+        }
+
+        void GetDates()
+        {
+            var lst = new List<string>();
+            lst.AddRange(client.ps.History.Sessions);
+            lst.Add(DateTime.Now.ToString("yyyyMMdd"));
+            COMB.DataSource = lst;
+        }
+        void GetMonths()
+        {
+            var lst = new List<string>();
+            lst.AddRange(client.ps.History.Sessions);
+            lst.Add(DateTime.Now.ToString("yyyyMMdd"));
+            var lstO = new List<string>();
+            foreach (var s in lst)
+            {
+                string D = GetValidDate(s).ToString("yyyyMM");
+                if (!lstO.Contains(D))
+                    lstO.Add(D);
+            }
+            COMB.DataSource = lstO;
+        }
+
+        private void COMB_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CBabm.Checked) GetRecM_Data(GetValidDate(COMB.SelectedItem.ToString()));
+            else GetRec_Data(GetValidDate(COMB.SelectedItem.ToString()));
         }
     }
 

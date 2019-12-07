@@ -45,11 +45,11 @@
             this.DGVin = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnRef = new System.Windows.Forms.Button();
-            this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.uiExcel2 = new LankaStocks.UserControls.UIExcel();
             this.DGVit = new System.Windows.Forms.DataGridView();
+            this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
+            this.uiExcel2 = new LankaStocks.UserControls.UIExcel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -310,17 +310,6 @@
             this.BtnRef.UseVisualStyleBackColor = true;
             this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
             // 
-            // uiExcel1
-            // 
-            this.uiExcel1.BackColor = System.Drawing.Color.Transparent;
-            this.uiExcel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiExcel1.ForeColor = System.Drawing.Color.Orange;
-            this.uiExcel1.Location = new System.Drawing.Point(541, 4);
-            this.uiExcel1.Margin = new System.Windows.Forms.Padding(4);
-            this.uiExcel1.Name = "uiExcel1";
-            this.uiExcel1.Size = new System.Drawing.Size(332, 31);
-            this.uiExcel1.TabIndex = 6;
-            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tableLayoutPanel3);
@@ -349,17 +338,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(486, 830);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // uiExcel2
-            // 
-            this.uiExcel2.BackColor = System.Drawing.Color.Transparent;
-            this.uiExcel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiExcel2.ForeColor = System.Drawing.Color.Orange;
-            this.uiExcel2.Location = new System.Drawing.Point(4, 789);
-            this.uiExcel2.Margin = new System.Windows.Forms.Padding(4);
-            this.uiExcel2.Name = "uiExcel2";
-            this.uiExcel2.Size = new System.Drawing.Size(478, 37);
-            this.uiExcel2.TabIndex = 7;
-            // 
             // DGVit
             // 
             this.DGVit.AllowUserToOrderColumns = true;
@@ -371,6 +349,28 @@
             this.DGVit.ReadOnly = true;
             this.DGVit.Size = new System.Drawing.Size(480, 779);
             this.DGVit.TabIndex = 3;
+            // 
+            // uiExcel1
+            // 
+            this.uiExcel1.BackColor = System.Drawing.Color.Transparent;
+            this.uiExcel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiExcel1.ForeColor = System.Drawing.Color.Orange;
+            this.uiExcel1.Location = new System.Drawing.Point(541, 4);
+            this.uiExcel1.Margin = new System.Windows.Forms.Padding(4);
+            this.uiExcel1.Name = "uiExcel1";
+            this.uiExcel1.Size = new System.Drawing.Size(332, 31);
+            this.uiExcel1.TabIndex = 6;
+            // 
+            // uiExcel2
+            // 
+            this.uiExcel2.BackColor = System.Drawing.Color.Transparent;
+            this.uiExcel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiExcel2.ForeColor = System.Drawing.Color.Orange;
+            this.uiExcel2.Location = new System.Drawing.Point(4, 789);
+            this.uiExcel2.Margin = new System.Windows.Forms.Padding(4);
+            this.uiExcel2.Name = "uiExcel2";
+            this.uiExcel2.Size = new System.Drawing.Size(478, 37);
+            this.uiExcel2.TabIndex = 7;
             // 
             // UIsaleHistory
             // 
