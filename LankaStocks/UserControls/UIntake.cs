@@ -24,7 +24,7 @@ namespace LankaStocks.UserControls
 
         private void Save_Click1(object sender, EventArgs e)
         {
-            RepeatedFunctions.SaveAsExcel(DGVit, $"Sold Items.csv", new string[] { "Item ID", "Name", "Qty", "Total" });
+           // RepeatedFunctions.SaveAsExcel(DGVit, $"Sold Items.csv", new string[] { "Item ID", "Name", "Qty", "Total" });
         }
 
         private void Save_Click(object sender, EventArgs e)
