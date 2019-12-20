@@ -6,12 +6,11 @@ namespace LankaStocks.UIHandle
 {
     class FormContextMenu
     {
-        private Control _ParentC = null;
+        private readonly Control _ParentC = null;
         public Form _Form = null;
         public bool Alive = false;
-        private bool Exit = false;
 
-        MouseHook MouseHook = new MouseHook();
+        readonly MouseHook MouseHook = new MouseHook();
 
         public FormContextMenu(Control Parent, Form form)
         {

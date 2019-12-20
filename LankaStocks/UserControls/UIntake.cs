@@ -32,102 +32,48 @@ namespace LankaStocks.UserControls
             else RepeatedFunctions.SaveAsExcel(DGVin, $"Sales {datepick.Value.ToString("yyyyMMdd")}.csv", new string[] { "Sale ID", "Date", "Total Items", "Total" });
         }
 
-        void GetHis(bool all, DateTime Date, string ID)
+        private void Datepick_ValueChanged(object sender, EventArgs e)
         {
-            var Data = new List<SaleHis>();
-            if (all)
-            {
-                foreach (var item in client.ps.History.Sessions)
-                {
-                    foreach (var s in client.ps.History.ViewSession(item).Sales)
-                    {
-                        if (s.Value.SaleID.ToString().Contains(ID))
-                        {
-                            s.Value.CalculateTotal();
-                            Data.Add(new SaleHis { Sale_ID = s.Value.SaleID, Date = s.Value.date, Total_Items = s.Value.items.Count, Total = s.Value.total });
-                        }
-                    }
-                }
-            }
-            else
-            {
-                var d = client.ps.History.ViewSession(Date);
-                if (d != null)
-                {
-                    foreach (var s in d.Sales)
-                    {
-                        if (s.Value.SaleID.ToString().Contains(ID))
-                        {
-                            s.Value.CalculateTotal();
-                            Data.Add(new SaleHis { Sale_ID = s.Value.SaleID, Date = s.Value.date, Total_Items = s.Value.items.Count, Total = s.Value.total });
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"No Records Found On {Date.Date}.", "LankaStocks > Sale History!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-            DGVin.DataSource = Data;
-        }
-
-        void GetItems(string ID)
-        {
-            var Data = new List<SaleItm>();
-            foreach (var item in client.ps.History.Sessions)
-            {
-                foreach (var s in client.ps.History.ViewSession(item).Sales)
-                {
-                    if (s.Value.SaleID.ToString().Contains(ID))
-                    {
-                        foreach (var i in s.Value.items)
-                        {
-                            Data.Add(new SaleItm { Item_ID = i.itemID, Name = client.ps.Live.Items[i.itemID].name, Qty = i.Quantity, Total = (i.Quantity * client.ps.Live.Items[i.itemID].outPrice) });
-                        }
-                    }
-                }
-            }
-            DGVit.DataSource = Data;
-        }
-
-        private void datepick_ValueChanged(object sender, EventArgs e)
-        {
-            GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
+            GetRec_Data(datepick.Value);
         }
 
         private void CbAll_CheckedChanged(object sender, EventArgs e)
         {
-            GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
+            //GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
         }
 
         private void Txtno_TextChanged(object sender, EventArgs e)
         {
-            GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
+            // GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
         }
 
         private void DGVin_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DGVin.CurrentCell != null && DGVin.Rows?[DGVin.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString() != null)
             {
-                GetItems(DGVin.Rows?[DGVin.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString());
+                //GetItems(DGVin.Rows?[DGVin.CurrentCell.RowIndex]?.Cells?[0].Value?.ToString());
             }
         }
 
         private void BtnRef_Click(object sender, EventArgs e)
         {
-            GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
+            GetRec_Data(datepick.Value);
         }
 
         void GetRec_Data(DateTime Date)
         {
             var Data = new List<Rec_data>();
-            var d = client.ps.History.ViewSession(Date);
-            decimal Out = 0;
-            decimal In = 0;
+            DataBases.DBSession d;
+            if (Date.Date == DateTime.Now.Date) d = client.ps.Live.Session;
+            else
+                d = client.ps.History.ViewSession(Date);
             if (d != null)
             {
                 foreach (var item in client.ps.Live.Items)
                 {
+                    decimal Out = 0;
+                    decimal In = 0;
+                    decimal Bbal = 0;
                     foreach (var sale in d.Sales)
                     {
                         foreach (var i in sale.Value.items)
@@ -145,14 +91,25 @@ namespace LankaStocks.UserControls
                             In += sin.Value.item.Quantity;
                         }
                     }
-                    Data.Add(new Rec_data { Name = item.Value.name, IN = In, OUT = Out });
+                    foreach (var bal in d.BeginingItems)
+                    {
+                        if (item.Value.itemID == bal.Value.itemID) Bbal = bal.Value.Quantity;
+                    }
+
+                    Data.Add(new Rec_data { Name = item.Value.name, Begin_Balance = Bbal, IN = In, OUT = Out, Final_Balance = Bbal + In - Out, Total_Value = item.Value.outPrice * (Bbal + In - Out) });
                 }
+                DGVin.DataSource = Data;
 
             }
             else
             {
                 MessageBox.Show($"No Records Found On {Date.Date}.", "LankaStocks > Sale History!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void UIntake_Load(object sender, EventArgs e)
+        {
+            GetRec_Data(datepick.Value);
         }
     }
 

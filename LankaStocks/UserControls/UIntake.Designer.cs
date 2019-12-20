@@ -38,18 +38,18 @@
             this.Txtno = new System.Windows.Forms.TextBox();
             this.datepick = new System.Windows.Forms.DateTimePicker();
             this.CbAll = new System.Windows.Forms.CheckBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.DGVin = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
+            this.BtnRef = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.uiExcel2 = new LankaStocks.UserControls.UIExcel();
             this.DGVit = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.BtnRef = new System.Windows.Forms.Button();
+            this.uiExcel1 = new LankaStocks.UserControls.UIExcel();
+            this.uiExcel2 = new LankaStocks.UserControls.UIExcel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -64,6 +64,7 @@
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVin)).BeginInit();
@@ -71,7 +72,6 @@
             this.groupBox2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DGVit)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -196,7 +196,7 @@
             this.datepick.Name = "datepick";
             this.datepick.Size = new System.Drawing.Size(269, 20);
             this.datepick.TabIndex = 3;
-            this.datepick.ValueChanged += new System.EventHandler(this.datepick_ValueChanged);
+            this.datepick.ValueChanged += new System.EventHandler(this.Datepick_ValueChanged);
             // 
             // CbAll
             // 
@@ -209,6 +209,35 @@
             this.CbAll.Text = "All Dates";
             this.CbAll.UseVisualStyleBackColor = true;
             this.CbAll.CheckedChanged += new System.EventHandler(this.CbAll_CheckedChanged);
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.6414F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.3586F));
+            this.tableLayoutPanel5.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(541, 100);
+            this.tableLayoutPanel5.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Orange;
+            this.button1.Image = global::LankaStocks.Properties.Resources.save_24px;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(175, 35);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Generate File";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -266,16 +295,20 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(877, 39);
             this.tableLayoutPanel2.TabIndex = 4;
             // 
-            // uiExcel1
+            // BtnRef
             // 
-            this.uiExcel1.BackColor = System.Drawing.Color.Transparent;
-            this.uiExcel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiExcel1.ForeColor = System.Drawing.Color.Orange;
-            this.uiExcel1.Location = new System.Drawing.Point(541, 4);
-            this.uiExcel1.Margin = new System.Windows.Forms.Padding(4);
-            this.uiExcel1.Name = "uiExcel1";
-            this.uiExcel1.Size = new System.Drawing.Size(332, 31);
-            this.uiExcel1.TabIndex = 6;
+            this.BtnRef.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnRef.ForeColor = System.Drawing.Color.Orange;
+            this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
+            this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRef.Location = new System.Drawing.Point(3, 3);
+            this.BtnRef.Name = "BtnRef";
+            this.BtnRef.Size = new System.Drawing.Size(531, 33);
+            this.BtnRef.TabIndex = 5;
+            this.BtnRef.Text = "Refresh";
+            this.BtnRef.UseVisualStyleBackColor = true;
+            this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
             // 
             // groupBox2
             // 
@@ -305,17 +338,6 @@
             this.tableLayoutPanel3.Size = new System.Drawing.Size(486, 830);
             this.tableLayoutPanel3.TabIndex = 2;
             // 
-            // uiExcel2
-            // 
-            this.uiExcel2.BackColor = System.Drawing.Color.Transparent;
-            this.uiExcel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiExcel2.ForeColor = System.Drawing.Color.Orange;
-            this.uiExcel2.Location = new System.Drawing.Point(4, 789);
-            this.uiExcel2.Margin = new System.Windows.Forms.Padding(4);
-            this.uiExcel2.Name = "uiExcel2";
-            this.uiExcel2.Size = new System.Drawing.Size(478, 37);
-            this.uiExcel2.TabIndex = 7;
-            // 
             // DGVit
             // 
             this.DGVit.AllowUserToOrderColumns = true;
@@ -328,49 +350,27 @@
             this.DGVit.Size = new System.Drawing.Size(480, 779);
             this.DGVit.TabIndex = 3;
             // 
-            // tableLayoutPanel5
+            // uiExcel1
             // 
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.6414F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.3586F));
-            this.tableLayoutPanel5.Controls.Add(this.button1, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 59F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(541, 100);
-            this.tableLayoutPanel5.TabIndex = 0;
+            this.uiExcel1.BackColor = System.Drawing.Color.Transparent;
+            this.uiExcel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiExcel1.ForeColor = System.Drawing.Color.Orange;
+            this.uiExcel1.Location = new System.Drawing.Point(541, 4);
+            this.uiExcel1.Margin = new System.Windows.Forms.Padding(4);
+            this.uiExcel1.Name = "uiExcel1";
+            this.uiExcel1.Size = new System.Drawing.Size(332, 31);
+            this.uiExcel1.TabIndex = 6;
             // 
-            // button1
+            // uiExcel2
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.Orange;
-            this.button1.Image = global::LankaStocks.Properties.Resources.file_24px;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(3, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 35);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Generate File";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // BtnRef
-            // 
-            this.BtnRef.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnRef.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnRef.ForeColor = System.Drawing.Color.Orange;
-            this.BtnRef.Image = global::LankaStocks.Properties.Resources.recurring_appointment_24px;
-            this.BtnRef.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRef.Location = new System.Drawing.Point(3, 3);
-            this.BtnRef.Name = "BtnRef";
-            this.BtnRef.Size = new System.Drawing.Size(531, 33);
-            this.BtnRef.TabIndex = 5;
-            this.BtnRef.Text = "Refresh";
-            this.BtnRef.UseVisualStyleBackColor = true;
-            this.BtnRef.Click += new System.EventHandler(this.BtnRef_Click);
+            this.uiExcel2.BackColor = System.Drawing.Color.Transparent;
+            this.uiExcel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiExcel2.ForeColor = System.Drawing.Color.Orange;
+            this.uiExcel2.Location = new System.Drawing.Point(4, 789);
+            this.uiExcel2.Margin = new System.Windows.Forms.Padding(4);
+            this.uiExcel2.Name = "uiExcel2";
+            this.uiExcel2.Size = new System.Drawing.Size(478, 37);
+            this.uiExcel2.TabIndex = 7;
             // 
             // UIntake
             // 
@@ -381,6 +381,7 @@
             this.ForeColor = System.Drawing.Color.Orange;
             this.Name = "UIntake";
             this.Size = new System.Drawing.Size(1385, 849);
+            this.Load += new System.EventHandler(this.UIntake_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -396,6 +397,7 @@
             this.splitContainer3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVin)).EndInit();
@@ -403,7 +405,6 @@
             this.groupBox2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DGVit)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -416,13 +417,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        public System.Windows.Forms.DataGridView DGVin;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         public System.Windows.Forms.Button BtnRef;
         public UIExcel uiExcel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         public UIExcel uiExcel2;
-        public System.Windows.Forms.DataGridView DGVit;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Label label1;
@@ -432,5 +431,7 @@
         private System.Windows.Forms.CheckBox CbAll;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         public System.Windows.Forms.Button button1;
+        public System.Windows.Forms.DataGridView DGVin;
+        public System.Windows.Forms.DataGridView DGVit;
     }
 }

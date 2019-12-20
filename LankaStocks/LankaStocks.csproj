@@ -324,6 +324,12 @@
     <Compile Include="UserControls\UIMenuA.Designer.cs">
       <DependentUpon>UIMenuA.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UIntake.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UIntake.Designer.cs">
+      <DependentUpon>UIntake.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UIPdfView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -489,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIMenuA.resx">
       <DependentUpon>UIMenuA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UIntake.resx">
+      <DependentUpon>UIntake.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UIPdfView.resx">
       <DependentUpon>UIPdfView.cs</DependentUpon>

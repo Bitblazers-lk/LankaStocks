@@ -38,9 +38,16 @@
             this.btnhide = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uIsaleHistory1 = new LankaStocks.UserControls.UIsaleHistory();
+            this.uIntake1 = new LankaStocks.UserControls.UIntake();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -148,7 +155,7 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.uIsaleHistory1);
+            this.panel3.Controls.Add(this.tabControl1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(200, 0);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
@@ -162,16 +169,60 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1227, 926);
+            this.tabControl1.TabIndex = 1;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.uIsaleHistory1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1219, 895);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.uIntake1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1219, 895);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // uIsaleHistory1
             // 
             this.uIsaleHistory1.BackColor = System.Drawing.Color.Transparent;
             this.uIsaleHistory1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uIsaleHistory1.ForeColor = System.Drawing.Color.Orange;
-            this.uIsaleHistory1.Location = new System.Drawing.Point(0, 0);
+            this.uIsaleHistory1.Location = new System.Drawing.Point(3, 3);
             this.uIsaleHistory1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uIsaleHistory1.Name = "uIsaleHistory1";
-            this.uIsaleHistory1.Size = new System.Drawing.Size(1227, 926);
+            this.uIsaleHistory1.Size = new System.Drawing.Size(1213, 889);
             this.uIsaleHistory1.TabIndex = 0;
+            // 
+            // uIntake1
+            // 
+            this.uIntake1.BackColor = System.Drawing.Color.Transparent;
+            this.uIntake1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uIntake1.ForeColor = System.Drawing.Color.Orange;
+            this.uIntake1.Location = new System.Drawing.Point(3, 3);
+            this.uIntake1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.uIntake1.Name = "uIntake1";
+            this.uIntake1.Size = new System.Drawing.Size(1213, 889);
+            this.uIntake1.TabIndex = 0;
             // 
             // FrmSales
             // 
@@ -191,6 +242,9 @@
             this.Load += new System.EventHandler(this.FrmSales_Load);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -205,6 +259,10 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnChart;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
         private UserControls.UIsaleHistory uIsaleHistory1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private UserControls.UIntake uIntake1;
     }
 }

@@ -196,7 +196,7 @@
             this.datepick.Name = "datepick";
             this.datepick.Size = new System.Drawing.Size(269, 20);
             this.datepick.TabIndex = 3;
-            this.datepick.ValueChanged += new System.EventHandler(this.datepick_ValueChanged);
+            this.datepick.ValueChanged += new System.EventHandler(this.Datepick_ValueChanged);
             // 
             // CbAll
             // 
@@ -381,6 +381,7 @@
             this.ForeColor = System.Drawing.Color.Orange;
             this.Name = "UIsaleHistory";
             this.Size = new System.Drawing.Size(1385, 849);
+            this.Load += new System.EventHandler(this.UIsaleHistory_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

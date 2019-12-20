@@ -11,13 +11,11 @@ namespace LankaStocks.UIHandle
 {
     class PanelMenu
     {
-        private int _min = 0;
-        private int _max = 0;
+        private readonly int _min = 0;
+        private readonly int _max = 0;
 
-        private Control _Parent;
-        private Control _Button = null;
-
-        private bool run = true;
+        private readonly Control _Parent;
+        private readonly Control _Button = null;
 
         public PanelMenu(Control Parent, Control Button, int Min, int Max)
         {
@@ -35,7 +33,7 @@ namespace LankaStocks.UIHandle
             if (_Button != null) _Button.Click += Button_Click;
         }
 
-        private void S_MouseLeave(object sender, EventArgs e)
+        private void MouseLeave(object sender, EventArgs e)
         {
             //Point Mp = Cursor.Position;
             //Point Cp = _Parent.PointToScreen(_Parent.Location);
@@ -83,7 +81,6 @@ namespace LankaStocks.UIHandle
 
         private void Button_Click(object sender, EventArgs e)
         {
-            run = false;
             if (_Parent.Width == _max) _Parent.Width = _min;
             else if (_Parent.Width == _min) _Parent.Width = _max;
         }

@@ -19,6 +19,7 @@ namespace LankaStocks.UserControls
             InitializeComponent();
             uiExcel1.Save.Click += Save_Click;
             uiExcel2.Save.Click += Save_Click1;
+            //client.ps.History.ViewSession(datepick.Value).
         }
 
         private void Save_Click1(object sender, EventArgs e)
@@ -48,10 +49,21 @@ namespace LankaStocks.UserControls
                         }
                     }
                 }
+                foreach (var s in client.ps.Live.Session.Sales)
+                {
+                    if (s.Value.SaleID.ToString().Contains(ID))
+                    {
+                        s.Value.CalculateTotal();
+                        Data.Add(new SaleHis { Sale_ID = s.Value.SaleID, Date = s.Value.date, Total_Items = s.Value.items.Count, Total = s.Value.total });
+                    }
+                }
             }
             else
             {
-                var d = client.ps.History.ViewSession(Date);
+                DataBases.DBSession d;
+                if (Date.Date == DateTime.Now.Date) d = client.ps.Live.Session;
+                else
+                    d = client.ps.History.ViewSession(Date);
                 if (d != null)
                 {
                     foreach (var s in d.Sales)
@@ -70,12 +82,11 @@ namespace LankaStocks.UserControls
             }
             DGVin.DataSource = Data;
         }
-
         void GetItems(string ID)
         {
             var Data = new List<SaleItm>();
             foreach (var item in client.ps.History.Sessions)
-            {
+            { 
                 foreach (var s in client.ps.History.ViewSession(item).Sales)
                 {
                     if (s.Value.SaleID.ToString().Contains(ID))
@@ -87,10 +98,20 @@ namespace LankaStocks.UserControls
                     }
                 }
             }
+            foreach (var s in client.ps.Live.Session.Sales)
+            {
+                if (s.Value.SaleID.ToString().Contains(ID))
+                {
+                    foreach (var i in s.Value.items)
+                    {
+                        Data.Add(new SaleItm { Item_ID = i.itemID, Name = client.ps.Live.Items[i.itemID].name, Qty = i.Quantity, Total = (i.Quantity * client.ps.Live.Items[i.itemID].outPrice) });
+                    }
+                }
+            }
             DGVit.DataSource = Data;
         }
 
-        private void datepick_ValueChanged(object sender, EventArgs e)
+        private void Datepick_ValueChanged(object sender, EventArgs e)
         {
             GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
         }
@@ -114,6 +135,11 @@ namespace LankaStocks.UserControls
         }
 
         private void BtnRef_Click(object sender, EventArgs e)
+        {
+            GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
+        }
+
+        private void UIsaleHistory_Load(object sender, EventArgs e)
         {
             GetHis(CbAll.Checked, datepick.Value, Txtno.Text);
         }
