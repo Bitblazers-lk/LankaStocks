@@ -83,13 +83,21 @@ namespace LankaStocks.Shared
         #region Cart
         public static void AddToCart(ref uint code, decimal qty, Dictionary<uint, decimal> _Cart)
         {
-            if (client.ps.Live.Items.ContainsKey(code))
+            var d = client.ps.Live.Items;
+            if (d.ContainsKey(code))
             {
-                if (_Cart.ContainsKey(code))
+                if (d[code].Quantity - ((_Cart.ContainsKey(code) ? _Cart[code] : 0) + qty) >= 0)
                 {
-                    _Cart[code] += qty;
+                    if (_Cart.ContainsKey(code))
+                    {
+                        _Cart[code] += qty;
+                    }
+                    else _Cart.Add(code, qty);
                 }
-                else _Cart.Add(code, qty);
+                else
+                {
+                    MessageBox.Show($"We only have {d[code].Quantity} units of {d[code].name}. You Can't add {(_Cart.ContainsKey(code) ? _Cart[code] : 0) + qty} to cart!", "LankaStocks > Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             code = 0;
             //RefCart(Cart);
