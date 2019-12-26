@@ -2,3 +2,12 @@
 
 # CA1303: Do not pass literals as localized parameters
 dotnet_diagnostic.CA1303.severity = silent
+
+# CA2235: Mark all non-serializable fields
+dotnet_diagnostic.CA2235.severity = none
+
+# CS0067: The event 'Events.OnUserLogin' is never used
+dotnet_diagnostic.CS0067.severity = silent
+
+# CA1031: Do not catch general exception types
+dotnet_diagnostic.CA1031.severity = silent

@@ -367,7 +367,7 @@ namespace LankaStocks.Networking
                     File.WriteAllBytes(BasePath + DB.StampPath, stamp);
 
                     Log($"Created new Data Base on {DateTime.Now.Year}/{DateTime.Now.Month}/{DateTime.Now.Day} \n");
-                    MessageBox.Show("Welcome To LankaStocks!\nNote :\n\tUsername - amanda\n\tPassword - 200", "LanakaStocks > Welcome!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Welcome To LankaStocks!\nNote :\n\tUsername - preLogin\n\tPassword - preLogin LankaS", "LanakaStocks > Welcome!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 LoadDatabasesFromDisk(isFirstRun);
@@ -391,7 +391,7 @@ namespace LankaStocks.Networking
                     }
                     foreach (var item in Live.Items)
                     {
-                        Live.Session.BeginingItems.Add(item.Key, item.Value);
+                        Live.Session.BeginingItems.Add(item.Key, item.Value.Clone());
                     }
                 }
 

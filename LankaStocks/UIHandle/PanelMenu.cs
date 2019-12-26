@@ -11,8 +11,8 @@ namespace LankaStocks.UIHandle
 {
     class PanelMenu
     {
-        private int _min = 0;
-        private int _max = 0;
+        private readonly int _min = 0;
+        private readonly int _max = 0;
 
         private Control _Parent;
         private Control _Button = null;
@@ -35,7 +35,7 @@ namespace LankaStocks.UIHandle
             if (_Button != null) _Button.Click += Button_Click;
         }
 
-        private void S_MouseLeave(object sender, EventArgs e)
+        private void MouseLeave(object sender, EventArgs e)
         {
             //Point Mp = Cursor.Position;
             //Point Cp = _Parent.PointToScreen(_Parent.Location);

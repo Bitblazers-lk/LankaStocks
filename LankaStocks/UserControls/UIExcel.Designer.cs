@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.Open = new System.Windows.Forms.Button();
+            this.Save = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,8 +40,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.button2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.button3, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Open, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.Save, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -50,32 +50,32 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(364, 41);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // button2
+            // Open
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = global::LankaStocks.Properties.Resources.csv_24px;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(3, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 35);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Open With Excel";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Open.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Open.Image = global::LankaStocks.Properties.Resources.csv_24px;
+            this.Open.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Open.Location = new System.Drawing.Point(3, 3);
+            this.Open.Name = "Open";
+            this.Open.Size = new System.Drawing.Size(176, 35);
+            this.Open.TabIndex = 1;
+            this.Open.Text = "Open With Excel";
+            this.Open.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // Save
             // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Image = global::LankaStocks.Properties.Resources.ms_excel_24px;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(185, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(176, 35);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Save As Excel";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.Save.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Save.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Save.Image = global::LankaStocks.Properties.Resources.ms_excel_24px;
+            this.Save.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Save.Location = new System.Drawing.Point(185, 3);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(176, 35);
+            this.Save.TabIndex = 2;
+            this.Save.Text = "Save As Excel";
+            this.Save.UseVisualStyleBackColor = true;
+            this.Save.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // UIExcel
             // 
@@ -94,7 +94,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button Open;
+        public System.Windows.Forms.Button Save;
     }
 }
