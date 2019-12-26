@@ -391,7 +391,7 @@ namespace LankaStocks.Networking
                     }
                     foreach (var item in Live.Items)
                     {
-                        Live.Session.BeginingItems.Add(item.Key, item.Value);
+                        Live.Session.BeginingItems.Add(item.Key, item.Value.Clone());
                     }
                 }
 

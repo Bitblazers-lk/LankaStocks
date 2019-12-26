@@ -560,12 +560,12 @@ namespace LankaStocks.DataBases
         }
 
 
-        public DBSession ViewSession(DateTime sessDate)
+        public static DBSession ViewSession(DateTime sessDate)
         {
             return ViewSession(sessDate.ToString("yyyyMMdd"));
         }
 
-        public DBSession ViewSession(string sessName)
+        public static DBSession ViewSession(string sessName)
         {
             DBSession s = (DBSession)new DBSession() { FileName = BasePath + DB.HistoryPath + sessName }.LoadBinary();
             return s;

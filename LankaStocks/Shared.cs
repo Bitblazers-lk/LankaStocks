@@ -29,7 +29,7 @@ namespace LankaStocks.Shared
         {
             if (!string.IsNullOrWhiteSpace(Ctrl.Text))
             {
-                if (float.TryParse(Ctrl.Text, out float A))
+                if (float.TryParse(Ctrl.Text, out _))
                 {
                     Ctrl.BackColor = Color.FromKnownColor(KnownColor.WindowFrame);
                     return true;

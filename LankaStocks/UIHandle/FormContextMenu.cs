@@ -9,7 +9,7 @@ namespace LankaStocks.UIHandle
         private Control _ParentC = null;
         public Form _Form = null;
         public bool Alive = false;
-        private bool Exit = false;
+        //private bool Exit = false;
 
         MouseHook MouseHook = new MouseHook();
 

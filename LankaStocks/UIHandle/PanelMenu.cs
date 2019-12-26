@@ -17,7 +17,7 @@ namespace LankaStocks.UIHandle
         private Control _Parent;
         private Control _Button = null;
 
-        private bool run = true;
+        //private bool run = true;
 
         public PanelMenu(Control Parent, Control Button, int Min, int Max)
         {
@@ -83,7 +83,7 @@ namespace LankaStocks.UIHandle
 
         private void Button_Click(object sender, EventArgs e)
         {
-            run = false;
+            //run = false;
             if (_Parent.Width == _max) _Parent.Width = _min;
             else if (_Parent.Width == _min) _Parent.Width = _max;
         }
