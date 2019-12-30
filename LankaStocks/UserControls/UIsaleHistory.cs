@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static LankaStocks.Core;
 using LankaStocks.Shared;
+using LankaStocks.DataBases;
 
 namespace LankaStocks.UserControls
 {
@@ -40,7 +41,7 @@ namespace LankaStocks.UserControls
             {
                 foreach (var item in client.ps.History.Sessions)
                 {
-                    foreach (var s in client.ps.History.ViewSession(item).Sales)
+                    foreach (var s in DBHistory.ViewSession(item).Sales)
                     {
                         if (s.Value.SaleID.ToString().Contains(ID))
                         {
@@ -63,7 +64,7 @@ namespace LankaStocks.UserControls
                 DataBases.DBSession d;
                 if (Date.Date == DateTime.Now.Date) d = client.ps.Live.Session;
                 else
-                    d = client.ps.History.ViewSession(Date);
+                    d = DBHistory.ViewSession(Date);
                 if (d != null)
                 {
                     foreach (var s in d.Sales)
@@ -87,7 +88,7 @@ namespace LankaStocks.UserControls
             var Data = new List<SaleItm>();
             foreach (var item in client.ps.History.Sessions)
             { 
-                foreach (var s in client.ps.History.ViewSession(item).Sales)
+                foreach (var s in DBHistory.ViewSession(item).Sales)
                 {
                     if (s.Value.SaleID.ToString().Contains(ID))
                     {

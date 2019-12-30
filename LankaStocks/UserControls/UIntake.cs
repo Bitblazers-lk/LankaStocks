@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static LankaStocks.Core;
 using LankaStocks.Shared;
 using System.Globalization;
+using LankaStocks.DataBases;
 
 namespace LankaStocks.UserControls
 {
@@ -67,7 +68,7 @@ namespace LankaStocks.UserControls
             DataBases.DBSession d;
             if (Date.Date == DateTime.Now.Date) d = client.ps.Live.Session;
             else
-                d = client.ps.History.ViewSession(Date);
+                d = DBHistory.ViewSession(Date);
             if (d != null)
             {
                 foreach (var item in client.ps.Live.Items)
@@ -128,7 +129,7 @@ namespace LankaStocks.UserControls
                     //if (Date.Year == DateTime.Now.Year && Date.Month == DateTime.Now.Month) d = client.ps.Live.Session;
                     //else
                     if (s.Date == DateTime.Now.Date) d = client.ps.Live.Session;
-                    else d = client.ps.History.ViewSession(s);
+                    else d = DBHistory.ViewSession(s);
 
                     if (d != null)
                     {
