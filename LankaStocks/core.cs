@@ -281,8 +281,14 @@ namespace LankaStocks
                 System.Threading.Thread.Sleep(checkIntervel);
             }
         }
+
+
+        public static bool IsExit = false;
         public static void Shutdown()
         {
+            if (IsExit) return;
+
+            IsExit = true;
             //Save everything
             localSettings.ForceSave();
 

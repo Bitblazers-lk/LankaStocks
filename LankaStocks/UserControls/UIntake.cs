@@ -25,7 +25,7 @@ namespace LankaStocks.UserControls
 
         private void Save_Click1(object sender, EventArgs e)
         {
-           // RepeatedFunctions.SaveAsExcel(DGVit, $"Sold Items.csv", new string[] { "Item ID", "Name", "Qty", "Total" });
+            // RepeatedFunctions.SaveAsExcel(DGVit, $"Sold Items.csv", new string[] { "Item ID", "Name", "Qty", "Total" });
         }
 
         private void Save_Click(object sender, EventArgs e)
@@ -228,7 +228,7 @@ namespace LankaStocks.UserControls
         }
     }
 
-    public struct Rec_data
+    public struct Rec_data : IEquatable<Rec_data>
     {
         public string Name { get; set; }
         public decimal Begin_Balance { get; set; }
@@ -236,6 +236,43 @@ namespace LankaStocks.UserControls
         public decimal OUT { get; set; }
         public decimal Final_Balance { get; set; }
         public decimal Total_Value { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Rec_data data && Equals(data);
+        }
+
+        public bool Equals(Rec_data other)
+        {
+            return Name == other.Name &&
+                   Begin_Balance == other.Begin_Balance &&
+                   IN == other.IN &&
+                   OUT == other.OUT &&
+                   Final_Balance == other.Final_Balance &&
+                   Total_Value == other.Total_Value;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 436951639;
+            hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Name);
+            hashCode = hashCode * -1521134295 + Begin_Balance.GetHashCode();
+            hashCode = hashCode * -1521134295 + IN.GetHashCode();
+            hashCode = hashCode * -1521134295 + OUT.GetHashCode();
+            hashCode = hashCode * -1521134295 + Final_Balance.GetHashCode();
+            hashCode = hashCode * -1521134295 + Total_Value.GetHashCode();
+            return hashCode;
+        }
+
+        public static bool operator ==(Rec_data left, Rec_data right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Rec_data left, Rec_data right)
+        {
+            return !(left == right);
+        }
     }
 }
 

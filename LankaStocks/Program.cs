@@ -6,9 +6,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LankaStocks.UIForms;
-using Spire.Pdf;
-using Spire.Pdf.Graphics;
-using Spire.Pdf.Grid;
 
 namespace LankaStocks
 {
@@ -23,9 +20,15 @@ namespace LankaStocks
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Application.ApplicationExit += Application_ApplicationExit;
             Core.Initialize();
             Forms.login = new Login();
             Application.Run(Forms.login);
+        }
+
+        private static void Application_ApplicationExit(object sender, EventArgs e)
+        {
+            Core.Shutdown();
         }
     }
 }

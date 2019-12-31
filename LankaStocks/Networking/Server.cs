@@ -435,8 +435,11 @@ namespace LankaStocks.Networking
                 History.SaveBinary();
                 Settings.SaveBinary();
 
+                if (Core.IsExit) return;
                 System.Threading.Thread.Sleep(10000);
             }
+
+
 
             Live.ForceSave();
             People.ForceSave();
