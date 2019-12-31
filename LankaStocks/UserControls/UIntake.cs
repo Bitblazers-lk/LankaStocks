@@ -167,8 +167,7 @@ namespace LankaStocks.UserControls
 
         private DateTime GetValidDate(string date)
         {
-            DateTime result;
-            if (DateTime.TryParseExact(date, "yyyyMM", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
+            if (DateTime.TryParseExact(date, "yyyyMM", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime result))
             {
             }
             else if (DateTime.TryParseExact(date, "yyyyMMdd", CultureInfo.InvariantCulture, DateTimeStyles.None, out result))
@@ -187,7 +186,7 @@ namespace LankaStocks.UserControls
             else GetRec_Data(GetValidDate(COMB.SelectedItem.ToString()));
         }
 
-        private void groupBox3_Enter(object sender, EventArgs e)
+        private void GroupBox3_Enter(object sender, EventArgs e)
         {
 
         }

@@ -41,13 +41,13 @@ namespace LankaStocks.dev
 
         static void DrawPic(Bitmap myBitmap, bool Invert = false)
         {
-            bool black = false;
             string s = "";
             for (int y = 0; y < myBitmap.Height; y++)
             {
                 for (int x = 0; x < myBitmap.Width; x++)
                 {
                     Color pixelColor = myBitmap.GetPixel(x, y);
+                    bool black;
                     if (pixelColor.R < 100 && pixelColor.G < 100 && pixelColor.B < 100) black = true;
                     else black = false;
                     if (black)

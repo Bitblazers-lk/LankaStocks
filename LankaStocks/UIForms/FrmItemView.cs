@@ -27,8 +27,8 @@ namespace LankaStocks.UIForms
         }
 
         FormBorderStyle style;
-        Control ParentCtrl;
-        ContextMenuStrip cmDgv = new ContextMenuStrip();
+        readonly Control ParentCtrl;
+        readonly ContextMenuStrip cmDgv = new ContextMenuStrip();
 
         void RefDGV(uint code, Dictionary<uint, Item> sample)
         {
@@ -74,17 +74,17 @@ namespace LankaStocks.UIForms
 
         public Dictionary<uint, Item> Items = new Dictionary<uint, Item>();
 
-        void Search(uint Code, string Barcode, string Name)
-        {
-            SearchItem Fill = new SearchItem();
-            Item Temp = new Item
-            {
-                name = Name,
-                itemID = Code,
-                Barcode = Barcode
-            };
-            //Fill.Find(Items, Temp);
-        }
+        //void Search(uint Code, string Barcode, string Name)
+        //{
+        //    SearchItem Fill = new SearchItem();
+        //    _ = new Item
+        //    {
+        //        name = Name,
+        //        itemID = Code,
+        //        Barcode = Barcode
+        //    };
+        //    //Fill.Find(Items, Temp);
+        //}
 
         private void TxtS1_TextChanged(object sender, EventArgs e)
         {

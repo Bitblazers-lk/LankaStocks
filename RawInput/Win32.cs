@@ -133,8 +133,7 @@ namespace LankaStocks.KeyInput
                     if (rid.dwType == DeviceType.RimTypekeyboard || rid.dwType == DeviceType.RimTypeHid)
                     {
                         var deviceDesc = GetDeviceDescription(deviceName);
-
-                        var dInfo = new KeyPressEvent
+                        _ = new KeyPressEvent
                         {
                             DeviceName = Marshal.PtrToStringAnsi(pData),
                             DeviceHandle = rid.hDevice,

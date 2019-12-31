@@ -75,19 +75,18 @@ namespace LankaStocks.UserControls
             throw new Exception(e.ExceptionObject.ToString());
         }
 
-        private RawInput _KeyInput;
+        private readonly RawInput _KeyInput;
 
         string Device = "";
-        string Pos_Barcode = localSettings.Data.POSBarcodeID;
-
-        List<uint> DrawCodes = new List<uint>(); // Uint Item Codes To Draw In  FlowLayoutPanel
+        string Pos_Barcode => localSettings.Data.POSBarcodeID;
+        readonly List<uint> DrawCodes = new List<uint>(); // Uint Item Codes To Draw In  FlowLayoutPanel
 
         public List<string> ItemBarcodes = new List<string>();
 
         public static Dictionary<uint, decimal> Cart = new Dictionary<uint, decimal>();
 
         uint ItemCode = 0;
-        string BeginChar = "i";
+        readonly string BeginChar = "i";
 
         private void UIMenu_Load(object sender, EventArgs e)
         {

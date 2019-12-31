@@ -31,13 +31,13 @@ namespace LankaStocks.UIForms
         private readonly RawInput _KeyInput;
 
         string Device = "";
-        string Pos_Barcode = localSettings.Data.POSBarcodeID;
+        string Pos_Barcode => localSettings.Data.POSBarcodeID;
 
         uint ItemCode = 0;
-        string BeginChar = "i";
-        List<string> ItemBarcodes = new List<string>();
+        readonly string BeginChar = "i";
+        readonly List<string> ItemBarcodes = new List<string>();
         public static Dictionary<uint, decimal> Cart = new Dictionary<uint, decimal>();
-        private ContextMenuStrip cm = new ContextMenuStrip();
+        private readonly ContextMenuStrip cm = new ContextMenuStrip();
 
         private void OnKeyPressed(object sender, RawInputEventArg e)
         {

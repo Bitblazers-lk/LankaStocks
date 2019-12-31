@@ -28,7 +28,7 @@ namespace LankaStocks.UIForms
             Current = personType;
         }
 
-        private void panel2_SizeChanged(object sender, EventArgs e)
+        private void Panel2_SizeChanged(object sender, EventArgs e)
         {
             if (panel2.Width < 35)
             {
@@ -40,7 +40,7 @@ namespace LankaStocks.UIForms
             }
         }
 
-        ContextMenuStrip Cm = new ContextMenuStrip();
+        readonly ContextMenuStrip Cm = new ContextMenuStrip();
         private void Tab_Changed(PersonType args)
         {
             switch (args)
@@ -170,7 +170,7 @@ namespace LankaStocks.UIForms
 
         public PersonType Current = PersonType.User;
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             Forms.addData = new UIForms.AddData();
             Forms.addData.ShowDialog();
@@ -195,21 +195,21 @@ namespace LankaStocks.UIForms
             //RepeatedFunctions.OpenForm(tabPage1, Forms.frmanageItems, FormBorderStyle.Fixed3D, DockStyle.Fill);
         }
 
-        private void btnperson_Click(object sender, EventArgs e)
+        private void Btnperson_Click(object sender, EventArgs e)
         {
             Current = PersonType.Person;
             var handler = TabChanged;
             handler?.Invoke(Current);
         }
 
-        private void btnvendor_Click(object sender, EventArgs e)
+        private void Btnvendor_Click(object sender, EventArgs e)
         {
             Current = PersonType.Vendor;
             var handler = TabChanged;
             handler?.Invoke(Current);
         }
 
-        private void btnuser_Click(object sender, EventArgs e)
+        private void Btnuser_Click(object sender, EventArgs e)
         {
             Current = PersonType.User;
             var handler = TabChanged;

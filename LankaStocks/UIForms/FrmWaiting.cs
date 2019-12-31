@@ -16,7 +16,7 @@ namespace LankaStocks.UIForms
 {
     public partial class FrmWaiting : Form
     {
-        System.Windows.Forms.Timer aTimer = new System.Windows.Forms.Timer();
+        readonly System.Windows.Forms.Timer aTimer = new System.Windows.Forms.Timer();
 
         string _txt;
         public FrmWaiting(ServerStatus status, string TXT = "Waiting For Server")

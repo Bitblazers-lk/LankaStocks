@@ -58,11 +58,10 @@ namespace LankaStocks.UIForms
             SetUI(args);
         }
 
-        UIPerson uIPerson;
-        UIVendor uIVendor;
-        UIUser uIUser;
-
-        bool Edit = false;
+        readonly UIPerson uIPerson;
+        readonly UIVendor uIVendor;
+        readonly UIUser uIUser;
+        readonly bool Edit = false;
 
         public PersonType Current = PersonType.User;
         void SetUI(PersonType type)
@@ -183,21 +182,21 @@ namespace LankaStocks.UIForms
             handler?.Invoke(Current);
         }
 
-        private void btnPerson_Click(object sender, EventArgs e)
+        private void BtnPerson_Click(object sender, EventArgs e)
         {
             Current = PersonType.Person;
             var handler = TabChanged;
             handler?.Invoke(Current);
         }
 
-        private void btnVendor_Click(object sender, EventArgs e)
+        private void BtnVendor_Click(object sender, EventArgs e)
         {
             Current = PersonType.Vendor;
             var handler = TabChanged;
             handler?.Invoke(Current);
         }
 
-        private void btnUser_Click(object sender, EventArgs e)
+        private void BtnUser_Click(object sender, EventArgs e)
         {
             Current = PersonType.User;
             var handler = TabChanged;

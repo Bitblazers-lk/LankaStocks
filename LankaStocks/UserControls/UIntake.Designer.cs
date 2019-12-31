@@ -114,7 +114,7 @@
             this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Filter";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            this.groupBox3.Enter += new System.EventHandler(this.GroupBox3_Enter);
             // 
             // splitContainer3
             // 

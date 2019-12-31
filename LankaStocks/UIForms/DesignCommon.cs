@@ -20,7 +20,7 @@ namespace LankaStocks.UIForms
             {
                 new IM_Data { Date = DateTime.Now.ToShortDateString(),IN_price=(decimal)950000.07,OUT_price=100,IN_qty=0,OUT_qty=90000,BAL_qty=37000 }
             };
-            List<IM1_Data> D1 = new List<IM1_Data>
+            _ = new List<IM1_Data>
             {
                 new IM1_Data{Date=DateTime.Now.ToShortDateString(),Name="BOX",Value=100}
             };

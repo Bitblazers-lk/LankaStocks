@@ -25,7 +25,7 @@ namespace LankaStocks.GDI
         private static Graphics g;
         private static Bitmap b;
 
-        private static PictureBox pb = new PictureBox();
+        private static readonly PictureBox pb = new PictureBox();
 
         //private static float X = 20;
         private static float Y = 0;

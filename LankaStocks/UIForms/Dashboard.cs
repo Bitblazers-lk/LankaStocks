@@ -12,10 +12,10 @@ namespace LankaStocks.UIForms
 {
     public partial class Dashboard : Form
     {
-        UIMenu menuModern;
-        UIMenuA menuClassic;
-        MainContext CF = new MainContext();
-        FormContextMenu formContext;
+        readonly UIMenu menuModern;
+        readonly UIMenuA menuClassic;
+        readonly MainContext CF = new MainContext();
+        private FormContextMenu formContext;
         public Dashboard()
         {
             InitializeComponent();
@@ -71,11 +71,11 @@ namespace LankaStocks.UIForms
         }
 
         public List<string> i = new List<string>();
-        ContextMenu cmOQC = new ContextMenu();
+        readonly ContextMenu cmOQC = new ContextMenu();
 
         #region This Form
 
-        private void panel2_SizeChanged(object sender, EventArgs e)
+        private void Panel2_SizeChanged(object sender, EventArgs e)
         {
             if (panel2.Width < 35)
             {
@@ -136,7 +136,7 @@ namespace LankaStocks.UIForms
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            PanelMenu panelMenu = new PanelMenu(panel2, btnhide, 34, panel2.Width);
+            _ = new PanelMenu(panel2, btnhide, 34, panel2.Width);
             formContext = new FormContextMenu(btnhide, CF);
             if (RemoteDBs.Settings.commonSettings.Get.Interface == MenuInterfaceType.Classic)
             {

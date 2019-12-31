@@ -22,7 +22,7 @@ namespace LankaStocks.UIForms
 {
     public partial class FrmSettings : Form
     {
-        Dictionary<string, string> DList = new Dictionary<string, string>
+        readonly Dictionary<string, string> DList = new Dictionary<string, string>
             {
                 { "Null", "Null" }
             };
@@ -85,8 +85,7 @@ namespace LankaStocks.UIForms
         bool HasChanges = false;
         bool Restart = false;
         bool load = false;
-
-        ContextMenu cm = new ContextMenu();
+        readonly ContextMenu cm = new ContextMenu();
 
         private void Restore_Click(object sender, EventArgs e)
         {

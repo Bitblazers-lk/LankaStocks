@@ -79,7 +79,7 @@
             this.btnUser.TabIndex = 13;
             this.btnUser.Text = "User";
             this.btnUser.UseVisualStyleBackColor = true;
-            this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
+            this.btnUser.Click += new System.EventHandler(this.BtnUser_Click);
             // 
             // btnVendor
             // 
@@ -96,7 +96,7 @@
             this.btnVendor.TabIndex = 12;
             this.btnVendor.Text = "Vendor";
             this.btnVendor.UseVisualStyleBackColor = true;
-            this.btnVendor.Click += new System.EventHandler(this.btnVendor_Click);
+            this.btnVendor.Click += new System.EventHandler(this.BtnVendor_Click);
             // 
             // btnPerson
             // 
@@ -113,7 +113,7 @@
             this.btnPerson.TabIndex = 11;
             this.btnPerson.Text = "Person";
             this.btnPerson.UseVisualStyleBackColor = true;
-            this.btnPerson.Click += new System.EventHandler(this.btnPerson_Click);
+            this.btnPerson.Click += new System.EventHandler(this.BtnPerson_Click);
             // 
             // btnhide
             // 

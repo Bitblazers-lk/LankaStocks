@@ -73,7 +73,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(167, 747);
             this.panel2.TabIndex = 15;
-            this.panel2.SizeChanged += new System.EventHandler(this.panel2_SizeChanged);
+            this.panel2.SizeChanged += new System.EventHandler(this.Panel2_SizeChanged);
             // 
             // btnConsole
             // 
@@ -107,7 +107,7 @@
             this.btnStockIntake.Text = "Stock Intake";
             this.toolTip1.SetToolTip(this.btnStockIntake, "New Stock Intake");
             this.btnStockIntake.UseVisualStyleBackColor = true;
-            this.btnStockIntake.Click += new System.EventHandler(this.btnStockIntake_Click);
+            this.btnStockIntake.Click += new System.EventHandler(this.BtnStockIntake_Click);
             // 
             // btnAdd
             // 
@@ -124,7 +124,7 @@
             this.btnAdd.Text = "Add New";
             this.toolTip1.SetToolTip(this.btnAdd, "Add New Items");
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // button1
             // 

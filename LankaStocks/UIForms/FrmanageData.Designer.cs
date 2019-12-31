@@ -98,7 +98,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(171, 743);
             this.panel2.TabIndex = 15;
-            this.panel2.SizeChanged += new System.EventHandler(this.panel2_SizeChanged);
+            this.panel2.SizeChanged += new System.EventHandler(this.Panel2_SizeChanged);
             // 
             // btnConsole
             // 
@@ -132,7 +132,7 @@
             this.btnuser.Text = "User\'s";
             this.toolTip1.SetToolTip(this.btnuser, "Analyze, Manage Users");
             this.btnuser.UseVisualStyleBackColor = true;
-            this.btnuser.Click += new System.EventHandler(this.btnuser_Click);
+            this.btnuser.Click += new System.EventHandler(this.Btnuser_Click);
             // 
             // btnvendor
             // 
@@ -150,7 +150,7 @@
             this.btnvendor.Text = "Vendor\'s";
             this.toolTip1.SetToolTip(this.btnvendor, "Analyze, Manage Vendors");
             this.btnvendor.UseVisualStyleBackColor = true;
-            this.btnvendor.Click += new System.EventHandler(this.btnvendor_Click);
+            this.btnvendor.Click += new System.EventHandler(this.Btnvendor_Click);
             // 
             // btnperson
             // 
@@ -168,7 +168,7 @@
             this.btnperson.Text = "Person\'s";
             this.toolTip1.SetToolTip(this.btnperson, "Analyze, Manage Persons");
             this.btnperson.UseVisualStyleBackColor = true;
-            this.btnperson.Click += new System.EventHandler(this.btnperson_Click);
+            this.btnperson.Click += new System.EventHandler(this.Btnperson_Click);
             // 
             // btnAdd
             // 
@@ -185,7 +185,7 @@
             this.btnAdd.Text = "Add New";
             this.toolTip1.SetToolTip(this.btnAdd, "Add New Person or Vendor Or User");
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnhide
             // 

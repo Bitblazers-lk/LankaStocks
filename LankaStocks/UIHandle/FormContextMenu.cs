@@ -9,8 +9,6 @@ namespace LankaStocks.UIHandle
         private readonly Control _ParentC = null;
         public Form _Form = null;
         public bool Alive = false;
-        private bool Exit = false;
-
         readonly MouseHook MouseHook = new MouseHook();
 
         public FormContextMenu(Control Parent, Form form)
@@ -25,7 +23,7 @@ namespace LankaStocks.UIHandle
 
             foreach (Control s in _ParentC.Parent.Controls)
             {
-                SetClick(s);
+                //SetClick(s);
             }
         }
 
@@ -75,22 +73,22 @@ namespace LankaStocks.UIHandle
             _Form.BringToFront();
         }
 
-        private void SetClick(Control ctrl)
-        {
-            //Console.WriteLine(ctrl.Name);
-            //try
-            //{
-            //    ctrl.MouseDown += Other_Click;
-            //    foreach (Control s in ctrl.Parent.Controls)
-            //    {
-            //        SetClick(s);
-            //    }
-            //}
-            //catch
-            //{
-            //    Console.WriteLine(ctrl.Name);
-            //}
-        }
+        //private void SetClick(Control ctrl)
+        //{
+        //    //Console.WriteLine(ctrl.Name);
+        //    //try
+        //    //{
+        //    //    ctrl.MouseDown += Other_Click;
+        //    //    foreach (Control s in ctrl.Parent.Controls)
+        //    //    {
+        //    //        SetClick(s);
+        //    //    }
+        //    //}
+        //    //catch
+        //    //{
+        //    //    Console.WriteLine(ctrl.Name);
+        //    //}
+        //}
 
         private void Other_Click(object sender, MouseEventArgs e)
         {

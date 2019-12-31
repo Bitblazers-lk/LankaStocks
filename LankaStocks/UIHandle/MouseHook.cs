@@ -54,16 +54,12 @@ namespace LankaStocks.UIHandle
             }
         }
         private int hHook;
-        private const int WM_MOUSEMOVE = 0x200;
         private const int WM_LBUTTONDOWN = 0x201;
         private const int WM_RBUTTONDOWN = 0x204;
         private const int WM_MBUTTONDOWN = 0x207;
         private const int WM_LBUTTONUP = 0x202;
         private const int WM_RBUTTONUP = 0x205;
         private const int WM_MBUTTONUP = 0x208;
-        private const int WM_LBUTTONDBLCLK = 0x203;
-        private const int WM_RBUTTONDBLCLK = 0x206;
-        private const int WM_MBUTTONDBLCLK = 0x209;
         public const int WH_MOUSE_LL = 14;
         public Win32Api.HookProc hProc;
 

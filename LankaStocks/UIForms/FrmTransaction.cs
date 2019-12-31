@@ -23,7 +23,7 @@ namespace LankaStocks.UIForms
         private void FrmTransaction_Load(object sender, EventArgs e)
         {
             Settings.LoadCtrlSettings(this);
-            PanelMenu panelMenu = new PanelMenu(panel2, btnhide, 34, panel2.Width);
+            _ = new PanelMenu(panel2, btnhide, 34, panel2.Width);
             this.panel1.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
             this.panel2.BackColor = RemoteDBs.Settings.commonSettings.Get.MenuColor;
         }

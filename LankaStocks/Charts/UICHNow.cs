@@ -21,7 +21,8 @@ namespace LankaStocks.Charts
             groupBox2.Controls.Add(ChartCustomers);
             ChartCustomers.Dock = DockStyle.Fill;
         }
-        CHSalesRealTime ChartSales = new CHSalesRealTime(5000, "Sales", false);
-        CHSalesRealTime ChartCustomers = new CHSalesRealTime(5000, "Customers", false);
+
+        readonly CHSalesRealTime ChartSales = new CHSalesRealTime(5000, "Sales", false);
+        readonly CHSalesRealTime ChartCustomers = new CHSalesRealTime(5000, "Customers", false);
     }
 }

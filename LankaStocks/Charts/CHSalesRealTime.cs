@@ -67,12 +67,12 @@ namespace LankaStocks.Charts
             else if (cartesianChart1.UpdaterState == UpdaterState.Paused) cartesianChart1.UpdaterState = UpdaterState.Running;
         }
 
-        ContextMenu cm = new ContextMenu();
+        readonly ContextMenu cm = new ContextMenu();
 
 
-        private int _delay;
+        private readonly int _delay;
         private double _Sale;
-        private bool _refSale = false;
+        private readonly bool _refSale = false;
 
         //public List<double> PreValSale = new List<double>();
         //public List<DateTime> PreValTime = new List<DateTime>();

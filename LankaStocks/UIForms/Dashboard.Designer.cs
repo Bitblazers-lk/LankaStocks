@@ -79,7 +79,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(220, 747);
             this.panel2.TabIndex = 13;
-            this.panel2.SizeChanged += new System.EventHandler(this.panel2_SizeChanged);
+            this.panel2.SizeChanged += new System.EventHandler(this.Panel2_SizeChanged);
             // 
             // btnSettings
             // 

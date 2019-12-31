@@ -37,9 +37,10 @@ namespace LankaStocks.GDI
             {
                 pgCount += 1;
             }
-            int c = 0;
+
             for (int i = 0; i < pgCount; i++)
             {
+                int c;
                 if (_data.Count - thisIn < 45)
                 {
                     c = _data.Count - thisIn;
@@ -63,20 +64,16 @@ namespace LankaStocks.GDI
         {
             float _Y = Y;
             int _Margin = Margin;
-            float _Loc = Loc;
             string Pgno = Pno;
             pb.Image = new Bitmap(Width, Height);
             b = new Bitmap(pb.Image);
             g = Graphics.FromImage(b);
 
             g.DrawImage(GDI.Properties.Resources.ba, 0, 0, Width, Height);
-            _Loc = _Y;
+            float _Loc = _Y;
 
             int iCount = data.Count; //45
-            uint[] a = { 3, 10, 10, 35, 25, 17 };
             var percen = new List<uint> { 110, 203, 296, 390, 483, 576, 670, 763 };
-
-
 
             g.DrawString(HeadTag, Fonthead, BlackBrush, (Width - g.MeasureString(HeadTag, Fonthead).Width) / 2, 30); //  Head Tag
             g.DrawString($"Item Name : {Name}", fonts, BlackBrush, 10 + _Margin, 100);  //  In
@@ -222,10 +219,11 @@ namespace LankaStocks.GDI
             {
                 pgCount += 1;
             }
-            int c = 0;
+
             bool ap = false;
             for (int i = 0; i < pgCount; i++)
             {
+                int c;
                 if (_data.Count - thisIn < 45)
                 {
                     c = _data.Count - thisIn;
@@ -260,7 +258,6 @@ namespace LankaStocks.GDI
             _Loc = _Y;
 
             int iCount = data.Count;
-            uint[] a = { 3, 10, 10, 35, 25, 17 };
             var percen = new List<uint> { 110, 750 };
 
             g.DrawString(HeadTag, Fonthead, BlackBrush, (Width - g.MeasureString(HeadTag, Fonthead).Width) / 2, 30); //  Head Tag

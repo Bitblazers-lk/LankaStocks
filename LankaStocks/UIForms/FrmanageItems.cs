@@ -21,7 +21,7 @@ namespace LankaStocks.UIForms
             InitializeComponent();
         }
 
-        private void panel2_SizeChanged(object sender, EventArgs e)
+        private void Panel2_SizeChanged(object sender, EventArgs e)
         {
             if (panel2.Width < 35)
             {
@@ -33,13 +33,13 @@ namespace LankaStocks.UIForms
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             Forms.addItems = new UIForms.AddItems();
             Forms.addItems.ShowDialog();
         }
 
-        private void btnStockIntake_Click(object sender, EventArgs e)
+        private void BtnStockIntake_Click(object sender, EventArgs e)
         {
             Forms.itemIntake = new UIForms.ItemIntake();
             Forms.itemIntake.ShowDialog();
@@ -47,7 +47,7 @@ namespace LankaStocks.UIForms
 
         private void FrmanageItems_Load(object sender, EventArgs e)
         {
-            PanelMenu panelMenu = new PanelMenu(panel2, btnhide, 34, panel2.Width);
+            _ = new PanelMenu(panel2, btnhide, 34, panel2.Width);
             FrmItemView view = new FrmItemView(client.ps.Live.Items, splitContainer2.Panel2);
             FormHandle form = new FormHandle();
             form.OpenForm(splitContainer1.Panel1, view, FormBorderStyle.None, DockStyle.Fill);

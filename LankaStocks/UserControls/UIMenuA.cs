@@ -32,24 +32,22 @@ namespace LankaStocks.UserControls
 
         }
         uint ItemCode = 0;
-        string BeginChar = "i";
-
-        ContextMenu cmTime = new ContextMenu();
-
-        List<string> ItemBarcodes = new List<string>();
+        readonly string BeginChar = "i";
+        readonly ContextMenu cmTime = new ContextMenu();
+        readonly List<string> ItemBarcodes = new List<string>();
         public static Dictionary<uint, decimal> Cart = new Dictionary<uint, decimal>();
 
         private readonly RawInput _KeyInput;
 
         string Device = "";
-        string Pos_Barcode = localSettings.Data.POSBarcodeID;
+        readonly string Pos_Barcode = localSettings.Data.POSBarcodeID;
 
         private void OnLiveDBChange()
         {
             this.Invoke(DelOnLiveDBChange);
         }
 
-        private Action DelOnLiveDBChange;
+        private readonly Action DelOnLiveDBChange;
         private void RunOnLiveDBChange()
         {
             RefStore();
