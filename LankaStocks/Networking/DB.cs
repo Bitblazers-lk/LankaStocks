@@ -452,8 +452,8 @@ namespace LankaStocks.DataBases
             OtherPeople = new Dictionary<uint, Person>();
 
             Users.Add(1024, new User() { userName = "preLogin", ID = 1024, isAdmin = true, name = "Prelogin User", pass = "preLogin LankaS" });
-            //Users.Add(100, new User() { userName = "amanda", ID = 100, isAdmin = true, name = "Amanda Nanda", pass = "200" });
-            //Users.Add(200, new User() { userName = "nimal", ID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "123" });
+            Users.Add(100, new User() { userName = "amanda", ID = 100, isAdmin = true, name = "Amanda Nanda", pass = "100" });
+            Users.Add(200, new User() { userName = "nimal", ID = 200, isAdmin = false, name = "Nimal Bimalka", pass = "200" });
         }
 
         public override (dynamic, MemberType) Resolve(string expr)
